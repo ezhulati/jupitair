@@ -1,7 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PremiumHero from '../components/layout/PremiumHero.astro';
+import PremiumButton from '../components/ui/PremiumButton.astro';
+import PremiumCard from '../components/ui/PremiumCard.astro';
 import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
+import DynamicSchema from '../components/seo/DynamicSchema.astro';
 import { readFileSync } from 'fs';
 import { parse } from 'yaml';
 
@@ -43,31 +47,21 @@ const citySchema = {
   description={pageDescription}
   canonical={`https://jupitairhvac.com/${city.slug}`}
   keywords={`${(city.keywords || []).join(', ')}, ${city.name} HVAC`}
-  schema={citySchema}
 >
+  <!-- Dynamic Schema with Reviews -->
+  <DynamicSchema type="city" city={city.name} />
+  <!-- Premium Hero Section -->
+  <PremiumHero 
+    title={`HVAC Services in ${city.name}, TX`}
+    subtitle="Professional HVAC Solutions"
+    description={city.description}
+    ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
+    ctaSecondary={{ text: "Schedule Online", href: "/schedule" }}
+    variant="gradient"
+    height="lg"
+  />
+
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl py-8 sm:py-12 lg:py-16">
-    <!-- Hero Section -->
-    <section class="hero bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800 text-white py-12 sm:py-16 lg:py-20 mb-8 sm:mb-12 lg:mb-16 rounded-2xl shadow-xl overflow-hidden relative">
-      <div class="relative z-10 text-center px-6 sm:px-8 lg:px-12">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6">
-          HVAC Services in {city.name}, TX
-        </h1>
-        <p class="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-10 text-blue-100 max-w-4xl mx-auto leading-relaxed">
-          {city.description}
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-          <Button href="tel:(940) 390-5676" variant="emergency" size="xl" class="w-full sm:w-auto flex items-center justify-center space-x-3">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-            </svg>
-            <span>Call (940) 390-5676</span>
-          </Button>
-          <Button href="/schedule" size="xl" class="w-full sm:w-auto border-2 border-white text-white bg-transparent hover:bg-white/20 hover:border-white hover:text-white focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 transition-all duration-200 backdrop-blur-sm">
-            Schedule Online
-          </Button>
-        </div>
-      </div>
-    </section>
 
     <!-- Services in This Area -->
     <section class="mb-12 sm:mb-16 lg:mb-20">

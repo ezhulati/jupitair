@@ -5,7 +5,7 @@ export const GET: APIRoute = () => {
 Allow: /
 
 # Sitemap
-Sitemap: https://jupitairhvac.com/sitemap-index.xml
+Sitemap: https://jupitairhvac.com/sitemap.xml
 
 # Specific crawl directives
 User-agent: Googlebot

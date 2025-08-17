@@ -10,17 +10,17 @@
 
 :root {
   /* Color Palette - Premium HVAC Industry Colors */
-  --color-primary-50: #EBF5FF;
-  --color-primary-100: #D1E9FF;
-  --color-primary-200: #A6D2FF;
-  --color-primary-300: #6BB2FF;
-  --color-primary-400: #2E8BFF;
-  --color-primary-500: #0066CC; /* Primary Brand Blue */
-  --color-primary-600: #0052A3;
-  --color-primary-700: #003F7A;
-  --color-primary-800: #002B52;
-  --color-primary-900: #001829;
-  --color-primary-950: #000C14;
+  --color-primary-50: #EFF6FF;
+  --color-primary-100: #DBEAFE;
+  --color-primary-200: #BFDBFE;
+  --color-primary-300: #93C5FD;
+  --color-primary-400: #60A5FA;
+  --color-primary-500: #2563EB; /* Primary Brand Blue */
+  --color-primary-600: #1D4ED8;
+  --color-primary-700: #1E40AF;
+  --color-primary-800: #1E3A8A;
+  --color-primary-900: #1E3A8A;
+  --color-primary-950: #172554;
 
   /* Semantic Colors */
   --color-cooling: #06B6D4; /* Cool Cyan */

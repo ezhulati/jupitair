@@ -5,20 +5,36 @@ import PremiumCard from '../ui/PremiumCard.astro';
 export interface Props {
   variant?: 'default' | 'floating' | 'modern' | 'emergency';
   showEmergencyOption?: boolean;
+  formName?: string;
 }
 
 const { 
   variant = 'default',
-  showEmergencyOption = true 
+  showEmergencyOption = true,
+  formName = 'contact'
 } = Astro.props;
 ---
 
 <PremiumCard variant={variant === 'emergency' ? 'gradient' : 'glass'} padding="lg" class="max-w-2xl mx-auto">
   <form 
+    name={formName}
+    method="POST"
+    action="/success"
+    data-netlify="true"
+    data-netlify-honeypot="bot-field"
     id="premium-contact-form" 
     class="space-y-6"
     data-variant={variant}
   >
+    {/* Hidden fields for Netlify */}
+    <input type="hidden" name="form-name" value={formName} />
+    <div class="hidden">
+      <label>
+        Don't fill this out if you're human: 
+        <input name="bot-field" />
+      </label>
+    </div>
+
     {/* Form Header */}
     <div class="text-center space-y-2">
       <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
@@ -43,7 +59,7 @@ const {
             </div>
           </div>
           <div class="toggle-switch">
-            <input type="checkbox" id="emergency" name="emergency" class="sr-only" />
+            <input type="checkbox" id="emergency" name="emergency" value="yes" class="sr-only" />
             <div class="toggle-slider"></div>
           </div>
         </label>
@@ -228,18 +244,32 @@ const {
       </div>
     </div>
 
+    {/* Hidden fields for tracking -->}
+    <input type="hidden" name="page" value={Astro.url.pathname} />
+    <input type="hidden" name="referrer" id="referrer-field" />
+    <input type="hidden" name="timestamp" id="timestamp-field" />
+
     {/* Submit Button */}
     <div class="space-y-4">
-      <PremiumButton
+      <button
         type="submit"
-        variant={variant === 'emergency' ? 'emergency' : 'primary'}
-        size="lg"
-        fullWidth
-        class="submit-button"
+        class={`
+          w-full premium-btn
+          bg-gradient-to-r from-blue-600 to-blue-700
+          text-white shadow-lg shadow-blue-600/25
+          hover:from-blue-700 hover:to-blue-800 hover:shadow-xl hover:shadow-blue-600/30
+          focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2
+          border border-blue-700
+          h-13 px-8 text-lg rounded-xl
+          font-semibold tracking-tight transition-all duration-200
+          disabled:opacity-50 disabled:cursor-not-allowed
+          active:scale-[0.98]
+          ${variant === 'emergency' ? 'emergency-pulse' : ''}
+        `}
       >
         <span class="button-text">Get Free Quote</span>
         <span class="loading-text hidden">Submitting...</span>
-      </PremiumButton>
+      </button>
 
       {/* Trust Indicators */}
       <div class="flex items-center justify-center gap-6 text-sm text-gray-600 dark:text-gray-400">
@@ -353,11 +383,11 @@ const {
     @apply opacity-50 cursor-not-allowed;
   }
 
-  .submit-button[data-loading="true"] .button-text {
+  button[type="submit"][data-loading="true"] .button-text {
     @apply hidden;
   }
 
-  .submit-button[data-loading="true"] .loading-text {
+  button[type="submit"][data-loading="true"] .loading-text {
     @apply inline-flex items-center gap-2;
   }
 
@@ -388,6 +418,19 @@ const {
     animation: success-pulse 1s ease-in-out;
   }
 
+  @keyframes emergency-pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 20px rgba(220, 38, 38, 0);
+    }
+  }
+
+  .emergency-pulse {
+    animation: emergency-pulse 2s infinite;
+  }
+
   /* Dark Mode Specific */
   @media (prefers-color-scheme: dark) {
     .form-input {
@@ -398,33 +441,42 @@ const {
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('premium-contact-form');
-    const inputs = form.querySelectorAll('input, select, textarea');
-    const messageField = document.getElementById('message');
+    const form = document.getElementById('premium-contact-form') as HTMLFormElement;
+    const inputs = form?.querySelectorAll('input, select, textarea');
+    const messageField = document.getElementById('message') as HTMLTextAreaElement;
     const charCount = document.getElementById('char-count');
-    const submitButton = form.querySelector('.submit-button');
+    const submitButton = form?.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+    // Set hidden fields
+    const referrerField = document.getElementById('referrer-field') as HTMLInputElement;
+    const timestampField = document.getElementById('timestamp-field') as HTMLInputElement;
+    
+    if (referrerField) referrerField.value = document.referrer;
+    if (timestampField) timestampField.value = new Date().toISOString();
 
     // Character counter
     messageField?.addEventListener('input', (e) => {
-      const length = e.target.value.length;
-      charCount.textContent = length;
+      const target = e.target as HTMLTextAreaElement;
+      const length = target.value.length;
+      if (charCount) charCount.textContent = String(length);
       if (length > 500) {
-        e.target.value = e.target.value.substring(0, 500);
-        charCount.textContent = '500';
+        target.value = target.value.substring(0, 500);
+        if (charCount) charCount.textContent = '500';
       }
     });
 
     // Real-time validation
-    inputs.forEach((input) => {
-      input.addEventListener('blur', () => validateField(input));
+    inputs?.forEach((input) => {
+      input.addEventListener('blur', () => validateField(input as HTMLInputElement));
       input.addEventListener('input', () => {
-        if (input.classList.contains('error')) {
-          validateField(input);
+        const field = input as HTMLInputElement;
+        if (field.classList.contains('error')) {
+          validateField(field);
         }
       });
     });
 
-    function validateField(field) {
+    function validateField(field: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement): boolean {
       const wrapper = field.closest('.form-group');
       const errorMessage = wrapper?.querySelector('.error-message');
       const validationIcon = wrapper?.querySelector('.validation-icon');
@@ -464,50 +516,40 @@ const {
       return isValid;
     }
 
-    // Form submission
-    form?.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
+    // Form submission with client-side validation
+    form?.addEventListener('submit', (e) => {
       // Validate all fields
       let isValid = true;
-      inputs.forEach((input) => {
-        if (!validateField(input)) {
+      inputs?.forEach((input) => {
+        if (!validateField(input as HTMLInputElement)) {
           isValid = false;
         }
       });
       
       if (!isValid) {
+        e.preventDefault();
         return;
       }
       
       // Show loading state
-      submitButton.setAttribute('data-loading', 'true');
+      submitButton?.setAttribute('data-loading', 'true');
       submitButton.disabled = true;
       
-      // Simulate API call
-      setTimeout(() => {
-        // Success animation
-        form.classList.add('success-pulse');
-        
-        // Reset form
-        setTimeout(() => {
-          form.reset();
-          submitButton.setAttribute('data-loading', 'false');
-          submitButton.disabled = false;
-          inputs.forEach((input) => {
-            input.classList.remove('success', 'error');
-          });
-          
-          // Show success message
-          alert('Thank you! We\'ll contact you within 30 minutes.');
-        }, 1000);
-      }, 2000);
+      // Track submission in analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_submit', {
+          event_category: 'engagement',
+          event_label: 'contact_form',
+          value: 1
+        });
+      }
     });
 
     // Phone number formatting
-    const phoneInput = document.getElementById('phone');
+    const phoneInput = document.getElementById('phone') as HTMLInputElement;
     phoneInput?.addEventListener('input', (e) => {
-      let value = e.target.value.replace(/\D/g, '');
+      const target = e.target as HTMLInputElement;
+      let value = target.value.replace(/\D/g, '');
       if (value.length > 0) {
         if (value.length <= 3) {
           value = `(${value}`;
@@ -517,7 +559,7 @@ const {
           value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(6, 10)}`;
         }
       }
-      e.target.value = value;
+      target.value = value;
     });
   });
 </script>

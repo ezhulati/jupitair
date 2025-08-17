@@ -5,6 +5,21 @@ import Button from '../ui/Button.astro';
 <footer class="bg-gray-900 text-gray-300">
   <!-- Main footer content -->
   <div class="container mx-auto px-4 py-12">
+    <!-- Mobile Emergency CTA - Only visible on mobile -->
+    <div class="block sm:hidden mb-8">
+      <div class="bg-red-600 rounded-xl p-4 text-white">
+        <div class="flex items-center justify-between">
+          <div>
+            <h5 class="font-bold text-lg">Emergency Service</h5>
+            <p class="text-sm text-red-100">Available 24/7</p>
+          </div>
+          <a href="tel:9403905676" class="bg-white text-red-600 px-6 py-3 rounded-lg font-bold text-lg hover:bg-red-50 transition-colors">
+            Call Now
+          </a>
+        </div>
+      </div>
+    </div>
+    
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 sm:gap-8">
       
       <!-- Company Info -->
@@ -64,14 +79,14 @@ import Button from '../ui/Button.astro';
         <h4 class="text-lg font-semibold text-white mb-6">Our Services</h4>
         <ul class="space-y-3">
           <li><a href="/services/ac-repair" class="text-gray-400 hover:text-white transition-colors">AC Repair</a></li>
-          <li><a href="/services/heating-repair" class="text-gray-400 hover:text-white transition-colors">Heating Repair</a></li>
-          <li><a href="/services/hvac-installation" class="text-gray-400 hover:text-white transition-colors">HVAC Installation</a></li>
-          <li><a href="/services/duct-cleaning" class="text-gray-400 hover:text-white transition-colors">Duct Cleaning</a></li>
+          <li><a href="/services/furnace-repair" class="text-gray-400 hover:text-white transition-colors">Furnace Repair</a></li>
+          <li><a href="/services/ac-installation" class="text-gray-400 hover:text-white transition-colors">AC Installation</a></li>
+          <li><a href="/services/heat-pump-repair" class="text-gray-400 hover:text-white transition-colors">Heat Pump Repair</a></li>
+          <li><a href="/services/duct-repair-sealing" class="text-gray-400 hover:text-white transition-colors">Duct Repair & Sealing</a></li>
           <li><a href="/services/thermostat-installation" class="text-gray-400 hover:text-white transition-colors">Thermostat Installation</a></li>
-          <li><a href="/services/energy-upgrades" class="text-gray-400 hover:text-white transition-colors">Energy Upgrades</a></li>
-          <li><a href="/services/emergency-hvac" class="text-emergency-400 hover:text-emergency-300 font-medium transition-colors">🚨 Emergency Service</a></li>
+          <li><a href="/services/emergency-ac-repair" class="text-emergency-400 hover:text-emergency-300 font-medium transition-colors">🚨 Emergency Service</a></li>
           <li><a href="/services/commercial-hvac" class="text-gray-400 hover:text-white transition-colors">Commercial HVAC</a></li>
-          <li><a href="/services/residential-hvac" class="text-gray-400 hover:text-white transition-colors">Residential HVAC</a></li>
+          <li><a href="/services/indoor-air-quality" class="text-gray-400 hover:text-white transition-colors">Indoor Air Quality</a></li>
         </ul>
       </div>
       
@@ -101,8 +116,8 @@ import Button from '../ui/Button.astro';
           <li><a href="/reviews" class="text-gray-400 hover:text-white transition-colors">Customer Reviews</a></li>
         </ul>
         
-        <!-- Emergency CTA -->
-        <div class="bg-emergency-900 border border-emergency-700 rounded-lg p-4">
+        <!-- Emergency CTA - Hidden on mobile since we show it at top -->
+        <div class="hidden sm:block bg-emergency-900 border border-emergency-700 rounded-lg p-4">
           <h5 class="text-emergency-300 font-semibold mb-2">Emergency Service</h5>
           <p class="text-emergency-400 text-sm mb-3">Available 24/7 for urgent HVAC issues</p>
           <Button href="tel:(940) 390-5676" variant="emergency" size="sm" class="w-full justify-center">

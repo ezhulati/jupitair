@@ -1,9 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PremiumHero from '../../components/layout/PremiumHero.astro';
+import PremiumButton from '../../components/ui/PremiumButton.astro';
+import PremiumCard from '../../components/ui/PremiumCard.astro';
 import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
 import Badge from '../../components/ui/Badge.astro';
 import ReviewsSection from '../../components/reviews/ReviewsSection.astro';
+import DynamicSchema from '../../components/seo/DynamicSchema.astro';
 import { readFileSync } from 'fs';
 import { parse } from 'yaml';
 
@@ -109,84 +113,58 @@ const faqSchema = faqData ? {
   description={service.meta_description}
   canonical={`https://jupitairhvac.com/services/${service.slug}`}
 >
+  <!-- Dynamic Schema with Reviews -->
+  <DynamicSchema type="service" service={service.name} />
+  
   <!-- Schema.org structured data -->
   <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
-  <!-- Hero Section -->
-  <section class="relative bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800 text-white py-16 lg:py-24 overflow-hidden">
-    
-    <div class="container mx-auto px-4 relative z-20">
-      <div class="max-w-4xl mx-auto text-center">
-        
-        <!-- Emergency Badge (if applicable) -->
-        {service.emergency && (
-          <div class="mb-6">
-            <Badge variant="emergency" size="lg" class="inline-flex items-center space-x-2">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-              </svg>
-              <span>24/7 Emergency Service Available</span>
-            </Badge>
-          </div>
-        )}
-        
-        <!-- H1 Title -->
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-          {service.h1}
-        </h1>
-        
-        <!-- Short Description -->
-        <p class="text-lg sm:text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed max-w-3xl mx-auto">
-          {service.shortDescription}
-        </p>
-        
-        <!-- The Short Version -->
-        <Card variant="elevated" padding="lg" class="bg-white/10 backdrop-blur-sm border-white/20 mb-8 text-left max-w-2xl mx-auto">
-          <h2 class="text-xl font-bold mb-4 text-white">The Short Version</h2>
-          <ul class="space-y-2 text-blue-100">
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
-              <span>Starting at ${service.pricing.starting} • {service.service_time}</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
-              <span>{service.warranty}</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
-              <span>Licensed & Insured • Upfront Pricing</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-              </svg>
-              <span>Serving all 8 North Texas cities</span>
-            </li>
-          </ul>
-        </Card>
-        
-        <!-- Primary CTAs -->
-        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-          <Button href="tel:(940) 390-5676" variant="emergency" size="xl" class="flex items-center justify-center space-x-3">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+  <!-- Premium Hero Section -->
+  <PremiumHero 
+    title={service.h1}
+    subtitle={service.emergency ? "24/7 Emergency Service" : "Professional Service"}
+    description={service.shortDescription}
+    ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
+    ctaSecondary={{ text: "Get Free Estimate", href: "/contact" }}
+    emergency={service.emergency}
+    variant="gradient"
+    height="lg"
+  />
+  
+  <!-- Quick Service Info -->
+  <section class="py-8 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <PremiumCard variant="glass" padding="lg">
+        <h2 class="text-xl font-bold mb-4 text-gray-900">Quick Service Overview</h2>
+        <ul class="space-y-2 text-gray-700">
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
-            <span>Call (940) 390-5676</span>
-          </Button>
-          
-          <Button href="/contact" size="xl" variant="secondary">
-            Get Free Estimate
-          </Button>
-        </div>
-      </div>
+            <span>Starting at ${service.pricing.starting} • {service.service_time}</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>{service.warranty}</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>Licensed & Insured • Upfront Pricing</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span>Serving all 8 North Texas cities</span>
+          </li>
+        </ul>
+      </PremiumCard>
     </div>
   </section>
 

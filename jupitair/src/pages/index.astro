@@ -8,6 +8,7 @@ import PremiumContactForm from '../components/forms/PremiumContactForm.astro';
 import ReviewsSection from '../components/reviews/ReviewsSection.astro';
 import PremiumCard from '../components/ui/PremiumCard.astro';
 import PremiumButton from '../components/ui/PremiumButton.astro';
+import DynamicSchema from '../components/seo/DynamicSchema.astro';
 
 const pageTitle = "Jupitair HVAC - Premier HVAC Services in North Texas";
 const pageDescription = "Professional HVAC services throughout North Texas. AC repair, heating repair, HVAC installation, and emergency service in Frisco, Plano, McKinney, Allen, Prosper, The Colony, Little Elm, and Addison.";
@@ -155,8 +156,9 @@ const homepageSchema = {
   description={pageDescription}
   canonical="https://jupitairhvac.com"
   keywords="HVAC North Texas, AC repair Frisco, heating repair Plano, HVAC installation McKinney, emergency HVAC Allen, Prosper HVAC, The Colony heating, Little Elm AC, Addison HVAC contractor"
-  schema={homepageSchema}
 >
+  <!-- Dynamic Schema with Reviews -->
+  <DynamicSchema type="homepage" />
   <!-- Premium Hero Section -->
   <PremiumHero 
     title="North Texas Premier HVAC Solutions"
@@ -165,9 +167,9 @@ const homepageSchema = {
     ctaPrimary={{ text: "Get Free Quote", href: "#contact" }}
     ctaSecondary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
     emergency={true}
-    variant="animated"
-    height="full"
-    particles={true}
+    variant="gradient"
+    height="xl"
+    particles={false}
   />
 
   <!-- Stats Section -->
@@ -324,7 +326,7 @@ const homepageSchema = {
         </PremiumCard>
 
         <!-- Emergency Service Card -->
-        <PremiumCard variant="gradient" hover={true} class="animate-on-scroll animation-delay-300">
+        <PremiumCard variant="premium" hover={true} class="animate-on-scroll animation-delay-300">
           <div class="space-y-4">
             <div class="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl flex items-center justify-center animate-pulse">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -332,10 +334,10 @@ const homepageSchema = {
               </svg>
             </div>
             <h3 class="text-2xl font-bold text-white">24/7 Emergency Service</h3>
-            <p class="text-gray-200">
+            <p class="text-gray-300">
               AC or heating emergency? We're here 24/7 with 2-hour response times.
             </p>
-            <ul class="space-y-2 text-sm text-gray-200">
+            <ul class="space-y-2 text-sm text-gray-300">
               <li class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
