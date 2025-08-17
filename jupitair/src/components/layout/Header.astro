@@ -4,6 +4,18 @@ import reviewsData from '../../data/reviews.json';
 
 const avgRating = reviewsData.averageRating;
 const totalReviews = reviewsData.totalReviews;
+
+// All service areas in priority order
+const cities = [
+  { name: 'Frisco', slug: 'frisco' },
+  { name: 'Plano', slug: 'plano' },
+  { name: 'McKinney', slug: 'mckinney' },
+  { name: 'Allen', slug: 'allen' },
+  { name: 'Prosper', slug: 'prosper' },
+  { name: 'The Colony', slug: 'the-colony' },
+  { name: 'Little Elm', slug: 'little-elm' },
+  { name: 'Addison', slug: 'addison' }
+];
 ---
 
 <header class="bg-white shadow-md sticky top-0 z-40 transition-shadow duration-200">
@@ -91,14 +103,9 @@ const totalReviews = reviewsData.totalReviews;
             </button>
             <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
               <div class="p-2">
-                <a href="/frisco" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md">Frisco, TX</a>
-                <a href="/plano" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md">Plano, TX</a>
-                <a href="/mckinney" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md">McKinney, TX</a>
-                <a href="/allen" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md">Allen, TX</a>
-                <a href="/prosper" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md">Prosper, TX</a>
-                <a href="/the-colony" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md">The Colony, TX</a>
-                <a href="/little-elm" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md">Little Elm, TX</a>
-                <a href="/addison" class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md">Addison, TX</a>
+                {cities.map(city => (
+                  <a href={`/${city.slug}`} class="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 rounded-md">{city.name}, TX</a>
+                ))}
               </div>
             </div>
           </div>
@@ -150,10 +157,9 @@ const totalReviews = reviewsData.totalReviews;
         <!-- Service Areas -->
         <div class="mb-4">
           <h3 class="font-semibold text-gray-900 mb-2 px-4">Service Areas</h3>
-          <a href="/frisco" class="block px-4 py-2 text-gray-700 hover:bg-primary-50">Frisco</a>
-          <a href="/plano" class="block px-4 py-2 text-gray-700 hover:bg-primary-50">Plano</a>
-          <a href="/mckinney" class="block px-4 py-2 text-gray-700 hover:bg-primary-50">McKinney</a>
-          <a href="/allen" class="block px-4 py-2 text-gray-700 hover:bg-primary-50">Allen</a>
+          {cities.map(city => (
+            <a href={`/${city.slug}`} class="block px-4 py-2 text-gray-700 hover:bg-primary-50 rounded-lg transition-colors duration-200">{city.name}</a>
+          ))}
         </div>
         
         <!-- Other links -->
