@@ -1,0 +1,240 @@
+cities:
+  - slug: frisco
+    name: Frisco
+    fullName: Frisco, Texas
+    state: TX
+    zip: 75034
+    county: Collin County
+    population: 200990
+    coordinates:
+      lat: 33.1507
+      lng: -96.8236
+    description: Premier HVAC services in Frisco, Texas serving residential and commercial properties
+    shortDescription: Trusted HVAC contractor serving Frisco and surrounding areas
+    serviceRadius: 15
+    priority: 1
+    established: true
+    keywords:
+      - hvac frisco tx
+      - ac repair frisco
+      - heating frisco
+      - frisco hvac contractor
+      - air conditioning frisco
+    demographics:
+      medianIncome: 125000
+      homeOwnership: 85
+      avgHomeAge: 12
+    marketData:
+      competition: high
+      opportunity: medium
+      searchVolume: 2200
+
+  - slug: plano
+    name: Plano
+    fullName: Plano, Texas
+    state: TX
+    zip: 75023
+    county: Collin County
+    population: 285494
+    coordinates:
+      lat: 33.0198
+      lng: -96.6989
+    description: Professional HVAC services in Plano, Texas for homes and businesses
+    shortDescription: Reliable HVAC solutions for Plano residents and businesses
+    serviceRadius: 12
+    priority: 2
+    established: true
+    keywords:
+      - hvac plano tx
+      - ac repair plano
+      - heating plano
+      - plano hvac services
+      - air conditioning plano
+    demographics:
+      medianIncome: 95000
+      homeOwnership: 78
+      avgHomeAge: 25
+    marketData:
+      competition: high
+      opportunity: medium
+      searchVolume: 1800
+
+  - slug: mckinney
+    name: McKinney
+    fullName: McKinney, Texas
+    state: TX
+    zip: 75070
+    county: Collin County
+    population: 195308
+    coordinates:
+      lat: 33.1972
+      lng: -96.6154
+    description: Expert HVAC services in McKinney, Texas including repair and installation
+    shortDescription: McKinney's trusted HVAC experts for all heating and cooling needs
+    serviceRadius: 18
+    priority: 3
+    established: true
+    keywords:
+      - hvac mckinney tx
+      - ac repair mckinney
+      - heating mckinney
+      - mckinney hvac contractor
+      - air conditioning mckinney
+    demographics:
+      medianIncome: 92000
+      homeOwnership: 82
+      avgHomeAge: 18
+    marketData:
+      competition: medium
+      opportunity: high
+      searchVolume: 1500
+
+  - slug: allen
+    name: Allen
+    fullName: Allen, Texas
+    state: TX
+    zip: 75013
+    county: Collin County
+    population: 105623
+    coordinates:
+      lat: 33.1031
+      lng: -96.6705
+    description: Complete HVAC services in Allen, Texas for residential and commercial properties
+    shortDescription: Allen's premier HVAC service provider for homes and businesses
+    serviceRadius: 10
+    priority: 4
+    established: true
+    keywords:
+      - hvac allen tx
+      - ac repair allen
+      - heating allen
+      - allen hvac services
+      - air conditioning allen
+    demographics:
+      medianIncome: 110000
+      homeOwnership: 88
+      avgHomeAge: 20
+    marketData:
+      competition: medium
+      opportunity: high
+      searchVolume: 950
+
+  - slug: prosper
+    name: Prosper
+    fullName: Prosper, Texas
+    state: TX
+    zip: 75078
+    county: Collin County
+    population: 30174
+    coordinates:
+      lat: 33.2362
+      lng: -96.8011
+    description: Trusted HVAC services in Prosper, Texas for new and established homes
+    shortDescription: Growing Prosper community's trusted HVAC service provider
+    serviceRadius: 20
+    priority: 5
+    established: false
+    keywords:
+      - hvac prosper tx
+      - ac repair prosper
+      - heating prosper
+      - prosper hvac contractor
+      - air conditioning prosper
+    demographics:
+      medianIncome: 145000
+      homeOwnership: 92
+      avgHomeAge: 8
+    marketData:
+      competition: low
+      opportunity: very-high
+      searchVolume: 650
+
+  - slug: the-colony
+    name: The Colony
+    fullName: The Colony, Texas
+    state: TX
+    zip: 75056
+    county: Denton County
+    population: 44469
+    coordinates:
+      lat: 33.0890
+      lng: -96.8928
+    description: Professional HVAC services in The Colony, Texas for all your comfort needs
+    shortDescription: The Colony's reliable HVAC contractor for homes and businesses
+    serviceRadius: 15
+    priority: 6
+    established: false
+    keywords:
+      - hvac the colony tx
+      - ac repair the colony
+      - heating the colony
+      - the colony hvac services
+      - air conditioning the colony
+    demographics:
+      medianIncome: 78000
+      homeOwnership: 75
+      avgHomeAge: 22
+    marketData:
+      competition: low
+      opportunity: very-high
+      searchVolume: 480
+
+  - slug: little-elm
+    name: Little Elm
+    fullName: Little Elm, Texas
+    state: TX
+    zip: 75068
+    county: Denton County
+    population: 51042
+    coordinates:
+      lat: 33.1623
+      lng: -96.9375
+    description: Expert HVAC services in Little Elm, Texas including emergency repairs
+    shortDescription: Little Elm's trusted HVAC experts for heating and cooling solutions
+    serviceRadius: 18
+    priority: 7
+    established: false
+    keywords:
+      - hvac little elm tx
+      - ac repair little elm
+      - heating little elm
+      - little elm hvac contractor
+      - air conditioning little elm
+    demographics:
+      medianIncome: 82000
+      homeOwnership: 80
+      avgHomeAge: 15
+    marketData:
+      competition: low
+      opportunity: very-high
+      searchVolume: 420
+
+  - slug: addison
+    name: Addison
+    fullName: Addison, Texas
+    state: TX
+    zip: 75001
+    county: Dallas County
+    population: 16661
+    coordinates:
+      lat: 32.9618
+      lng: -96.8292
+    description: Complete HVAC services in Addison, Texas for residential and commercial clients
+    shortDescription: Addison's premier HVAC service provider serving homes and businesses
+    serviceRadius: 8
+    priority: 8
+    established: true
+    keywords:
+      - hvac addison tx
+      - ac repair addison
+      - heating addison
+      - addison hvac services
+      - air conditioning addison
+    demographics:
+      medianIncome: 68000
+      homeOwnership: 45
+      avgHomeAge: 35
+    marketData:
+      competition: medium
+      opportunity: medium
+      searchVolume: 380

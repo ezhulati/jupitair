@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/layout/Hero.astro';
+import ServicesOverview from '../components/layout/ServicesOverview.astro';
+import ServiceAreas from '../components/layout/ServiceAreas.astro';
+import WhyChooseUs from '../components/layout/WhyChooseUs.astro';
+import Contact from '../components/layout/Contact.astro';
+import ReviewsSection from '../components/reviews/ReviewsSection.astro';
+
+const pageTitle = "Jupitair HVAC - Premier HVAC Services in North Texas";
+const pageDescription = "Professional HVAC services throughout North Texas. AC repair, heating repair, HVAC installation, and emergency service in Frisco, Plano, McKinney, Allen, Prosper, The Colony, Little Elm, and Addison.";
+
+// Homepage-specific schema (enhanced base schema)
+const homepageSchema = {
+  "@type": ["Organization", "LocalBusiness", "HVACBusiness"],
+  "name": "Jupitair HVAC",
+  "url": "https://jupitairhvac.com",
+  "logo": "https://jupitairhvac.com/logo.png",
+  "description": pageDescription,
+  "foundingDate": "2008",
+  "slogan": "Your Comfort is Our Priority"
+};
+---
+
+<BaseLayout 
+  title={pageTitle} 
+  description={pageDescription}
+  canonical="https://jupitairhvac.com"
+  keywords="HVAC North Texas, AC repair Frisco, heating repair Plano, HVAC installation McKinney, emergency HVAC Allen, Prosper HVAC, The Colony heating, Little Elm AC, Addison HVAC contractor"
+  schema={homepageSchema}
+>
+  <Hero />
+  <ServicesOverview />
+  <ReviewsSection limit={3} variant="grid" />
+  <ServiceAreas />
+  <WhyChooseUs />
+  <Contact />
+</BaseLayout>

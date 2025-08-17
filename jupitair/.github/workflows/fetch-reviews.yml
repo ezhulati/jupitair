@@ -1,0 +1,44 @@
+name: Fetch Google Reviews
+
+on:
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  fetch-reviews:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Fetch Google Reviews
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          GOOGLE_BUSINESS_ID: ${{ secrets.GOOGLE_BUSINESS_ID }}
+        run: |
+          node scripts/fetch-google-reviews.js
+      
+      - name: Commit and push if changed
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git add src/data/reviews.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update Google reviews [skip ci]" && git push)
+      
+      - name: Trigger Netlify rebuild
+        if: steps.auto-commit-action.outputs.changes_detected == 'true'
+        run: |
+          curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK_URL }}

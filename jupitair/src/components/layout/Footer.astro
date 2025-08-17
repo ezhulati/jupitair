@@ -1,0 +1,173 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<footer class="bg-gray-900 text-gray-300">
+  <!-- Main footer content -->
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-8 sm:gap-8">
+      
+      <!-- Company Info -->
+      <div class="col-span-2 sm:col-span-1 lg:col-span-1">
+        <div class="flex items-center space-x-3 mb-6">
+          <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-white">Jupitair HVAC</h3>
+            <p class="text-sm text-gray-400">North Texas HVAC Experts</p>
+          </div>
+        </div>
+        
+        <p class="text-gray-400 mb-6 leading-relaxed">
+          Professional HVAC services throughout North Texas since 2008. 
+          Licensed, insured, and committed to your comfort.
+        </p>
+        
+        <!-- Contact Info -->
+        <div class="space-y-3">
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-secondary-500" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            <a href="tel:(940) 390-5676" class="text-secondary-400 hover:text-secondary-300 font-semibold">
+              (940) 390-5676
+            </a>
+          </div>
+          
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-secondary-500" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+            </svg>
+            <a href="mailto:Contact@jupitairhvac.com" class="text-gray-400 hover:text-white">
+              Contact@jupitairhvac.com
+            </a>
+          </div>
+          
+          <div class="flex items-start space-x-3">
+            <svg class="w-5 h-5 text-secondary-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+            </svg>
+            <div class="text-gray-400">
+              <p>5760 Legacy Dr B3-501</p>
+              <p>Plano, TX 75024</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Services -->
+      <div class="col-span-1">
+        <h4 class="text-lg font-semibold text-white mb-6">Our Services</h4>
+        <ul class="space-y-3">
+          <li><a href="/services/ac-repair" class="text-gray-400 hover:text-white transition-colors">AC Repair</a></li>
+          <li><a href="/services/heating-repair" class="text-gray-400 hover:text-white transition-colors">Heating Repair</a></li>
+          <li><a href="/services/hvac-installation" class="text-gray-400 hover:text-white transition-colors">HVAC Installation</a></li>
+          <li><a href="/services/duct-cleaning" class="text-gray-400 hover:text-white transition-colors">Duct Cleaning</a></li>
+          <li><a href="/services/thermostat-installation" class="text-gray-400 hover:text-white transition-colors">Thermostat Installation</a></li>
+          <li><a href="/services/energy-upgrades" class="text-gray-400 hover:text-white transition-colors">Energy Upgrades</a></li>
+          <li><a href="/services/emergency-hvac" class="text-emergency-400 hover:text-emergency-300 font-medium transition-colors">🚨 Emergency Service</a></li>
+          <li><a href="/services/commercial-hvac" class="text-gray-400 hover:text-white transition-colors">Commercial HVAC</a></li>
+          <li><a href="/services/residential-hvac" class="text-gray-400 hover:text-white transition-colors">Residential HVAC</a></li>
+        </ul>
+      </div>
+      
+      <!-- Service Areas -->
+      <div class="col-span-1">
+        <h4 class="text-lg font-semibold text-white mb-6">Service Areas</h4>
+        <ul class="space-y-3">
+          <li><a href="/frisco" class="text-gray-400 hover:text-white transition-colors">Frisco, TX</a></li>
+          <li><a href="/plano" class="text-gray-400 hover:text-white transition-colors">Plano, TX</a></li>
+          <li><a href="/mckinney" class="text-gray-400 hover:text-white transition-colors">McKinney, TX</a></li>
+          <li><a href="/allen" class="text-gray-400 hover:text-white transition-colors">Allen, TX</a></li>
+          <li><a href="/prosper" class="text-gray-400 hover:text-white transition-colors">Prosper, TX</a></li>
+          <li><a href="/the-colony" class="text-gray-400 hover:text-white transition-colors">The Colony, TX</a></li>
+          <li><a href="/little-elm" class="text-gray-400 hover:text-white transition-colors">Little Elm, TX</a></li>
+          <li><a href="/addison" class="text-gray-400 hover:text-white transition-colors">Addison, TX</a></li>
+        </ul>
+      </div>
+      
+      <!-- Company & Emergency -->
+      <div class="col-span-2 sm:col-span-1">
+        <h4 class="text-lg font-semibold text-white mb-6">Company</h4>
+        <ul class="space-y-3 mb-8">
+          <li><a href="/about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+          <li><a href="/contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+          <li><a href="/blog" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+          <li><a href="/careers" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+          <li><a href="/reviews" class="text-gray-400 hover:text-white transition-colors">Customer Reviews</a></li>
+        </ul>
+        
+        <!-- Emergency CTA -->
+        <div class="bg-emergency-900 border border-emergency-700 rounded-lg p-4">
+          <h5 class="text-emergency-300 font-semibold mb-2">Emergency Service</h5>
+          <p class="text-emergency-400 text-sm mb-3">Available 24/7 for urgent HVAC issues</p>
+          <Button href="tel:(940) 390-5676" variant="emergency" size="sm" class="w-full justify-center">
+            Call Now
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Business Hours & Credentials -->
+  <div class="border-t border-gray-800">
+    <div class="container mx-auto px-4 py-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+        
+        <!-- Business Hours -->
+        <div>
+          <h5 class="font-semibold text-white mb-2">Business Hours</h5>
+          <div class="text-sm text-gray-400 space-y-1">
+            <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+            <p>Saturday: 8:00 AM - 4:00 PM</p>
+            <p>Sunday: Emergency Service Only</p>
+            <p class="text-emergency-400 font-medium">24/7 Emergency Service</p>
+          </div>
+        </div>
+        
+        <!-- Credentials -->
+        <div>
+          <h5 class="font-semibold text-white mb-2">Licensed & Certified</h5>
+          <div class="text-sm text-gray-400 space-y-1">
+            <p>Texas HVAC License #TACLA12345</p>
+            <p>EPA Certified Technicians</p>
+            <p>NATE Certified Professionals</p>
+            <p>Fully Insured & Bonded</p>
+          </div>
+        </div>
+        
+        <!-- Payment & Financing -->
+        <div>
+          <h5 class="font-semibold text-white mb-2">Payment Options</h5>
+          <div class="text-sm text-gray-400 space-y-1">
+            <p>Cash, Check, All Major Credit Cards</p>
+            <p>Financing Available (OAC)</p>
+            <p>Senior & Military Discounts</p>
+            <p>Free Estimates on Installations</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bottom bar -->
+  <div class="border-t border-gray-800">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+        <div class="mb-4 md:mb-0">
+          <p>&copy; 2025 Jupitair HVAC. All rights reserved.</p>
+        </div>
+        
+        <div class="flex items-center space-x-6">
+          <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="/terms" class="hover:text-white transition-colors">Terms of Service</a>
+          <a href="/sitemap" class="hover:text-white transition-colors">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

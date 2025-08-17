@@ -1,0 +1,485 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import Badge from '../../components/ui/Badge.astro';
+import ReviewsSection from '../../components/reviews/ReviewsSection.astro';
+
+// City-specific data for McKinney
+const cityData = {
+  name: "McKinney",
+  state: "TX",
+  population: "195,000+",
+  neighborhoods: ["Historic Downtown", "Stonebridge Ranch", "Adriatica", "Craig Ranch", "Tucker Hill"],
+  zipCodes: ["75069", "75070", "75071", "75072"],
+  travelTime: "15-35 minutes",
+  serviceArea: "Primary service area",
+  localFeatures: "Historic downtown square and master-planned communities"
+};
+
+// Service data for AC Repair
+const service = {
+  name: "AC Repair",
+  title: "AC Repair in McKinney, TX",
+  meta_title: "AC Repair McKinney TX | Same-Day Service | Jupitair HVAC",
+  meta_description: "Fast AC repair in McKinney, TX with same-day service. Expert technicians serving all McKinney neighborhoods. Call (940) 390-5676 for immediate service.",
+  description: "Professional air conditioning repair services throughout McKinney, Texas. Our certified technicians provide same-day service for AC problems in Stonebridge Ranch, Craig Ranch, and all McKinney neighborhoods.",
+  shortDescription: "Fast AC repair with same-day service throughout McKinney",
+  h1: "AC Repair in McKinney, TX",
+  emergency: true,
+  pricing: {
+    starting: 89,
+    average: 250,
+    note: "Diagnostic fee applies to service call"
+  },
+  service_time: "Same day service available",
+  warranty: "90-day warranty on all repairs"
+};
+
+
+// Schema.org data
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": service.title,
+  "description": service.description,
+  "provider": {
+    "@type": "HVACBusiness",
+    "name": "Jupitair HVAC",
+    "telephone": "(940) 390-5676",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5760 Legacy Dr B3-501",
+      "addressLocality": "Plano", 
+      "addressRegion": "TX",
+      "postalCode": "75024"
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "McKinney",
+    "addressRegion": "TX"
+  },
+  "serviceType": "Air Conditioning Repair",
+  "offers": {
+    "@type": "Offer",
+    "priceRange": `$${service.pricing.starting}+`,
+    "description": service.pricing.note
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://jupitairhvac.com/"
+    },
+    {
+      "@type": "ListItem", 
+      "position": 2,
+      "name": "McKinney HVAC",
+      "item": "https://jupitairhvac.com/mckinney"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AC Repair",
+      "item": "https://jupitairhvac.com/mckinney/ac-repair"
+    }
+  ]
+};
+
+// FAQ data specific to McKinney
+const faqData = [
+  {
+    question: "How quickly can you get to McKinney for AC repair?",
+    answer: "We typically arrive in McKinney within 15-35 minutes for emergency calls, and offer same-day service for most AC repair appointments. We serve all McKinney neighborhoods including Stonebridge Ranch, Craig Ranch, and Historic Downtown."
+  },
+  {
+    question: "What does AC repair cost in McKinney?",
+    answer: "AC repair in McKinney starts at $89 for diagnostics, with most repairs averaging $250. We provide upfront pricing before any work begins and never charge hidden fees."
+  },
+  {
+    question: "Do you service all areas of McKinney?",
+    answer: "Yes, we provide AC repair services throughout all of McKinney, TX including zip codes 75069, 75070, 75071, and 75072. No trip charges within our McKinney service area."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqData.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<BaseLayout 
+  title={service.meta_title}
+  description={service.meta_description}
+  canonical={`https://jupitairhvac.com/mckinney/ac-repair`}
+>
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800 text-white py-16 lg:py-24 overflow-hidden">
+    
+    <div class="container mx-auto px-4 relative z-20">
+      <div class="max-w-4xl mx-auto text-center">
+        
+        <!-- Emergency Badge -->
+        <div class="mb-6">
+          <Badge variant="emergency" size="lg" class="inline-flex items-center space-x-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            <span>24/7 Emergency Service in McKinney</span>
+          </Badge>
+        </div>
+        
+        <!-- H1 Title -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          AC Repair in McKinney, TX
+        </h1>
+        
+        <!-- Short Description -->
+        <p class="text-lg sm:text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed max-w-3xl mx-auto">
+          {service.shortDescription} • Serving Stonebridge Ranch, Craig Ranch, Historic Downtown, and all McKinney neighborhoods
+        </p>
+        
+        <!-- The Short Version -->
+        <Card variant="elevated" padding="lg" class="bg-white/10 backdrop-blur-sm border-white/20 mb-8 text-left max-w-2xl mx-auto">
+          <h2 class="text-xl font-bold mb-4 text-white">McKinney AC Repair - The Short Version</h2>
+          <ul class="space-y-2 text-blue-100">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>Starting at ${service.pricing.starting} • {cityData.travelTime} response time</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>{service.warranty} • Licensed & Insured</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>Serving all McKinney zip codes: {cityData.zipCodes.join(", ")}</span>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>No trip charges in McKinney • Upfront pricing</span>
+            </li>
+          </ul>
+        </Card>
+        
+        <!-- Primary CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+          <Button href="tel:(940) 390-5676" variant="emergency" size="xl" class="flex items-center justify-center space-x-3">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            <span>Call (940) 390-5676</span>
+          </Button>
+          
+          <Button href="/contact" size="xl" variant="secondary">
+            Get Free Estimate
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- McKinney-Specific Service Details -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        
+        <!-- Local Expertise -->
+        <div class="prose prose-lg mx-auto mb-12">
+          <p class="text-xl text-gray-700 leading-relaxed">
+            Professional AC repair services throughout McKinney, Texas. Our experienced technicians understand the unique cooling challenges in McKinney's mix of historic homes and modern master-planned communities. With our {cityData.travelTime} average response time, we're your local McKinney AC repair specialists.
+          </p>
+        </div>
+
+        <!-- McKinney Neighborhoods We Serve -->
+        <Card variant="elevated" padding="lg" class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">McKinney Neighborhoods We Serve</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {cityData.neighborhoods.map(neighborhood => (
+              <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                <svg class="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="font-medium text-gray-900">{neighborhood}</span>
+              </div>
+            ))}
+          </div>
+          <p class="text-sm text-gray-600 mt-4">
+            Service areas include zip codes {cityData.zipCodes.join(", ")} and surrounding areas. No additional trip charges within McKinney city limits.
+          </p>
+        </Card>
+
+        <!-- Common AC Problems in McKinney -->
+        <Card variant="elevated" padding="lg" class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Common AC Problems in McKinney</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">Texas Heat Issues</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  AC struggling in 100°F+ weather
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  Capacitor failures from heat stress
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  Refrigerant leaks in older systems
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  Frozen coils from overuse
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">McKinney-Specific Issues</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  Historic home retrofits and upgrades
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  Power surge damage from storms
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  New construction system optimization
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  Large home zoning challenges
+                </li>
+              </ul>
+            </div>
+          </div>
+        </Card>
+
+        <!-- Pricing Section -->
+        <Card variant="elevated" padding="lg" class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">McKinney AC Repair Pricing</h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">Transparent Pricing</h3>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                  <span class="text-gray-600">Diagnostic fee:</span>
+                  <span class="font-semibold text-primary-700">${service.pricing.starting}</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                  <span class="text-gray-600">Average repair:</span>
+                  <span class="font-semibold text-gray-900">${service.pricing.average}</span>
+                </div>
+                <div class="flex justify-between items-center py-2">
+                  <span class="text-gray-600">Trip charge in McKinney:</span>
+                  <span class="text-green-600 font-semibold">$0</span>
+                </div>
+              </div>
+              <p class="text-sm text-gray-600 mt-4">{service.pricing.note}</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">What's Included</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  Complete system diagnostic
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  Free travel within McKinney
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  Upfront pricing before work
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  90-day warranty on repairs
+                </li>
+              </ul>
+            </div>
+          </div>
+        </Card>
+
+        <!-- Why Choose Us for McKinney -->
+        <Card variant="elevated" padding="lg" class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">Why McKinney Residents Choose Jupitair</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-gray-900 mb-2">Local Expertise</h3>
+              <p class="text-sm text-gray-600">We know McKinney's unique HVAC challenges from historic homes to new construction</p>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-gray-900 mb-2">Fast Response</h3>
+              <p class="text-sm text-gray-600">{cityData.travelTime} average response time to all McKinney locations</p>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-success-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-gray-900 mb-2">Guaranteed Work</h3>
+              <p class="text-sm text-gray-600">{service.warranty} plus our satisfaction guarantee</p>
+            </div>
+          </div>
+        </Card>
+
+        <!-- Secondary CTA -->
+        <div class="text-center">
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">
+            Need AC Repair in McKinney Today?
+          </h3>
+          <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+            Don't let AC problems ruin your comfort. Our McKinney technicians are ready to help with same-day service throughout Stonebridge Ranch, Craig Ranch, and all surrounding areas.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
+            <Button href="/contact" variant="primary" size="lg" class="flex-1">
+              Schedule Service
+            </Button>
+            <Button href="tel:(940) 390-5676" variant="outline" size="lg" class="flex-1">
+              Call (940) 390-5676
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- McKinney FAQs -->
+  <section class="py-16 lg:py-24 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">
+          Frequently Asked Questions - McKinney AC Repair
+        </h2>
+        <div class="space-y-6">
+          {faqData.map((faq, index) => (
+            <Card variant="elevated" padding="lg">
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
+              <p class="text-gray-700 leading-relaxed">{faq.answer}</p>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section (McKinney-specific) -->
+  <ReviewsSection 
+    limit={3} 
+    service="AC Repair"
+    city="McKinney"
+    variant="grid"
+    showCta={true}
+  />
+
+  <!-- Service Area Navigation -->
+  <section class="py-16 bg-white border-t border-gray-200">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8">
+          AC Repair in Other North Texas Cities
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a href="/frisco/ac-repair" class="p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
+            <h3 class="font-semibold text-gray-900">Frisco</h3>
+            <p class="text-sm text-gray-600">AC Repair</p>
+          </a>
+          <a href="/plano/ac-repair" class="p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
+            <h3 class="font-semibold text-gray-900">Plano</h3>
+            <p class="text-sm text-gray-600">AC Repair</p>
+          </a>
+          <a href="/allen/ac-repair" class="p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
+            <h3 class="font-semibold text-gray-900">Allen</h3>
+            <p class="text-sm text-gray-600">AC Repair</p>
+          </a>
+          <a href="/services/ac-repair" class="p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
+            <h3 class="font-semibold text-gray-900">All Areas</h3>
+            <p class="text-sm text-gray-600">AC Repair</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky Mobile CTA -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-emergency-600 text-white p-4 shadow-lg">
+    <Button 
+      href="tel:(940) 390-5676" 
+      variant="secondary" 
+      size="lg" 
+      class="w-full justify-center text-lg font-bold"
+    >
+      <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+      </svg>
+      Call for McKinney AC Repair: (940) 390-5676
+    </Button>
+  </div>
+</BaseLayout>

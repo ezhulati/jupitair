@@ -1,0 +1,1 @@
+import"./hoisted.uc0jJ9DK.js";document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll('a[href="#contact-form"]').forEach(e=>{e.addEventListener("click",function(t){t.preventDefault();const o=document.querySelector("form");o&&o.scrollIntoView({behavior:"smooth"})})})});

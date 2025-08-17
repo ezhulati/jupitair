@@ -1,0 +1,71 @@
+project: jupitair-hvac
+goals:
+  - Archive current site and competitors (allowed paths)
+  - Build Astro site with programmatic services×cities
+  - Max conversion; wire tracking; meet 2025 perf budgets
+budgets:
+  lcp_ms: 2500
+  inp_ms: 200
+  cls: 0.1
+  js_kb_route: 90
+  css_kb: 60
+cities: [frisco, plano, mckinney, allen, prosper, the-colony, little-elm, addison]
+services: [ac-repair, heating-repair, hvac-installation, duct-cleaning, thermostat-installation, energy-upgrades, emergency-hvac, commercial-hvac, residential-hvac]
+agents:
+  - name: orchestrator
+    role: Project Conductor
+    owns: [/docs/plan.md, /docs/release-notes.md]
+  - name: crawler
+    role: Crawler Engineer
+    owns: [/data/archive, /public/_archive/assets]
+  - name: compintel
+    role: Competitive Intelligence Analyst
+    owns: [/data/competitors, /reports/competitive-findings.md]
+  - name: seo
+    role: SEO Strategist
+    owns: [/docs/seo-standards.md]
+  - name: ia
+    role: Information Architect
+    owns: [/data/services.yml, /data/cities.yml, /docs/ia-map.md]
+  - name: astro
+    role: Astro Architect
+    owns: [/src/pages, /src/content, /astro.config.mjs]
+  - name: tokens
+    role: Design-Token Integrator
+    owns: [/src/styles/tokens.css, /tailwind.config.cjs]
+  - name: ui
+    role: UI Component Engineer
+    owns: [/src/components/ui, /src/components/layout]
+  - name: cro
+    role: CRO Engineer
+    owns: [/src/components/cta, /src/components/forms, /src/pages/api/lead.ts]
+  - name: analytics
+    role: Analytics & Attribution Engineer
+    owns: [/src/lib/analytics.ts, /data/attribution]
+  - name: schema
+    role: Schema Engineer
+    owns: [/src/lib/schema.ts]
+  - name: content
+    role: Content Lead
+    owns: [/src/content/services, /src/content/cities, /src/pages/index.astro]
+  - name: linter
+    role: Style & Compliance Linter
+    owns: [/scripts/lint-banned-words.js]
+  - name: perf
+    role: Performance Engineer
+    owns: [/lighthouserc.json, /.github/workflows/lhci.yml]
+  - name: a11y
+    role: Accessibility QA
+    owns: [/reports/a11y.md]
+  - name: gbp
+    role: Local SEO/GBP Specialist
+    owns: [/reports/gbp-playbook.md, /data/citations.csv]
+  - name: security
+    role: Security & Compliance
+    owns: [/src/pages/api/lead.ts, /.env.example]
+  - name: devops
+    role: DevOps/CI-CD
+    owns: [/.github/workflows/build.yml, /vercel.json]
+  - name: qa
+    role: QA Lead
+    owns: [/reports/qa-smoke.md]

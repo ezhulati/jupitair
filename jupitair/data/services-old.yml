@@ -1,0 +1,207 @@
+services:
+  - slug: ac-repair
+    name: AC Repair
+    title: Air Conditioning Repair
+    description: Professional air conditioning repair services for all makes and models
+    shortDescription: Expert AC repair services to get your cooling system running efficiently
+    category: cooling
+    priority: 1
+    emergency: true
+    residential: true
+    commercial: true
+    keywords:
+      - ac repair
+      - air conditioning repair
+      - ac service
+      - cooling system repair
+      - emergency ac repair
+    pricing:
+      starting: 89
+      average: 250
+      description: Diagnostic fee applies to service call
+    serviceTime: "Same day service available"
+    warranty: "90-day warranty on all repairs"
+
+  - slug: heating-repair
+    name: Heating Repair
+    title: Heating System Repair
+    description: Expert heating repair for furnaces, heat pumps, and all heating systems
+    shortDescription: Reliable heating repair to keep your home comfortable year-round
+    category: heating
+    priority: 2
+    emergency: true
+    residential: true
+    commercial: true
+    keywords:
+      - heating repair
+      - furnace repair
+      - heat pump repair
+      - heating service
+      - emergency heating repair
+    pricing:
+      starting: 89
+      average: 280
+      description: Diagnostic fee applies to service call
+    serviceTime: "24/7 emergency service"
+    warranty: "90-day warranty on all repairs"
+
+  - slug: hvac-installation
+    name: HVAC Installation
+    title: HVAC System Installation
+    description: Complete HVAC system installation and replacement services
+    shortDescription: Professional HVAC installation for new construction and system replacement
+    category: installation
+    priority: 3
+    emergency: false
+    residential: true
+    commercial: true
+    keywords:
+      - hvac installation
+      - ac installation
+      - heating installation
+      - system replacement
+      - new hvac system
+    pricing:
+      starting: 3500
+      average: 8500
+      description: Price varies by system size and efficiency rating
+    serviceTime: "1-3 days for complete installation"
+    warranty: "10-year warranty on equipment, 2-year on installation"
+
+  - slug: duct-cleaning
+    name: Duct Cleaning
+    title: Air Duct Cleaning Services
+    description: Professional air duct cleaning to improve indoor air quality and system efficiency
+    shortDescription: Thorough duct cleaning services to remove dust, debris, and allergens
+    category: maintenance
+    priority: 4
+    emergency: false
+    residential: true
+    commercial: true
+    keywords:
+      - duct cleaning
+      - air duct cleaning
+      - vent cleaning
+      - indoor air quality
+      - allergen removal
+    pricing:
+      starting: 199
+      average: 450
+      description: Price based on home size and ductwork complexity
+    serviceTime: "3-5 hours for average home"
+    warranty: "30-day satisfaction guarantee"
+
+  - slug: thermostat-installation
+    name: Thermostat Installation
+    title: Thermostat Installation & Upgrade
+    description: Smart and programmable thermostat installation and setup services
+    shortDescription: Upgrade to smart thermostats for better comfort and energy savings
+    category: upgrade
+    priority: 5
+    emergency: false
+    residential: true
+    commercial: true
+    keywords:
+      - thermostat installation
+      - smart thermostat
+      - programmable thermostat
+      - wifi thermostat
+      - nest installation
+    pricing:
+      starting: 149
+      average: 300
+      description: Installation fee, thermostat sold separately
+    serviceTime: "1-2 hours for installation"
+    warranty: "1-year warranty on installation"
+
+  - slug: energy-upgrades
+    name: Energy Upgrades
+    title: HVAC Energy Efficiency Upgrades
+    description: Energy-efficient HVAC upgrades to reduce utility costs and improve comfort
+    shortDescription: Comprehensive energy upgrades to maximize HVAC efficiency and savings
+    category: upgrade
+    priority: 6
+    emergency: false
+    residential: true
+    commercial: true
+    keywords:
+      - energy upgrades
+      - hvac efficiency
+      - energy savings
+      - insulation
+      - air sealing
+    pricing:
+      starting: 500
+      average: 2500
+      description: Price varies by scope of upgrade work
+    serviceTime: "1-2 days depending on project scope"
+    warranty: "5-year warranty on upgrade work"
+
+  - slug: emergency-hvac
+    name: Emergency HVAC
+    title: 24/7 Emergency HVAC Service
+    description: Round-the-clock emergency HVAC repair services for urgent heating and cooling issues
+    shortDescription: 24/7 emergency HVAC service when you need it most
+    category: emergency
+    priority: 7
+    emergency: true
+    residential: true
+    commercial: true
+    keywords:
+      - emergency hvac
+      - 24/7 hvac repair
+      - urgent ac repair
+      - emergency heating
+      - after hours hvac
+    pricing:
+      starting: 149
+      average: 350
+      description: Emergency service fee plus repair costs
+    serviceTime: "Within 2 hours for emergencies"
+    warranty: "90-day warranty on emergency repairs"
+
+  - slug: commercial-hvac
+    name: Commercial HVAC
+    title: Commercial HVAC Services
+    description: Complete commercial HVAC services for businesses, offices, and industrial facilities
+    shortDescription: Reliable commercial HVAC services for businesses of all sizes
+    category: commercial
+    priority: 8
+    emergency: true
+    residential: false
+    commercial: true
+    keywords:
+      - commercial hvac
+      - business hvac
+      - office hvac
+      - industrial hvac
+      - commercial installation
+    pricing:
+      starting: 150
+      average: 500
+      description: Pricing varies by system size and complexity
+    serviceTime: "Scheduled to minimize business disruption"
+    warranty: "1-year warranty on commercial work"
+
+  - slug: residential-hvac
+    name: Residential HVAC
+    title: Residential HVAC Services
+    description: Complete residential HVAC services including repair, installation, and maintenance
+    shortDescription: Comprehensive home HVAC services for all your comfort needs
+    category: residential
+    priority: 9
+    emergency: true
+    residential: true
+    commercial: false
+    keywords:
+      - residential hvac
+      - home hvac
+      - house hvac
+      - residential ac
+      - home heating
+    pricing:
+      starting: 89
+      average: 300
+      description: Service call fee applies to diagnostics
+    serviceTime: "Same day service for most repairs"
+    warranty: "90-day warranty on residential work"

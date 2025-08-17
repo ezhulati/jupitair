@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import { readFileSync } from 'fs';
+import { parse } from 'yaml';
+
+export async function getStaticPaths() {
+  // Load cities data
+  const citiesData = parse(readFileSync('./data/cities.yml', 'utf8'));
+  const servicesData = parse(readFileSync('./data/services.yml', 'utf8'));
+  
+  return (citiesData?.cities || []).map((city: any) => ({
+    params: { city: city.slug },
+    props: { city, services: servicesData?.money_pages || [] }
+  }));
+}
+
+const { city, services } = Astro.props;
+const pageTitle = `HVAC Services ${city.name}, TX | Jupitair HVAC - AC Repair & Installation`;
+const pageDescription = `Professional HVAC contractor serving ${city.name}, Texas. AC repair, heating services, HVAC installation, and emergency service. Licensed technicians, upfront pricing, 24/7 availability.`;
+
+// City-specific schema
+const citySchema = {
+  "@type": ["LocalBusiness", "HVACBusiness"],
+  "name": `Jupitair HVAC - ${city.name}`,
+  "description": city.description,
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": city.coordinates.lat,
+    "longitude": city.coordinates.lng
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": city.name,
+    "addressRegion": "TX"
+  }
+};
+---
+
+<BaseLayout 
+  title={pageTitle} 
+  description={pageDescription}
+  canonical={`https://jupitairhvac.com/${city.slug}`}
+  keywords={`${(city.keywords || []).join(', ')}, ${city.name} HVAC`}
+  schema={citySchema}
+>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl py-8 sm:py-12 lg:py-16">
+    <!-- Hero Section -->
+    <section class="hero bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800 text-white py-12 sm:py-16 lg:py-20 mb-8 sm:mb-12 lg:mb-16 rounded-2xl shadow-xl overflow-hidden relative">
+      <div class="relative z-10 text-center px-6 sm:px-8 lg:px-12">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6">
+          HVAC Services in {city.name}, TX
+        </h1>
+        <p class="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-10 text-blue-100 max-w-4xl mx-auto leading-relaxed">
+          {city.description}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+          <Button href="tel:(940) 390-5676" variant="emergency" size="xl" class="w-full sm:w-auto flex items-center justify-center space-x-3">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            <span>Call (940) 390-5676</span>
+          </Button>
+          <Button href="/schedule" size="xl" class="w-full sm:w-auto border-2 border-white text-white bg-transparent hover:bg-white/20 hover:border-white hover:text-white focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 transition-all duration-200 backdrop-blur-sm">
+            Schedule Online
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services in This Area -->
+    <section class="mb-12 sm:mb-16 lg:mb-20">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 lg:mb-10 text-center">
+        Our HVAC Services in {city.name}
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+        {services.slice(0, 6).map((service: any) => (
+          <Card variant="service" padding="md" class="group h-full flex flex-col">
+            <h3 class="text-lg sm:text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors duration-200">
+              {service.name}
+            </h3>
+            <p class="text-gray-600 mb-4 text-sm sm:text-base line-clamp-2 flex-grow">{service.shortDescription}</p>
+            
+            <div class="space-y-3 mt-auto">
+              <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                <span class="text-sm sm:text-base text-gray-600 font-medium">From ${service.pricing.starting}</span>
+                {service.emergency && (
+                  <span class="bg-emergency-50 text-emergency-700 text-xs sm:text-sm px-3 py-1.5 rounded-full font-medium">
+                    24/7 Emergency
+                  </span>
+                )}
+              </div>
+              
+              <!-- CTA Buttons -->
+              <div class="flex flex-col sm:flex-row gap-2">
+                <Button href={`/${city.slug}/${service.slug}`} variant="primary" size="sm" class="flex-1 text-center">
+                  Learn More
+                </Button>
+                <Button href="/schedule" variant="outline" size="sm" class="flex-1 text-center">
+                  Schedule
+                </Button>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </section>
+
+    <!-- Local Expertise -->
+    <section class="bg-gray-50 p-6 sm:p-8 lg:p-12 rounded-2xl mb-12 sm:mb-16 lg:mb-20">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Your Local {city.name} HVAC Experts
+          </h2>
+          <p class="text-gray-600 mb-4">
+            Serving {city.name} and surrounding areas with professional HVAC services. 
+            Our licensed technicians understand the local climate and common HVAC challenges 
+            specific to {city.name}, Texas.
+          </p>
+          <ul class="space-y-2 text-gray-600">
+            <li>✓ Licensed & Insured Technicians</li>
+            <li>✓ Same-Day Service Available</li>
+            <li>✓ 24/7 Emergency Response</li>
+            <li>✓ Upfront Pricing</li>
+            <li>✓ 90-Day Warranty</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Service Area</h3>
+          <p class="text-gray-600 mb-4">
+            Population: {city.population.toLocaleString()}<br>
+            County: {city.county}<br>
+            Service Radius: {city.serviceRadius} miles
+          </p>
+          <p class="text-gray-600">
+            We also serve nearby communities and provide emergency service 
+            throughout the greater North Texas area.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergency Service -->
+    <section class="bg-red-600 text-white p-8 rounded-lg">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold mb-4">24/7 Emergency HVAC Service</h2>
+        <p class="text-xl mb-6">
+          HVAC emergency in {city.name}? We're here to help!
+        </p>
+        <Button href="tel:(940) 390-5676" variant="secondary" size="xl" class="inline-flex justify-center min-w-[200px] max-w-[280px] mx-auto">
+          Call Now: (940) 390-5676
+        </Button>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

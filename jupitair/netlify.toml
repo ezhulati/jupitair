@@ -1,0 +1,161 @@
+# Netlify Configuration for Jupitair HVAC
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+  node_bundler = "esbuild"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_VERSION = "10"
+
+# Build processing
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "accelerometer=(), camera=(), microphone=(), geolocation=(), payment=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com; frame-src 'self' https://www.google.com"
+
+# Cache control for static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirects for SEO
+[[redirects]]
+  from = "/ac-repair"
+  to = "/services/ac-repair"
+  status = 301
+
+[[redirects]]
+  from = "/heating-repair"
+  to = "/services/heating-repair"
+  status = 301
+
+[[redirects]]
+  from = "/hvac-installation"
+  to = "/services/hvac-installation"
+  status = 301
+
+# City redirects (common misspellings)
+[[redirects]]
+  from = "/the_colony/*"
+  to = "/the-colony/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/little_elm/*"
+  to = "/little-elm/:splat"
+  status = 301
+
+# Emergency service redirect
+[[redirects]]
+  from = "/emergency"
+  to = "/services/emergency-hvac"
+  status = 302
+
+# 404 handling
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404
+
+# Environment variables template
+[template.environment]
+  GTM_ID = "Google Tag Manager ID"
+  GA4_ID = "Google Analytics 4 ID"
+  BUSINESS_PHONE = "Business phone number"
+  BUSINESS_EMAIL = "Business email"
+  GOOGLE_MAPS_API_KEY = "Google Maps API key"
+  RECAPTCHA_SITE_KEY = "reCAPTCHA site key"
+
+# Netlify Functions (if needed for form handling)
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Form handling
+[forms]
+  mode = "netlify"
+
+# Deploy contexts
+[context.production]
+  environment = { NODE_ENV = "production" }
+
+[context.deploy-preview]
+  environment = { NODE_ENV = "development" }
+
+[context.branch-deploy]
+  environment = { NODE_ENV = "development" }
+
+# Plugins
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  
+  [plugins.inputs]
+    fail_deploy_on_score_thresholds = false
+    
+  [plugins.inputs.thresholds]
+    performance = 0.85
+    accessibility = 0.85
+    best-practices = 0.8
+    seo = 0.85
+
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+  
+  [plugins.inputs]
+    buildDir = "dist"
+    exclude = [
+      "./404.html",
+      "./admin/**"
+    ]
