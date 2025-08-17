@@ -1,0 +1,105 @@
+{
+  "$ref": "#/definitions/services",
+  "definitions": {
+    "services": {
+      "type": "object",
+      "properties": {
+        "services": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "shortDescription": {
+                "type": "string"
+              },
+              "category": {
+                "type": "string"
+              },
+              "priority": {
+                "type": "number"
+              },
+              "emergency": {
+                "type": "boolean"
+              },
+              "residential": {
+                "type": "boolean"
+              },
+              "commercial": {
+                "type": "boolean"
+              },
+              "keywords": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "pricing": {
+                "type": "object",
+                "properties": {
+                  "starting": {
+                    "type": "number"
+                  },
+                  "average": {
+                    "type": "number"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "starting",
+                  "average",
+                  "description"
+                ],
+                "additionalProperties": false
+              },
+              "serviceTime": {
+                "type": "string"
+              },
+              "warranty": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "slug",
+              "name",
+              "title",
+              "description",
+              "shortDescription",
+              "category",
+              "priority",
+              "emergency",
+              "residential",
+              "commercial",
+              "keywords",
+              "pricing",
+              "serviceTime",
+              "warranty"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "services"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
