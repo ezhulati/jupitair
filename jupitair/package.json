@@ -11,13 +11,17 @@
     "fetch-reviews": "node scripts/fetch-google-reviews.js",
     "fetch-facebook": "node scripts/fetch-facebook-reviews.js",
     "sync-facebook": "./scripts/cron-facebook-sync.sh",
-    "setup-cron": "echo 'To setup automated Facebook sync, run: crontab -e' && echo 'Add this line for daily sync at 6 AM:' && echo '0 6 * * * cd $(pwd) && npm run sync-facebook'"
+    "setup-cron": "echo 'To setup automated Facebook sync, run: crontab -e' && echo 'Add this line for daily sync at 6 AM:' && echo '0 6 * * * cd $(pwd) && npm run sync-facebook'",
+    "generate-images": "node scripts/generate-og-images.js",
+    "prebuild": "npm run generate-images"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.1.0",
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.14.0",
     "js-yaml": "^4.1.0",
+    "openai": "^5.12.2",
+    "sharp": "^0.34.3",
     "tailwindcss": "^3.4.0"
   },
   "devDependencies": {

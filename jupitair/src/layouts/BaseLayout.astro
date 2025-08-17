@@ -6,6 +6,9 @@ export interface Props {
   canonical?: string;
   noindex?: boolean;
   schema?: object;
+  ogImage?: string;
+  city?: string;
+  service?: string;
 }
 
 const {
@@ -14,7 +17,10 @@ const {
   keywords = 'HVAC, AC repair, heating repair, HVAC installation, North Texas, Frisco, Plano, McKinney, Allen, emergency HVAC',
   canonical,
   noindex = false,
-  schema
+  schema,
+  ogImage,
+  city,
+  service
 } = Astro.props;
 
 import Header from '../components/layout/Header.astro';
@@ -157,15 +163,23 @@ const finalSchema = schema ? { ...baseSchema, ...schema } : baseSchema;
     
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical || `https://jupitairhvac.com${Astro.url.pathname}`} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Jupitair HVAC" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImage ? `https://jupitairhvac.com${ogImage}` : `https://jupitairhvac.com/og-images/${city ? city.toLowerCase().replace(' ', '-') : service ? `services-${service}` : 'default'}.jpg`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:image:type" content="image/jpeg" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage ? `https://jupitairhvac.com${ogImage}` : `https://jupitairhvac.com/og-images/${city ? city.toLowerCase().replace(' ', '-') : service ? `services-${service}` : 'default'}.jpg`} />
+    <meta name="twitter:image:alt" content={title} />
     
     <!-- Structured Data Schema -->
     <script type="application/ld+json" set:html={JSON.stringify(finalSchema)} />
