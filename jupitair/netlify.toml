@@ -1,8 +1,9 @@
 # Netlify Configuration for Jupitair HVAC
 
 [build]
+  base = "jupitair/jupitair/jupitair"
   command = "npm install && npm run build"
-  publish = "dist"
+  publish = "jupitair/jupitair/jupitair/dist"
   node_bundler = "esbuild"
 
 [build.environment]
