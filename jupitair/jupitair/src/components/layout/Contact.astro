@@ -381,7 +381,7 @@ const fbReviews = facebookReviews.reviews.slice(0, 3);
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-form');
     if (form) {
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         // Get form data
@@ -396,10 +396,42 @@ const fbReviews = facebookReviews.reviews.slice(0, 3);
           }
         }
         
-        // Submit form (would normally send to API)
-        console.log('Form submitted:', data);
-        alert('Thank you! We\'ll contact you within 30 minutes during business hours, or first thing the next business day.');
-        form.reset();
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+        
+        try {
+          // Submit to API
+          const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+          });
+          
+          const result = await response.json();
+          
+          if (response.ok && result.success) {
+            // Success
+            alert('Thank you! We\'ll contact you within 30 minutes during business hours, or first thing the next business day.');
+            form.reset();
+            // Optionally redirect to success page
+            // window.location.href = '/success';
+          } else {
+            // Error from API
+            throw new Error(result.error || 'Submission failed');
+          }
+        } catch (error) {
+          console.error('Form submission error:', error);
+          alert('Unable to submit form. Please call us directly at (940) 390-5676');
+        } finally {
+          // Reset button state
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
       });
     }
   });

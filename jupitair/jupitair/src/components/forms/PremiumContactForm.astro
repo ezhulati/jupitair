@@ -19,21 +19,11 @@ const {
   <form 
     name={formName}
     method="POST"
-    action="/success"
-    data-netlify="true"
-    data-netlify-honeypot="bot-field"
+    action="/api/contact"
     id="premium-contact-form" 
     class="space-y-6"
     data-variant={variant}
   >
-    {/* Hidden fields for Netlify */}
-    <input type="hidden" name="form-name" value={formName} />
-    <div class="hidden">
-      <label>
-        Don't fill this out if you're human: 
-        <input name="bot-field" />
-      </label>
-    </div>
 
     {/* Form Header */}
     <div class="text-center space-y-2">
@@ -516,8 +506,10 @@ const {
       return isValid;
     }
 
-    // Form submission with client-side validation
-    form?.addEventListener('submit', (e) => {
+    // Form submission with AJAX
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
       // Validate all fields
       let isValid = true;
       inputs?.forEach((input) => {
@@ -527,13 +519,43 @@ const {
       });
       
       if (!isValid) {
-        e.preventDefault();
         return;
       }
       
       // Show loading state
       submitButton?.setAttribute('data-loading', 'true');
       submitButton.disabled = true;
+      
+      // Get form data
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok && result.success) {
+          // Success - redirect to success page or show success message
+          window.location.href = '/success';
+        } else {
+          // Error
+          alert(result.error || 'There was an error submitting your request. Please call us at (940) 390-5676');
+          submitButton?.removeAttribute('data-loading');
+          submitButton.disabled = false;
+        }
+      } catch (error) {
+        console.error('Form submission error:', error);
+        alert('Unable to submit form. Please call us directly at (940) 390-5676');
+        submitButton?.removeAttribute('data-loading');
+        submitButton.disabled = false;
+      }
       
       // Track submission in analytics
       if (typeof gtag !== 'undefined') {
