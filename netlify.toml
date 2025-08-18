@@ -1,5 +1,4 @@
 [build]
-  base = "jupitair/jupitair"
   command = "npm install && npm run build"
   publish = "dist/client"
 
