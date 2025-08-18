@@ -91,7 +91,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
     
     // Create Zoho SMTP transporter
-    const transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransporter({
       host: 'smtp.zoho.com',
       port: 465,
       secure: true, // SSL
@@ -107,9 +107,10 @@ export const POST: APIRoute = async ({ request }) => {
       zohoCalendar = new ZohoCalendarAPI(zohoClientId, zohoClientSecret, zohoRefreshToken);
     }
     
-    // Parse appointment date and time
-    const appointmentDate = new Date(data['preferred-date']);
-    const timeSlot = data['preferred-time'];
+    // Parse appointment date and time (with fallbacks)
+    const dateStr = data['preferred-date'] || new Date().toISOString().split('T')[0];
+    const appointmentDate = new Date(dateStr);
+    const timeSlot = data['preferred-time'] || 'anytime';
     let startHour = 8; // Default start time
     let duration = 2; // Default 2 hour appointment
     
