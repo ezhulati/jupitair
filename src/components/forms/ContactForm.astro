@@ -9,7 +9,7 @@ export interface Props {
 const { formId = 'contact-form', variant = 'default' } = Astro.props;
 ---
 
-<form class="space-y-6" action="/success" method="POST" id={formId} data-api-endpoint="/.netlify/functions/contact">
+<form class="space-y-6" action="/success/" method="POST" id={formId} data-api-endpoint="/.netlify/functions/contact">
   <!-- Name Fields -->
   <div class="grid md:grid-cols-2 gap-6">
     <div>
@@ -216,8 +216,8 @@ const { formId = 'contact-form', variant = 'default' } = Astro.props;
               }
               
               if (result.success) {
-                // Success - redirect to success page
-                window.location.href = '/success';
+                // Success - redirect to success page with trailing slash
+                window.location.href = '/success/';
                 return;
               }
             }
@@ -233,7 +233,7 @@ const { formId = 'contact-form', variant = 'default' } = Astro.props;
             form.removeEventListener('submit', arguments.callee as EventListener);
             
             // Change form action to success page for fallback
-            form.action = '/success';
+            form.action = '/success/';
             
             // Submit the form normally
             form.submit();
