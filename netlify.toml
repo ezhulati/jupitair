@@ -1,6 +1,6 @@
 [build]
-  base = "jupitair"
-  command = "npm run build"
+  base = "jupitair/jupitair/jupitair"
+  command = "npm install && npm run build"
   publish = "dist"
 
 [[headers]]
