@@ -66,9 +66,8 @@ export const POST: APIRoute = async ({ request }) => {
     const zohoClientSecret = import.meta.env.ZOHO_CLIENT_SECRET || process.env.ZOHO_CLIENT_SECRET;
     const zohoRefreshToken = import.meta.env.ZOHO_REFRESH_TOKEN || process.env.ZOHO_REFRESH_TOKEN;
     
-    // TEMPORARILY SKIP EMAIL - just log and return success
-    // This ensures forms always work
-    if (true || !zohoEmail || !zohoPassword) {
+    // Check if email is configured
+    if (!zohoEmail || !zohoPassword) {
       console.log('Contact form submission (email not configured):', {
         name: `${data['first-name']} ${data['last-name']}`,
         phone: data['phone'],
@@ -83,7 +82,7 @@ export const POST: APIRoute = async ({ request }) => {
       return new Response(JSON.stringify({ 
         success: true,
         message: 'Your request has been received. We will contact you shortly!',
-        note: 'Email notifications are currently disabled'
+        note: 'Please call us directly at (940) 390-5676'
       }), { 
         status: 200,
         headers: { 'Content-Type': 'application/json' }
@@ -247,9 +246,11 @@ export const POST: APIRoute = async ({ request }) => {
     }
     
     // Email to business owner
+    // Use the configured Zoho email as the recipient since it's the only valid email we have
+    const notificationEmail = import.meta.env.NOTIFICATION_EMAIL || zohoEmail || 'contact@jupitairhvac.com';
     const businessEmail = {
       from: zohoEmail,
-      to: import.meta.env.NOTIFICATION_EMAIL || zohoEmail,
+      to: notificationEmail,
       subject: `${data.emergency ? '🚨 EMERGENCY' : 'New'} Service Request - ${data['first-name']} ${data['last-name']}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

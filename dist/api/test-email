@@ -1,1 +1,1 @@
-{"zohoEmailSet":false,"zohoPasswordSet":false,"zohoEmailLength":0,"message":"Please add ZOHO_EMAIL and ZOHO_PASSWORD to your .env file"}
+{"zohoEmailSet":true,"zohoPasswordSet":true,"zohoEmailLength":24,"message":"Credentials are configured"}
