@@ -1,7 +1,7 @@
 [build]
   base = "jupitair"
   command = "npm install && npm run build"
-  publish = "dist/client"
+  publish = "dist"
 
 [[headers]]
   for = "/*"
