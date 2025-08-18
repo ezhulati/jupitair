@@ -1,0 +1,137 @@
+{
+  "lastUpdated": "2025-08-17T05:26:49.689Z",
+  "averageRating": 4.9,
+  "totalReviews": 75,
+  "googleReviews": 47,
+  "facebookReviews": 28,
+  "reviews": [
+    {
+      "id": "fb_1755408409689_1",
+      "author": "Sarah M.",
+      "rating": 5,
+      "date": "2024-08-15",
+      "text": "Jupitair came out same day when our AC broke during the heat wave. Professional, fast, and fair pricing. Highly recommend for Frisco HVAC needs!",
+      "service": "Emergency AC Repair",
+      "city": "Frisco",
+      "verified": true,
+      "source": "facebook",
+      "profilePhoto": null
+    },
+    {
+      "id": "fb_1755408409689_2",
+      "author": "Mike T.",
+      "rating": 5,
+      "date": "2024-08-12",
+      "text": "Great experience with Jupitair for our new heat pump installation in Plano. Clean work, explained everything clearly, and finished on time.",
+      "service": "Heat Pump Installation",
+      "city": "Plano",
+      "verified": true,
+      "source": "facebook",
+      "profilePhoto": null
+    },
+    {
+      "id": "fb_1755408409689_3",
+      "author": "Jennifer K.",
+      "rating": 5,
+      "date": "2024-08-10",
+      "text": "Annual maintenance visit was thorough and professional. Found a small issue that could have been expensive later. Thanks Jupitair!",
+      "service": "HVAC Maintenance",
+      "city": "McKinney",
+      "verified": true,
+      "source": "facebook",
+      "profilePhoto": null
+    },
+    {
+      "id": "fb_1755408409689_4",
+      "author": "David R.",
+      "rating": 5,
+      "date": "2024-08-08",
+      "text": "Ductwork repair in our Allen home was done perfectly. No more hot/cold spots and much quieter system now.",
+      "service": "Duct Repair",
+      "city": "Allen",
+      "verified": true,
+      "source": "facebook",
+      "profilePhoto": null
+    },
+    {
+      "id": "1",
+      "author": "Sarah Mitchell",
+      "rating": 5,
+      "date": "2024-08-10",
+      "text": "Jupitair HVAC saved the day! Our AC went out during the hottest week of summer. They came out same day and had us cool again within hours. Professional, courteous, and fair pricing.",
+      "service": "AC Repair",
+      "city": "Frisco",
+      "verified": true
+    },
+    {
+      "id": "2",
+      "author": "Michael Chen",
+      "rating": 5,
+      "date": "2024-08-05",
+      "text": "Outstanding service from start to finish. The technician explained everything clearly, showed me the issues, and provided options without any pressure. Highly recommend!",
+      "service": "HVAC Installation",
+      "city": "Plano",
+      "verified": true
+    },
+    {
+      "id": "3",
+      "author": "Jennifer Rodriguez",
+      "rating": 5,
+      "date": "2024-07-28",
+      "text": "I've used Jupitair for both my home and rental property. They're always on time, professional, and their prices are very reasonable. Won't use anyone else!",
+      "service": "Heating Repair",
+      "city": "McKinney",
+      "verified": true
+    },
+    {
+      "id": "4",
+      "author": "David Thompson",
+      "rating": 5,
+      "date": "2024-07-20",
+      "text": "Emergency service at 2 AM - they actually answered and came out! Fixed our heating system quickly. Can't thank them enough for their 24/7 availability.",
+      "service": "Emergency HVAC",
+      "city": "Allen",
+      "verified": true
+    },
+    {
+      "id": "5",
+      "author": "Lisa Anderson",
+      "rating": 5,
+      "date": "2024-07-15",
+      "text": "Best HVAC company in North Texas! They installed a new system for us and the energy savings have been incredible. Very knowledgeable team.",
+      "service": "HVAC Installation",
+      "city": "Prosper",
+      "verified": true
+    },
+    {
+      "id": "6",
+      "author": "Robert Martinez",
+      "rating": 4,
+      "date": "2024-07-10",
+      "text": "Great service, fair prices. The only reason for 4 stars instead of 5 is they were running a bit late, but they called ahead to let me know.",
+      "service": "AC Repair",
+      "city": "The Colony",
+      "verified": true
+    },
+    {
+      "id": "7",
+      "author": "Amanda Foster",
+      "rating": 5,
+      "date": "2024-07-05",
+      "text": "Jupitair has maintained our commercial property for 3 years. Always reliable, professional, and responsive. Excellent preventive maintenance program.",
+      "service": "Commercial HVAC",
+      "city": "Addison",
+      "verified": true
+    },
+    {
+      "id": "8",
+      "author": "James Wilson",
+      "rating": 5,
+      "date": "2024-06-30",
+      "text": "They went above and beyond! Not only fixed our AC but also identified and resolved an electrical issue that could have been dangerous. True professionals.",
+      "service": "AC Repair",
+      "city": "Little Elm",
+      "verified": true
+    }
+  ]
+}

@@ -1,0 +1,439 @@
+# Complete Dallas-Fort Worth Metroplex Cities for Commercial HVAC Services
+# Population data from 2020+ census
+
+major_cities:
+  - name: Dallas
+    slug: dallas
+    population: 1304379
+    county: Dallas
+  - name: Fort Worth
+    slug: fort-worth
+    population: 918915
+    county: Tarrant
+  - name: Arlington
+    slug: arlington
+    population: 394266
+    county: Tarrant
+  - name: Plano
+    slug: plano
+    population: 285494
+    county: Collin
+  - name: Irving
+    slug: irving
+    population: 256684
+    county: Dallas
+  - name: Garland
+    slug: garland
+    population: 246018
+    county: Dallas
+  - name: Frisco
+    slug: frisco
+    population: 200509
+    county: Collin/Denton
+  - name: McKinney
+    slug: mckinney
+    population: 195308
+    county: Collin
+  - name: Grand Prairie
+    slug: grand-prairie
+    population: 196100
+    county: Dallas/Tarrant
+  - name: Mesquite
+    slug: mesquite
+    population: 150108
+    county: Dallas
+  - name: Carrollton
+    slug: carrollton
+    population: 133434
+    county: Dallas/Denton
+  - name: Richardson
+    slug: richardson
+    population: 119469
+    county: Dallas/Collin
+  - name: Allen
+    slug: allen
+    population: 104627
+    county: Collin
+  - name: Lewisville
+    slug: lewisville
+    population: 111822
+    county: Denton
+
+collin_county:
+  - name: Prosper
+    slug: prosper
+    population: 30174
+  - name: Wylie
+    slug: wylie
+    population: 57526
+  - name: Murphy
+    slug: murphy
+    population: 21013
+  - name: Sachse
+    slug: sachse
+    population: 27103
+  - name: Fairview
+    slug: fairview
+    population: 10400
+  - name: Lucas
+    slug: lucas
+    population: 8200
+  - name: Parker
+    slug: parker
+    population: 5400
+  - name: Melissa
+    slug: melissa
+    population: 13900
+  - name: Anna
+    slug: anna
+    population: 16896
+  - name: Princeton
+    slug: princeton
+    population: 17027
+  - name: Celina
+    slug: celina
+    population: 16739
+  - name: Farmersville
+    slug: farmersville
+    population: 3700
+
+denton_county:
+  - name: Denton
+    slug: denton
+    population: 139869
+  - name: Flower Mound
+    slug: flower-mound
+    population: 79773
+  - name: The Colony
+    slug: the-colony
+    population: 44534
+  - name: Little Elm
+    slug: little-elm
+    population: 46453
+  - name: Corinth
+    slug: corinth
+    population: 22300
+  - name: Highland Village
+    slug: highland-village
+    population: 16000
+  - name: Lake Dallas
+    slug: lake-dallas
+    population: 8000
+  - name: Argyle
+    slug: argyle
+    population: 4900
+  - name: Aubrey
+    slug: aubrey
+    population: 5800
+  - name: Pilot Point
+    slug: pilot-point
+    population: 4500
+  - name: Sanger
+    slug: sanger
+    population: 8800
+  - name: Roanoke
+    slug: roanoke
+    population: 9600
+  - name: Trophy Club
+    slug: trophy-club
+    population: 13600
+  - name: Justin
+    slug: justin
+    population: 4200
+  - name: Krum
+    slug: krum
+    population: 5600
+
+dallas_county:
+  - name: DeSoto
+    slug: desoto
+    population: 56134
+  - name: Cedar Hill
+    slug: cedar-hill
+    population: 49149
+  - name: Duncanville
+    slug: duncanville
+    population: 40706
+  - name: Lancaster
+    slug: lancaster
+    population: 41275
+  - name: Farmers Branch
+    slug: farmers-branch
+    population: 35991
+  - name: Balch Springs
+    slug: balch-springs
+    population: 27592
+  - name: University Park
+    slug: university-park
+    population: 25278
+  - name: Rowlett
+    slug: rowlett
+    population: 67339
+  - name: Coppell
+    slug: coppell
+    population: 42983
+  - name: Highland Park
+    slug: highland-park
+    population: 9143
+  - name: Addison
+    slug: addison
+    population: 16661
+  - name: Cockrell Hill
+    slug: cockrell-hill
+    population: 4400
+  - name: Glenn Heights
+    slug: glenn-heights
+    population: 16400
+  - name: Hutchins
+    slug: hutchins
+    population: 5900
+  - name: Seagoville
+    slug: seagoville
+    population: 18300
+  - name: Sunnyvale
+    slug: sunnyvale
+    population: 6900
+  - name: Wilmer
+    slug: wilmer
+    population: 5600
+
+tarrant_county:
+  - name: Mansfield
+    slug: mansfield
+    population: 72602
+  - name: Euless
+    slug: euless
+    population: 61032
+  - name: Bedford
+    slug: bedford
+    population: 49928
+  - name: Grapevine
+    slug: grapevine
+    population: 54151
+  - name: Haltom City
+    slug: haltom-city
+    population: 46073
+  - name: Keller
+    slug: keller
+    population: 45776
+  - name: Hurst
+    slug: hurst
+    population: 40413
+  - name: Burleson
+    slug: burleson
+    population: 48225
+  - name: North Richland Hills
+    slug: north-richland-hills
+    population: 70670
+  - name: Southlake
+    slug: southlake
+    population: 31265
+  - name: Colleyville
+    slug: colleyville
+    population: 26866
+  - name: Watauga
+    slug: watauga
+    population: 24800
+  - name: Benbrook
+    slug: benbrook
+    population: 24500
+  - name: Saginaw
+    slug: saginaw
+    population: 24700
+  - name: Crowley
+    slug: crowley
+    population: 18600
+  - name: Forest Hill
+    slug: forest-hill
+    population: 13900
+  - name: Richland Hills
+    slug: richland-hills
+    population: 8400
+  - name: White Settlement
+    slug: white-settlement
+    population: 18500
+  - name: Azle
+    slug: azle
+    population: 13400
+  - name: Haslet
+    slug: haslet
+    population: 2900
+  - name: Westworth Village
+    slug: westworth-village
+    population: 2900
+  - name: Blue Mound
+    slug: blue-mound
+    population: 2400
+  - name: Kennedale
+    slug: kennedale
+    population: 8500
+  - name: Pantego
+    slug: pantego
+    population: 2600
+  - name: Everman
+    slug: everman
+    population: 6100
+
+rockwall_county:
+  - name: Rockwall
+    slug: rockwall
+    population: 47251
+  - name: Royse City
+    slug: royse-city
+    population: 13700
+  - name: Fate
+    slug: fate
+    population: 18500
+  - name: Heath
+    slug: heath
+    population: 9200
+  - name: McLendon-Chisholm
+    slug: mclendon-chisholm
+    population: 3700
+
+kaufman_county:
+  - name: Terrell
+    slug: terrell
+    population: 17465
+  - name: Forney
+    slug: forney
+    population: 23443
+  - name: Kaufman
+    slug: kaufman
+    population: 7300
+  - name: Crandall
+    slug: crandall
+    population: 4200
+  - name: Mabank
+    slug: mabank
+    population: 3800
+  - name: Kemp
+    slug: kemp
+    population: 1200
+
+ellis_county:
+  - name: Waxahachie
+    slug: waxahachie
+    population: 41140
+  - name: Ennis
+    slug: ennis
+    population: 20159
+  - name: Red Oak
+    slug: red-oak
+    population: 14300
+  - name: Midlothian
+    slug: midlothian
+    population: 32170
+  - name: Ovilla
+    slug: ovilla
+    population: 4200
+  - name: Palmer
+    slug: palmer
+    population: 2100
+  - name: Italy
+    slug: italy
+    population: 1900
+  - name: Ferris
+    slug: ferris
+    population: 2800
+
+johnson_county:
+  - name: Cleburne
+    slug: cleburne
+    population: 31336
+  - name: Alvarado
+    slug: alvarado
+    population: 4700
+  - name: Burleson (partial)
+    slug: burleson-johnson
+    population: 10000
+  - name: Joshua
+    slug: joshua
+    population: 7800
+  - name: Keene
+    slug: keene
+    population: 6500
+  - name: Grandview
+    slug: grandview
+    population: 2000
+  - name: Venus
+    slug: venus
+    population: 4200
+
+parker_county:
+  - name: Weatherford
+    slug: weatherford
+    population: 30854
+  - name: Aledo
+    slug: aledo
+    population: 5400
+  - name: Springtown
+    slug: springtown
+    population: 3400
+  - name: Willow Park
+    slug: willow-park
+    population: 5900
+  - name: Hudson Oaks
+    slug: hudson-oaks
+    population: 2700
+
+wise_county:
+  - name: Decatur
+    slug: decatur
+    population: 6538
+  - name: Bridgeport
+    slug: bridgeport
+    population: 6500
+  - name: Rhome
+    slug: rhome
+    population: 1700
+  - name: Boyd
+    slug: boyd
+    population: 1400
+  - name: Aurora
+    slug: aurora
+    population: 1400
+
+# Commercial districts and business areas
+commercial_districts:
+  - name: Downtown Dallas
+    slug: downtown-dallas
+  - name: Uptown Dallas
+    slug: uptown-dallas
+  - name: Las Colinas
+    slug: las-colinas
+  - name: Legacy West (Plano)
+    slug: legacy-west
+  - name: Addison Circle
+    slug: addison-circle
+  - name: Fort Worth Cultural District
+    slug: fort-worth-cultural-district
+  - name: Dallas Design District
+    slug: dallas-design-district
+  - name: Medical District Dallas
+    slug: medical-district-dallas
+  - name: Bishop Arts District
+    slug: bishop-arts-district
+  - name: Deep Ellum
+    slug: deep-ellum
+  - name: Victory Park
+    slug: victory-park
+  - name: Knox-Henderson
+    slug: knox-henderson
+  - name: Arlington Entertainment District
+    slug: arlington-entertainment-district
+  - name: Alliance Texas
+    slug: alliance-texas
+  - name: DFW Airport Area
+    slug: dfw-airport
+  - name: Love Field Area
+    slug: love-field
+
+# Service coverage summary
+coverage:
+  total_cities: 120
+  major_metros: 14
+  total_population: 7500000
+  counties: 12
+  radius_miles: 60
+  commercial_focus: true

@@ -1,0 +1,146 @@
+{
+  "$ref": "#/definitions/cities",
+  "definitions": {
+    "cities": {
+      "type": "object",
+      "properties": {
+        "cities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "fullName": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "zip": {
+                "type": [
+                  "string",
+                  "number"
+                ]
+              },
+              "county": {
+                "type": "string"
+              },
+              "population": {
+                "type": "number"
+              },
+              "coordinates": {
+                "type": "object",
+                "properties": {
+                  "lat": {
+                    "type": "number"
+                  },
+                  "lng": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "lat",
+                  "lng"
+                ],
+                "additionalProperties": false
+              },
+              "description": {
+                "type": "string"
+              },
+              "shortDescription": {
+                "type": "string"
+              },
+              "serviceRadius": {
+                "type": "number"
+              },
+              "priority": {
+                "type": "number"
+              },
+              "established": {
+                "type": "boolean"
+              },
+              "keywords": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "demographics": {
+                "type": "object",
+                "properties": {
+                  "medianIncome": {
+                    "type": "number"
+                  },
+                  "homeOwnership": {
+                    "type": "number"
+                  },
+                  "avgHomeAge": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "medianIncome",
+                  "homeOwnership",
+                  "avgHomeAge"
+                ],
+                "additionalProperties": false
+              },
+              "marketData": {
+                "type": "object",
+                "properties": {
+                  "competition": {
+                    "type": "string"
+                  },
+                  "opportunity": {
+                    "type": "string"
+                  },
+                  "searchVolume": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "competition",
+                  "opportunity",
+                  "searchVolume"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "slug",
+              "name",
+              "fullName",
+              "state",
+              "zip",
+              "county",
+              "population",
+              "coordinates",
+              "description",
+              "shortDescription",
+              "serviceRadius",
+              "priority",
+              "established",
+              "keywords",
+              "demographics",
+              "marketData"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "cities"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

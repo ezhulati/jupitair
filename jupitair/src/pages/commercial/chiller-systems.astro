@@ -1,0 +1,395 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PremiumHero from '../../components/layout/PremiumHero.astro';
+import PremiumCard from '../../components/ui/PremiumCard.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import Badge from '../../components/ui/Badge.astro';
+import ReviewsSection from '../../components/reviews/ReviewsSection.astro';
+
+const chillerTypes = [
+  {
+    type: 'Air-Cooled Chillers',
+    range: '$100K - $500K',
+    capacity: '50 - 500 tons',
+    applications: 'Office buildings, hotels, hospitals',
+    benefits: 'Lower installation cost, no cooling tower needed'
+  },
+  {
+    type: 'Water-Cooled Chillers',
+    range: '$200K - $1M+',
+    capacity: '100 - 2000+ tons',
+    applications: 'Large commercial, data centers, industrial',
+    benefits: 'Higher efficiency, better for 24/7 operations'
+  },
+  {
+    type: 'Modular Chillers',
+    range: '$150K - $750K',
+    capacity: '60 - 600 tons',
+    applications: 'Expandable facilities, phased construction',
+    benefits: 'Scalable capacity, redundancy built-in'
+  },
+  {
+    type: 'Magnetic Bearing Chillers',
+    range: '$300K - $1.5M',
+    capacity: '200 - 1500 tons',
+    applications: 'High-efficiency requirements, LEED projects',
+    benefits: 'Ultra-efficient, oil-free, quiet operation'
+  }
+];
+
+const services = [
+  { icon: '🔧', title: 'Installation', desc: 'Complete system design & installation' },
+  { icon: '🔄', title: 'Replacement', desc: 'Retrofit & modernization projects' },
+  { icon: '🛠️', title: 'Repair', desc: '24/7 emergency chiller repair' },
+  { icon: '📊', title: 'Optimization', desc: 'Performance tuning & controls' },
+  { icon: '🔬', title: 'Testing', desc: 'Vibration analysis & diagnostics' },
+  { icon: '📋', title: 'Maintenance', desc: 'Preventive maintenance programs' }
+];
+
+const expertise = [
+  'Centrifugal Chillers',
+  'Screw Chillers',
+  'Scroll Chillers',
+  'Absorption Chillers',
+  'Heat Recovery Chillers',
+  'VFD Retrofits'
+];
+
+const metrics = [
+  { value: '200+', label: 'Chillers Serviced' },
+  { value: '50,000', label: 'Total Tonnage' },
+  { value: '24/7', label: 'Emergency Service' },
+  { value: '15+', label: 'Years Experience' }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Commercial Chiller Systems",
+  "provider": {
+    "@type": "HVACBusiness",
+    "name": "Jupitair HVAC"
+  },
+  "areaServed": "Dallas-Fort Worth Metroplex",
+  "description": "Commercial chiller installation, replacement, and service from $100K to $1M+",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceRange": "$100,000 - $1,500,000+"
+  }
+};
+---
+
+<BaseLayout
+  title="Commercial Chiller Systems DFW | $100K-$1M+ Projects | Jupitair"
+  description="Commercial chiller installation and service in Dallas-Fort Worth. Air-cooled, water-cooled, and magnetic bearing chillers. 50-2000+ tons. Call (940) 390-5676."
+  keywords="commercial chiller systems, chiller installation DFW, chiller replacement, industrial chillers"
+  canonical="https://jupitairhvac.com/commercial/chiller-systems"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <PremiumHero
+    title="Commercial Chiller Systems"
+    subtitle="$100K to $1.5M+ Projects"
+    description="Expert chiller installation, replacement, and service for large commercial facilities. From 50 to 2000+ tons. Air-cooled, water-cooled, and high-efficiency magnetic bearing systems."
+    ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
+    ctaSecondary={{ text: "Get Chiller Quote", href: "/commercial/quote" }}
+    variant="gradient"
+    height="lg"
+  />
+
+  <!-- Key Metrics Bar -->
+  <section class="bg-gray-900 py-8 border-b border-gray-800">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
+        {metrics.map(metric => (
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-primary-400">{metric.value}</div>
+            <div class="text-sm text-gray-400 mt-1">{metric.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Chiller Types & Pricing -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <Badge variant="primary" class="mb-4">System Options</Badge>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Commercial Chiller Solutions
+          </h2>
+          <p class="text-xl text-gray-600">
+            Complete chiller systems for every commercial application
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+          {chillerTypes.map(chiller => (
+            <PremiumCard variant="elevated" padding="lg" class="hover:shadow-2xl transition-all">
+              <h3 class="text-2xl font-bold text-gray-900 mb-3">{chiller.type}</h3>
+              <div class="text-3xl font-bold text-primary-600 mb-4">{chiller.range}</div>
+              
+              <div class="space-y-3 mb-6">
+                <div class="flex items-start">
+                  <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <span class="font-semibold">Capacity:</span> {chiller.capacity}
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <span class="font-semibold">Ideal for:</span> {chiller.applications}
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <div>
+                    <span class="font-semibold">Benefits:</span> {chiller.benefits}
+                  </div>
+                </div>
+              </div>
+              
+              <Button href="/commercial/quote" variant="primary" size="md" class="w-full">
+                Get Quote →
+              </Button>
+            </PremiumCard>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comprehensive Services -->
+  <section class="py-16 bg-gradient-to-br from-gray-50 to-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Complete Chiller Services
+          </h2>
+          <p class="text-xl text-gray-600">
+            From installation to optimization, we handle it all
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map(service => (
+            <Card variant="elevated" padding="lg" class="text-center hover:shadow-xl transition-shadow">
+              <div class="text-4xl mb-3">{service.icon}</div>
+              <h3 class="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
+              <p class="text-sm text-gray-600">{service.desc}</p>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Jupitair -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <Badge variant="primary" class="mb-4">Why Jupitair</Badge>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Chiller Expertise You Can Trust
+            </h2>
+            <p class="text-lg text-gray-600 mb-8">
+              With over 15 years of experience in commercial chiller systems, we deliver reliable solutions for critical cooling applications.
+            </p>
+
+            <div class="space-y-4">
+              <Card variant="default" padding="md">
+                <h3 class="font-bold text-gray-900 mb-2">Factory-Certified Technicians</h3>
+                <p class="text-sm text-gray-600">Trained and certified by Carrier, Trane, York, and Daikin for chiller service</p>
+              </Card>
+              
+              <Card variant="default" padding="md">
+                <h3 class="font-bold text-gray-900 mb-2">24/7 Emergency Response</h3>
+                <p class="text-sm text-gray-600">Critical cooling failures can't wait - we're available around the clock</p>
+              </Card>
+              
+              <Card variant="default" padding="md">
+                <h3 class="font-bold text-gray-900 mb-2">Performance Guarantees</h3>
+                <p class="text-sm text-gray-600">We guarantee capacity and efficiency ratings on all new installations</p>
+              </Card>
+              
+              <Card variant="default" padding="md">
+                <h3 class="font-bold text-gray-900 mb-2">Preventive Maintenance Programs</h3>
+                <p class="text-sm text-gray-600">Keep your chillers running at peak efficiency with regular maintenance</p>
+              </Card>
+            </div>
+          </div>
+
+          <div class="bg-gray-900 text-white rounded-2xl p-8">
+            <h3 class="text-2xl font-bold mb-6">Technical Expertise</h3>
+            
+            <div class="mb-8">
+              <h4 class="font-semibold mb-4 text-primary-400">Equipment We Service:</h4>
+              <div class="grid grid-cols-2 gap-3">
+                {expertise.map(item => (
+                  <div class="flex items-center">
+                    <svg class="w-4 h-4 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-6">
+              <h4 class="font-semibold mb-4 text-primary-400">Certifications:</h4>
+              <ul class="space-y-2 text-sm">
+                <li>• EPA Universal Certification</li>
+                <li>• NATE Commercial Refrigeration</li>
+                <li>• ASHRAE Certified</li>
+                <li>• Factory Authorized Service</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Energy Savings CTA -->
+  <section class="py-16 bg-gradient-to-r from-primary-600 to-primary-700 text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <Badge variant="secondary" class="mb-4 bg-white text-primary-600">Energy Savings</Badge>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Upgrade to High-Efficiency Chillers
+        </h2>
+        <p class="text-xl mb-8 text-primary-100">
+          Modern chillers can reduce energy costs by 30-50% compared to systems 15+ years old
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+            <div class="text-3xl font-bold mb-2">0.45</div>
+            <div class="text-sm">kW/ton Efficiency</div>
+            <div class="text-xs mt-2 text-primary-200">Magnetic Bearing</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+            <div class="text-3xl font-bold mb-2">50%</div>
+            <div class="text-sm">Energy Reduction</div>
+            <div class="text-xs mt-2 text-primary-200">vs. Old Systems</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+            <div class="text-3xl font-bold mb-2">3-5 yr</div>
+            <div class="text-sm">ROI Period</div>
+            <div class="text-xs mt-2 text-primary-200">With Rebates</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/commercial/energy-audit" variant="secondary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
+            Schedule Energy Audit
+          </Button>
+          <Button href="tel:(940) 390-5676" variant="outline" size="lg" class="border-white text-white hover:bg-white hover:text-primary-600">
+            Call (940) 390-5676
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <Badge variant="primary" class="mb-4">Project Showcase</Badge>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Recent Chiller Projects
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <Card variant="elevated" padding="lg">
+            <div class="text-2xl font-bold text-primary-600 mb-2">$1.2M</div>
+            <h3 class="font-bold text-gray-900 mb-2">Medical Center</h3>
+            <p class="text-sm text-gray-600 mb-3">800-ton water-cooled chiller replacement with zero downtime during operation</p>
+            <div class="text-xs text-gray-500">Dallas, TX</div>
+          </Card>
+          
+          <Card variant="elevated" padding="lg">
+            <div class="text-2xl font-bold text-primary-600 mb-2">$850K</div>
+            <h3 class="font-bold text-gray-900 mb-2">Data Center</h3>
+            <p class="text-sm text-gray-600 mb-3">Redundant 500-ton air-cooled chillers with N+1 configuration</p>
+            <div class="text-xs text-gray-500">Plano, TX</div>
+          </Card>
+          
+          <Card variant="elevated" padding="lg">
+            <div class="text-2xl font-bold text-primary-600 mb-2">$650K</div>
+            <h3 class="font-bold text-gray-900 mb-2">Office Tower</h3>
+            <p class="text-sm text-gray-600 mb-3">400-ton magnetic bearing chiller for LEED Gold certification</p>
+            <div class="text-xs text-gray-500">Frisco, TX</div>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <ReviewsSection 
+    limit={6}
+    variant="grid"
+    showCta={false}
+  />
+
+  <!-- Final CTA -->
+  <section class="py-16 bg-gray-900 text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Ready to Discuss Your Chiller Project?
+        </h2>
+        <p class="text-xl mb-8 text-gray-300">
+          Expert consultation • Competitive pricing • Reliable service
+        </p>
+        
+        <div class="bg-gray-800 rounded-2xl p-8 mb-8">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="font-bold text-lg mb-3">Chiller Emergency?</h3>
+              <Button href="tel:(940) 390-5676" variant="emergency" size="lg" class="w-full bg-emergency-600 hover:bg-emergency-700">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                </svg>
+                24/7: (940) 390-5676
+              </Button>
+              <p class="text-sm text-gray-400 mt-2">Immediate response available</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-3">New Project Quote:</h3>
+              <Button href="/commercial/quote" variant="secondary" size="lg" class="w-full">
+                Get Free Consultation
+              </Button>
+              <p class="text-sm text-gray-400 mt-2">Detailed proposal within 48 hours</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+          <span>✓ Licensed & Insured</span>
+          <span>✓ Factory Authorized</span>
+          <span>✓ $2M Liability Coverage</span>
+          <span>✓ TACLA28994E</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

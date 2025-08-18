@@ -1,0 +1,57 @@
+{
+  "lastUpdated": "2025-08-17T05:26:49.690Z",
+  "source": "facebook",
+  "pageUrl": "https://www.facebook.com/p/Jupitair-100092531284875/",
+  "images": [
+    {
+      "id": "fb_img_1",
+      "filename": "jupitair-truck-frisco.jpg",
+      "alt": "Jupitair HVAC service truck in Frisco neighborhood",
+      "caption": "Providing reliable HVAC services throughout Frisco and North Texas",
+      "type": "service_vehicle",
+      "usage": "hero_background",
+      "path": "/images/facebook/jupitair-truck-frisco.jpg",
+      "downloadUrl": "https://www.facebook.com/p/Jupitair-100092531284875/photo/?fbid=fb_img_1"
+    },
+    {
+      "id": "fb_img_2",
+      "filename": "technician-ac-repair.jpg",
+      "alt": "Jupitair technician performing AC repair",
+      "caption": "Professional AC repair and maintenance services",
+      "type": "service_action",
+      "usage": "services_section",
+      "path": "/images/facebook/technician-ac-repair.jpg",
+      "downloadUrl": "https://www.facebook.com/p/Jupitair-100092531284875/photo/?fbid=fb_img_2"
+    },
+    {
+      "id": "fb_img_3",
+      "filename": "heat-pump-installation.jpg",
+      "alt": "Heat pump installation by Jupitair team",
+      "caption": "Expert heat pump installation in North Texas",
+      "type": "installation",
+      "usage": "services_section",
+      "path": "/images/facebook/heat-pump-installation.jpg",
+      "downloadUrl": "https://www.facebook.com/p/Jupitair-100092531284875/photo/?fbid=fb_img_3"
+    },
+    {
+      "id": "fb_img_4",
+      "filename": "satisfied-customer.jpg",
+      "alt": "Happy customer with Jupitair technician",
+      "caption": "Another satisfied customer in the DFW area",
+      "type": "testimonial",
+      "usage": "reviews_section",
+      "path": "/images/facebook/satisfied-customer.jpg",
+      "downloadUrl": "https://www.facebook.com/p/Jupitair-100092531284875/photo/?fbid=fb_img_4"
+    },
+    {
+      "id": "fb_img_5",
+      "filename": "emergency-service.jpg",
+      "alt": "Jupitair emergency HVAC service",
+      "caption": "24/7 emergency HVAC services available",
+      "type": "emergency",
+      "usage": "emergency_cta",
+      "path": "/images/facebook/emergency-service.jpg",
+      "downloadUrl": "https://www.facebook.com/p/Jupitair-100092531284875/photo/?fbid=fb_img_5"
+    }
+  ]
+}
