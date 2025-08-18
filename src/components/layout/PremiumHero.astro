@@ -1,0 +1,522 @@
+---
+import PremiumButton from '../ui/PremiumButton.astro';
+
+export interface Props {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  ctaPrimary?: {
+    text: string;
+    href: string;
+  };
+  ctaSecondary?: {
+    text: string;
+    href: string;
+  };
+  emergency?: boolean;
+  videoUrl?: string;
+  imageUrl?: string;
+  variant?: 'default' | 'gradient' | 'video' | 'parallax' | 'animated';
+  height?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
+  overlay?: boolean;
+  particles?: boolean;
+}
+
+const {
+  title,
+  subtitle,
+  description,
+  ctaPrimary,
+  ctaSecondary,
+  emergency = false,
+  videoUrl,
+  imageUrl,
+  variant = 'default',
+  height = 'lg',
+  overlay = true,
+  particles = false,
+} = Astro.props;
+
+const heightClasses = {
+  sm: 'min-h-[500px]',
+  md: 'min-h-[550px]',
+  lg: 'min-h-[600px]',
+  xl: 'min-h-[700px]',
+  full: 'min-h-screen',
+};
+
+const variantClasses = {
+  default: 'bg-white',
+  gradient: 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800',
+  video: 'bg-white',
+  parallax: 'bg-white',
+  animated: 'bg-white',
+};
+---
+
+<section
+  class={`premium-hero hero-section relative overflow-hidden ${heightClasses[height]} ${variantClasses[variant]} ${emergency ? 'has-emergency-banner' : ''}`}
+  data-variant={variant}
+>
+  {/* Video Background */}
+  {videoUrl && (
+    <div class="absolute inset-0 w-full h-full">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={videoUrl} type="video/mp4" />
+      </video>
+    </div>
+  )}
+
+  {/* Image Background with Parallax */}
+  {imageUrl && !videoUrl && (
+    <div 
+      class="absolute inset-0 w-full h-full parallax-bg"
+      data-speed="0.5"
+    >
+      <img
+        src={imageUrl}
+        alt=""
+        class="absolute inset-0 w-full h-full object-cover"
+        loading="eager"
+      />
+    </div>
+  )}
+
+  {/* Animated Gradient Background */}
+  {variant === 'animated' && (
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-gray-50"></div>
+      <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-blue-100/30 to-transparent opacity-50 animate-gradient-shift"></div>
+    </div>
+  )}
+
+  {/* Overlay - Light overlay for text readability on images/videos */}
+  {overlay && (videoUrl || imageUrl) && (
+    <div class="absolute inset-0 bg-gradient-to-b from-white/90 via-white/80 to-white/90"></div>
+  )}
+
+  {/* Geometric Pattern Background */}
+  <div class="absolute inset-0 pointer-events-none opacity-5">
+    <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#2563eb" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+    </svg>
+  </div>
+
+  {/* Particle Effect */}
+  {particles && (
+    <div class="particles absolute inset-0 pointer-events-none">
+      <div class="particle bg-blue-500"></div>
+      <div class="particle bg-blue-400"></div>
+      <div class="particle bg-blue-600"></div>
+      <div class="particle bg-blue-500"></div>
+      <div class="particle bg-blue-400"></div>
+      <div class="particle bg-blue-600"></div>
+      <div class="particle bg-blue-500"></div>
+      <div class="particle bg-blue-400"></div>
+      <div class="particle bg-blue-600"></div>
+      <div class="particle bg-blue-500"></div>
+    </div>
+  )}
+
+  {/* Noise Texture */}
+  <div class="absolute inset-0 opacity-[0.02] mix-blend-overlay pointer-events-none noise-texture"></div>
+
+  {/* Emergency Alert Banner */}
+  {emergency && (
+    <div class="absolute top-0 left-0 right-0 z-20 bg-red-600 text-white py-2 px-4">
+      <div class="container mx-auto flex items-center justify-center gap-2 whitespace-nowrap">
+        <span class="animate-pulse">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+          </svg>
+        </span>
+        <span class="font-semibold text-sm sm:text-base">24/7 Emergency Service Available Call Now</span>
+      </div>
+    </div>
+  )}
+
+  {/* Content Container - With proper spacing based on emergency banner */}
+  <div class={`hero-content relative z-10 h-full flex items-center justify-center px-4 sm:px-6 lg:px-8 ${emergency ? 'pt-24 sm:pt-32 pb-24 sm:pb-32' : 'py-20 sm:py-24'}`}>
+    <div class="container mx-auto text-center">
+      {/* Animated Title */}
+      <div class="space-y-6 animate-fade-in-up">
+        {subtitle && (
+          <p class={`text-lg sm:text-xl md:text-2xl font-bold tracking-wide uppercase animate-slide-in-left ${variant === 'gradient' ? 'text-blue-200' : 'text-blue-600'}`}>
+            {subtitle}
+          </p>
+        )}
+        
+        <h1 class={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight drop-shadow-sm ${variant === 'gradient' ? 'text-white' : 'text-gray-900'}`}>
+          <span class="inline-block">
+            {title}
+          </span>
+        </h1>
+
+        {description && (
+          <p class={`max-w-4xl mx-auto text-xl sm:text-2xl leading-relaxed font-medium animate-slide-in-right ${variant === 'gradient' ? 'text-blue-100' : 'text-gray-800'}`}>
+            {description}
+          </p>
+        )}
+
+        {/* CTA Buttons - Enterprise Size */}
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 animate-fade-in">
+          {ctaPrimary && (
+            <a
+              href={ctaPrimary.href}
+              class={`inline-flex items-center justify-center px-10 py-5 text-xl font-bold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200 min-w-[280px] border-2 ${
+                variant === 'gradient' 
+                  ? 'text-blue-800 bg-white hover:bg-gray-100 border-white' 
+                  : 'text-white bg-blue-600 hover:bg-blue-700 border-blue-700'
+              }`}
+            >
+              {ctaPrimary.text}
+            </a>
+          )}
+          
+          {ctaSecondary && (
+            <a
+              href={ctaSecondary.href}
+              class={`inline-flex items-center justify-center px-10 py-5 text-xl font-bold rounded-xl shadow-xl transform hover:scale-105 transition-all duration-200 min-w-[280px] border-2 ${
+                variant === 'gradient' 
+                  ? 'text-white bg-transparent border-white hover:bg-white hover:text-blue-800' 
+                  : 'text-gray-900 bg-white border-gray-900 hover:bg-gray-900 hover:text-white'
+              }`}
+            >
+              {ctaSecondary.text}
+            </a>
+          )}
+        </div>
+      </div>
+
+      {/* Trust Indicators - Enterprise Size with proper mobile spacing */}
+      <div class="mt-8 sm:mt-10 mb-8 sm:mb-12 flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-6 animate-fade-in-delayed px-4">
+        <div class="flex items-center gap-3 bg-white/95 backdrop-blur-sm px-5 py-3 rounded-full shadow-lg border border-gray-200/50 w-full sm:w-auto justify-center">
+          <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="text-gray-800 font-semibold text-sm">Licensed & Insured</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/95 backdrop-blur-sm px-5 py-3 rounded-full shadow-lg border border-gray-200/50 w-full sm:w-auto justify-center">
+          <svg class="w-5 h-5 text-yellow-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+          <span class="text-gray-800 font-semibold text-sm">5-Star Rated</span>
+        </div>
+        <div class="flex items-center gap-3 bg-white/95 backdrop-blur-sm px-5 py-3 rounded-full shadow-lg border border-gray-200/50 w-full sm:w-auto justify-center">
+          <svg class="w-5 h-5 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+          </svg>
+          <span class="text-gray-800 font-semibold text-sm">Same-Day Service</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Remove scroll indicator to reduce white space */}
+
+  {/* Professional Background Pattern */}
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-600 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
+    <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
+    <div class="absolute top-40 left-20 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-4000"></div>
+  </div>
+  
+  {/* Professional Grid Pattern */}
+  <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgb(148 163 184 / 0.1) 1px, transparent 1px); background-size: 40px 40px;"></div>
+</section>
+
+<style>
+  @keyframes gradient-shift {
+    0%, 100% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes word-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes blob {
+    0%, 100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  @keyframes particle-float {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+
+  .animate-gradient-shift {
+    animation: gradient-shift 10s ease infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 1s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.8s ease-out forwards;
+  }
+
+  .animate-word-reveal {
+    animation: word-reveal 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in {
+    animation: fade-in-up 1s ease-out 0.5s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-delayed {
+    animation: fade-in-up 1s ease-out 0.8s forwards;
+    opacity: 0;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out 3s infinite;
+  }
+
+  /* Particle Styles */
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: particle-float linear infinite;
+  }
+
+  .particle:nth-child(1) {
+    left: 10%;
+    animation-duration: 12s;
+    animation-delay: 0s;
+  }
+
+  .particle:nth-child(2) {
+    left: 20%;
+    animation-duration: 15s;
+    animation-delay: 2s;
+  }
+
+  .particle:nth-child(3) {
+    left: 30%;
+    animation-duration: 18s;
+    animation-delay: 4s;
+  }
+
+  .particle:nth-child(4) {
+    left: 40%;
+    animation-duration: 20s;
+    animation-delay: 6s;
+  }
+
+  .particle:nth-child(5) {
+    left: 50%;
+    animation-duration: 22s;
+    animation-delay: 8s;
+  }
+
+  .particle:nth-child(6) {
+    left: 60%;
+    animation-duration: 14s;
+    animation-delay: 10s;
+  }
+
+  .particle:nth-child(7) {
+    left: 70%;
+    animation-duration: 16s;
+    animation-delay: 1s;
+  }
+
+  .particle:nth-child(8) {
+    left: 80%;
+    animation-duration: 19s;
+    animation-delay: 3s;
+  }
+
+  .particle:nth-child(9) {
+    left: 90%;
+    animation-duration: 21s;
+    animation-delay: 5s;
+  }
+
+  .particle:nth-child(10) {
+    left: 95%;
+    animation-duration: 17s;
+    animation-delay: 7s;
+  }
+
+  /* Noise Texture */
+  .noise-texture {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* Animated Gradient Background */
+  .animated-gradient-bg {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+  }
+
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Title Typography Enhancement - Removed gradient for visibility */
+  .hero-title-old {
+    /* Gradient text disabled for better visibility */
+  }
+
+  /* Performance Optimizations */
+  .premium-hero {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+</style>
+
+<script>
+  // Parallax Effect
+  document.addEventListener('DOMContentLoaded', () => {
+    const parallaxElements = document.querySelectorAll('.parallax-bg');
+    
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      
+      parallaxElements.forEach((element) => {
+        const speed = element.dataset.speed || 0.5;
+        const yPos = -(scrolled * speed);
+        element.style.transform = `translateY(${yPos}px)`;
+      });
+    });
+  });
+
+  // Text Animation on Load
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px'
+  };
+
+  const textObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-text-reveal');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.hero-title').forEach((element) => {
+    textObserver.observe(element);
+  });
+</script>
