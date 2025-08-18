@@ -1,0 +1,115 @@
+---
+import { getCloudinaryUrl, getResponsiveSrcSet, getBlurPlaceholder, imagePresets } from '../lib/cloudinary';
+
+export interface Props {
+  src: string; // Cloudinary public ID or regular URL
+  alt: string;
+  preset?: keyof typeof imagePresets;
+  width?: number;
+  height?: number;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  sizes?: string;
+  responsive?: boolean;
+  blur?: boolean;
+}
+
+const {
+  src,
+  alt,
+  preset = 'thumbnail',
+  width,
+  height,
+  class: className = '',
+  loading = 'lazy',
+  sizes = '100vw',
+  responsive = true,
+  blur = true
+} = Astro.props;
+
+// Check if src is a Cloudinary public ID or a regular URL
+const isCloudinaryId = !src.startsWith('http') && !src.startsWith('/');
+
+// Generate URLs
+const imageUrl = isCloudinaryId 
+  ? getCloudinaryUrl(src, preset)
+  : src;
+
+const srcSet = isCloudinaryId && responsive
+  ? getResponsiveSrcSet(src)
+  : undefined;
+
+const blurPlaceholder = isCloudinaryId && blur && loading === 'lazy'
+  ? getBlurPlaceholder(src)
+  : undefined;
+
+// Get dimensions from preset if not provided
+const presetConfig = imagePresets[preset];
+const imgWidth = width || presetConfig.width;
+const imgHeight = height || presetConfig.height;
+---
+
+<picture>
+  {isCloudinaryId && (
+    <>
+      <!-- WebP format for modern browsers -->
+      <source
+        type="image/webp"
+        srcset={srcSet?.replace(/\.jpg|\.png/g, '.webp')}
+        sizes={sizes}
+      />
+      <!-- AVIF format for newest browsers -->
+      <source
+        type="image/avif"
+        srcset={srcSet?.replace(/\.jpg|\.png/g, '.avif')}
+        sizes={sizes}
+      />
+    </>
+  )}
+  
+  <img
+    src={imageUrl}
+    srcset={srcSet}
+    sizes={responsive ? sizes : undefined}
+    alt={alt}
+    width={imgWidth}
+    height={imgHeight}
+    loading={loading}
+    decoding="async"
+    class={`cloudinary-image ${className}`}
+    style={blurPlaceholder ? `background-image: url(${blurPlaceholder}); background-size: cover;` : ''}
+  />
+</picture>
+
+<style>
+  .cloudinary-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .cloudinary-image[loading="lazy"] {
+    transition: filter 0.3s ease;
+  }
+  
+  .cloudinary-image.loaded {
+    filter: none;
+  }
+</style>
+
+<script>
+  // Remove blur when image loads
+  document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.cloudinary-image[loading="lazy"]');
+    
+    images.forEach(img => {
+      if (img.complete) {
+        img.classList.add('loaded');
+      } else {
+        img.addEventListener('load', () => {
+          img.classList.add('loaded');
+        });
+      }
+    });
+  });
+</script>

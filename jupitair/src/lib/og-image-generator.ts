@@ -21,7 +21,7 @@ export interface OGImageConfig {
  * Generate a professional prompt for HVAC service images
  */
 function generateImagePrompt(config: OGImageConfig): string {
-  const { title, service, city, description } = config;
+  const { service, city } = config;
   
   let prompt = "Professional, photorealistic image for HVAC company website. ";
   
@@ -112,7 +112,7 @@ export async function generateOGImage(config: OGImageConfig): Promise<string> {
       style: 'natural',
     });
     
-    const imageUrl = response.data[0]?.url;
+    const imageUrl = response.data?.[0]?.url;
     if (!imageUrl) {
       throw new Error('No image URL returned from OpenAI');
     }

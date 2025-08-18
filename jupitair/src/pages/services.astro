@@ -1,519 +1,194 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
+import Button from '../components/ui/Button.astro';
+import PremiumCard from '../components/ui/PremiumCard.astro';
+import PremiumHero from '../components/layout/PremiumHero.astro';
 import Badge from '../components/ui/Badge.astro';
-import { readFileSync } from 'fs';
-import { parse } from 'yaml';
+import Icon from '../components/ui/Icon.astro';
+import { getCollection } from 'astro:content';
 
-// Load services data
-const servicesData = parse(readFileSync('./data/services.yml', 'utf8'));
-const moneyPages = servicesData.money_pages;
+// Get all service pages from MDX collection
+const servicePages = await getCollection('pages', ({ id }) => {
+  return id.startsWith('services/');
+});
 
+// Transform MDX pages to service cards
+const services = servicePages.map(page => {
+  const slug = page.id.replace('services/', '');
+  const name = page.data.service
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+  
+  return {
+    slug,
+    name,
+    title: page.data.title,
+    description: page.data.description,
+    pricing: page.data.pricing,
+    tags: page.data.tags || [],
+    isEmergency: page.data.tags?.includes('emergency'),
+    isCommercial: page.data.tags?.includes('commercial'),
+  };
+});
 
-// Group services by category for better organization
-const servicesByCategory = {
-  cooling: moneyPages.filter(service => service.category === 'cooling'),
-  heating: moneyPages.filter(service => service.category === 'heating'), 
-  installation: moneyPages.filter(service => service.category === 'installation'),
-  efficiency: moneyPages.filter(service => service.category === 'efficiency'),
-  emergency: moneyPages.filter(service => service.category === 'emergency'),
-  upgrade: moneyPages.filter(service => service.category === 'upgrade')
-};
-
-// Page metadata
-const pageTitle = "HVAC Services in North Texas | Jupitair HVAC - AC, Heating & More";
-const pageDescription = "Complete HVAC services in North Texas including AC repair, heating repair, installation, and emergency service. Licensed technicians serving 8 cities with upfront pricing.";
-
-// Schema for services page
-const servicesSchema = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Jupitair HVAC",
-  "description": pageDescription,
-  "url": "https://jupitairhvac.com/services",
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "HVAC Services",
-    "itemListElement": moneyPages.map(service => ({
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": service.name,
-        "description": service.description,
-        "category": service.category
-      },
-      "priceSpecification": {
-        "@type": "PriceSpecification",
-        "minPrice": service.pricing.starting,
-        "priceCurrency": "USD"
-      }
-    }))
-  }
-};
+// Separate residential and commercial services
+const residentialServices = services.filter(s => !s.isCommercial);
+const commercialServices = services.filter(s => s.isCommercial);
 ---
 
 <BaseLayout 
-  title={pageTitle}
-  description={pageDescription}
+  title="HVAC Services North Texas | Residential & Commercial | Jupitair"
+  description="Complete HVAC services for homes and businesses in North Texas. Residential AC repair, commercial HVAC maintenance, 24/7 emergency service. Call (940) 390-5676."
+  keywords="HVAC services, AC repair, heating repair, commercial HVAC, residential HVAC"
   canonical="https://jupitairhvac.com/services"
 >
-  <!-- Schema.org structured data -->
-  <script type="application/ld+json" set:html={JSON.stringify(servicesSchema)} />
-
   <!-- Hero Section -->
-  <section class="relative bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800 text-white py-16 lg:py-24 overflow-hidden">
-    
-    <div class="container mx-auto px-4 relative z-20">
-      <div class="max-w-4xl mx-auto text-center">
+  <PremiumHero
+    title="Professional HVAC Services"
+    subtitle="Residential & Commercial Solutions"
+    description="Complete heating, cooling, and air quality services for North Texas homes and businesses. Same-day service, 24/7 emergency response."
+    ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
+    ctaSecondary={{ text: "Schedule Service", href: "/schedule" }}
+    variant="gradient"
+    height="md"
+  />
+
+  <!-- All Services Grid -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-7xl mx-auto">
         
-        <!-- H1 Title -->
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-          Complete HVAC Services in North Texas
-        </h1>
-        
-        <!-- Description -->
-        <p class="text-lg sm:text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed max-w-3xl mx-auto">
-          From emergency repairs to new installations, we provide comprehensive HVAC services throughout North Texas with same-day service and upfront pricing.
-        </p>
-        
-        <!-- Primary CTAs -->
-        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-          <Button href="tel:(940) 390-5676" variant="emergency" size="xl" class="flex items-center justify-center space-x-3">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-            </svg>
-            <span>Call (940) 390-5676</span>
-          </Button>
+        <!-- Residential Services -->
+        <div class="mb-16">
+          <div class="text-center mb-8">
+            <Badge variant="primary" class="mb-4">Residential Services</Badge>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Home Comfort Solutions
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+              Complete HVAC services for North Texas homes. From emergency repairs to new installations.
+            </p>
+          </div>
           
-          <Button href="/contact" size="xl" variant="secondary">
-            Get Free Estimate
-          </Button>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {residentialServices.map(service => (
+              <Card variant="elevated" padding="lg" class="hover:shadow-xl transition-all">
+                <div class="flex justify-between items-start mb-3">
+                  <h3 class="text-xl font-bold text-gray-900">{service.name}</h3>
+                  {service.isEmergency && (
+                    <Badge variant="danger" size="sm">24/7</Badge>
+                  )}
+                </div>
+                {service.pricing && (
+                  <div class="text-2xl font-bold text-primary-600 mb-3">
+                    ${service.pricing.min.toLocaleString()} - ${service.pricing.max.toLocaleString()}
+                  </div>
+                )}
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                  {service.description.split('.')[0]}.
+                </p>
+                <Button 
+                  href={`/services/${service.slug}`} 
+                  variant="outline" 
+                  size="sm" 
+                  class="w-full"
+                >
+                  Learn More →
+                </Button>
+              </Card>
+            ))}
+          </div>
         </div>
+
+        <!-- Commercial Services -->
+        {commercialServices.length > 0 && (
+          <div>
+            <div class="text-center mb-8">
+              <Badge variant="secondary" class="mb-4">Commercial Services</Badge>
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Business HVAC Solutions
+              </h2>
+              <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Professional commercial HVAC for restaurants, retail, and offices.
+              </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {commercialServices.map(service => (
+                <Card variant="elevated" padding="lg" class="hover:shadow-xl transition-all border-2 border-gray-200">
+                  <div class="flex justify-between items-start mb-3">
+                    <h3 class="text-xl font-bold text-gray-900">{service.name}</h3>
+                    <Badge variant="secondary" size="sm">Commercial</Badge>
+                  </div>
+                  {service.pricing && (
+                    <div class="text-2xl font-bold text-primary-600 mb-3">
+                      ${service.pricing.min.toLocaleString()} - ${service.pricing.max.toLocaleString()}
+                    </div>
+                  )}
+                  <p class="text-gray-600 mb-4 line-clamp-2">
+                    {service.description.split('.')[0]}.
+                  </p>
+                  <Button 
+                    href={`/services/${service.slug}`} 
+                    variant="primary" 
+                    size="sm" 
+                    class="w-full"
+                  >
+                    Learn More →
+                  </Button>
+                </Card>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   </section>
 
-  <!-- Service Categories Overview -->
-  <section class="py-16 lg:py-24 bg-white">
+  <!-- Quick Contact -->
+  <section class="py-16 bg-gray-50">
     <div class="container mx-auto px-4">
-      
-      <!-- Emergency Services First -->
-      {servicesByCategory.emergency.length > 0 && (
-        <div class="mb-16">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Emergency HVAC Services
-            </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-              24/7 emergency service when you need it most. Fast response times throughout North Texas.
-            </p>
-          </div>
-          
-          <div class="grid md:grid-cols-2 gap-8">
-            {servicesByCategory.emergency.map((service) => (
-              <Card variant="elevated" padding="lg" class="group h-full bg-gradient-to-br from-emergency-50 to-red-50 border-emergency-200">
-                <div class="flex items-start space-x-4 mb-4">
-                  <!-- Emergency Icon -->
-                  <div class="w-14 h-14 bg-emergency-100 text-emergency-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
-                    </svg>
-                  </div>
-                  
-                  <div class="flex-1 min-w-0">
-                    <div class="flex items-start justify-between mb-2">
-                      <h3 class="text-xl font-semibold text-gray-900 group-hover:text-emergency-600 transition-colors">
-                        {service.name}
-                      </h3>
-                      <Badge variant="emergency" size="sm">
-                        24/7
-                      </Badge>
-                    </div>
-                    <p class="text-gray-700 leading-relaxed mb-4">
-                      {service.shortDescription}
-                    </p>
-                  </div>
-                </div>
-                
-                <!-- Service Details -->
-                <div class="space-y-3 mb-6">
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="text-gray-600">Starting at:</span>
-                    <span class="font-semibold text-emergency-700">${service.pricing.starting}</span>
-                  </div>
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="text-gray-600">Response time:</span>
-                    <span class="text-gray-900">{service.service_time}</span>
-                  </div>
-                </div>
-                
-                <!-- CTA -->
-                <div class="flex flex-col sm:flex-row gap-3">
-                  <Button href={`/services/${service.slug}`} variant="emergency" size="md" class="flex-1">
-                    Learn More
-                  </Button>
-                  <Button href="tel:(940) 390-5676" variant="outline" size="md" class="flex-1">
-                    Call Now
-                  </Button>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <!-- AC Services -->
-      {servicesByCategory.cooling.length > 0 && (
-        <div class="mb-16">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Air Conditioning Services
-            </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-              Complete AC services from repairs to new installations. Keep your home cool with expert technicians.
-            </p>
-          </div>
-          
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {servicesByCategory.cooling.map((service) => (
-              <Card variant="elevated" padding="lg" class="group h-full">
-                <div class="flex items-start space-x-4 mb-4">
-                  <!-- AC Icon -->
-                  <div class="w-14 h-14 bg-primary-100 text-primary-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
-                    </svg>
-                  </div>
-                  
-                  <div class="flex-1 min-w-0">
-                    <div class="flex items-start justify-between mb-2">
-                      <h3 class="text-xl font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
-                        {service.name}
-                      </h3>
-                      {service.emergency && (
-                        <Badge variant="emergency" size="sm">
-                          Emergency
-                        </Badge>
-                      )}
-                    </div>
-                    <p class="text-gray-600 leading-relaxed mb-4">
-                      {service.shortDescription}
-                    </p>
-                  </div>
-                </div>
-                
-                <!-- Service Details -->
-                <div class="space-y-3 mb-6">
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="text-gray-500">Starting at:</span>
-                    <span class="font-semibold text-primary-700">${service.pricing.starting}</span>
-                  </div>
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="text-gray-500">Service time:</span>
-                    <span class="text-gray-900">{service.service_time}</span>
-                  </div>
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="text-gray-500">Warranty:</span>
-                    <span class="text-gray-900">{service.warranty}</span>
-                  </div>
-                </div>
-                
-                <!-- CTA -->
-                <div class="flex flex-col sm:flex-row gap-3">
-                  <Button href={`/services/${service.slug}`} variant="primary" size="md" class="flex-1">
-                    Learn More
-                  </Button>
-                  <Button href="tel:(940) 390-5676" variant="outline" size="md" class="flex-1">
-                    Call Now
-                  </Button>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <!-- Heating Services -->
-      {servicesByCategory.heating.length > 0 && (
-        <div class="mb-16">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Heating Services
-            </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-              Expert heating services for furnaces, heat pumps, and all heating systems. Stay warm all winter long.
-            </p>
-          </div>
-          
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {servicesByCategory.heating.map((service) => (
-              <Card variant="elevated" padding="lg" class="group h-full">
-                <div class="flex items-start space-x-4 mb-4">
-                  <!-- Heating Icon -->
-                  <div class="w-14 h-14 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03z" clip-rule="evenodd"/>
-                    </svg>
-                  </div>
-                  
-                  <div class="flex-1 min-w-0">
-                    <div class="flex items-start justify-between mb-2">
-                      <h3 class="text-xl font-semibold text-gray-900 group-hover:text-orange-600 transition-colors">
-                        {service.name}
-                      </h3>
-                      {service.emergency && (
-                        <Badge variant="emergency" size="sm">
-                          Emergency
-                        </Badge>
-                      )}
-                    </div>
-                    <p class="text-gray-600 leading-relaxed mb-4">
-                      {service.shortDescription}
-                    </p>
-                  </div>
-                </div>
-                
-                <!-- Service Details -->
-                <div class="space-y-3 mb-6">
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="text-gray-500">Starting at:</span>
-                    <span class="font-semibold text-orange-700">${service.pricing.starting}</span>
-                  </div>
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="text-gray-500">Service time:</span>
-                    <span class="text-gray-900">{service.service_time}</span>
-                  </div>
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="text-gray-500">Warranty:</span>
-                    <span class="text-gray-900">{service.warranty}</span>
-                  </div>
-                </div>
-                
-                <!-- CTA -->
-                <div class="flex flex-col sm:flex-row gap-3">
-                  <Button href={`/services/${service.slug}`} variant="primary" size="md" class="flex-1">
-                    Learn More
-                  </Button>
-                  <Button href="tel:(940) 390-5676" variant="outline" size="md" class="flex-1">
-                    Call Now
-                  </Button>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <!-- Installation Services -->
-      {servicesByCategory.installation.length > 0 && (
-        <div class="mb-16">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Installation Services
-            </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-              New HVAC system installations with high-efficiency options. Professional installation with warranties.
-            </p>
-          </div>
-          
-          <div class="grid md:grid-cols-2 gap-8">
-            {servicesByCategory.installation.map((service) => (
-              <Card variant="elevated" padding="lg" class="group h-full bg-gradient-to-br from-green-50 to-emerald-50 border-green-200">
-                <div class="flex items-start space-x-4 mb-4">
-                  <!-- Installation Icon -->
-                  <div class="w-14 h-14 bg-green-100 text-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" clip-rule="evenodd"/>
-                    </svg>
-                  </div>
-                  
-                  <div class="flex-1 min-w-0">
-                    <h3 class="text-xl font-semibold text-gray-900 group-hover:text-green-600 transition-colors mb-2">
-                      {service.name}
-                    </h3>
-                    <p class="text-gray-700 leading-relaxed mb-4">
-                      {service.shortDescription}
-                    </p>
-                  </div>
-                </div>
-                
-                <!-- Service Details -->
-                <div class="space-y-3 mb-6">
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="text-gray-600">Starting at:</span>
-                    <span class="font-semibold text-green-700">${service.pricing.starting.toLocaleString()}</span>
-                  </div>
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="text-gray-600">Installation time:</span>
-                    <span class="text-gray-900">{service.service_time}</span>
-                  </div>
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="text-gray-600">Warranty:</span>
-                    <span class="text-gray-900">{service.warranty}</span>
-                  </div>
-                </div>
-                
-                <!-- Features -->
-                <ul class="space-y-2 mb-6 text-sm text-gray-700">
-                  <li class="flex items-center">
-                    <svg class="w-4 h-4 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                    </svg>
-                    High-efficiency options available
-                  </li>
-                  <li class="flex items-center">
-                    <svg class="w-4 h-4 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                    </svg>
-                    Financing available
-                  </li>
-                  <li class="flex items-center">
-                    <svg class="w-4 h-4 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                    </svg>
-                    Professional installation
-                  </li>
-                </ul>
-                
-                <!-- CTA -->
-                <div class="flex flex-col sm:flex-row gap-3">
-                  <Button href={`/services/${service.slug}`} variant="primary" size="md" class="flex-1">
-                    Learn More
-                  </Button>
-                  <Button href="/contact" variant="outline" size="md" class="flex-1">
-                    Get Quote
-                  </Button>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <!-- Other Services (Efficiency & Upgrades) -->
-      {(servicesByCategory.efficiency.length > 0 || servicesByCategory.upgrade.length > 0) && (
-        <div class="mb-16">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Efficiency & Upgrade Services
-            </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-              Improve your HVAC system's performance and efficiency with our upgrade services.
-            </p>
-          </div>
-          
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[...servicesByCategory.efficiency, ...servicesByCategory.upgrade].map((service) => (
-              <Card variant="elevated" padding="lg" class="group h-full">
-                <div class="flex items-start space-x-4 mb-4">
-                  <!-- Efficiency Icon -->
-                  <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
-                    </svg>
-                  </div>
-                  
-                  <div class="flex-1 min-w-0">
-                    <h3 class="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">
-                      {service.name}
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed mb-4">
-                      {service.shortDescription}
-                    </p>
-                  </div>
-                </div>
-                
-                <!-- Service Details -->
-                <div class="space-y-3 mb-6">
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="text-gray-500">Starting at:</span>
-                    <span class="font-semibold text-blue-700">${service.pricing.starting}</span>
-                  </div>
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="text-gray-500">Service time:</span>
-                    <span class="text-gray-900">{service.service_time}</span>
-                  </div>
-                  <div class="flex items-center justify-between text-sm">
-                    <span class="text-gray-500">Warranty:</span>
-                    <span class="text-gray-900">{service.warranty}</span>
-                  </div>
-                </div>
-                
-                <!-- CTA -->
-                <div class="flex flex-col sm:flex-row gap-3">
-                  <Button href={`/services/${service.slug}`} variant="primary" size="md" class="flex-1">
-                    Learn More
-                  </Button>
-                  <Button href="tel:(940) 390-5676" variant="outline" size="md" class="flex-1">
-                    Call Now
-                  </Button>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <!-- Service Areas -->
-      <div class="text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-          Serving 8 North Texas Cities
-        </h2>
-        <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-          Professional HVAC services throughout North Texas with same-day service and 24/7 emergency availability.
-        </p>
-        
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          <a href="/frisco" class="p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
-            <h3 class="font-semibold text-gray-900">Frisco</h3>
-            <p class="text-sm text-gray-600">205,000+ residents</p>
-          </a>
-          <a href="/plano" class="p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
-            <h3 class="font-semibold text-gray-900">Plano</h3>
-            <p class="text-sm text-gray-600">285,000+ residents</p>
-          </a>
-          <a href="/mckinney" class="p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
-            <h3 class="font-semibold text-gray-900">McKinney</h3>
-            <p class="text-sm text-gray-600">195,000+ residents</p>
-          </a>
-          <a href="/allen" class="p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
-            <h3 class="font-semibold text-gray-900">Allen</h3>
-            <p class="text-sm text-gray-600">105,000+ residents</p>
-          </a>
-          <a href="/prosper" class="p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
-            <h3 class="font-semibold text-gray-900">Prosper</h3>
-            <p class="text-sm text-gray-600">30,000+ residents</p>
-          </a>
-          <a href="/the-colony" class="p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
-            <h3 class="font-semibold text-gray-900">The Colony</h3>
-            <p class="text-sm text-gray-600">44,000+ residents</p>
-          </a>
-          <a href="/little-elm" class="p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
-            <h3 class="font-semibold text-gray-900">Little Elm</h3>
-            <p class="text-sm text-gray-600">51,000+ residents</p>
-          </a>
-          <a href="/addison" class="p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
-            <h3 class="font-semibold text-gray-900">Addison</h3>
-            <p class="text-sm text-gray-600">16,000+ residents</p>
-          </a>
-        </div>
-
-        <!-- Final CTA -->
-        <div class="bg-gray-50 p-8 rounded-2xl">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center bg-white rounded-2xl p-8 shadow-lg">
           <h3 class="text-2xl font-bold text-gray-900 mb-4">
-            Ready to Get Started?
+            Need Immediate Service?
           </h3>
-          <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Contact us today for reliable HVAC services throughout North Texas. Same-day service available with upfront pricing.
+          <p class="text-gray-600 mb-6">
+            Our team is ready to help with your HVAC needs, residential or commercial.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
-            <Button href="/contact" variant="primary" size="lg" class="flex-1">
-              Get Free Estimate
-            </Button>
-            <Button href="tel:(940) 390-5676" variant="outline" size="lg" class="flex-1">
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button href="tel:(940) 390-5676" variant="primary" size="lg">
+              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+              </svg>
               Call (940) 390-5676
             </Button>
+            <Button href="/schedule" variant="outline" size="lg">
+              Schedule Service
+            </Button>
+          </div>
+          
+          <div class="mt-6 flex flex-wrap justify-center gap-6 text-sm text-gray-600">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              Licensed & Insured
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              24/7 Emergency Service
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              Same-Day Service
+            </div>
           </div>
         </div>
       </div>

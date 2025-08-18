@@ -46,11 +46,11 @@ const heightClasses = {
 };
 
 const variantClasses = {
-  default: 'bg-gradient-to-br from-white via-gray-50 to-blue-50',
-  gradient: 'bg-gradient-to-br from-blue-50 via-white to-gray-50',
+  default: 'bg-white',
+  gradient: 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800',
   video: 'bg-white',
   parallax: 'bg-white',
-  animated: 'bg-gradient-to-br from-white via-blue-50/30 to-white',
+  animated: 'bg-white',
 };
 ---
 
@@ -153,19 +153,19 @@ const variantClasses = {
       {/* Animated Title */}
       <div class="space-y-6 animate-fade-in-up">
         {subtitle && (
-          <p class="text-lg sm:text-xl md:text-2xl text-blue-600 font-bold tracking-wide uppercase animate-slide-in-left">
+          <p class={`text-lg sm:text-xl md:text-2xl font-bold tracking-wide uppercase animate-slide-in-left ${variant === 'gradient' ? 'text-blue-200' : 'text-blue-600'}`}>
             {subtitle}
           </p>
         )}
         
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 leading-tight drop-shadow-sm">
+        <h1 class={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight drop-shadow-sm ${variant === 'gradient' ? 'text-white' : 'text-gray-900'}`}>
           <span class="inline-block">
             {title}
           </span>
         </h1>
 
         {description && (
-          <p class="max-w-4xl mx-auto text-xl sm:text-2xl text-gray-800 leading-relaxed font-medium animate-slide-in-right">
+          <p class={`max-w-4xl mx-auto text-xl sm:text-2xl leading-relaxed font-medium animate-slide-in-right ${variant === 'gradient' ? 'text-blue-100' : 'text-gray-800'}`}>
             {description}
           </p>
         )}
@@ -175,7 +175,11 @@ const variantClasses = {
           {ctaPrimary && (
             <a
               href={ctaPrimary.href}
-              class="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-blue-600 rounded-xl shadow-xl hover:bg-blue-700 hover:shadow-2xl transform hover:scale-105 transition-all duration-200 min-w-[280px] border-2 border-blue-700"
+              class={`inline-flex items-center justify-center px-10 py-5 text-xl font-bold rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200 min-w-[280px] border-2 ${
+                variant === 'gradient' 
+                  ? 'text-blue-800 bg-white hover:bg-gray-100 border-white' 
+                  : 'text-white bg-blue-600 hover:bg-blue-700 border-blue-700'
+              }`}
             >
               {ctaPrimary.text}
             </a>
@@ -184,7 +188,11 @@ const variantClasses = {
           {ctaSecondary && (
             <a
               href={ctaSecondary.href}
-              class="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-gray-900 bg-white border-2 border-gray-900 rounded-xl shadow-xl hover:bg-gray-900 hover:text-white transform hover:scale-105 transition-all duration-200 min-w-[280px]"
+              class={`inline-flex items-center justify-center px-10 py-5 text-xl font-bold rounded-xl shadow-xl transform hover:scale-105 transition-all duration-200 min-w-[280px] border-2 ${
+                variant === 'gradient' 
+                  ? 'text-white bg-transparent border-white hover:bg-white hover:text-blue-800' 
+                  : 'text-gray-900 bg-white border-gray-900 hover:bg-gray-900 hover:text-white'
+              }`}
             >
               {ctaSecondary.text}
             </a>

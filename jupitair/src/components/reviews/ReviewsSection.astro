@@ -24,9 +24,17 @@ const {
 let filteredReviews = [...reviewsData.reviews];
 
 if (service) {
-  filteredReviews = filteredReviews.filter(r => 
-    r.service.toLowerCase().includes(service.toLowerCase())
+  // More flexible service matching - look for key words
+  const serviceKeywords = service.toLowerCase().split(' ').filter(word => 
+    word.length > 3 && !['repair', 'installation', 'service', 'tune'].includes(word)
   );
+  
+  if (serviceKeywords.length > 0) {
+    filteredReviews = filteredReviews.filter(r => {
+      const reviewService = r.service.toLowerCase();
+      return serviceKeywords.some(keyword => reviewService.includes(keyword));
+    });
+  }
 }
 
 if (city) {
@@ -35,8 +43,24 @@ if (city) {
   );
 }
 
-// Get the most recent reviews up to the limit
-const displayReviews = filteredReviews.slice(0, limit);
+// If no matching reviews found for the service, show general 5-star reviews
+if (filteredReviews.length === 0) {
+  filteredReviews = reviewsData.reviews.filter(r => r.rating === 5);
+}
+
+// Ensure we always have at least 3 reviews
+const minReviews = 3;
+if (filteredReviews.length < minReviews) {
+  // Add more 5-star reviews to reach minimum
+  const additionalReviews = reviewsData.reviews
+    .filter(r => r.rating === 5 && !filteredReviews.includes(r))
+    .slice(0, minReviews - filteredReviews.length);
+  filteredReviews = [...filteredReviews, ...additionalReviews];
+}
+
+// Get the most recent reviews up to the limit (minimum 3)
+const finalLimit = Math.max(limit, minReviews);
+const displayReviews = filteredReviews.slice(0, finalLimit);
 
 // Calculate stats
 const avgRating = reviewsData.averageRating;

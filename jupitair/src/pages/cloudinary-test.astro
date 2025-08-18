@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/BaseLayout.astro';
+import CloudinaryTest from '../components/CloudinaryTest';
+---
+
+<Layout title="Cloudinary Test">
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6">Cloudinary Image Test</h1>
+    <CloudinaryTest client:load />
+  </div>
+</Layout>

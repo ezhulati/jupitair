@@ -1,1 +1,0 @@
-import"./hoisted.uc0jJ9DK.js";import"./hoisted.DfrgUcPP.js";import"./hoisted.03Wur1ue.js";document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector('input[type="search"]');setTimeout(()=>{e?.focus()},1e3),typeof gtag<"u"&&gtag("event","page_view",{page_title:"404 Error",page_location:window.location.href,page_path:window.location.pathname})});

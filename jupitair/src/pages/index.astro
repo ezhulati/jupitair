@@ -172,7 +172,7 @@ const homepageSchema = {
   />
 
   <!-- Stats Section -->
-  <section class="section-spacing bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+  <section class="section-spacing bg-gradient-to-b from-gray-50 to-white">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         <div class="text-center space-y-2 animate-on-scroll">
@@ -445,10 +445,10 @@ const homepageSchema = {
   <ReviewsSection limit={6} variant="carousel" />
 
   <!-- Service Areas with Interactive Map -->
-  <section class="py-20 bg-gray-50 dark:bg-gray-900">
+  <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="text-center mb-12 animate-on-scroll">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
           Serving North Texas Communities
         </h2>
         <p class="text-xl text-gray-600 dark:text-gray-400">
@@ -459,10 +459,21 @@ const homepageSchema = {
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div class="grid grid-cols-2 gap-4 animate-on-scroll">
           {['Frisco', 'Plano', 'McKinney', 'Allen', 'Prosper', 'The Colony', 'Little Elm', 'Addison'].map((city) => (
-            <PremiumCard variant="glass" padding="sm" hover={true}>
-              <a href={`/${city.toLowerCase().replace(' ', '-')}`} class="block p-4 text-center hover:text-blue-600 transition-colors">
-                <h3 class="font-semibold text-lg">{city}</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Full Service</p>
+            <PremiumCard variant="elevated" padding="sm" hover={true}>
+              <a href={`/${city.toLowerCase().replace(' ', '-')}`} class="block p-4 text-center group">
+                <div class="mb-2">
+                  <svg class="w-8 h-8 mx-auto text-blue-600 group-hover:text-blue-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <h3 class="font-bold text-lg text-gray-900 group-hover:text-blue-600 transition-colors">{city}</h3>
+                <p class="text-sm text-blue-600 font-medium">Full Service Area</p>
+                <div class="mt-2 flex flex-wrap justify-center gap-1">
+                  <span class="text-xs px-2 py-1 bg-green-100 text-green-700 rounded-full">AC Repair</span>
+                  <span class="text-xs px-2 py-1 bg-orange-100 text-orange-700 rounded-full">Heating</span>
+                  <span class="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded-full">24/7</span>
+                </div>
               </a>
             </PremiumCard>
           ))}

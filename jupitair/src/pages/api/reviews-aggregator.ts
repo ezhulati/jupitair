@@ -11,8 +11,8 @@ export interface ReviewData {
 
 // In production, these would be fetched from Facebook Graph API and Google Places API
 // For now, we'll use mock data that simulates real counts
-const GOOGLE_PLACE_ID = 'ChIJN1t_tDeuEmsRUsoyG83frY4'; // Replace with actual place ID
-const FACEBOOK_PAGE_ID = 'jupitairhvac'; // Replace with actual page ID
+// const GOOGLE_PLACE_ID = 'ChIJN1t_tDeuEmsRUsoyG83frY4'; // Replace with actual place ID when implementing
+// const FACEBOOK_PAGE_ID = 'jupitairhvac'; // Replace with actual page ID when implementing
 
 async function fetchGoogleReviews() {
   // In production:

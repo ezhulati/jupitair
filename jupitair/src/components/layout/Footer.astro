@@ -24,16 +24,13 @@ import Button from '../ui/Button.astro';
       
       <!-- Company Info -->
       <div class="col-span-2 sm:col-span-1 lg:col-span-1">
-        <div class="flex items-center space-x-3 mb-6">
-          <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 rounded-lg flex items-center justify-center">
-            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" clip-rule="evenodd"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-white">Jupitair HVAC</h3>
-            <p class="text-sm text-gray-400">North Texas HVAC Experts</p>
-          </div>
+        <div class="mb-6">
+          <img 
+            src="/images/logo-white.png" 
+            alt="Jupitair HVAC Logo"
+            class="h-24 sm:h-28 lg:h-32 w-auto mb-4"
+          />
+          <p class="text-sm text-gray-400">North Texas HVAC Experts</p>
         </div>
         
         <p class="text-gray-400 mb-6 leading-relaxed">
@@ -84,7 +81,7 @@ import Button from '../ui/Button.astro';
           <li><a href="/services/heat-pump-repair" class="text-gray-400 hover:text-white transition-colors">Heat Pump Repair</a></li>
           <li><a href="/services/duct-repair-sealing" class="text-gray-400 hover:text-white transition-colors">Duct Repair & Sealing</a></li>
           <li><a href="/services/thermostat-installation" class="text-gray-400 hover:text-white transition-colors">Thermostat Installation</a></li>
-          <li><a href="/services/emergency-ac-repair" class="text-emergency-400 hover:text-emergency-300 font-medium transition-colors">🚨 Emergency Service</a></li>
+          <li><a href="/services/emergency-ac-repair" class="text-emergency-400 hover:text-emergency-300 font-medium transition-colors">24/7 Emergency Service</a></li>
           <li><a href="/services/commercial-hvac" class="text-gray-400 hover:text-white transition-colors">Commercial HVAC</a></li>
           <li><a href="/services/indoor-air-quality" class="text-gray-400 hover:text-white transition-colors">Indoor Air Quality</a></li>
         </ul>

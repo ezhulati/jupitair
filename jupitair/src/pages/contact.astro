@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PremiumHero from '../components/layout/PremiumHero.astro';
 import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
+import PremiumCard from '../components/ui/PremiumCard.astro';
 import Input from '../components/ui/Input.astro';
 
 const pageTitle = 'Contact Us | Jupitair HVAC - Get Your Free Estimate';
@@ -55,19 +57,19 @@ const contactSchema = {
   keywords="contact HVAC North Texas, HVAC estimate Frisco, emergency AC repair, heating service Plano"
   schema={contactSchema}
 >
+  <!-- Premium Hero Section -->
+  <PremiumHero 
+    title="Get Your Free HVAC Estimate"
+    subtitle="Professional Service You Can Trust"
+    description="Contact Jupitair HVAC for reliable heating and cooling services throughout North Texas. Available 24/7 for emergency service."
+    ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
+    ctaSecondary={{ text: "Schedule Service", href: "/schedule" }}
+    variant="gradient"
+    height="sm"
+  />
+  
   <div class="min-h-screen bg-gray-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12 sm:py-16 lg:py-20">
-    
-      <!-- Hero Section -->
-      <section class="text-center mb-8 sm:mb-12">
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-          Get Your Free HVAC Estimate
-        </h1>
-        <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-          Professional heating and cooling services throughout North Texas. 
-          Available 24/7 for emergency service.
-        </p>
-      </section>
 
       <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
       

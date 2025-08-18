@@ -1,0 +1,247 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/ui/Card.astro';
+import Button from '../../components/ui/Button.astro';
+import Badge from '../../components/ui/Badge.astro';
+
+const residentialServices = [
+  {
+    title: 'AC Repair',
+    description: 'Fast, reliable air conditioning repair for your home. Same-day service available.',
+    price: 'From $89',
+    link: '/services/ac-repair',
+    icon: '❄️',
+    emergency: true
+  },
+  {
+    title: 'Heating Repair',
+    description: 'Expert furnace and heating system repair to keep your family warm.',
+    price: 'From $89',
+    link: '/services/furnace-repair',
+    icon: '🔥',
+    emergency: true
+  },
+  {
+    title: 'HVAC Installation',
+    description: 'Energy-efficient AC and heating system installation with financing available.',
+    price: 'From $3,500',
+    link: '/services/ac-installation',
+    icon: '🏠',
+    emergency: false
+  },
+  {
+    title: 'AC Maintenance',
+    description: 'Annual tune-ups to prevent breakdowns and extend system life.',
+    price: 'From $129',
+    link: '/services/ac-maintenance',
+    icon: '🔧',
+    emergency: false
+  },
+  {
+    title: 'Emergency Service',
+    description: '24/7 emergency HVAC repair when you need it most.',
+    price: 'From $149',
+    link: '/services/emergency-ac-repair',
+    icon: '🚨',
+    emergency: true
+  },
+  {
+    title: 'Duct Services',
+    description: 'Duct cleaning, repair, and sealing for better comfort and efficiency.',
+    price: 'From $800',
+    link: '/services/duct-repair-sealing',
+    icon: '💨',
+    emergency: false
+  },
+  {
+    title: 'Indoor Air Quality',
+    description: 'Air purifiers, humidifiers, and filtration systems for healthier air.',
+    price: 'From $1,200',
+    link: '/services/indoor-air-quality',
+    icon: '🌿',
+    emergency: false
+  },
+  {
+    title: 'Smart Thermostats',
+    description: 'WiFi thermostat installation for energy savings and convenience.',
+    price: 'From $149',
+    link: '/services/thermostat-installation',
+    icon: '📱',
+    emergency: false
+  }
+];
+
+const serviceAreas = [
+  'Frisco', 'Plano', 'McKinney', 'Allen', 
+  'Prosper', 'The Colony', 'Little Elm', 'Addison'
+];
+---
+
+<BaseLayout 
+  title="Residential HVAC Services North Texas | Jupitair"
+  description="Professional residential HVAC services in North Texas. AC repair, heating repair, installation, and maintenance for your home. Call (940) 390-5676."
+  keywords="residential HVAC, home AC repair, residential heating, home air conditioning"
+  canonical="https://jupitairhvac.com/services/residential"
+>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-primary-50 to-white py-16 lg:py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <Badge variant="primary" class="mb-4">Residential Services</Badge>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          Home HVAC Services
+          <span class="block text-primary-600">You Can Trust</span>
+        </h1>
+        <p class="text-xl text-gray-600 mb-8">
+          From emergency AC repair to new system installation, we keep North Texas homes comfortable year-round.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="tel:(940) 390-5676" variant="primary" size="lg">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            Call (940) 390-5676
+          </Button>
+          <Button href="/schedule" variant="outline" size="lg">
+            Schedule Service
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Complete Home Comfort Solutions
+          </h2>
+          <p class="text-xl text-gray-600">
+            Professional HVAC services for homeowners throughout North Texas.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {residentialServices.map(service => (
+            <Card variant="elevated" padding="lg" class="hover:shadow-2xl transition-shadow">
+              <div class="flex items-start justify-between mb-4">
+                <div class="text-4xl">{service.icon}</div>
+                {service.emergency && (
+                  <Badge variant="emergency" size="sm">24/7</Badge>
+                )}
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
+              <p class="text-gray-600 mb-4">{service.description}</p>
+              <div class="flex items-center justify-between">
+                <span class="text-lg font-semibold text-primary-600">{service.price}</span>
+                <Button href={service.link} variant="outline" size="sm">
+                  Learn More →
+                </Button>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Residential -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Why Homeowners Choose Jupitair
+            </h2>
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-gray-900">Same-Day Service</h3>
+                  <p class="text-gray-600">Fast response for AC and heating emergencies</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-gray-900">Upfront Pricing</h3>
+                  <p class="text-gray-600">No surprises - clear pricing before we start</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-gray-900">Licensed & Insured</h3>
+                  <p class="text-gray-600">Fully licensed HVAC contractors you can trust</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-gray-900">Warranty Protection</h3>
+                  <p class="text-gray-600">90-day warranty on repairs, 2-year on installations</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-2xl p-8 shadow-xl">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Service Areas</h3>
+            <p class="text-gray-600 mb-6">
+              We provide residential HVAC services to homeowners in these North Texas communities:
+            </p>
+            <div class="grid grid-cols-2 gap-3">
+              {serviceAreas.map(area => (
+                <a href={`/${area.toLowerCase().replace(' ', '-')}`} class="text-primary-600 hover:text-primary-700 font-medium">
+                  {area} →
+                </a>
+              ))}
+            </div>
+            <div class="mt-6 pt-6 border-t border-gray-200">
+              <p class="text-sm text-gray-600">
+                <strong>Service Radius:</strong> Within 30 minutes of Plano, TX
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-primary-600 text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Need Home HVAC Service?
+        </h2>
+        <p class="text-xl mb-8 text-primary-100">
+          Fast, reliable service from North Texas's trusted HVAC contractor.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="tel:(940) 390-5676" variant="secondary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            Call (940) 390-5676
+          </Button>
+          <Button href="/schedule" variant="outline" size="lg" class="border-white text-white hover:bg-white hover:text-primary-600">
+            Schedule Online
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

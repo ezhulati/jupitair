@@ -1,285 +1,297 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PremiumHero from '../components/layout/PremiumHero.astro';
 import Button from '../components/ui/Button.astro';
-import Card from '../components/ui/Card.astro';
+import PremiumCard from '../components/ui/PremiumCard.astro';
+import Icon from '../components/ui/Icon.astro';
 
-const pageTitle = "Schedule Service | Jupitair HVAC | Book Online";
-const pageDescription = "Schedule your HVAC service online. Choose your preferred date and time for AC repair, heating service, or maintenance in North Texas.";
-
-// Generate time slots
-const timeSlots = [
-  '08:00 AM', '08:30 AM', '09:00 AM', '09:30 AM', 
-  '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM',
-  '01:00 PM', '01:30 PM', '02:00 PM', '02:30 PM',
-  '03:00 PM', '03:30 PM', '04:00 PM', '04:30 PM'
+const residentialServices = [
+  { name: 'AC Repair', slug: 'ac-repair', icon: 'wrench' },
+  { name: 'Heating Repair', slug: 'furnace-repair', icon: 'wrench' },
+  { name: 'AC Installation', slug: 'ac-installation', icon: 'check' },
+  { name: 'AC Maintenance', slug: 'ac-maintenance', icon: 'shield' },
+  { name: 'Emergency Service', slug: 'emergency-ac-repair', icon: 'emergency' },
+  { name: 'Heat Pump Service', slug: 'heat-pump-repair', icon: 'wrench' },
+  { name: 'Duct Cleaning', slug: 'duct-repair-sealing', icon: 'check' },
+  { name: 'Indoor Air Quality', slug: 'indoor-air-quality', icon: 'check' }
 ];
 
-// Generate next 30 days for calendar
-const getDaysInMonth = () => {
-  const days = [];
-  const today = new Date();
-  for (let i = 0; i < 30; i++) {
-    const date = new Date(today);
-    date.setDate(today.getDate() + i);
-    days.push(date);
-  }
-  return days;
-};
-
-const availableDays = getDaysInMonth();
+const commercialServices = [
+  { name: 'Restaurant HVAC', slug: 'restaurant-hvac', icon: 'restaurant' },
+  { name: 'Retail & Strip Mall', slug: 'retail-hvac', icon: 'shopping' },
+  { name: 'Office Buildings', slug: 'office-hvac', icon: 'office' },
+  { name: 'RTU Replacement', slug: 'rtu-replacement', icon: 'construction' },
+  { name: 'Emergency Service', slug: 'emergency-service', icon: 'emergency' },
+  { name: 'Preventive Maintenance', slug: 'preventive-maintenance', icon: 'wrench' },
+  { name: 'New Installation', slug: 'new-installation', icon: 'construction' },
+  { name: 'Chiller Systems', slug: 'chiller-systems', icon: 'check' }
+];
 ---
 
 <BaseLayout 
-  title={pageTitle}
-  description={pageDescription}
-  canonical="https://jupitairhvac.com/schedule"
+  title="Schedule HVAC Service | Jupitair HVAC"
+  description="Schedule professional HVAC service in North Texas. Choose residential or commercial service and get fast, reliable help."
 >
-  <div class="container mx-auto px-4 py-12">
-    <!-- Header -->
-    <div class="text-center mb-12">
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-        Schedule Your Service
-      </h1>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Book your appointment online for HVAC service in North Texas. 
-        Same-day service available for emergencies.
-      </p>
-    </div>
+  <PremiumHero 
+    title="Schedule Your Service"
+    subtitle="Fast, Professional HVAC Service"
+    description="Choose your service type to get started with scheduling"
+    variant="gradient"
+    height="md"
+  />
 
-    <div class="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-      <!-- Left Column - Service Selection -->
-      <div class="lg:col-span-2">
-        <Card variant="elevated" padding="lg">
-          <!-- Service Type Selection -->
-          <div class="mb-8">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">
-              Select Service Type
-            </h2>
-            <div class="grid md:grid-cols-2 gap-4">
-              <label class="service-option">
-                <input type="radio" name="service" value="ac-repair" class="sr-only peer" />
-                <div class="p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary-500 peer-checked:border-primary-600 peer-checked:bg-primary-50 transition-all">
-                  <h3 class="font-semibold text-gray-900">AC Repair</h3>
-                  <p class="text-sm text-gray-600">AC not cooling, strange noises, or not working</p>
-                </div>
-              </label>
-              
-              <label class="service-option">
-                <input type="radio" name="service" value="heating-repair" class="sr-only peer" />
-                <div class="p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary-500 peer-checked:border-primary-600 peer-checked:bg-primary-50 transition-all">
-                  <h3 class="font-semibold text-gray-900">Heating Repair</h3>
-                  <p class="text-sm text-gray-600">Furnace or heat pump issues</p>
-                </div>
-              </label>
-              
-              <label class="service-option">
-                <input type="radio" name="service" value="maintenance" class="sr-only peer" />
-                <div class="p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary-500 peer-checked:border-primary-600 peer-checked:bg-primary-50 transition-all">
-                  <h3 class="font-semibold text-gray-900">Maintenance</h3>
-                  <p class="text-sm text-gray-600">Preventive maintenance and tune-ups</p>
-                </div>
-              </label>
-              
-              <label class="service-option">
-                <input type="radio" name="service" value="installation" class="sr-only peer" />
-                <div class="p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary-500 peer-checked:border-primary-600 peer-checked:bg-primary-50 transition-all">
-                  <h3 class="font-semibold text-gray-900">Installation</h3>
-                  <p class="text-sm text-gray-600">New system installation or replacement</p>
-                </div>
-              </label>
-            </div>
+  <!-- Service Type Selection -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        
+        <!-- Step 1: Choose Service Type -->
+        <div id="service-type-selection">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">What type of service do you need?</h2>
+            <p class="text-xl text-gray-600">Select the category that best fits your needs</p>
           </div>
-
-          <!-- Calendar -->
-          <div class="mb-8">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">
-              Select Date
-            </h2>
-            <div class="grid grid-cols-7 gap-2">
-              <!-- Day headers -->
-              {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-                <div class="text-center text-sm font-medium text-gray-600 py-2">
-                  {day}
-                </div>
-              ))}
-              
-              <!-- Calendar days -->
-              {availableDays.slice(0, 28).map((date, index) => {
-                const isToday = date.toDateString() === new Date().toDateString();
-                const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
-                const dayNumber = date.getDate();
-                const isWeekend = date.getDay() === 0 || date.getDay() === 6;
-                
-                return (
-                  <label class="calendar-day">
-                    <input 
-                      type="radio" 
-                      name="date" 
-                      value={date.toISOString()} 
-                      class="sr-only peer" 
-                    />
-                    <div class={`
-                      p-3 text-center border rounded-lg cursor-pointer transition-all
-                      ${isToday ? 'border-primary-500 font-semibold' : 'border-gray-200'}
-                      ${isWeekend ? 'bg-gray-50' : ''}
-                      hover:border-primary-400 hover:bg-primary-50
-                      peer-checked:bg-primary-600 peer-checked:text-white peer-checked:border-primary-600
-                    `}>
-                      {dayNumber}
-                    </div>
-                  </label>
-                );
-              })}
-            </div>
-          </div>
-
-          <!-- Time Selection -->
-          <div class="mb-8">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">
-              Select Time
-            </h2>
-            <div class="grid grid-cols-4 md:grid-cols-4 gap-3">
-              {timeSlots.map(time => (
-                <label class="time-slot">
-                  <input type="radio" name="time" value={time} class="sr-only peer" />
-                  <div class="p-3 text-center border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary-500 peer-checked:border-primary-600 peer-checked:bg-primary-600 peer-checked:text-white transition-all">
-                    {time}
-                  </div>
-                </label>
-              ))}
-            </div>
-          </div>
-        </Card>
-      </div>
-
-      <!-- Right Column - Contact Form -->
-      <div>
-        <Card variant="elevated" padding="lg" class="sticky top-4">
-          <h2 class="text-2xl font-semibold text-gray-900 mb-6">
-            Your Information
-          </h2>
           
-          <form id="booking-form" class="space-y-4">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">
-                Name *
-              </label>
-              <input 
-                type="text" 
-                name="name" 
-                required
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                placeholder="John Smith"
-              />
-            </div>
-            
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">
-                Phone *
-              </label>
-              <input 
-                type="tel" 
-                name="phone" 
-                required
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                placeholder="(940) 390-5676"
-              />
-            </div>
-            
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">
-                Email *
-              </label>
-              <input 
-                type="email" 
-                name="email" 
-                required
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                placeholder="john@example.com"
-              />
-            </div>
-            
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">
-                Address *
-              </label>
-              <input 
-                type="text" 
-                name="address" 
-                required
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                placeholder="123 Main St, Frisco, TX 75034"
-              />
-            </div>
-            
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">
-                Issue Description
-              </label>
-              <textarea 
-                name="description" 
-                rows="3"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                placeholder="Please describe the issue you're experiencing..."
-              ></textarea>
-            </div>
-            
-            <div class="pt-4">
-              <Button type="submit" variant="primary" size="lg" class="w-full justify-center">
-                Book Appointment
-              </Button>
-            </div>
-            
-            <div class="text-center text-sm text-gray-600 pt-2">
-              <p>Or call us directly at</p>
-              <a href="tel:(940) 390-5676" class="text-primary-600 font-semibold text-lg hover:text-primary-700">
-                (940) 390-5676
-              </a>
-            </div>
-          </form>
-        </Card>
+          <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <!-- Residential Option -->
+            <PremiumCard 
+              variant="elevated" 
+              padding="lg" 
+              class="cursor-pointer hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-primary-500"
+              id="residential-card"
+            >
+              <div class="text-center">
+                <div class="mb-4 text-primary-600">
+                  <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Residential Service</h3>
+                <p class="text-gray-600 mb-4">Home AC, heating, and indoor air quality services</p>
+                <ul class="text-left text-sm text-gray-600 space-y-2 mb-6">
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    AC Repair & Installation
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    Heating & Furnace Service
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    24/7 Emergency Service
+                  </li>
+                </ul>
+                <Button variant="primary" size="lg" class="w-full" id="residential-btn">
+                  Select Residential →
+                </Button>
+              </div>
+            </PremiumCard>
+
+            <!-- Commercial Option -->
+            <PremiumCard 
+              variant="elevated" 
+              padding="lg" 
+              class="cursor-pointer hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-primary-500"
+              id="commercial-card"
+            >
+              <div class="text-center">
+                <div class="mb-4 text-primary-600">
+                  <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Commercial Service</h3>
+                <p class="text-gray-600 mb-4">Business HVAC, RTU, and preventive maintenance</p>
+                <ul class="text-left text-sm text-gray-600 space-y-2 mb-6">
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    Restaurant & Retail HVAC
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    RTU Replacement
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-4 h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    Maintenance Programs
+                  </li>
+                </ul>
+                <Button variant="primary" size="lg" class="w-full" id="commercial-btn">
+                  Select Commercial →
+                </Button>
+              </div>
+            </PremiumCard>
+          </div>
+        </div>
+
+        <!-- Step 2: Residential Services -->
+        <div id="residential-services" class="hidden">
+          <div class="mb-8">
+            <button id="back-to-types-1" class="text-primary-600 hover:text-primary-700 font-medium flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+              </svg>
+              Back to Service Type
+            </button>
+          </div>
+          
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Select Your Residential Service</h2>
+            <p class="text-xl text-gray-600">Choose the specific service you need</p>
+          </div>
+          
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {residentialServices.map(service => (
+              <PremiumCard variant="elevated" padding="md" class="hover:shadow-xl transition-all duration-300">
+                <a href={`/contact?service=${service.slug}&type=residential`} class="block">
+                  <div class="flex items-center gap-4">
+                    <div class="text-primary-600">
+                      <Icon name={service.icon} size="lg" />
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-900">{service.name}</h3>
+                      {service.slug === 'emergency-ac-repair' && (
+                        <span class="text-xs text-emergency-600 font-medium">24/7 Available</span>
+                      )}
+                    </div>
+                  </div>
+                </a>
+              </PremiumCard>
+            ))}
+          </div>
+        </div>
+
+        <!-- Step 2: Commercial Services -->
+        <div id="commercial-services" class="hidden">
+          <div class="mb-8">
+            <button id="back-to-types-2" class="text-primary-600 hover:text-primary-700 font-medium flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+              </svg>
+              Back to Service Type
+            </button>
+          </div>
+          
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Select Your Commercial Service</h2>
+            <p class="text-xl text-gray-600">Choose the specific service you need for your business</p>
+          </div>
+          
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {commercialServices.map(service => (
+              <PremiumCard variant="elevated" padding="md" class="hover:shadow-xl transition-all duration-300">
+                <a href={`/contact?service=${service.slug}&type=commercial`} class="block">
+                  <div class="flex items-center gap-4">
+                    <div class="text-primary-600">
+                      <Icon name={service.icon} size="lg" />
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-900">{service.name}</h3>
+                      {service.slug === 'emergency-service' && (
+                        <span class="text-xs text-emergency-600 font-medium">24/7 Available</span>
+                      )}
+                    </div>
+                  </div>
+                </a>
+              </PremiumCard>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Emergency Notice -->
-    <div class="mt-12 bg-emergency-50 border-2 border-emergency-200 rounded-lg p-6 text-center">
-      <h3 class="text-xl font-semibold text-emergency-800 mb-2">
-        Need Emergency Service?
-      </h3>
-      <p class="text-emergency-700 mb-4">
-        For urgent HVAC emergencies, please call us directly for immediate assistance.
-      </p>
-      <Button href="tel:(940) 390-5676" variant="emergency" size="lg" class="inline-flex">
-        Call Now: (940) 390-5676
-      </Button>
+  <!-- Emergency CTA -->
+  <section class="py-12 bg-emergency-50 border-y-2 border-emergency-200">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Need Emergency Service?</h3>
+        <p class="text-lg text-gray-700 mb-6">
+          Don't wait for scheduling - call us directly for immediate assistance
+        </p>
+        <Button href="tel:9403905676" variant="emergency" size="lg" class="inline-flex items-center gap-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          Call Now: (940) 390-5676
+        </Button>
+        <p class="text-sm text-gray-600 mt-3">Available 24/7 for emergency HVAC service</p>
+      </div>
     </div>
-  </div>
+  </section>
 
   <script>
-    // Handle form submission
-    document.getElementById('booking-form')?.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    document.addEventListener('DOMContentLoaded', function() {
+      const serviceTypeSelection = document.getElementById('service-type-selection');
+      const residentialServices = document.getElementById('residential-services');
+      const commercialServices = document.getElementById('commercial-services');
       
-      const formData = new FormData(e.target);
-      const service = document.querySelector('input[name="service"]:checked')?.value;
-      const date = document.querySelector('input[name="date"]:checked')?.value;
-      const time = document.querySelector('input[name="time"]:checked')?.value;
-      
-      if (!service || !date || !time) {
-        alert('Please select a service, date, and time');
-        return;
+      function showServiceTypes() {
+        serviceTypeSelection?.classList.remove('hidden');
+        residentialServices?.classList.add('hidden');
+        commercialServices?.classList.add('hidden');
+      }
+
+      function showResidentialServices() {
+        serviceTypeSelection?.classList.add('hidden');
+        residentialServices?.classList.remove('hidden');
+        commercialServices?.classList.add('hidden');
+      }
+
+      function showCommercialServices() {
+        serviceTypeSelection?.classList.add('hidden');
+        residentialServices?.classList.add('hidden');
+        commercialServices?.classList.remove('hidden');
       }
       
-      // Add selected options to form data
-      formData.append('service', service);
-      formData.append('date', new Date(date).toLocaleDateString());
-      formData.append('time', time);
+      // Residential card and button clicks
+      const residentialCard = document.getElementById('residential-card');
+      const residentialBtn = document.getElementById('residential-btn');
+      if (residentialCard) {
+        residentialCard.addEventListener('click', showResidentialServices);
+      }
+      if (residentialBtn) {
+        residentialBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          showResidentialServices();
+        });
+      }
       
-      // Here you would send to your API endpoint
-      console.log('Booking data:', Object.fromEntries(formData));
+      // Commercial card and button clicks
+      const commercialCard = document.getElementById('commercial-card');
+      const commercialBtn = document.getElementById('commercial-btn');
+      if (commercialCard) {
+        commercialCard.addEventListener('click', showCommercialServices);
+      }
+      if (commercialBtn) {
+        commercialBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          showCommercialServices();
+        });
+      }
       
-      // Show success message
-      alert('Thank you for booking! We will contact you shortly to confirm your appointment.');
+      // Back buttons
+      const backBtn1 = document.getElementById('back-to-types-1');
+      const backBtn2 = document.getElementById('back-to-types-2');
+      if (backBtn1) {
+        backBtn1.addEventListener('click', showServiceTypes);
+      }
+      if (backBtn2) {
+        backBtn2.addEventListener('click', showServiceTypes);
+      }
     });
   </script>
 </BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PremiumHero from '../components/layout/PremiumHero.astro';
 
 // Page metadata
 const pageTitle = "Privacy Policy | Jupitair HVAC";
@@ -26,24 +27,16 @@ const privacySchema = {
   canonical="https://jupitairhvac.com/privacy"
   schema={privacySchema}
 >
-  <!-- Privacy Policy Content -->
+  <!-- Premium Hero Section -->
+  <PremiumHero 
+    title="Privacy Policy"
+    subtitle="Last Updated: January 15, 2025"
+    description="Your privacy is important to us. This policy explains how we collect, use, and protect your personal information when you use our HVAC services."
+    variant="gradient"
+    height="sm"
+  />
+  
   <div class="bg-white">
-    <!-- Header Section -->
-    <section class="bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800 text-white py-16 lg:py-24">
-      <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center">
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            Privacy Policy
-          </h1>
-          <p class="text-lg sm:text-xl text-blue-100 mb-8 leading-relaxed max-w-3xl mx-auto">
-            Your privacy is important to us. This policy explains how we collect, use, and protect your personal information when you use our HVAC services.
-          </p>
-          <div class="text-blue-200 text-sm">
-            Last Updated: January 15, 2025
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Privacy Policy Content -->
     <section class="py-16 lg:py-24">

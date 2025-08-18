@@ -25,7 +25,9 @@ const {
 
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+import '../styles/global.css';
 import '../styles/tokens.css';
+import '../styles/design-system.css';
 import '../styles/spacing-system.css';
 import '../styles/enterprise-spacing.css';
 
@@ -211,6 +213,10 @@ const finalSchema = schema ? { ...baseSchema, ...schema } : baseSchema;
     
     <Footer />
     
-    <!-- Removed floating button - was causing display issues -->
+    <!-- After-hours detection script -->
+    <script>
+      import { initAfterHoursDetection } from '../lib/after-hours';
+      initAfterHoursDetection();
+    </script>
   </body>
 </html>

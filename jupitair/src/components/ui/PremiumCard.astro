@@ -30,35 +30,34 @@ const baseClasses = `
 
 const variantClasses = {
   default: `
-    bg-white dark:bg-gray-900
-    border border-gray-200 dark:border-gray-800
+    bg-white
+    border border-gray-200
     shadow-sm
     ${hover ? 'hover:shadow-lg hover:-translate-y-1' : ''}
   `,
   elevated: `
-    bg-white dark:bg-gray-900
-    shadow-xl shadow-gray-900/10 dark:shadow-black/20
+    bg-white
+    shadow-xl shadow-gray-900/10
     ${hover ? 'hover:shadow-2xl hover:-translate-y-2' : ''}
   `,
   glass: `
-    bg-white/80 dark:bg-gray-900/80
+    bg-white/80
     backdrop-blur-xl backdrop-saturate-150
-    border border-white/20 dark:border-gray-700/20
+    border border-white/20
     shadow-xl shadow-gray-900/10
-    ${hover ? 'hover:bg-white/90 dark:hover:bg-gray-900/90 hover:shadow-2xl hover:-translate-y-1' : ''}
+    ${hover ? 'hover:bg-white/90 hover:shadow-2xl hover:-translate-y-1' : ''}
   `,
   gradient: `
     bg-gradient-to-br from-white via-gray-50 to-gray-100
-    dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
-    border border-gray-200/50 dark:border-gray-700/50
+    border border-gray-200/50
     shadow-xl shadow-gray-900/10
     ${hover ? 'hover:shadow-2xl hover:-translate-y-1' : ''}
   `,
   interactive: `
-    bg-white dark:bg-gray-900
+    bg-white
     border-2 border-transparent
     shadow-lg shadow-gray-900/10
-    hover:border-blue-500 dark:hover:border-blue-400
+    hover:border-blue-500
     ${hover ? 'hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-1' : ''}
   `,
   premium: `

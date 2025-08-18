@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PremiumHero from '../components/layout/PremiumHero.astro';
 
 // Page metadata
 const pageTitle = "Terms of Service | Jupitair HVAC";
@@ -26,24 +27,16 @@ const termsSchema = {
   canonical="https://jupitairhvac.com/terms"
   schema={termsSchema}
 >
-  <!-- Terms of Service Content -->
+  <!-- Premium Hero Section -->
+  <PremiumHero 
+    title="Terms of Service"
+    subtitle="Last Updated: January 15, 2025"
+    description="Please read these terms carefully before using our HVAC services. These terms govern your use of Jupitair HVAC services throughout North Texas."
+    variant="gradient"
+    height="sm"
+  />
+  
   <div class="bg-white">
-    <!-- Header Section -->
-    <section class="bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800 text-white py-16 lg:py-24">
-      <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center">
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            Terms of Service
-          </h1>
-          <p class="text-lg sm:text-xl text-blue-100 mb-8 leading-relaxed max-w-3xl mx-auto">
-            Please read these terms carefully before using our HVAC services. These terms govern your use of Jupitair HVAC services throughout North Texas.
-          </p>
-          <div class="text-blue-200 text-sm">
-            Last Updated: January 15, 2025
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Terms Content -->
     <section class="py-16 lg:py-24">

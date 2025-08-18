@@ -60,8 +60,7 @@
                 },
                 "required": [
                   "starting",
-                  "average",
-                  "description"
+                  "average"
                 ],
                 "additionalProperties": false
               },
@@ -82,11 +81,7 @@
               "priority",
               "emergency",
               "residential",
-              "commercial",
-              "keywords",
-              "pricing",
-              "serviceTime",
-              "warranty"
+              "commercial"
             ],
             "additionalProperties": false
           }

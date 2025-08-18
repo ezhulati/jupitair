@@ -22,7 +22,10 @@
                 "type": "string"
               },
               "zip": {
-                "type": "string"
+                "type": [
+                  "string",
+                  "number"
+                ]
               },
               "county": {
                 "type": "string"

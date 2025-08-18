@@ -1,0 +1,518 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PremiumHero from '../../components/layout/PremiumHero.astro';
+import Button from '../../components/ui/Button.astro';
+import PremiumButton from '../../components/ui/PremiumButton.astro';
+import Card from '../../components/ui/Card.astro';
+import PremiumCard from '../../components/ui/PremiumCard.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Icon from '../../components/ui/Icon.astro';
+import DynamicSchema from '../../components/seo/DynamicSchema.astro';
+import ReviewsSection from '../../components/reviews/ReviewsSection.astro';
+
+export async function getStaticPaths() {
+  try {
+    const pages = await getCollection('pages');
+    
+    if (!pages || pages.length === 0) {
+      console.warn('No pages found in content collection');
+      return [];
+    }
+    
+    // Filter for service pages
+    const servicePages = pages.filter(page => page.id.startsWith('services/'));
+
+    return servicePages.map(page => ({
+      params: { slug: page.id.replace('services/', '').replace('.mdx', '') },
+      props: { page },
+    }));
+  } catch (error) {
+    console.error('Error in getStaticPaths:', error);
+    return [];
+  }
+}
+
+const { page } = Astro.props;
+const { Content } = await page.render();
+
+// Extract service name from slug for breadcrumbs
+const serviceName = page.data.service
+  .split('-')
+  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(' ');
+---
+
+<BaseLayout
+  title={page.data.title}
+  description={page.data.description}
+  keywords={page.data.keywords}
+  canonical={page.data.canonicalUrl}
+  image={page.data.image}
+>
+  <!-- Schema Markup -->
+  {page.data.enableSchema?.service && (
+    <DynamicSchema 
+      type="Service"
+      data={{
+        name: serviceName,
+        description: page.data.description,
+        provider: {
+          "@type": "LocalBusiness",
+          name: "Jupitair HVAC",
+          telephone: "(940) 390-5676",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "5760 Legacy Dr B3-501",
+            addressLocality: "Plano",
+            addressRegion: "TX",
+            postalCode: "75024"
+          }
+        },
+        areaServed: {
+          "@type": "GeoCircle",
+          geoMidpoint: {
+            "@type": "GeoCoordinates",
+            latitude: 33.0198,
+            longitude: -96.6989
+          },
+          geoRadius: "30"
+        },
+        ...(page.data.pricing && {
+          priceRange: `$${page.data.pricing.min}-$${page.data.pricing.max}`
+        })
+      }}
+    />
+  )}
+
+  {page.data.enableSchema?.breadcrumbs && (
+    <DynamicSchema 
+      type="BreadcrumbList"
+      data={{
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://jupitairhvac.com"
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: "https://jupitairhvac.com/services"
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: serviceName,
+            item: page.data.canonicalUrl
+          }
+        ]
+      }}
+    />
+  )}
+
+  <!-- Hero Section -->
+  <PremiumHero
+    title={serviceName}
+    subtitle={page.data.pricing ? `$${page.data.pricing.min.toLocaleString()} - $${page.data.pricing.max.toLocaleString()}` : 'Professional Service'}
+    description={page.data.description}
+    ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
+    ctaSecondary={{ text: "Get Free Quote", href: "/contact" }}
+    variant="gradient"
+    height="md"
+  />
+
+  <!-- Breadcrumbs -->
+  <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
+    <div class="container mx-auto px-4 py-3">
+      <ol class="flex items-center space-x-2 text-sm">
+        <li>
+          <a href="/" class="text-gray-500 hover:text-gray-700">Home</a>
+        </li>
+        <li>
+          <span class="mx-2 text-gray-400">/</span>
+        </li>
+        <li>
+          <a href="/services" class="text-gray-500 hover:text-gray-700">Services</a>
+        </li>
+        <li>
+          <span class="mx-2 text-gray-400">/</span>
+        </li>
+        <li>
+          <span class="text-gray-900 font-medium">{serviceName}</span>
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- MDX Content with Enterprise Design -->
+  <article class="py-16 lg:py-20 bg-gradient-to-b from-white via-gray-50/50 to-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12">
+          <!-- Main Content -->
+          <div class="lg:col-span-8">
+            <div class="prose prose-lg prose-blue max-w-none
+              prose-headings:font-black prose-headings:text-gray-900 prose-headings:tracking-tight
+              prose-h1:text-4xl prose-h1:mb-8 prose-h1:border-b prose-h1:border-gray-200 prose-h1:pb-4
+              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-primary-900
+              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-gray-800
+              prose-p:text-gray-700 prose-p:leading-relaxed prose-p:text-lg
+              prose-ul:my-6 prose-li:my-2 prose-li:text-gray-700
+              prose-ol:my-6 prose-ol:text-gray-700
+              prose-strong:text-gray-900 prose-strong:font-bold
+              prose-a:text-primary-600 prose-a:font-semibold prose-a:no-underline hover:prose-a:text-primary-700 hover:prose-a:underline
+              prose-table:shadow-lg prose-table:rounded-xl prose-table:overflow-hidden prose-table:my-8
+              prose-thead:bg-gradient-to-r prose-thead:from-gray-100 prose-thead:to-gray-50 prose-thead:border-b-2 prose-thead:border-gray-200
+              prose-th:px-6 prose-th:py-4 prose-th:text-left prose-th:font-bold prose-th:text-gray-900 prose-th:text-sm prose-th:uppercase prose-th:tracking-wider
+              prose-td:px-6 prose-td:py-4 prose-td:border-b prose-td:border-gray-100 prose-td:text-gray-700
+              prose-tbody:divide-y prose-tbody:divide-gray-200
+              prose-tr:hover:bg-gray-50 prose-tr:transition-colors
+              prose-blockquote:border-l-4 prose-blockquote:border-primary-500 prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-700 prose-blockquote:bg-primary-50 prose-blockquote:py-4 prose-blockquote:rounded-r-lg
+              prose-code:bg-gray-100 prose-code:text-primary-700 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:font-mono prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
+              prose-pre:bg-gray-900 prose-pre:text-gray-100">
+              <Content />
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="lg:col-span-4">
+            <div class="sticky top-24 space-y-6">
+              <!-- Quick Contact Card -->
+              <PremiumCard variant="elevated" padding="lg">
+                <div class="text-center">
+                  <Badge variant="primary" class="mb-4">Get Service Now</Badge>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-3">Need {serviceName}?</h3>
+                  <p class="text-gray-600 mb-6">Fast, reliable service from certified technicians</p>
+                  
+                  <div class="space-y-3">
+                    <PremiumButton 
+                      href="tel:9403905676" 
+                      variant="premium" 
+                      size="lg"
+                      class="w-full"
+                    >
+                      <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                      </svg>
+                      (940) 390-5676
+                    </PremiumButton>
+                    
+                    <Button href="/schedule" variant="outline" size="lg" class="w-full">
+                      Schedule Online
+                    </Button>
+                  </div>
+                  
+                  <div class="mt-4 pt-4 border-t border-gray-200">
+                    <p class="text-xs text-gray-500">Available 24/7 for emergencies</p>
+                  </div>
+                </div>
+              </PremiumCard>
+              
+              <!-- Service Features -->
+              <Card variant="elevated" padding="lg">
+                <h4 class="font-bold text-gray-900 mb-4 flex items-center">
+                  <Icon name="shield" size="lg" class="mr-2 text-primary-600" />
+                  Service Guarantees
+                </h4>
+                <ul class="space-y-3">
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-sm text-gray-700">100% Satisfaction Guarantee</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-sm text-gray-700">Licensed & Insured</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-sm text-gray-700">Upfront Pricing</span>
+                  </li>
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-sm text-gray-700">Same-Day Service</span>
+                  </li>
+                </ul>
+              </Card>
+
+              <!-- Trust Badges -->
+              <Card variant="elevated" padding="md">
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="text-center">
+                    <div class="text-3xl font-bold text-primary-600">15+</div>
+                    <div class="text-xs text-gray-600">Years Experience</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-3xl font-bold text-primary-600">5.0</div>
+                    <div class="text-xs text-gray-600">Star Rating</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-3xl font-bold text-primary-600">24/7</div>
+                    <div class="text-xs text-gray-600">Emergency Service</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-3xl font-bold text-primary-600">100%</div>
+                    <div class="text-xs text-gray-600">Guaranteed</div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Reviews Section -->
+  <ReviewsSection 
+    limit={6}
+    variant="grid"
+    showCta={false}
+  />
+
+  <!-- CTA Section with Enterprise Design -->
+  <section class="py-20 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute -top-40 -right-40 w-80 h-80 bg-white rounded-full"></div>
+      <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white rounded-full"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <Badge variant="light" class="mb-4 bg-white/20 text-white border-white/30">
+            Professional Service
+          </Badge>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
+            Ready to Schedule Your {serviceName}?
+          </h2>
+          <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+            Join thousands of satisfied customers who trust Jupitair HVAC for professional {serviceName.toLowerCase()} service in North Texas
+          </p>
+        </div>
+        
+        <!-- Stats Row -->
+        <div class="grid grid-cols-3 gap-8 mb-12 max-w-3xl mx-auto">
+          <div class="text-center">
+            <div class="text-4xl md:text-5xl font-black text-white">15+</div>
+            <div class="text-blue-200 text-sm">Years Experience</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl md:text-5xl font-black text-white">24/7</div>
+            <div class="text-blue-200 text-sm">Emergency Service</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl md:text-5xl font-black text-white">100%</div>
+            <div class="text-blue-200 text-sm">Satisfaction</div>
+          </div>
+        </div>
+        
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <PremiumButton 
+            href="tel:9403905676" 
+            variant="premium"
+            size="xl"
+            class="bg-white text-primary-700 hover:bg-gray-100 shadow-2xl min-w-[250px]"
+          >
+            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            Call (940) 390-5676
+          </PremiumButton>
+          <PremiumButton 
+            href="/schedule" 
+            variant="glass"
+            size="xl"
+            class="border-2 border-white text-white hover:bg-white hover:text-primary-700 min-w-[250px]"
+          >
+            Schedule Online
+          </PremiumButton>
+        </div>
+        
+        <!-- Trust Signals -->
+        <div class="mt-12 flex flex-wrap justify-center gap-8 text-white/80 text-sm">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            Licensed & Insured
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            Same-Day Service
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            Upfront Pricing
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Areas -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">
+          Serving North Texas Communities
+        </h3>
+        <div class="flex flex-wrap justify-center gap-3 text-sm">
+          {['Plano', 'Frisco', 'McKinney', 'Allen', 'The Colony', 'Richardson', 'Carrollton', 'Little Elm', 'Prosper'].map(city => (
+            <a 
+              href={`/${city.toLowerCase().replace(' ', '-')}`}
+              class="px-4 py-2 bg-white rounded-full border border-gray-200 hover:border-blue-500 hover:text-blue-600 transition-colors"
+            >
+              {city}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Enterprise Design System for MDX content */
+  article :global(h1) {
+    @apply scroll-mt-24 relative;
+  }
+  
+  article :global(h2) {
+    @apply scroll-mt-20 relative;
+  }
+  
+  article :global(h2::before) {
+    content: '';
+    @apply absolute -left-4 top-0 bottom-0 w-1 bg-primary-500 rounded-full;
+  }
+  
+  article :global(h3) {
+    @apply scroll-mt-16;
+  }
+
+  /* Premium table styling */
+  article :global(table) {
+    @apply shadow-xl rounded-xl overflow-hidden border border-gray-200;
+  }
+
+  article :global(thead) {
+    @apply bg-gradient-to-r from-gray-100 to-gray-50;
+  }
+
+  article :global(tbody tr) {
+    @apply transition-all duration-200;
+  }
+
+  article :global(tbody tr:hover) {
+    @apply bg-primary-50 shadow-sm;
+  }
+
+  article :global(tbody tr:nth-child(even)) {
+    @apply bg-gray-50/50;
+  }
+
+  /* Premium code block styling */
+  article :global(pre) {
+    @apply bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 rounded-xl p-6 overflow-x-auto shadow-xl border border-gray-700;
+  }
+
+  article :global(code) {
+    @apply bg-primary-50 text-primary-700 px-2 py-1 rounded-md text-sm font-mono border border-primary-200;
+  }
+
+  article :global(pre code) {
+    @apply bg-transparent p-0 border-0;
+  }
+
+  /* Premium list styling */
+  article :global(ul) {
+    @apply space-y-3;
+  }
+
+  article :global(ul li) {
+    @apply relative pl-7;
+  }
+
+  article :global(ul li::before) {
+    content: '→';
+    @apply absolute left-0 text-primary-500 font-bold;
+  }
+
+  article :global(ol) {
+    counter-reset: list-counter;
+    @apply space-y-3;
+  }
+
+  article :global(ol li) {
+    counter-increment: list-counter;
+    @apply relative pl-8;
+  }
+
+  article :global(ol li::before) {
+    content: counter(list-counter);
+    @apply absolute left-0 w-6 h-6 bg-primary-500 text-white text-xs font-bold rounded-full flex items-center justify-center;
+  }
+
+  /* Premium blockquote styling */
+  article :global(blockquote) {
+    @apply relative overflow-hidden;
+  }
+
+  article :global(blockquote::before) {
+    content: '"';
+    @apply absolute -top-4 -left-2 text-8xl text-primary-200 font-serif;
+  }
+
+  /* Link hover effects */
+  article :global(a) {
+    @apply relative inline-block;
+  }
+
+  article :global(a::after) {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300;
+  }
+
+  article :global(a:hover::after) {
+    @apply w-full;
+  }
+
+  /* Strong text styling */
+  article :global(strong) {
+    @apply text-gray-900 font-bold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent;
+  }
+
+  /* FAQ section styling */
+  article :global(h2:has(+ p > strong:first-child:contains("Q:"))) {
+    @apply mt-16 mb-8 text-center;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    article :global(table) {
+      @apply text-sm;
+    }
+
+    article :global(th),
+    article :global(td) {
+      @apply px-3 py-2;
+    }
+  }
+</style>

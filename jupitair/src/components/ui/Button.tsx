@@ -1,6 +1,6 @@
 import React, { forwardRef, ButtonHTMLAttributes, ReactNode } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
+import { cn } from '../../lib/utils';
 
 const buttonVariants = cva(
   `
@@ -225,7 +225,7 @@ Button.displayName = 'Button';
 export { Button, buttonVariants };
 
 // Add these styles to your global CSS
-const buttonStyles = `
+/* const buttonStyles = `
 @keyframes ripple {
   0% {
     transform: scale(0);
@@ -244,4 +244,4 @@ const buttonStyles = `
 .rounded-inherit {
   border-radius: inherit;
 }
-`;
+`; */

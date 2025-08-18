@@ -1,1 +1,0 @@
-import"./hoisted.uc0jJ9DK.js";document.getElementById("contact-form")?.addEventListener("submit",function(t){t.preventDefault();const e=new FormData(t.target),r=Object.fromEntries(e);console.log("Form submitted:",r),alert("Thank you for your request! We will contact you within 1 business hour during regular hours, or immediately for emergencies."),t.target.reset()});

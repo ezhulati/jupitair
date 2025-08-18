@@ -384,8 +384,8 @@ export class WebVitals {
 
   private reportMetric(name: string, value: number): void {
     // Send to analytics
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'web_vitals', {
+    if (typeof (window as any).gtag !== 'undefined') {
+      (window as any).gtag('event', 'web_vitals', {
         event_category: 'Performance',
         event_label: name,
         value: Math.round(value),

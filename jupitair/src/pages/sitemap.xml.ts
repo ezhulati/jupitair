@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { readFileSync } from 'fs';
+import { readFileSync, readdirSync } from 'fs';
 import { parse } from 'yaml';
 
 export const GET: APIRoute = async () => {
@@ -9,6 +9,12 @@ export const GET: APIRoute = async () => {
   
   const services = servicesData?.money_pages || [];
   const cities = citiesData?.cities || [];
+  
+  // Get blog posts
+  const blogDir = './src/content/blog';
+  const blogPosts = readdirSync(blogDir)
+    .filter(file => file.endsWith('.mdx'))
+    .map(file => file.replace('.mdx', ''));
   
   // Get current date in W3C format
   const currentDate = new Date().toISOString().split('T')[0];
@@ -75,6 +81,24 @@ export const GET: APIRoute = async () => {
         changefreq: 'monthly',
         priority: '0.7'
       });
+    });
+  });
+  
+  // Blog pages
+  urls.push({
+    loc: 'https://jupitairhvac.com/blog',
+    lastmod: currentDate,
+    changefreq: 'daily',
+    priority: '0.8'
+  });
+  
+  // Individual blog posts
+  blogPosts.forEach(post => {
+    urls.push({
+      loc: `https://jupitairhvac.com/blog/${post}`,
+      lastmod: currentDate,
+      changefreq: 'monthly',
+      priority: '0.7'
     });
   });
   
