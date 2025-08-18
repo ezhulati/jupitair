@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AdvancedImage, lazyload, responsive, placeholder } from '@cloudinary/react';
+import { AdvancedImage, lazyload, placeholder } from '@cloudinary/react';
 import { Cloudinary } from '@cloudinary/url-gen';
 import { auto } from '@cloudinary/url-gen/actions/resize';
 import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
@@ -76,9 +76,6 @@ const CloudinaryImageReact: React.FC<CloudinaryImageProps> = ({
   const plugins = [];
   if (loading === 'lazy') {
     plugins.push(lazyload());
-  }
-  if (responsive) {
-    plugins.push(responsive());
     plugins.push(placeholder());
   }
   
