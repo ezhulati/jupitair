@@ -4,7 +4,7 @@ import PremiumHero from '../components/layout/PremiumHero.astro';
 import ServicesOverview from '../components/layout/ServicesOverview.astro';
 import ServiceAreas from '../components/layout/ServiceAreas.astro';
 import WhyChooseUs from '../components/layout/WhyChooseUs.astro';
-import PremiumContactForm from '../components/forms/PremiumContactForm.astro';
+import ContactForm from '../components/forms/ContactForm.astro';
 import ReviewsSection from '../components/reviews/ReviewsSection.astro';
 import PremiumCard from '../components/ui/PremiumCard.astro';
 import PremiumButton from '../components/ui/PremiumButton.astro';
@@ -515,7 +515,7 @@ const homepageSchema = {
         </p>
       </div>
       
-      <PremiumContactForm variant="modern" showEmergencyOption={true} />
+      <ContactForm formId="homepage-contact-form" />
     </div>
   </section>
 
