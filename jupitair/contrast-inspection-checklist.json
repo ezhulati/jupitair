@@ -1,0 +1,690 @@
+{
+  "timestamp": "2025-08-19T04:28:44.514Z",
+  "totalPages": 76,
+  "pages": [
+    {
+      "url": "/",
+      "name": "Homepage",
+      "fullUrl": "http://localhost:4322/",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/about",
+      "name": "About Us",
+      "fullUrl": "http://localhost:4322/about",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/services",
+      "name": "Services Overview",
+      "fullUrl": "http://localhost:4322/services",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/contact",
+      "name": "Contact",
+      "fullUrl": "http://localhost:4322/contact",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/schedule",
+      "name": "Schedule Service",
+      "fullUrl": "http://localhost:4322/schedule",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/privacy",
+      "name": "Privacy Policy",
+      "fullUrl": "http://localhost:4322/privacy",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/terms",
+      "name": "Terms of Service",
+      "fullUrl": "http://localhost:4322/terms",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/success",
+      "name": "Success Page",
+      "fullUrl": "http://localhost:4322/success",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/commercial",
+      "name": "Commercial Services",
+      "fullUrl": "http://localhost:4322/commercial",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/style-guide",
+      "name": "Style Guide",
+      "fullUrl": "http://localhost:4322/style-guide",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/services/ac-repair",
+      "name": "AC Repair Service",
+      "fullUrl": "http://localhost:4322/services/ac-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/services/emergency-ac-repair",
+      "name": "Emergency AC Repair",
+      "fullUrl": "http://localhost:4322/services/emergency-ac-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/services/ac-installation",
+      "name": "AC Installation",
+      "fullUrl": "http://localhost:4322/services/ac-installation",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/services/ac-maintenance",
+      "name": "AC Maintenance",
+      "fullUrl": "http://localhost:4322/services/ac-maintenance",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/services/furnace-repair",
+      "name": "Furnace Repair",
+      "fullUrl": "http://localhost:4322/services/furnace-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/services/furnace-installation",
+      "name": "Furnace Installation",
+      "fullUrl": "http://localhost:4322/services/furnace-installation",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/services/heat-pump-repair",
+      "name": "Heat Pump Repair",
+      "fullUrl": "http://localhost:4322/services/heat-pump-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/services/heat-pump-installation",
+      "name": "Heat Pump Installation",
+      "fullUrl": "http://localhost:4322/services/heat-pump-installation",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/services/ductless-mini-split-installation",
+      "name": "Ductless Mini Split",
+      "fullUrl": "http://localhost:4322/services/ductless-mini-split-installation",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/services/duct-repair-sealing",
+      "name": "Duct Repair & Sealing",
+      "fullUrl": "http://localhost:4322/services/duct-repair-sealing",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/services/thermostat-installation",
+      "name": "Thermostat Installation",
+      "fullUrl": "http://localhost:4322/services/thermostat-installation",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/services/indoor-air-quality",
+      "name": "Indoor Air Quality",
+      "fullUrl": "http://localhost:4322/services/indoor-air-quality",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/services/residential",
+      "name": "Residential Services",
+      "fullUrl": "http://localhost:4322/services/residential",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/services/duct-cleaning",
+      "name": "Duct Cleaning",
+      "fullUrl": "http://localhost:4322/services/duct-cleaning",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/commercial/chiller-systems",
+      "name": "Commercial Chiller Systems",
+      "fullUrl": "http://localhost:4322/commercial/chiller-systems",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/commercial/emergency-service",
+      "name": "Commercial Emergency Service",
+      "fullUrl": "http://localhost:4322/commercial/emergency-service",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/commercial/new-installation",
+      "name": "Commercial New Installation",
+      "fullUrl": "http://localhost:4322/commercial/new-installation",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/commercial/office-hvac",
+      "name": "Office HVAC",
+      "fullUrl": "http://localhost:4322/commercial/office-hvac",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/commercial/preventive-maintenance",
+      "name": "Commercial Maintenance",
+      "fullUrl": "http://localhost:4322/commercial/preventive-maintenance",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/commercial/restaurant-hvac",
+      "name": "Restaurant HVAC",
+      "fullUrl": "http://localhost:4322/commercial/restaurant-hvac",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/commercial/retail-hvac",
+      "name": "Retail HVAC",
+      "fullUrl": "http://localhost:4322/commercial/retail-hvac",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/commercial/rtu-replacement",
+      "name": "RTU Replacement",
+      "fullUrl": "http://localhost:4322/commercial/rtu-replacement",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/frisco",
+      "name": "Frisco HVAC Services",
+      "fullUrl": "http://localhost:4322/frisco",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/frisco/ac-repair",
+      "name": "Frisco AC Repair",
+      "fullUrl": "http://localhost:4322/frisco/ac-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/frisco/emergency-ac-repair",
+      "name": "Frisco Emergency AC Repair",
+      "fullUrl": "http://localhost:4322/frisco/emergency-ac-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/frisco/ac-installation",
+      "name": "Frisco AC Installation",
+      "fullUrl": "http://localhost:4322/frisco/ac-installation",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/frisco/ac-maintenance",
+      "name": "Frisco AC Maintenance",
+      "fullUrl": "http://localhost:4322/frisco/ac-maintenance",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/frisco/furnace-repair",
+      "name": "Frisco Furnace Repair",
+      "fullUrl": "http://localhost:4322/frisco/furnace-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/frisco/furnace-installation",
+      "name": "Frisco Furnace Installation",
+      "fullUrl": "http://localhost:4322/frisco/furnace-installation",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/plano",
+      "name": "Plano HVAC Services",
+      "fullUrl": "http://localhost:4322/plano",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/plano/ac-repair",
+      "name": "Plano AC Repair",
+      "fullUrl": "http://localhost:4322/plano/ac-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/plano/emergency-ac-repair",
+      "name": "Plano Emergency AC Repair",
+      "fullUrl": "http://localhost:4322/plano/emergency-ac-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/plano/ac-installation",
+      "name": "Plano AC Installation",
+      "fullUrl": "http://localhost:4322/plano/ac-installation",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/plano/ac-maintenance",
+      "name": "Plano AC Maintenance",
+      "fullUrl": "http://localhost:4322/plano/ac-maintenance",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/plano/furnace-repair",
+      "name": "Plano Furnace Repair",
+      "fullUrl": "http://localhost:4322/plano/furnace-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/plano/furnace-installation",
+      "name": "Plano Furnace Installation",
+      "fullUrl": "http://localhost:4322/plano/furnace-installation",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/mckinney",
+      "name": "McKinney HVAC Services",
+      "fullUrl": "http://localhost:4322/mckinney",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/mckinney/ac-repair",
+      "name": "McKinney AC Repair",
+      "fullUrl": "http://localhost:4322/mckinney/ac-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/mckinney/emergency-ac-repair",
+      "name": "McKinney Emergency AC Repair",
+      "fullUrl": "http://localhost:4322/mckinney/emergency-ac-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/mckinney/ac-installation",
+      "name": "McKinney AC Installation",
+      "fullUrl": "http://localhost:4322/mckinney/ac-installation",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/mckinney/ac-maintenance",
+      "name": "McKinney AC Maintenance",
+      "fullUrl": "http://localhost:4322/mckinney/ac-maintenance",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/mckinney/furnace-repair",
+      "name": "McKinney Furnace Repair",
+      "fullUrl": "http://localhost:4322/mckinney/furnace-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/mckinney/furnace-installation",
+      "name": "McKinney Furnace Installation",
+      "fullUrl": "http://localhost:4322/mckinney/furnace-installation",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/allen",
+      "name": "Allen HVAC Services",
+      "fullUrl": "http://localhost:4322/allen",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/allen/ac-repair",
+      "name": "Allen AC Repair",
+      "fullUrl": "http://localhost:4322/allen/ac-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/allen/emergency-ac-repair",
+      "name": "Allen Emergency AC Repair",
+      "fullUrl": "http://localhost:4322/allen/emergency-ac-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/allen/ac-installation",
+      "name": "Allen AC Installation",
+      "fullUrl": "http://localhost:4322/allen/ac-installation",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/allen/ac-maintenance",
+      "name": "Allen AC Maintenance",
+      "fullUrl": "http://localhost:4322/allen/ac-maintenance",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/allen/furnace-repair",
+      "name": "Allen Furnace Repair",
+      "fullUrl": "http://localhost:4322/allen/furnace-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/allen/furnace-installation",
+      "name": "Allen Furnace Installation",
+      "fullUrl": "http://localhost:4322/allen/furnace-installation",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/prosper",
+      "name": "Prosper HVAC Services",
+      "fullUrl": "http://localhost:4322/prosper",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/prosper/ac-repair",
+      "name": "Prosper AC Repair",
+      "fullUrl": "http://localhost:4322/prosper/ac-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/prosper/emergency-ac-repair",
+      "name": "Prosper Emergency AC Repair",
+      "fullUrl": "http://localhost:4322/prosper/emergency-ac-repair",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/little-elm",
+      "name": "Little Elm HVAC Services",
+      "fullUrl": "http://localhost:4322/little-elm",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/the-colony",
+      "name": "The Colony HVAC Services",
+      "fullUrl": "http://localhost:4322/the-colony",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/addison",
+      "name": "Addison HVAC Services",
+      "fullUrl": "http://localhost:4322/addison",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/blog",
+      "name": "Blog Index",
+      "fullUrl": "http://localhost:4322/blog",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/blog/ac-blowing-warm-air",
+      "name": "AC Blowing Warm Air Blog",
+      "fullUrl": "http://localhost:4322/blog/ac-blowing-warm-air",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/blog/ac-leaking-water-what-to-do",
+      "name": "AC Leaking Water Blog",
+      "fullUrl": "http://localhost:4322/blog/ac-leaking-water-what-to-do",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/blog/ac-lifespan-dfw",
+      "name": "AC Lifespan DFW Blog",
+      "fullUrl": "http://localhost:4322/blog/ac-lifespan-dfw",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/blog/ac-maintenance-checklist-spring",
+      "name": "Spring AC Maintenance Blog",
+      "fullUrl": "http://localhost:4322/blog/ac-maintenance-checklist-spring",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/blog/ac-repair-cost-north-texas-2025",
+      "name": "AC Repair Cost 2025 Blog",
+      "fullUrl": "http://localhost:4322/blog/ac-repair-cost-north-texas-2025",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/cloudinary-demo",
+      "name": "Cloudinary Demo",
+      "fullUrl": "http://localhost:4322/cloudinary-demo",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/cloudinary-test",
+      "name": "Cloudinary Test",
+      "fullUrl": "http://localhost:4322/cloudinary-test",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/oauth/callback",
+      "name": "OAuth Callback",
+      "fullUrl": "http://localhost:4322/oauth/callback",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    },
+    {
+      "url": "/oauth/setup",
+      "name": "OAuth Setup",
+      "fullUrl": "http://localhost:4322/oauth/setup",
+      "inspected": false,
+      "contrastIssues": [],
+      "notes": "",
+      "status": "pending"
+    }
+  ]
+}
