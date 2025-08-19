@@ -40,6 +40,7 @@ targetCity: "all"
 
 import Button from '../../components/ui/Button.astro';
 import Badge from '../../components/ui/Badge.astro';
+import BlogCTA from '../../components/blog/BlogCTA.astro';
 import PremiumCard from '../../components/ui/PremiumCard.astro';
 
 # Best Thermostat Schedules for Texas Summers
@@ -54,13 +55,7 @@ import PremiumCard from '../../components/ui/PremiumCard.astro';
 
 
 
-<div class="bg-blue-50 border-l-4 border-blue-500 p-6 my-8">
-  <p class="text-lg font-semibold text-blue-900">Need Professional HVAC Service?</p>
-  <p class="text-blue-800 mt-2">Our certified technicians are ready to help with repairs, maintenance, and installations.</p>
-  <div class="mt-4 flex gap-4">
-    <Button href="tel:9403905676" variant="primary">Call (940) 390-5676</Button>
-    <Button href="/schedule" variant="secondary">Schedule Online</Button>
-  </div>
+<BlogCTA variant="inline" />
 </div>
 
 ## Homeowner checklist
@@ -89,28 +84,7 @@ import PremiumCard from '../../components/ui/PremiumCard.astro';
 
 ---
 
-<PremiumCard variant="elevated" padding="lg" class="mt-12">
-  <div class="text-center">
-    <h3 class="text-2xl font-bold text-gray-900 mb-4">Ready to Solve Your HVAC Issues?</h3>
-    <p class="text-lg text-gray-600 mb-6">
-      Don't let HVAC problems disrupt your comfort. Our experienced technicians are here to help.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <Button href="tel:9403905676" variant="primary" size="lg">
-        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-        </svg>
-        Call (940) 390-5676
-      </Button>
-      <Button href="/contact" variant="outline" size="lg">
-        Get Free Estimate
-      </Button>
-    </div>
-    <p class="text-sm text-gray-500 mt-4">
-      24/7 Emergency Service • Licensed & Insured • Satisfaction Guaranteed
-    </p>
-  </div>
-</PremiumCard>
+<BlogCTA variant="end" />
 
 *Last Updated: August 18, 2025*
 
