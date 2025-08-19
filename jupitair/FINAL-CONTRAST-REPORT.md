@@ -52,6 +52,26 @@
 
 **Root Cause**: CSS class `.btn-secondary`, `.btn-outline`, or similar affecting all secondary buttons site-wide
 
+### Issue #2: Blog Content White-on-White Text (ALL BLOG PAGES)
+**SEVERITY**: 🔴 CRITICAL  
+**AFFECTED PAGES**: All 6 blog pages + blog index  
+**DESCRIPTION**: Extremely light gray text (#CCCCCC or similar) on white backgrounds  
+
+**Specific Examples Found:**
+1. **Blog Index (/blog)**: Article descriptions barely visible
+2. **Blog Posts**: Intro text "clear steps, practical detail..." nearly invisible
+3. **Blog Metadata**: Author, dates, read times extremely light
+4. **Blog Categories**: "AC & Cooling" tags very light gray
+5. **Large Content Sections**: Some sections appear almost completely blank
+
+**Root Cause**: CSS classes for blog content text, metadata, and descriptions using insufficient contrast ratios
+
+**Business Impact**: 
+- Blog content unreadable by many users
+- SEO content not accessible to users
+- Educational value of blog posts lost
+- Potential legal accessibility violations
+
 ---
 
 ## 📊 COMPLETE FINDINGS BREAKDOWN
@@ -122,6 +142,43 @@
 .button--secondary:focus {
   outline: 3px solid #1e40af;
   outline-offset: 2px;
+}
+```
+
+/* CRITICAL FIX: Blog Content White-on-White Text */
+.blog-description,
+.blog-excerpt, 
+.blog-meta,
+.blog-category,
+.post-description,
+.post-excerpt,
+.post-meta,
+[class*="blog"] p,
+[class*="post"] p,
+.text-gray-400,
+.text-gray-300,
+.text-gray-500 {
+  color: #374151 !important; /* Dark gray text - WCAG compliant */
+}
+
+/* Blog headings and important text */
+.blog-title,
+.post-title,
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+  color: #1f2937 !important; /* Very dark gray/black */
+}
+
+/* Blog metadata - slightly lighter but still readable */
+.blog-date,
+.post-date,
+.read-time,
+.author {
+  color: #4b5563 !important; /* Medium gray - still WCAG compliant */
 }
 ```
 
@@ -204,10 +261,10 @@ npx axe-core http://localhost:4322/ --include="#main" --tags wcag2aa
 
 ---
 
-**Report Generated**: 2025-08-19T05:40:44.000Z  
-**Pages Analyzed**: 4 key pages (representative of all 76)  
-**Issues Found**: 1 critical site-wide issue  
-**Fix Estimated Time**: 15 minutes implementation + testing  
+**Report Generated**: 2025-08-19T05:47:54.000Z  
+**Pages Analyzed**: 6 key pages including blog inspection  
+**Issues Found**: 2 critical site-wide issues  
+**Fix Estimated Time**: 20 minutes implementation + testing  
 **Business Priority**: 🔴 URGENT - Deploy immediately
 
 ---
