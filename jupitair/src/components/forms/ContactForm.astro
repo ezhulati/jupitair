@@ -234,9 +234,10 @@ const { formId = 'contact-form', variant = 'premium' } = Astro.props;
             id="preferredDate"
             name="preferredDate"
             required
+            placeholder="Select date"
             min={new Date().toISOString().split('T')[0]}
             max={new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
-            class="form-input w-full block"
+            class="form-input w-full block date-placeholder"
             style="width: 100% !important; max-width: 100% !important;"
           />
         </div>
@@ -415,7 +416,8 @@ const { formId = 'contact-form', variant = 'premium' } = Astro.props;
   
   /* Mobile specific fix for date inputs */
   @media (max-width: 768px) {
-    input[type="date"].form-input {
+    input[type="date"].form-input,
+    input[type="text"].form-input {
       font-size: 16px; /* Prevent zoom on iOS */
       width: 100% !important;
       max-width: 100% !important;
@@ -434,6 +436,24 @@ const { formId = 'contact-form', variant = 'premium' } = Astro.props;
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Add placeholder functionality to date input
+    const dateInputs = document.querySelectorAll('input[type="date"]');
+    dateInputs.forEach(input => {
+      if (!input.value) {
+        input.type = 'text';
+        input.placeholder = 'Select date';
+        input.onfocus = function() {
+          this.type = 'date';
+        };
+        input.onblur = function() {
+          if (!this.value) {
+            this.type = 'text';
+            this.placeholder = 'Select date';
+          }
+        };
+      }
+    });
+    
     const forms = document.querySelectorAll('form[name="contact"]');
     
     forms.forEach(form => {
