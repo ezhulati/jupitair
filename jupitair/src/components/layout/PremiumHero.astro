@@ -158,8 +158,14 @@ const variantClasses = {
         )}
         
         <h1 class={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight drop-shadow-sm ${variant === 'gradient' ? 'text-white' : 'text-gray-900'}`}>
-          <span class="block">North Texas Premier</span>
-          <span class="block">HVAC Solutions</span>
+          {title.includes('North Texas Premier') ? (
+            <>
+              <span class="block">North Texas Premier</span>
+              <span class="block">HVAC Solutions</span>
+            </>
+          ) : (
+            <span class="inline-block">{title}</span>
+          )}
         </h1>
 
         {description && (
