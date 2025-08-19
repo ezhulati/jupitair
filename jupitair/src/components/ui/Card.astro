@@ -1,38 +1,119 @@
 ---
 export interface Props {
-  variant?: 'default' | 'service' | 'elevated' | 'bordered';
-  padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
+  variant?: 'default' | 'elevated' | 'outline' | 'service' | 'pricing';
+  size?: 'sm' | 'md' | 'lg';
+  interactive?: boolean;
   class?: string;
-  [key: string]: any;
+  href?: string;
+  ariaLabel?: string;
+  role?: string;
 }
 
 const {
   variant = 'default',
-  padding = 'md',
+  size = 'md',
+  interactive = false,
   class: className = '',
-  ...rest
+  href,
+  ariaLabel,
+  role,
 } = Astro.props;
 
-const baseClasses = 'bg-white rounded-xl transition-all duration-200 overflow-hidden';
+// Base classes with accessibility
+const baseClasses = `
+  bg-white rounded-xl border
+  transition-all duration-200 ease-in-out
+  relative overflow-hidden
+`;
 
 const variantClasses = {
-  default: 'shadow-sm hover:shadow-md border border-gray-200',
-  service: 'shadow-md hover:shadow-lg border border-gray-100 hover:border-primary-200 transform hover:-translate-y-1',
-  elevated: 'shadow-lg hover:shadow-xl border border-gray-100',
-  bordered: 'border-2 border-gray-200 hover:border-primary-400 shadow-sm'
+  default: `
+    border-gray-200 shadow-sm
+    hover:shadow-md hover:border-gray-300
+  `,
+  elevated: `
+    border-gray-100 shadow-lg
+    hover:shadow-xl hover:border-gray-200
+  `,
+  outline: `
+    border-2 border-gray-300 shadow-none
+    hover:border-primary-300 hover:shadow-sm
+  `,
+  service: `
+    border-gray-200 shadow-md
+    hover:shadow-lg hover:border-primary-200
+    hover:-translate-y-1
+  `,
+  pricing: `
+    border-2 border-primary-200 shadow-lg
+    hover:border-primary-300 hover:shadow-xl
+    hover:-translate-y-2
+  `
 };
 
-const paddingClasses = {
-  none: '',
-  sm: 'p-4 sm:p-5',
-  md: 'p-5 sm:p-6 lg:p-8',
-  lg: 'p-6 sm:p-8 lg:p-10',
-  xl: 'p-8 sm:p-10 lg:p-12'
+const sizeClasses = {
+  sm: 'p-4',
+  md: 'p-6',
+  lg: 'p-8'
 };
 
-const classes = `${baseClasses} ${variantClasses[variant]} ${paddingClasses[padding]} ${className}`.trim();
+const interactiveClasses = interactive ? `
+  cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2
+  active:scale-[0.98]
+` : '';
+
+const classes = [
+  baseClasses,
+  variantClasses[variant],
+  sizeClasses[size],
+  interactiveClasses,
+  className,
+].join(' ').replace(/\s+/g, ' ').trim();
+
+const Tag = href ? 'a' : 'div';
+const tagProps = href 
+  ? { href, role: role || 'button' } 
+  : { role };
 ---
 
-<div class={classes} {...rest}>
+<Tag
+  class={classes}
+  aria-label={ariaLabel}
+  {...tagProps}
+>
   <slot />
-</div>
+</Tag>
+
+<style>
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    div, a {
+      border-width: 3px !important;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    div, a {
+      transition: none !important;
+      transform: none !important;
+    }
+    
+    div:hover, a:hover {
+      transform: none !important;
+    }
+  }
+
+  /* Forced colors mode */
+  @media (forced-colors: active) {
+    div, a {
+      border: 2px solid ButtonText !important;
+      background: ButtonFace !important;
+    }
+    
+    div:hover, a:hover {
+      background: Highlight !important;
+      color: HighlightText !important;
+    }
+  }
+</style>
