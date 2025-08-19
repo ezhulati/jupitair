@@ -12,7 +12,7 @@ tags: ["little elm ac repair info","heat pump info"]
 featured: false
 draft: false
 
-# SEO Fields
+
 metaTitle: "Little Elm HVAC Knowledge Hub | Jupitair HVAC"
 metaDescription: "Little Elm HVAC Knowledge Hub — clear steps, practical detail, and when to call a pro in North Texas."
 primaryKeyword: "little elm hvac"
@@ -42,13 +42,16 @@ import Button from '../../components/ui/Button.astro';
 import PhoneLink from '../../components/ui/PhoneLink.astro';
 import Badge from '../../components/ui/Badge.astro';
 import PremiumCard from '../../components/ui/PremiumCard.astro';
+import BlogCTA from '../../components/blog/BlogCTA.astro';
 
 # Little Elm HVAC Knowledge Hub
 
 Local notes for climate and housing stock, plus links to the most helpful guides.
 
 
+
 ## Top guides for this city
+
 - [AC Leaking Water: What To Do Right Now](/learn/ac-leaking-water-what-to-do)
 - [AC Blowing Warm Air](/learn/ac-blowing-warm-air)
 - [Frozen Evaporator Coil](/learn/frozen-evaporator-coil)
@@ -56,44 +59,27 @@ Local notes for climate and housing stock, plus links to the most helpful guides
 
 
 
-<div class="bg-blue-50 border-l-4 border-blue-500 p-6 my-8">
-  <p class="text-lg font-semibold text-blue-900">Need Professional HVAC Service?</p>
-  <p class="text-blue-800 mt-2">Our certified technicians are ready to help with repairs, maintenance, and installations.</p>
-  <div class="mt-4 flex gap-4">
-    <PhoneLink variant="button" size="lg" context="blog" class="inline-flex" />
-    <Button href="/schedule" variant="secondary">Schedule Online</Button>
-  </div>
-</div>
+<BlogCTA variant="inline" />
+
 
 ## Service options
+
 - [AC Repair](/services/ac-repair/)
 - [Heating Repair](/services/heating-repair/)
 - [HVAC Installation](/services/hvac-installation/)
 
 
-## FAQ
+
+
+## Frequently Asked Questions
+
+
 - **Do you offer same‑day service?** In most cases.
 - **What areas do you cover?** Greater North Texas; call to confirm scheduling.
 
 ---
 
-<PremiumCard variant="elevated" padding="lg" class="mt-12">
-  <div class="text-center">
-    <h3 class="text-2xl font-bold text-gray-900 mb-4">Ready to Solve Your HVAC Issues?</h3>
-    <p class="text-lg text-gray-600 mb-6">
-      Don't let HVAC problems disrupt your comfort. Our experienced technicians are here to help.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <PhoneLink variant="button" size="lg" context="blog" class="inline-flex" />
-      <Button href="/contact" variant="outline" size="lg">
-        Get Free Estimate
-      </Button>
-    </div>
-    <p class="text-sm text-gray-500 mt-4">
-      24/7 Emergency Service • Licensed & Insured • Satisfaction Guaranteed
-    </p>
-  </div>
-</PremiumCard>
+<BlogCTA variant="end" title="Ready to Solve Your HVAC Issues?" description="Don't let HVAC problems disrupt your comfort. Our experienced technicians are here to help." />
 
 *Last Updated: August 18, 2025*
 
