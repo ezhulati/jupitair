@@ -3,360 +3,291 @@ import Button from '../ui/Button.astro';
 
 export interface Props {
   formId?: string;
-  variant?: 'default' | 'compact' | 'premium';
+  variant?: 'default' | 'compact' | 'emergency';
+  hideNonEssential?: boolean;
 }
 
-const { formId = 'contact-form', variant = 'premium' } = Astro.props;
+const { 
+  formId = 'contact-form', 
+  variant = 'default',
+  hideNonEssential = false 
+} = Astro.props;
+
+const isCompact = variant === 'compact' || hideNonEssential;
+const isEmergency = variant === 'emergency';
 ---
 
-<div class="bg-white rounded-lg p-4 sm:p-6 lg:p-8 w-full max-w-4xl mx-auto">
+<div class="bg-white rounded-xl shadow-lg p-4 sm:p-6 lg:p-8 w-full max-w-4xl mx-auto border border-gray-100">
   <form 
-    class="overflow-x-hidden space-y-6" 
+    class="space-y-4 sm:space-y-6" 
     name="contact" 
     method="POST" 
     data-netlify="true"
     netlify-honeypot="bot-field"
     id={formId}
+    aria-label="Contact Form"
+    novalidate
   >
     <!-- Honeypot field for spam protection -->
     <input type="hidden" name="form-name" value="contact" />
-    <div style="display: none;">
-      <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+    <div class="sr-only" aria-hidden="true">
+      <label>
+        Don't fill this out if you're human: 
+        <input name="bot-field" tabindex="-1" autocomplete="off" />
+      </label>
     </div>
 
-    <!-- Name Fields -->
-    <div class="min-w-0 grid sm:grid-cols-2 gap-4 sm:gap-6">
-      <div class="form-group">
-        <label for="firstName" class="block text-sm font-semibold text-gray-900 mb-2">
-          First Name <span class="text-red-500">*</span>
-        </label>
-        <div class="input-wrapper">
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            required
-            placeholder="John"
-            class="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all text-sm sm:text-base"
-          />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="lastName" class="block text-sm font-semibold text-gray-900 mb-2">
-          Last Name <span class="text-red-500">*</span>
-        </label>
-        <div class="input-wrapper">
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            required
-            placeholder="Smith"
-            class="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all text-sm sm:text-base"
-          />
-        </div>
-      </div>
-    </div>
-  
-    <!-- Contact Fields -->
-    <div class="min-w-0 grid sm:grid-cols-2 gap-4 sm:gap-6">
-      <div class="form-group">
-        <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">
-          Email Address <span class="text-red-500">*</span>
-        </label>
-        <div class="input-wrapper">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="john@example.com"
-            class="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all text-sm sm:text-base"
-          />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="phone" class="block text-sm font-semibold text-gray-900 mb-2">
-          Phone Number <span class="text-red-500">*</span>
-        </label>
-        <div class="input-wrapper">
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            required
-            placeholder="(214) 555-0123"
-            class="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all text-sm sm:text-base"
-          />
-        </div>
-      </div>
-    </div>
-  
-  <!-- Address Fields -->
-  <div>
-    <label for="address" class="block text-sm font-semibold text-gray-900 mb-2">
-      Service Address <span class="text-emergency-600">*</span>
-    </label>
-    <input
-      type="text"
-      id="address"
-      name="address"
-      required
-      placeholder="123 Main St"
-      class="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all text-sm sm:text-base"
-    />
-  </div>
-  
-  <div class="min-w-0 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-    <div class="sm:col-span-2">
-      <label for="city" class="block text-sm font-semibold text-gray-900 mb-2">
-        City <span class="text-emergency-600">*</span>
-      </label>
-      <select 
-        id="city" 
-        name="city" 
-        required
-        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-100 transition-all appearance-none bg-white"
+    <!-- Emergency banner -->
+    {isEmergency && (
+      <div 
+        class="p-4 bg-red-50 border-2 border-red-200 rounded-xl"
+        role="alert"
+        aria-live="polite"
       >
-        <option value="">Select Your City</option>
-        <option value="frisco">Frisco</option>
-        <option value="plano">Plano</option>
-        <option value="mckinney">McKinney</option>
-        <option value="allen">Allen</option>
-        <option value="prosper">Prosper</option>
-        <option value="the-colony">The Colony</option>
-        <option value="little-elm">Little Elm</option>
-        <option value="addison">Addison</option>
-        <option value="other">Other North Texas City</option>
-      </select>
-    </div>
-    <div>
-      <label for="zip" class="block text-sm font-semibold text-gray-900 mb-2">
-        ZIP Code <span class="text-emergency-600">*</span>
-      </label>
-      <input
-        type="text"
-        id="zip"
-        name="zip"
-        required
-        placeholder="75033"
-        pattern="[0-9]{5}"
-        maxlength="5"
-        class="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all text-sm sm:text-base"
-      />
-    </div>
-  </div>
-  
-  <!-- Property Type and Service Selection -->
-  <div class="min-w-0 grid md:grid-cols-2 gap-6">
-    <div>
-      <label for="propertyType" class="block text-sm font-semibold text-gray-900 mb-2">
-        Property Type <span class="text-emergency-600">*</span>
-      </label>
-      <select 
-        id="propertyType" 
-        name="propertyType" 
-        required
-        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-100 transition-all appearance-none bg-white"
-      >
-        <option value="">Select property type</option>
-        <option value="residential">Residential Home</option>
-        <option value="commercial-restaurant">Commercial - Restaurant</option>
-        <option value="commercial-retail">Commercial - Retail Store</option>
-        <option value="commercial-office">Commercial - Office Building</option>
-        <option value="commercial-warehouse">Commercial - Warehouse</option>
-        <option value="commercial-other">Commercial - Other</option>
-      </select>
-    </div>
-    <div>
-      <label for="service" class="block text-sm font-semibold text-gray-900 mb-2">
-        Service Needed <span class="text-emergency-600">*</span>
-      </label>
-      <select 
-        id="service" 
-        name="service" 
-        required
-        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:border-primary-500 focus:ring-4 focus:ring-primary-100 transition-all appearance-none bg-white"
-      >
-        <option value="">Select a service</option>
-        <option value="ac-repair">AC Repair</option>
-        <option value="heating-repair">Heating Repair</option>
-        <option value="hvac-installation">HVAC Installation</option>
-        <option value="maintenance">Maintenance</option>
-        <option value="emergency">Emergency Service</option>
-        <option value="duct-cleaning">Duct Cleaning</option>
-        <option value="thermostat">Thermostat Installation</option>
-        <option value="air-quality">Indoor Air Quality</option>
-        <option value="other">Other</option>
-      </select>
-    </div>
-  </div>
-  
-      <!-- Preferred Date and Time -->
-    <div class="min-w-0 grid sm:grid-cols-2 gap-4 sm:gap-6">
-      <div class="form-group">
-        <label for="preferredDate" class="block text-sm font-semibold text-gray-900 mb-2">
-          Preferred Date <span class="text-red-500">*</span>
-        </label>
-        <div class="input-wrapper overflow-hidden">
-          <input
-            type="date"
-            id="preferredDate"
-            name="preferredDate"
-            required
-            placeholder="Select date"
-            min={new Date().toISOString().split('T')[0]}
-            max={new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
-            class="form-input w-full block date-placeholder"
-            style="width: 100% !important; max-width: 100% !important;"
-          />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="preferredTime" class="block text-sm font-semibold text-gray-900 mb-2">
-          Preferred Time <span class="text-red-500">*</span>
-        </label>
-        <div class="input-wrapper">
-          <select
-            id="preferredTime"
-            name="preferredTime"
-            required
-            class="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 transition-all text-sm sm:text-base"
+        <div class="flex items-center gap-3">
+          <svg 
+            class="w-6 h-6 text-red-600" 
+            fill="currentColor" 
+            viewBox="0 0 20 20"
+            aria-hidden="true"
           >
-            <option value="">Select preferred time</option>
-            <option value="8:00 AM - 10:00 AM">8:00 AM - 10:00 AM</option>
-            <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
-            <option value="12:00 PM - 2:00 PM">12:00 PM - 2:00 PM</option>
-            <option value="2:00 PM - 4:00 PM">2:00 PM - 4:00 PM</option>
-            <option value="4:00 PM - 6:00 PM">4:00 PM - 6:00 PM</option>
-            <option value="anytime">Any time that day</option>
-          </select>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Message -->
-    <div class="form-group">
-      <label for="message" class="block text-sm font-semibold text-gray-900 mb-2">
-        How Can We Help?
-      </label>
-      <div class="input-wrapper">
-        <textarea
-          id="message"
-          name="message"
-          rows="4"
-          placeholder="Describe your HVAC issue or service needs..."
-          class="form-input resize-none"
-        ></textarea>
-      </div>
-    </div>
-  
-    <!-- Emergency Toggle -->
-    <div class="emergency-toggle p-4 bg-red-50 rounded-xl border border-red-200 transition-all hover:border-red-300 hover:shadow-md">
-      <label class="min-w-0 flex items-center justify-between cursor-pointer">
-        <div class="min-w-0 flex items-start gap-3">
-          <svg class="w-6 h-6 text-red-600 animate-pulse mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+            <path 
+              fill-rule="evenodd" 
+              d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" 
+              clip-rule="evenodd" 
+            />
           </svg>
           <div>
-            <p class="font-semibold text-red-900">Emergency Service Needed?</p>
-            <p class="text-sm text-red-700">24/7 immediate response available</p>
+            <p class="font-semibold text-red-900">Emergency Service Request</p>
+            <p class="text-sm text-red-700">We'll respond within 30 minutes</p>
           </div>
         </div>
-        <div class="toggle-switch">
-          <input type="checkbox" id="emergency" name="emergency" value="yes" class="sr-only" />
-          <div class="toggle-slider"></div>
+      </div>
+    )}
+
+    <!-- Core contact information -->
+    <fieldset class="space-y-4">
+      <legend class="sr-only">Contact Information</legend>
+      
+      <!-- Name fields -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="form-group">
+          <label for={`${formId}-firstName`} class="form-label">
+            First Name
+            <span class="text-red-600 ml-1" aria-label="required">*</span>
+          </label>
+          <input
+            type="text"
+            id={`${formId}-firstName`}
+            name="firstName"
+            required
+            autocomplete="given-name"
+            placeholder="John"
+            class="form-input"
+            aria-describedby={`${formId}-firstName-error`}
+          />
+          <div id={`${formId}-firstName-error`} class="error-message" role="alert" aria-live="polite"></div>
         </div>
-      </label>
+        
+        <div class="form-group">
+          <label for={`${formId}-lastName`} class="form-label">
+            Last Name
+            <span class="text-red-600 ml-1" aria-label="required">*</span>
+          </label>
+          <input
+            type="text"
+            id={`${formId}-lastName`}
+            name="lastName"
+            required
+            autocomplete="family-name"
+            placeholder="Smith"
+            class="form-input"
+            aria-describedby={`${formId}-lastName-error`}
+          />
+          <div id={`${formId}-lastName-error`} class="error-message" role="alert" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <!-- Contact fields -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="form-group">
+          <label for={`${formId}-phone`} class="form-label">
+            Phone Number
+            <span class="text-red-600 ml-1" aria-label="required">*</span>
+          </label>
+          <input
+            type="tel"
+            id={`${formId}-phone`}
+            name="phone"
+            required
+            autocomplete="tel"
+            placeholder="(214) 555-0123"
+            class="form-input"
+            aria-describedby={`${formId}-phone-error ${formId}-phone-help`}
+          />
+          <div id={`${formId}-phone-help`} class="input-help">
+            We'll text you updates about your service
+          </div>
+          <div id={`${formId}-phone-error`} class="error-message" role="alert" aria-live="polite"></div>
+        </div>
+        
+        <div class="form-group">
+          <label for={`${formId}-email`} class="form-label">
+            Email Address
+            <span class="text-red-600 ml-1" aria-label="required">*</span>
+          </label>
+          <input
+            type="email"
+            id={`${formId}-email`}
+            name="email"
+            required
+            autocomplete="email"
+            placeholder="john@example.com"
+            class="form-input"
+            aria-describedby={`${formId}-email-error`}
+          />
+          <div id={`${formId}-email-error`} class="error-message" role="alert" aria-live="polite"></div>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Service details -->
+    <fieldset class="space-y-4">
+      <legend class="sr-only">Service Details</legend>
+      
+      <!-- Service type -->
+      <div class="form-group">
+        <label for={`${formId}-service`} class="form-label">
+          Service Needed
+          <span class="text-red-600 ml-1" aria-label="required">*</span>
+        </label>
+        <select 
+          id={`${formId}-service`}
+          name="service"
+          required
+          class="form-select"
+          aria-describedby={`${formId}-service-error`}
+        >
+          <option value="">What do you need help with?</option>
+          <option value="emergency">🚨 Emergency Service</option>
+          <option value="ac-repair">AC Repair</option>
+          <option value="heating-repair">Heating Repair</option>
+          <option value="hvac-installation">HVAC Installation</option>
+          <option value="maintenance">Maintenance Service</option>
+          <option value="duct-cleaning">Duct Cleaning</option>
+          <option value="thermostat">Thermostat Installation</option>
+          <option value="air-quality">Indoor Air Quality</option>
+          <option value="estimate">Free Estimate</option>
+          <option value="other">Other</option>
+        </select>
+        <div id={`${formId}-service-error`} class="error-message" role="alert" aria-live="polite"></div>
+      </div>
+
+      <!-- Address -->
+      <div class="form-group">
+        <label for={`${formId}-address`} class="form-label">
+          Service Address
+          <span class="text-red-600 ml-1" aria-label="required">*</span>
+        </label>
+        <input
+          type="text"
+          id={`${formId}-address`}
+          name="address"
+          required
+          autocomplete="street-address"
+          placeholder="123 Main St, Frisco, TX 75033"
+          class="form-input"
+          aria-describedby={`${formId}-address-error ${formId}-address-help`}
+        />
+        <div id={`${formId}-address-help`} class="input-help">
+          Include city and ZIP code for faster service
+        </div>
+        <div id={`${formId}-address-error`} class="error-message" role="alert" aria-live="polite"></div>
+      </div>
+    </fieldset>
+
+    <!-- Additional details (hidden in compact mode) -->
+    {!isCompact && (
+      <fieldset class="space-y-4">
+        <legend class="sr-only">Additional Details</legend>
+        
+        <div class="form-group">
+          <label for={`${formId}-message`} class="form-label">
+            Describe Your HVAC Issue
+          </label>
+          <textarea
+            id={`${formId}-message`}
+            name="message"
+            rows="3"
+            placeholder="Tell us what's happening with your heating or cooling system..."
+            class="form-textarea"
+            aria-describedby={`${formId}-message-help`}
+          ></textarea>
+          <div id={`${formId}-message-help`} class="input-help">
+            The more details you provide, the better we can help
+          </div>
+        </div>
+      </fieldset>
+    )}
+
+    <!-- Submit section -->
+    <div class="space-y-3 pt-4 border-t border-gray-200">
+      <Button 
+        type="submit" 
+        variant={isEmergency ? 'emergency' : 'primary'}
+        size="lg" 
+        fullWidth={true}
+        class="text-lg font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all"
+        ariaDescribedBy={`${formId}-submit-help`}
+      >
+        {isEmergency ? '🚨 Request Emergency Service' : '💬 Get My Free Estimate'}
+      </Button>
+      
+      <div id={`${formId}-submit-help`} class="text-center text-sm text-gray-600">
+        {isEmergency 
+          ? 'Emergency response typically within 30 minutes'
+          : 'No obligation • Free consultation • Licensed & insured'
+        }
+      </div>
+      
+      <div class="text-center">
+        <span class="text-gray-500 text-sm">Or call us directly:</span>
+        <Button 
+          href="tel:(940) 390-5676" 
+          variant="outline" 
+          size="lg" 
+          class="ml-2 font-bold"
+          ariaLabel="Call Jupitair HVAC at (940) 390-5676"
+        >
+          📞 (940) 390-5676
+        </Button>
+      </div>
     </div>
-  
-  <!-- Submit Buttons -->
-  <div class="min-w-0 flex flex-col gap-3 sm:gap-4">
-    <Button type="submit" variant="primary" size="lg" class="w-full justify-center text-base sm:text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all">
-      Get My Free Estimate
-    </Button>
-    <Button href="tel:(940) 390-5676" variant="outline" size="lg" class="w-full justify-center text-base sm:text-lg font-semibold">
-      <svg class="w-5 h-5 mr-2 inline-block" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-      </svg>
-      Call (940) 390-5676
-    </Button>
-  </div>
   </form>
 </div>
 
 <style>
-  /* Form Base Styles */
+  /* Form styling with accessibility focus */
   .form-group {
     @apply space-y-2;
   }
 
   .form-label {
-    @apply block text-sm font-semibold text-gray-700;
+    @apply block text-sm font-semibold text-gray-900 leading-tight;
   }
 
-  .input-wrapper {
-    @apply relative;
+  .form-input, .form-textarea, .form-select {
+    @apply w-full px-4 py-3 text-base bg-white border-2 border-gray-200 rounded-xl;
+    @apply text-gray-900 placeholder-gray-500;
+    @apply transition-all duration-200 ease-in-out;
+    @apply focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100;
+    @apply hover:border-gray-300;
+    /* Prevent zoom on iOS */
+    font-size: 16px;
   }
 
-  /* Mobile-optimized styles */
-  * {
-    box-sizing: border-box;
-  }
-  
-  .form-input {
-    @apply w-full bg-white border-2 border-gray-200 rounded-xl transition-all duration-200 focus:border-blue-500 hover:border-gray-300 placeholder-gray-400;
-    padding: 0.75rem;
-    font-size: 16px; /* Prevents zoom on iOS */
-  }
-
-  .form-input:focus {
-    @apply outline-none bg-white;
-  }
-  
-  @media (min-width: 640px) {
-    .form-input {
-      padding: 0.875rem 1rem;
-    }
-  }
-
-
-  /* Toggle Switch */
-  .toggle-switch {
-    @apply relative inline-block w-14 h-7;
-  }
-
-  .toggle-slider {
-    @apply absolute inset-0 bg-gray-300 rounded-full cursor-pointer transition-all duration-300;
-  }
-
-  .toggle-slider::before {
-    content: '';
-    @apply absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition-all duration-300 shadow-sm;
-  }
-
-  input:checked + .toggle-slider {
-    @apply bg-red-600;
-  }
-
-  input:checked + .toggle-slider::before {
-    transform: translateX(28px);
-  }
-
-  /* Animations */
-  @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
-    20%, 40%, 60%, 80% { transform: translateX(2px); }
-  }
-
-  .shake {
-    animation: shake 0.5s ease-in-out;
-  }
-
-  /* Smooth transitions */
-  select.form-input {
-    @apply appearance-none bg-white/90;
+  .form-select {
+    @apply appearance-none bg-white;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
     background-position: right 0.75rem center;
     background-repeat: no-repeat;
@@ -364,105 +295,179 @@ const { formId = 'contact-form', variant = 'premium' } = Astro.props;
     padding-right: 3rem;
   }
 
-  /* Fix date input overflow on mobile */
-  input[type="date"].form-input {
-    @apply max-w-full box-border;
-    min-width: 0;
-    width: 100% !important;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  .form-textarea {
+    @apply resize-none;
+    min-height: 80px;
   }
-  
-  /* Force date input to respect container width */
-  .input-wrapper input[type="date"] {
-    display: block;
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
+
+  .input-help {
+    @apply text-xs text-gray-600 mt-1;
   }
-  
-  /* Mobile specific fix for date inputs */
-  @media (max-width: 768px) {
-    input[type="date"].form-input,
-    input[type="text"].form-input {
-      font-size: 16px; /* Prevent zoom on iOS */
-      width: 100% !important;
-      max-width: 100% !important;
+
+  .error-message {
+    @apply text-sm text-red-600 font-medium mt-1;
+    min-height: 1.25rem;
+  }
+
+  .error-message:empty {
+    display: none;
+  }
+
+  /* Invalid state styling */
+  .form-input:invalid:not(:focus):not(:placeholder-shown),
+  .form-textarea:invalid:not(:focus):not(:placeholder-shown),
+  .form-select:invalid:not(:focus) {
+    @apply border-red-300 bg-red-50;
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .form-input, .form-textarea, .form-select {
+      border-width: 3px !important;
     }
   }
 
-  /* Premium hover effects */
-  .form-input:hover {
-    @apply border-gray-300;
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .form-input, .form-textarea, .form-select {
+      transition: none !important;
+    }
   }
 
-  .form-input:focus {
-    @apply border-blue-500;
+  /* Mobile optimizations */
+  @media (max-width: 640px) {
+    .form-input, .form-textarea, .form-select {
+      font-size: 16px !important; /* Prevent zoom on iOS */
+    }
   }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Add placeholder functionality to date input
-    const dateInputs = document.querySelectorAll('input[type="date"]');
-    dateInputs.forEach(input => {
-      if (!input.value) {
-        input.type = 'text';
-        input.placeholder = 'Select date';
-        input.onfocus = function() {
-          this.type = 'date';
-        };
-        input.onblur = function() {
-          if (!this.value) {
-            this.type = 'text';
-            this.placeholder = 'Select date';
-          }
-        };
-      }
-    });
-    
     const forms = document.querySelectorAll('form[name="contact"]');
     
     forms.forEach(form => {
-      if (form) {
-        form.addEventListener('submit', async function(e) {
-          e.preventDefault();
-          
-          // Get form data
-          const formData = new FormData(form);
-          const data = Object.fromEntries(formData);
-          
-          // Show loading state
-          const submitBtn = form.querySelector('button[type="submit"]');
-          const originalText = submitBtn.textContent;
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Submitting...';
-          
-          try {
-            // Submit to Netlify Forms using fetch
-            const response = await fetch('/', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-              body: new URLSearchParams(formData).toString()
-            });
-            
-            if (response.ok) {
-              // Success - redirect to success page with emergency flag if needed
-              const successUrl = data.emergency ? '/success?emergency=true' : '/success';
-              window.location.href = successUrl;
-            } else {
-              throw new Error('Form submission failed');
-            }
-          } catch (error) {
-            console.error('Form submission error:', error);
-            alert('Unable to submit form. Please call us directly at (940) 390-5676');
-          } finally {
-            // Reset button state
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
+      // Real-time validation
+      const inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
+      
+      inputs.forEach(input => {
+        input.addEventListener('blur', validateField);
+        input.addEventListener('input', clearError);
+      });
+
+      // Form submission
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Validate all fields
+        let isValid = true;
+        inputs.forEach(input => {
+          if (!validateField({ target: input })) {
+            isValid = false;
           }
         });
+
+        if (!isValid) {
+          // Focus first invalid field
+          const firstError = form.querySelector('.error-message:not(:empty)');
+          if (firstError) {
+            const field = form.querySelector(`#${firstError.id.replace('-error', '')}`);
+            field?.focus();
+          }
+          return;
+        }
+
+        // Get form data
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+        
+        try {
+          // Submit to Netlify Forms
+          const response = await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+          });
+          
+          if (response.ok) {
+            // Success redirect with service type
+            const isEmergency = data.service === 'emergency';
+            const successUrl = isEmergency ? '/success?emergency=true' : '/success';
+            window.location.href = successUrl;
+          } else {
+            throw new Error('Form submission failed');
+          }
+        } catch (error) {
+          console.error('Form submission error:', error);
+          showError(submitBtn, 'Unable to submit form. Please call us directly at (940) 390-5676');
+        } finally {
+          // Reset button state
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      });
+
+      function validateField(e) {
+        const field = e.target;
+        const errorElement = document.getElementById(`${field.id}-error`);
+        
+        if (!errorElement) return true;
+
+        let errorMessage = '';
+        
+        if (field.required && !field.value.trim()) {
+          errorMessage = `${field.labels[0]?.textContent.replace('*', '').trim()} is required`;
+        } else if (field.type === 'email' && field.value && !isValidEmail(field.value)) {
+          errorMessage = 'Please enter a valid email address';
+        } else if (field.type === 'tel' && field.value && !isValidPhone(field.value)) {
+          errorMessage = 'Please enter a valid phone number';
+        }
+        
+        errorElement.textContent = errorMessage;
+        
+        if (errorMessage) {
+          field.setAttribute('aria-invalid', 'true');
+          return false;
+        } else {
+          field.setAttribute('aria-invalid', 'false');
+          return true;
+        }
+      }
+
+      function clearError(e) {
+        const field = e.target;
+        const errorElement = document.getElementById(`${field.id}-error`);
+        if (errorElement && field.value) {
+          errorElement.textContent = '';
+          field.setAttribute('aria-invalid', 'false');
+        }
+      }
+
+      function showError(element, message) {
+        // Create temporary error display
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'mt-2 p-2 bg-red-100 border border-red-300 rounded text-red-700 text-sm';
+        errorDiv.textContent = message;
+        element.parentNode.appendChild(errorDiv);
+        
+        setTimeout(() => {
+          errorDiv.remove();
+        }, 5000);
+      }
+
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      function isValidPhone(phone) {
+        const cleaned = phone.replace(/\D/g, '');
+        return cleaned.length >= 10;
       }
     });
   });

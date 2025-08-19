@@ -5,7 +5,15 @@ export interface Props {
   href?: string;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
+  fullWidth?: boolean;
+  loading?: boolean;
+  leftIcon?: string;
+  rightIcon?: string;
   class?: string;
+  id?: string;
+  ariaLabel?: string;
+  ariaDescribedBy?: string;
+  dataTracking?: string;
   [key: string]: any;
 }
 
@@ -15,33 +23,210 @@ const {
   href,
   type = 'button',
   disabled = false,
+  fullWidth = false,
+  loading = false,
+  leftIcon,
+  rightIcon,
   class: className = '',
+  id,
+  ariaLabel,
+  ariaDescribedBy,
+  dataTracking,
   ...rest
 } = Astro.props;
 
-const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed select-none whitespace-nowrap';
+// Base classes with improved accessibility
+const baseClasses = `
+  inline-flex items-center justify-center gap-2
+  font-semibold tracking-tight text-center
+  border-2 rounded-lg
+  transition-all duration-200 ease-in-out
+  focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+  disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none
+  select-none whitespace-nowrap relative overflow-hidden
+  active:scale-[0.98]
+`;
 
+// WCAG AA compliant color combinations
 const variantClasses = {
-  primary: 'btn-primary focus:ring-primary-500 shadow-md hover:shadow-lg',
-  secondary: 'btn-secondary focus:ring-secondary-500 shadow-md hover:shadow-lg',
-  emergency: 'btn-emergency focus:ring-emergency-500 shadow-md hover:shadow-lg animate-pulse-slow',
-  outline: 'btn-outline focus:ring-primary-500 shadow-sm hover:shadow-md transition-all duration-200',
-  ghost: 'text-primary-600 hover:bg-primary-50 hover:text-primary-700 focus:ring-primary-500'
+  primary: `
+    bg-primary-600 hover:bg-primary-700 active:bg-primary-800
+    border-primary-600 hover:border-primary-700 active:border-primary-800
+    text-white
+    shadow-md hover:shadow-lg hover:shadow-primary-600/25
+    focus-visible:ring-primary-500
+  `,
+  secondary: `
+    bg-secondary-600 hover:bg-secondary-700 active:bg-secondary-800
+    border-secondary-600 hover:border-secondary-700 active:border-secondary-800
+    text-white
+    shadow-md hover:shadow-lg hover:shadow-secondary-600/25
+    focus-visible:ring-secondary-500
+  `,
+  emergency: `
+    bg-emergency-600 hover:bg-emergency-700 active:bg-emergency-800
+    border-emergency-600 hover:border-emergency-700 active:border-emergency-800
+    text-white
+    shadow-md hover:shadow-lg hover:shadow-emergency-600/25
+    focus-visible:ring-emergency-500
+    animate-pulse-slow
+  `,
+  outline: `
+    bg-transparent hover:bg-primary-50 active:bg-primary-100
+    border-primary-600 hover:border-primary-700 active:border-primary-800
+    text-primary-700 hover:text-primary-800 active:text-primary-900
+    shadow-sm hover:shadow-md
+    focus-visible:ring-primary-500
+  `,
+  ghost: `
+    bg-transparent hover:bg-gray-100 active:bg-gray-200
+    border-transparent hover:border-gray-200 active:border-gray-300
+    text-gray-700 hover:text-gray-900 active:text-gray-900
+    focus-visible:ring-gray-400
+  `
 };
 
+// Proper touch target sizes (minimum 44px per WCAG)
 const sizeClasses = {
-  sm: 'px-6 py-2.5 text-sm min-h-[40px]',
-  md: 'px-8 py-3 text-base min-h-[48px]',
-  lg: 'px-10 py-3.5 text-lg min-h-[56px]',
-  xl: 'px-12 py-4 text-xl min-h-[64px]'
+  sm: 'px-4 py-2.5 text-sm min-h-[44px]',
+  md: 'px-6 py-3 text-base min-h-[48px]',
+  lg: 'px-8 py-3.5 text-lg min-h-[52px]',
+  xl: 'px-10 py-4 text-xl min-h-[56px]'
 };
 
-const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`.trim();
+const iconSizeClasses = {
+  sm: 'w-4 h-4',
+  md: 'w-5 h-5',
+  lg: 'w-6 h-6',
+  xl: 'w-7 h-7'
+};
+
+const fullWidthClass = fullWidth ? 'w-full' : 'w-auto';
+const loadingClass = loading ? 'cursor-wait' : '';
+
+const classes = [
+  baseClasses,
+  variantClasses[variant],
+  sizeClasses[size],
+  fullWidthClass,
+  loadingClass,
+  className,
+].join(' ').replace(/\s+/g, ' ').trim();
 
 const Tag = href ? 'a' : 'button';
-const props = href ? { href, ...rest } : { type, disabled, ...rest };
+const tagProps = href 
+  ? { href, role: 'button', ...rest } 
+  : { type, disabled: disabled || loading, ...rest };
+
+// Generate proper aria-label if not provided
+const effectiveAriaLabel = ariaLabel || (typeof Astro.slots.default === 'string' ? undefined : 'Button');
 ---
 
-<Tag class={classes} {...props}>
-  <slot />
+<Tag
+  class={classes}
+  id={id}
+  aria-label={effectiveAriaLabel}
+  aria-describedby={ariaDescribedBy}
+  aria-disabled={disabled || loading ? 'true' : undefined}
+  data-tracking={dataTracking}
+  {...tagProps}
+>
+  {/* Loading spinner with proper accessibility */}
+  {loading && (
+    <svg
+      class={`animate-spin ${iconSizeClasses[size]}`}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <circle
+        class="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        stroke-width="4"
+      />
+      <path
+        class="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+      />
+    </svg>
+  )}
+
+  {/* Left icon with proper accessibility */}
+  {!loading && leftIcon && (
+    <svg 
+      class={iconSizeClasses[size]} 
+      fill="currentColor" 
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+    >
+      <Fragment set:html={leftIcon} />
+    </svg>
+  )}
+
+  {/* Button content */}
+  <span class="min-w-0 flex-1">
+    <slot />
+  </span>
+
+  {/* Right icon with proper accessibility */}
+  {!loading && rightIcon && (
+    <svg 
+      class={iconSizeClasses[size]} 
+      fill="currentColor" 
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+    >
+      <Fragment set:html={rightIcon} />
+    </svg>
+  )}
+
+  {/* Screen reader text for loading state */}
+  {loading && (
+    <span class="sr-only">Loading...</span>
+  )}
 </Tag>
+
+<style>
+  /* Ensure proper focus indicators for accessibility */
+  .focus-visible\:ring-2:focus-visible {
+    box-shadow: 0 0 0 2px var(--tw-ring-color);
+  }
+  
+  .focus-visible\:ring-offset-2:focus-visible {
+    box-shadow: 0 0 0 2px transparent, 0 0 0 4px var(--tw-ring-color);
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    button, a[role="button"] {
+      border-width: 3px !important;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    button, a[role="button"] {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+
+  /* Ensure proper color contrast in forced colors mode */
+  @media (forced-colors: active) {
+    button, a[role="button"] {
+      border: 2px solid ButtonText !important;
+      background: ButtonFace !important;
+      color: ButtonText !important;
+    }
+    
+    button:hover, a[role="button"]:hover {
+      background: Highlight !important;
+      color: HighlightText !important;
+    }
+  }
+</style>
