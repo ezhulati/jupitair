@@ -228,7 +228,7 @@ const { formId = 'contact-form', variant = 'premium' } = Astro.props;
         <label for="preferredDate" class="form-label">
           Preferred Date <span class="text-red-500">*</span>
         </label>
-        <div class="input-wrapper">
+        <div class="input-wrapper overflow-hidden">
           <input
             type="date"
             id="preferredDate"
@@ -236,7 +236,8 @@ const { formId = 'contact-form', variant = 'premium' } = Astro.props;
             required
             min={new Date().toISOString().split('T')[0]}
             max={new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
-            class="form-input w-full"
+            class="form-input w-full block"
+            style="width: 100% !important; max-width: 100% !important;"
           />
         </div>
       </div>
@@ -398,6 +399,27 @@ const { formId = 'contact-form', variant = 'premium' } = Astro.props;
   input[type="date"].form-input {
     @apply max-w-full box-border;
     min-width: 0;
+    width: 100% !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  /* Force date input to respect container width */
+  .input-wrapper input[type="date"] {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Mobile specific fix for date inputs */
+  @media (max-width: 768px) {
+    input[type="date"].form-input {
+      font-size: 16px; /* Prevent zoom on iOS */
+      width: 100% !important;
+      max-width: 100% !important;
+    }
   }
 
   /* Premium hover effects */
