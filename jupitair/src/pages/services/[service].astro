@@ -140,15 +140,15 @@ const faqSchema = faqData ? {
     ctaSecondary={{ text: "Get Free Estimate", href: "/contact" }}
     emergency={service.emergency}
     variant="gradient"
-    height="lg"
+    height="lg" class="hero-section"
   />
   
   <!-- Quick Service Info Bar -->
   <section class="bg-primary-50 border-y border-primary-100">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4 py-4">
+    <div class="site-container py-4">
       <div class="min-w-0 flex flex-wrap items-center justify-center gap-4 md:gap-8 text-sm md:text-base">
         <div class="min-w-0 flex items-center gap-2">
-          <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+          <svg class="w-5 h-5 mr-2 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
             <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
           </svg>
@@ -156,21 +156,21 @@ const faqSchema = faqData ? {
         </div>
         <div class="text-gray-400">•</div>
         <div class="min-w-0 flex items-center gap-2">
-          <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+          <svg class="w-5 h-5 mr-2 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
           </svg>
           <span class="text-gray-700">{service.service_time}</span>
         </div>
         <div class="text-gray-400">•</div>
         <div class="min-w-0 flex items-center gap-2">
-          <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+          <svg class="w-5 h-5 mr-2 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
           </svg>
           <span class="text-gray-700">{service.warranty}</span>
         </div>
         <div class="text-gray-400">•</div>
         <div class="min-w-0 flex items-center gap-2">
-          <svg class="w-5 h-5 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+          <svg class="w-5 h-5 mr-2 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
           </svg>
           <span class="text-gray-700">All North Texas</span>
@@ -181,14 +181,14 @@ const faqSchema = faqData ? {
 
   <!-- Service Details Section -->
   <section class="py-16 lg:py-24 bg-white">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+    <div class="site-container">
       <div class="max-w-4xl mx-auto">
         
         <!-- Dynamic After-Hours Notice (only shows 7pm-7am CST) -->
         {service.emergency && (
           <div id="after-hours-notice" class="hidden mb-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
             <div class="min-w-0 flex items-center gap-3">
-              <svg class="w-5 h-5 text-yellow-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-5 h-5 mr-2 text-yellow-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
               </svg>
               <div class="text-sm">
@@ -215,25 +215,25 @@ const faqSchema = faqData ? {
                 <h3 class="text-lg font-semibold text-gray-900 mb-3">Cooling Issues</h3>
                 <ul class="space-y-2 text-gray-700">
                   <li class="min-w-0 flex items-center">
-                    <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     AC blowing warm air
                   </li>
                   <li class="min-w-0 flex items-center">
-                    <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     AC not cooling enough
                   </li>
                   <li class="min-w-0 flex items-center">
-                    <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     Frozen evaporator coil
                   </li>
                   <li class="min-w-0 flex items-center">
-                    <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     Short cycling
@@ -244,25 +244,25 @@ const faqSchema = faqData ? {
                 <h3 class="text-lg font-semibold text-gray-900 mb-3">System Issues</h3>
                 <ul class="space-y-2 text-gray-700">
                   <li class="min-w-0 flex items-center">
-                    <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     AC leaking water
                   </li>
                   <li class="min-w-0 flex items-center">
-                    <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     Strange noises or smells
                   </li>
                   <li class="min-w-0 flex items-center">
-                    <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     High energy bills
                   </li>
                   <li class="min-w-0 flex items-center">
-                    <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     Poor air quality
@@ -299,31 +299,31 @@ const faqSchema = faqData ? {
               <h3 class="text-lg font-semibold text-gray-900 mb-3">What's Included</h3>
               <ul class="space-y-2 text-gray-700">
                 <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Complete diagnostic
                 </li>
                 <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Upfront pricing
                 </li>
                 <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Licensed technicians
                 </li>
                 <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Quality parts & materials
                 </li>
                 <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Clean-up after work
@@ -339,7 +339,7 @@ const faqSchema = faqData ? {
           <div class="min-w-0 grid md:grid-cols-3 gap-6">
             <div class="text-center">
               <div class="min-w-0 w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-8 h-8 mr-2 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
               </div>
@@ -348,7 +348,7 @@ const faqSchema = faqData ? {
             </div>
             <div class="text-center">
               <div class="min-w-0 w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-8 h-8 mr-2 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
                 </svg>
               </div>
@@ -357,7 +357,7 @@ const faqSchema = faqData ? {
             </div>
             <div class="text-center">
               <div class="min-w-0 w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 text-success-600" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-8 h-8 mr-2 text-success-600" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
               </div>
@@ -394,7 +394,7 @@ const faqSchema = faqData ? {
   <!-- FAQs Section -->
   {faqData && (
     <section class="py-16 lg:py-24 bg-gray-50">
-      <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="site-container">
         <div class="max-w-3xl mx-auto">
           <h2 class="break-words text-3xl font-bold text-gray-900 text-center mb-12">
             Frequently Asked Questions

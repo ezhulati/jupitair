@@ -31,6 +31,7 @@ import '../styles/design-system.css';
 import '../styles/spacing-system.css';
 import '../styles/enterprise-spacing.css';
 import '../styles/mobile-fixes.css';
+import '../styles/contained-design.css';
 
 // Generate base schema for every page
 const baseSchema = {
@@ -208,8 +209,8 @@ const finalSchema = schema ? { ...baseSchema, ...schema } : baseSchema;
     
     <Header />
     
-    <!-- Main content with header -->
-    <main id="main-content" class="pt-20">
+    <!-- Main content - padding handled by contained-design.css -->
+    <main id="main-content">
       <slot />
     </main>
     

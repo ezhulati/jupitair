@@ -59,11 +59,11 @@ const brands = [
     subtitle="Experience lightning-fast image loading with automatic format selection, responsive sizing, and lazy loading throughout the site."
     image={siteImages.homeHero}
     variant="home"
-  />
+  class="hero-section" />
   
   <!-- Services Section with Cloudinary Images -->
-  <section class="py-16 bg-gray-50">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-gray-50">
+    <div class="site-container">
       <h2 class="break-words text-3xl font-bold text-center mb-12">Our Services</h2>
       
       <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -91,7 +91,7 @@ const brands = [
   
   <!-- City Gallery with Cloudinary -->
   <section class="py-16">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+    <div class="site-container">
       <h2 class="break-words text-3xl font-bold text-center mb-12">Service Areas</h2>
       
       <div class="min-w-0 grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -114,8 +114,8 @@ const brands = [
   </section>
   
   <!-- Interactive Features Section -->
-  <section class="py-16 bg-gray-50">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-gray-50">
+    <div class="site-container">
       <h2 class="break-words text-3xl font-bold text-center mb-12">Advanced Features</h2>
       
       <div class="max-w-4xl mx-auto">
@@ -136,7 +136,7 @@ const brands = [
   
   <!-- Brand Logos with Cloudinary -->
   <section class="py-16">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+    <div class="site-container">
       <h2 class="break-words text-3xl font-bold text-center mb-12">Trusted Brands We Service</h2>
       
       <div class="min-w-0 flex flex-wrap justify-center items-center gap-8">
@@ -156,14 +156,14 @@ const brands = [
   </section>
   
   <!-- Performance Benefits -->
-  <section class="py-16 bg-primary-50">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-primary-50">
+    <div class="site-container">
       <h2 class="break-words text-3xl font-bold text-center mb-12">Cloudinary Benefits</h2>
       
       <div class="min-w-0 grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         <Card class="text-center p-6">
           <div class="min-w-0 w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-8 h-8 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
             </svg>
           </div>
@@ -173,7 +173,7 @@ const brands = [
         
         <Card class="text-center p-6">
           <div class="min-w-0 w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-8 h-8 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
             </svg>
           </div>
@@ -183,7 +183,7 @@ const brands = [
         
         <Card class="text-center p-6">
           <div class="min-w-0 w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-8 h-8 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
             </svg>
           </div>
@@ -196,7 +196,7 @@ const brands = [
   
   <!-- Example of different image presets -->
   <section class="py-16">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+    <div class="site-container">
       <h2 class="break-words text-3xl font-bold text-center mb-12">Image Preset Examples</h2>
       
       <div class="space-y-12">

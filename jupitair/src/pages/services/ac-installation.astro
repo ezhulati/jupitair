@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PremiumHero from '../../components/layout/PremiumHero.astro';
-import PremiumButton from '../../components/ui/PremiumButton.astro';
+
 import PremiumCard from '../../components/ui/PremiumCard.astro';
 import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
@@ -24,61 +24,61 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
     ctaPrimary={{ text: "Get Free Quote", href: "#contact" }}
     ctaSecondary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
     variant="gradient"
-    height="lg"
+    height="lg" class="hero-section"
   />
 
   <!-- Why New AC Section -->
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
       <div class="text-center mb-12">
-        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Time for a New AC System?</h2>
-        <p class="break-words text-xl text-gray-800 max-w-3xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Time for a New AC System?</h2>
+        <p class="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
           North Texas summers demand reliable cooling. If your AC is struggling, it's time to upgrade to a modern, efficient system.
         </p>
       </div>
 
-      <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <Card variant="bordered" padding="md">
           <div class="text-center space-y-3">
-            <div class="min-w-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto">
-              <span class="break-words text-2xl font-bold text-red-600">10+</span>
+            <div class="w-12 h-12 bg-emergency-100 rounded-full flex items-center justify-center mx-auto">
+              <span class="text-xl sm:text-2xl font-bold text-emergency-600">10+</span>
             </div>
             <h3 class="font-bold text-gray-900">System Age</h3>
-            <p class="text-sm text-gray-800">AC units over 10 years old are inefficient and unreliable</p>
+            <p class="text-sm text-gray-700">AC units over 10 years old are inefficient and unreliable</p>
           </div>
         </Card>
 
         <Card variant="bordered" padding="md">
           <div class="text-center space-y-3">
-            <div class="min-w-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto">
-              <span class="break-words text-2xl font-bold text-orange-600">$$$</span>
+            <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
+              <span class="text-xl sm:text-2xl font-bold text-secondary-700">$$$</span>
             </div>
             <h3 class="font-bold text-gray-900">High Bills</h3>
-            <p class="text-sm text-gray-800">Rising cooling costs from inefficient equipment</p>
+            <p class="text-sm text-gray-700">Rising cooling costs from inefficient equipment</p>
           </div>
         </Card>
 
         <Card variant="bordered" padding="md">
           <div class="text-center space-y-3">
-            <div class="min-w-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-6 h-6 mr-2 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             <h3 class="font-bold text-gray-900">Frequent Repairs</h3>
-            <p class="text-sm text-gray-800">Multiple service calls indicate system failure</p>
+            <p class="text-sm text-gray-700">Multiple service calls indicate system failure</p>
           </div>
         </Card>
 
         <Card variant="bordered" padding="md">
           <div class="text-center space-y-3">
-            <div class="min-w-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-6 h-6 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
             </div>
             <h3 class="font-bold text-gray-900">Poor Cooling</h3>
-            <p class="text-sm text-gray-800">Uneven temperatures and hot spots</p>
+            <p class="text-sm text-gray-700">Uneven temperatures and hot spots</p>
           </div>
         </Card>
       </div>
@@ -86,40 +86,40 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
   </section>
 
   <!-- AC System Types Section -->
-  <section class="py-16 bg-gray-50">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-gray-50">
+    <div class="site-container section-padding">
       <div class="text-center mb-12">
-        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">AC System Options</h2>
-        <p class="break-words text-xl text-gray-800">Choose the right cooling solution for your home</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">AC System Options</h2>
+        <p class="text-lg sm:text-xl text-gray-700">Choose the right cooling solution for your home</p>
       </div>
 
-      <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <PremiumCard variant="elevated" hover={true}>
           <div class="text-center space-y-4 p-6">
-            <div class="min-w-0 w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
             </div>
-            <h3 class="break-words text-2xl font-bold text-gray-900">Central Air Conditioning</h3>
-            <p class="text-gray-800 mb-4">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Central Air Conditioning</h3>
+            <p class="text-gray-700 mb-4">
               Most popular choice for whole-home cooling comfort
             </p>
             <ul class="text-left space-y-2 text-sm">
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Whole-home cooling</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Uses existing ductwork</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Even temperature distribution</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>High efficiency options</span>
               </li>
             </ul>
@@ -128,30 +128,30 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
 
         <PremiumCard variant="elevated" hover={true}>
           <div class="text-center space-y-4 p-6">
-            <div class="min-w-0 w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h3 class="break-words text-2xl font-bold text-gray-900">Ductless Mini-Splits</h3>
-            <p class="text-gray-800 mb-4">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Ductless Mini-Splits</h3>
+            <p class="text-gray-700 mb-4">
               Flexible zoned cooling for specific areas
             </p>
             <ul class="text-left space-y-2 text-sm">
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>No ductwork required</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Individual room control</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Super energy efficient</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Quiet operation</span>
               </li>
             </ul>
@@ -160,30 +160,30 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
 
         <PremiumCard variant="elevated" hover={true}>
           <div class="text-center space-y-4 p-6">
-            <div class="min-w-0 w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
             </div>
-            <h3 class="break-words text-2xl font-bold text-gray-900">Package Units</h3>
-            <p class="text-gray-800 mb-4">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Package Units</h3>
+            <p class="text-gray-700 mb-4">
               All-in-one systems for specific applications
             </p>
             <ul class="text-left space-y-2 text-sm">
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Compact installation</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Ideal for no attic space</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Easy maintenance access</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Commercial or residential</span>
               </li>
             </ul>
@@ -194,70 +194,70 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
   </section>
 
   <!-- Installation Process Section -->
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
       <div class="text-center mb-12">
-        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Professional AC Installation Process</h2>
-        <p class="break-words text-xl text-gray-800">Expert installation for optimal performance and efficiency</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Professional AC Installation Process</h2>
+        <p class="text-lg sm:text-xl text-gray-700">Expert installation for optimal performance and efficiency</p>
       </div>
 
       <div class="max-w-4xl mx-auto space-y-6">
         <PremiumCard variant="elevated" padding="md">
-          <div class="min-w-0 flex gap-6">
-            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               1
             </div>
             <div>
-              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">In-Home Assessment</h3>
-              <p class="text-gray-800">Comprehensive evaluation including Manual J load calculation to determine the right size and type of system for your home.</p>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">In-Home Assessment</h3>
+              <p class="text-gray-700">Comprehensive evaluation including Manual J load calculation to determine the right size and type of system for your home.</p>
             </div>
           </div>
         </PremiumCard>
 
         <PremiumCard variant="elevated" padding="md">
-          <div class="min-w-0 flex gap-6">
-            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               2
             </div>
             <div>
-              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Custom System Design</h3>
-              <p class="text-gray-800">Design the perfect cooling solution with proper equipment selection, ductwork evaluation, and efficiency optimization.</p>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Custom System Design</h3>
+              <p class="text-gray-700">Design the perfect cooling solution with proper equipment selection, ductwork evaluation, and efficiency optimization.</p>
             </div>
           </div>
         </PremiumCard>
 
         <PremiumCard variant="elevated" padding="md">
-          <div class="min-w-0 flex gap-6">
-            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               3
             </div>
             <div>
-              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Permits & Preparation</h3>
-              <p class="text-gray-800">Obtain necessary permits, schedule delivery, and prepare your home for professional installation.</p>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Permits & Preparation</h3>
+              <p class="text-gray-700">Obtain necessary permits, schedule delivery, and prepare your home for professional installation.</p>
             </div>
           </div>
         </PremiumCard>
 
         <PremiumCard variant="elevated" padding="md">
-          <div class="min-w-0 flex gap-6">
-            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               4
             </div>
             <div>
-              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Expert Installation</h3>
-              <p class="text-gray-800">Professional installation following manufacturer specifications, local codes, and industry best practices for optimal performance.</p>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Expert Installation</h3>
+              <p class="text-gray-700">Professional installation following manufacturer specifications, local codes, and industry best practices for optimal performance.</p>
             </div>
           </div>
         </PremiumCard>
 
         <PremiumCard variant="elevated" padding="md">
-          <div class="min-w-0 flex gap-6">
-            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               5
             </div>
             <div>
-              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Testing & Training</h3>
-              <p class="text-gray-800">Complete system testing, performance verification, customer training, and warranty registration for your new AC system.</p>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Testing & Training</h3>
+              <p class="text-gray-700">Complete system testing, performance verification, customer training, and warranty registration for your new AC system.</p>
             </div>
           </div>
         </PremiumCard>
@@ -266,49 +266,49 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
   </section>
 
   <!-- Efficiency Tiers Section -->
-  <section class="py-16 bg-gray-50">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-gray-50">
+    <div class="site-container section-padding">
       <div class="text-center mb-12">
-        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">AC Efficiency Options</h2>
-        <p class="break-words text-xl text-gray-800">Choose the efficiency level that fits your budget and goals</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">AC Efficiency Options</h2>
+        <p class="text-lg sm:text-xl text-gray-700">Choose the efficiency level that fits your budget and goals</p>
       </div>
 
-      <div class="min-w-0 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <PremiumCard variant="elevated" padding="lg">
           <div class="text-center space-y-4">
             <Badge variant="default" size="lg">Good</Badge>
-            <h3 class="break-words text-2xl font-bold text-gray-900">Standard Efficiency</h3>
-            <div class="break-words text-3xl font-bold text-blue-600">14-16 SEER</div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Standard Efficiency</h3>
+            <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-600">14-16 SEER</div>
             <p class="text-sm text-gray-600 mb-4">Budget-friendly cooling</p>
             <ul class="text-left space-y-2">
-              <li class="min-w-0 flex items-start gap-2">
-                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-gray-800">Single-stage cooling</span>
+                <span class="text-gray-700">Single-stage cooling</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-gray-800">10-year manufacturer warranty</span>
+                <span class="text-gray-700">10-year manufacturer warranty</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-gray-800">Reliable performance</span>
+                <span class="text-gray-700">Reliable performance</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-gray-800">Energy Star qualified</span>
+                <span class="text-gray-700">Energy Star qualified</span>
               </li>
             </ul>
             <div class="pt-4">
               <p class="text-sm text-gray-600 mb-2">Starting at</p>
-              <p class="break-words text-3xl font-bold text-gray-900">$4,200</p>
+              <p class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">$4,200</p>
             </div>
           </div>
         </PremiumCard>
@@ -319,36 +319,36 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
           </div>
           <div class="text-center space-y-4 pt-4">
             <Badge variant="primary" size="lg">Better</Badge>
-            <h3 class="break-words text-2xl font-bold text-white">High Efficiency</h3>
-            <div class="break-words text-3xl font-bold text-white">17-20 SEER</div>
+            <h3 class="text-xl sm:text-2xl font-bold text-white">High Efficiency</h3>
+            <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">17-20 SEER</div>
             <p class="text-sm text-gray-200 mb-4">Balanced efficiency and comfort</p>
             <ul class="text-left space-y-2">
-              <li class="min-w-0 flex items-start gap-2">
-                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-white">Two-stage cooling</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-white">Enhanced comfort control</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-white">Quieter operation</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-white">Better humidity control</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-white">Smart thermostat compatible</span>
@@ -356,7 +356,7 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
             </ul>
             <div class="pt-4">
               <p class="text-sm text-gray-200 mb-2">Starting at</p>
-              <p class="break-words text-3xl font-bold text-white">$5,800</p>
+              <p class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">$5,800</p>
             </div>
           </div>
         </PremiumCard>
@@ -364,44 +364,44 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
         <PremiumCard variant="elevated" padding="lg">
           <div class="text-center space-y-4">
             <Badge variant="success" size="lg">Best</Badge>
-            <h3 class="break-words text-2xl font-bold text-gray-900">Ultra Efficiency</h3>
-            <div class="break-words text-3xl font-bold text-blue-600">21+ SEER</div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Ultra Efficiency</h3>
+            <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-600">21+ SEER</div>
             <p class="text-sm text-gray-600 mb-4">Maximum efficiency and comfort</p>
             <ul class="text-left space-y-2">
-              <li class="min-w-0 flex items-start gap-2">
-                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-gray-800">Variable-speed technology</span>
+                <span class="text-gray-700">Variable-speed technology</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-gray-800">Whisper-quiet operation</span>
+                <span class="text-gray-700">Whisper-quiet operation</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-gray-800">Smart thermostat included</span>
+                <span class="text-gray-700">Smart thermostat included</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-gray-800">Extended warranty available</span>
+                <span class="text-gray-700">Extended warranty available</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-gray-800">Maximum energy savings</span>
+                <span class="text-gray-700">Maximum energy savings</span>
               </li>
             </ul>
             <div class="pt-4">
               <p class="text-sm text-gray-600 mb-2">Starting at</p>
-              <p class="break-words text-3xl font-bold text-gray-900">$7,500</p>
+              <p class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">$7,500</p>
             </div>
           </div>
         </PremiumCard>
@@ -410,23 +410,23 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
   </section>
 
   <!-- Benefits Section -->
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
       <div class="text-center mb-12">
-        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Benefits of New AC Installation</h2>
-        <p class="break-words text-xl text-gray-800">Experience the difference modern cooling makes</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Benefits of New AC Installation</h2>
+        <p class="text-lg sm:text-xl text-gray-700">Experience the difference modern cooling makes</p>
       </div>
 
-      <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <Card variant="bordered" padding="lg">
           <div class="space-y-4">
-            <div class="min-w-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 class="break-words text-xl font-bold text-gray-900">Lower Energy Bills</h3>
-            <p class="text-gray-800">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900">Lower Energy Bills</h3>
+            <p class="text-gray-700">
               New AC systems are 20-40% more efficient, significantly reducing summer cooling costs.
             </p>
           </div>
@@ -434,13 +434,13 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
 
         <Card variant="bordered" padding="lg">
           <div class="space-y-4">
-            <div class="min-w-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
             </div>
-            <h3 class="break-words text-xl font-bold text-gray-900">Better Comfort</h3>
-            <p class="text-gray-800">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900">Better Comfort</h3>
+            <p class="text-gray-700">
               Consistent temperatures, improved humidity control, and elimination of hot spots.
             </p>
           </div>
@@ -448,13 +448,13 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
 
         <Card variant="bordered" padding="lg">
           <div class="space-y-4">
-            <div class="min-w-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.142M6.343 6.343a9 9 0 000 12.728m2.829-9.9a5 5 0 000 7.072M13 5h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
-            <h3 class="break-words text-xl font-bold text-gray-900">Quiet Operation</h3>
-            <p class="text-gray-800">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900">Quiet Operation</h3>
+            <p class="text-gray-700">
               Modern AC units operate much quieter than older systems for peaceful indoor environment.
             </p>
           </div>
@@ -462,13 +462,13 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
 
         <Card variant="bordered" padding="lg">
           <div class="space-y-4">
-            <div class="min-w-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 mr-2 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
-            <h3 class="break-words text-xl font-bold text-gray-900">Reliability</h3>
-            <p class="text-gray-800">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900">Reliability</h3>
+            <p class="text-gray-700">
               New systems are less likely to break down during peak summer demand when you need cooling most.
             </p>
           </div>
@@ -476,13 +476,13 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
 
         <Card variant="bordered" padding="lg">
           <div class="space-y-4">
-            <div class="min-w-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-12 h-12 bg-emergency-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 mr-2 text-emergency-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
             </div>
-            <h3 class="break-words text-xl font-bold text-gray-900">Better Air Quality</h3>
-            <p class="text-gray-800">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900">Better Air Quality</h3>
+            <p class="text-gray-700">
               Advanced filtration systems and proper humidity control improve indoor air quality.
             </p>
           </div>
@@ -490,13 +490,13 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
 
         <Card variant="bordered" padding="lg">
           <div class="space-y-4">
-            <div class="min-w-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 mr-2 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
-            <h3 class="break-words text-xl font-bold text-gray-900">Increased Home Value</h3>
-            <p class="text-gray-800">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900">Increased Home Value</h3>
+            <p class="text-gray-700">
               New AC systems add value to your home and appeal to potential buyers in North Texas.
             </p>
           </div>
@@ -506,42 +506,42 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
   </section>
 
   <!-- Financing Section -->
-  <section class="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-gradient-to-r from-blue-600 to-purple-600">
+    <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto text-center text-white">
-        <h2 class="break-words text-3xl md:text-4xl font-bold mb-4">Flexible AC Installation Financing</h2>
-        <p class="break-words text-xl text-blue-100 mb-8">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl md:text-4xl font-bold mb-4">Flexible AC Installation Financing</h2>
+        <p class="text-lg sm:text-xl text-blue-100 mb-8">
           Get the cooling you need today with affordable monthly payments
         </p>
-        <div class="min-w-0 grid md:grid-cols-3 gap-6 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-            <p class="break-words text-3xl font-bold mb-2">0%</p>
+            <p class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2">0%</p>
             <p class="text-blue-100">Interest for 18 months</p>
           </div>
           <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-            <p class="break-words text-3xl font-bold mb-2">$0</p>
+            <p class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2">$0</p>
             <p class="text-blue-100">Down payment required</p>
           </div>
           <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-            <p class="break-words text-3xl font-bold mb-2">5 Min</p>
+            <p class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2">5 Min</p>
             <p class="text-blue-100">Quick approval process</p>
           </div>
         </div>
-        <PremiumButton href="/contact" variant="emergency" size="xl">
+        <Button href="/contact" variant="emergency" size="xl">
           Apply for Financing
-        </PremiumButton>
+        </Button>
       </div>
     </div>
   </section>
 
   <!-- Contact Form Section -->
-  <section id="contact" class="py-16 bg-gray-50">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section id="contact" class="w-full bg-gray-50">
+    <div class="site-container section-padding">
       <div class="text-center mb-12">
-        <h2 class="break-words text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl md:text-4xl font-bold text-gray-900 mb-4">
           Get Your Free AC Installation Quote
         </h2>
-        <p class="break-words text-xl text-gray-800">
+        <p class="text-lg sm:text-xl text-gray-700">
           Same-day estimates available • Professional installation guaranteed
         </p>
       </div>

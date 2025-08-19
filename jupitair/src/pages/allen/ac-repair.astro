@@ -136,13 +136,13 @@ const faqSchema = {
   <!-- Hero Section -->
   <section class="relative bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800 text-white py-16 lg:py-24 overflow-hidden">
     
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4 relative z-20">
+    <div class="site-container section-padding relative z-20">
       <div class="max-w-4xl mx-auto text-center">
         
         <!-- Emergency Badge -->
         <div class="mb-6">
-          <Badge variant="emergency" size="lg" class="min-w-0 inline-flex items-center space-x-2">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <Badge variant="emergency" size="lg" class="inline-flex items-center space-x-2">
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
             </svg>
             <span>24/7 Emergency Service in Allen</span>
@@ -150,39 +150,39 @@ const faqSchema = {
         </div>
         
         <!-- H1 Title -->
-        <h1 class="break-words text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+        <h1 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
           AC Repair in Allen, TX
         </h1>
         
         <!-- Short Description -->
-        <p class="break-words text-lg sm:text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed max-w-3xl mx-auto">
+        <p class="text-lg sm:text-lg sm:text-xl md:text-lg sm:text-xl sm:text-2xl text-blue-100 mb-8 leading-relaxed max-w-3xl mx-auto">
           {service.shortDescription} • Serving Watters Creek, Twin Creeks, Bethany Lakes, and all Allen neighborhoods
         </p>
         
         <!-- The Short Version -->
         <Card variant="elevated" padding="lg" class="bg-white/10 backdrop-blur-sm border-white/20 mb-8 text-left max-w-2xl mx-auto">
-          <h2 class="break-words text-xl font-bold mb-4 text-white">Allen AC Repair - The Short Version</h2>
+          <h2 class="text-lg sm:text-xl font-bold mb-4 text-white">Allen AC Repair - The Short Version</h2>
           <ul class="space-y-2 text-blue-100">
-            <li class="min-w-0 flex items-center">
-              <svg class="w-5 h-5 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               <span>Starting at ${service.pricing.starting} • {cityData.travelTime} response time</span>
             </li>
-            <li class="min-w-0 flex items-center">
-              <svg class="w-5 h-5 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               <span>{service.warranty} • Licensed & Insured</span>
             </li>
-            <li class="min-w-0 flex items-center">
-              <svg class="w-5 h-5 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               <span>Serving all Allen zip codes: {cityData.zipCodes.join(", ")}</span>
             </li>
-            <li class="min-w-0 flex items-center">
-              <svg class="w-5 h-5 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 mr-2 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               <span>No trip charges in Allen • Upfront pricing</span>
@@ -191,9 +191,9 @@ const faqSchema = {
         </Card>
         
         <!-- Primary CTAs -->
-        <div class="min-w-0 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-          <Button href="tel:(940) 390-5676" variant="emergency" size="xl" class="min-w-0 flex items-center justify-center space-x-3">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+          <Button href="tel:(940) 390-5676" variant="emergency" size="xl" class="flex items-center justify-center space-x-3">
+            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
             </svg>
             <span>Call (940) 390-5676</span>
@@ -209,23 +209,23 @@ const faqSchema = {
 
   <!-- Allen-Specific Service Details -->
   <section class="py-16 lg:py-24 bg-white">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+    <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto">
         
         <!-- Local Expertise -->
         <div class="prose prose-lg mx-auto mb-12">
-          <p class="break-words text-xl text-gray-700 leading-relaxed">
+          <p class="text-lg sm:text-xl text-gray-700 leading-relaxed">
             Professional AC repair services throughout Allen, Texas. Our experienced technicians understand the unique cooling challenges in Allen's family-friendly neighborhoods and master-planned communities. With our {cityData.travelTime} average response time, we're your local Allen AC repair specialists.
           </p>
         </div>
 
         <!-- Allen Neighborhoods We Serve -->
         <Card variant="elevated" padding="lg" class="mb-12">
-          <h2 class="break-words text-2xl font-bold text-gray-900 mb-6">Allen Neighborhoods We Serve</h2>
-          <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <h2 class="text-lg sm:text-xl sm:text-2xl font-bold text-gray-900 mb-6">Allen Neighborhoods We Serve</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {cityData.neighborhoods.map(neighborhood => (
-              <div class="min-w-0 flex items-center p-3 bg-gray-50 rounded-lg">
-                <svg class="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                <svg class="w-5 h-5 mr-2 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
                 </svg>
                 <span class="font-medium text-gray-900">{neighborhood}</span>
@@ -239,31 +239,31 @@ const faqSchema = {
 
         <!-- Common AC Problems in Allen -->
         <Card variant="elevated" padding="lg" class="mb-12">
-          <h2 class="break-words text-2xl font-bold text-gray-900 mb-6">Common AC Problems in Allen</h2>
-          <div class="min-w-0 grid md:grid-cols-2 gap-6">
+          <h2 class="text-lg sm:text-xl sm:text-2xl font-bold text-gray-900 mb-6">Common AC Problems in Allen</h2>
+          <div class="grid md:grid-cols-2 gap-6">
             <div>
               <h3 class="text-lg font-semibold text-gray-900 mb-3">Texas Heat Issues</h3>
               <ul class="space-y-2 text-gray-700">
-                <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   AC struggling in 100°F+ weather
                 </li>
-                <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Capacitor failures from heat stress
                 </li>
-                <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Refrigerant leaks in older systems
                 </li>
-                <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Frozen coils from overuse
@@ -273,26 +273,26 @@ const faqSchema = {
             <div>
               <h3 class="text-lg font-semibold text-gray-900 mb-3">Allen-Specific Issues</h3>
               <ul class="space-y-2 text-gray-700">
-                <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Family home efficiency optimization
                 </li>
-                <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Power surge damage from storms
                 </li>
-                <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Multi-zone comfort challenges
                 </li>
-                <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Air quality improvements
@@ -304,20 +304,20 @@ const faqSchema = {
 
         <!-- Pricing Section -->
         <Card variant="elevated" padding="lg" class="mb-12">
-          <h2 class="break-words text-2xl font-bold text-gray-900 mb-6">Allen AC Repair Pricing</h2>
-          <div class="min-w-0 grid md:grid-cols-2 gap-8">
+          <h2 class="text-lg sm:text-xl sm:text-2xl font-bold text-gray-900 mb-6">Allen AC Repair Pricing</h2>
+          <div class="grid md:grid-cols-2 gap-8">
             <div>
               <h3 class="text-lg font-semibold text-gray-900 mb-3">Transparent Pricing</h3>
               <div class="space-y-3">
-                <div class="min-w-0 flex justify-between items-center py-2 border-b border-gray-200">
+                <div class="flex justify-between items-center py-2 border-b border-gray-200">
                   <span class="text-gray-600">Diagnostic fee:</span>
                   <span class="font-semibold text-primary-700">${service.pricing.starting}</span>
                 </div>
-                <div class="min-w-0 flex justify-between items-center py-2 border-b border-gray-200">
+                <div class="flex justify-between items-center py-2 border-b border-gray-200">
                   <span class="text-gray-600">Average repair:</span>
                   <span class="font-semibold text-gray-900">${service.pricing.average}</span>
                 </div>
-                <div class="min-w-0 flex justify-between items-center py-2">
+                <div class="flex justify-between items-center py-2">
                   <span class="text-gray-600">Trip charge in Allen:</span>
                   <span class="text-green-600 font-semibold">$0</span>
                 </div>
@@ -327,26 +327,26 @@ const faqSchema = {
             <div>
               <h3 class="text-lg font-semibold text-gray-900 mb-3">What's Included</h3>
               <ul class="space-y-2 text-gray-700">
-                <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Complete system diagnostic
                 </li>
-                <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Free travel within Allen
                 </li>
-                <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Upfront pricing before work
                 </li>
-                <li class="min-w-0 flex items-center">
-                  <svg class="w-4 h-4 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <li class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-primary-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   90-day warranty on repairs
@@ -358,11 +358,11 @@ const faqSchema = {
 
         <!-- Why Choose Us for Allen -->
         <Card variant="elevated" padding="lg" class="mb-12">
-          <h2 class="break-words text-2xl font-bold text-gray-900 mb-6">Why Allen Families Choose Jupitair</h2>
-          <div class="min-w-0 grid md:grid-cols-3 gap-6">
+          <h2 class="text-lg sm:text-xl sm:text-2xl font-bold text-gray-900 mb-6">Why Allen Families Choose Jupitair</h2>
+          <div class="grid md:grid-cols-3 gap-6">
             <div class="text-center">
-              <div class="min-w-0 w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+              <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 mr-2 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
                 </svg>
               </div>
@@ -370,8 +370,8 @@ const faqSchema = {
               <p class="text-sm text-gray-600">We know Allen's family-friendly neighborhoods and unique HVAC needs</p>
             </div>
             <div class="text-center">
-              <div class="min-w-0 w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
+              <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 mr-2 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
                 </svg>
               </div>
@@ -379,8 +379,8 @@ const faqSchema = {
               <p class="text-sm text-gray-600">{cityData.travelTime} average response time to all Allen locations</p>
             </div>
             <div class="text-center">
-              <div class="min-w-0 w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 text-success-600" fill="currentColor" viewBox="0 0 20 20">
+              <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 mr-2 text-success-600" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
               </div>
@@ -392,17 +392,17 @@ const faqSchema = {
 
         <!-- Secondary CTA -->
         <div class="text-center">
-          <h3 class="break-words text-2xl font-bold text-gray-900 mb-4">
+          <h3 class="text-lg sm:text-xl sm:text-2xl font-bold text-gray-900 mb-4">
             Need AC Repair in Allen Today?
           </h3>
           <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
             Don't let AC problems ruin your family's comfort. Our Allen technicians are ready to help with same-day service throughout Watters Creek, Twin Creeks, and all surrounding areas.
           </p>
-          <div class="min-w-0 flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
-            <Button href="/contact" variant="primary" size="lg" class="min-w-0 flex-1">
+          <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
+            <Button href="/contact" variant="primary" size="lg" class="flex-1">
               Get Quote
             </Button>
-            <Button href="tel:(940) 390-5676" variant="outline" size="lg" class="min-w-0 flex-1">
+            <Button href="tel:(940) 390-5676" variant="outline" size="lg" class="flex-1">
               Call (940) 390-5676
             </Button>
           </div>
@@ -413,9 +413,9 @@ const faqSchema = {
 
   <!-- Allen FAQs -->
   <section class="py-16 lg:py-24 bg-gray-50">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+    <div class="site-container section-padding">
       <div class="max-w-3xl mx-auto">
-        <h2 class="break-words text-3xl font-bold text-gray-900 text-center mb-12">
+        <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-12">
           Frequently Asked Questions - Allen AC Repair
         </h2>
         <div class="space-y-6">
@@ -440,13 +440,13 @@ const faqSchema = {
   />
 
   <!-- Service Area Navigation -->
-  <section class="py-16 bg-white border-t border-gray-200">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-white border-t border-gray-200">
+    <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="break-words text-2xl font-bold text-gray-900 mb-8">
+        <h2 class="text-lg sm:text-xl sm:text-2xl font-bold text-gray-900 mb-8">
           AC Repair in Other North Texas Cities
         </h2>
-        <div class="min-w-0 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <a href="/frisco/ac-repair" class="p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors">
             <h3 class="font-semibold text-gray-900">Frisco</h3>
             <p class="text-sm text-gray-600">AC Repair</p>

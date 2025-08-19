@@ -5,11 +5,11 @@ import EnhancedBlogLayout from '../../layouts/EnhancedBlogLayout.astro';
 import BlogLayout from '../../layouts/BlogLayout.astro';
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog');
-  return blogEntries.map(entry => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+ const blogEntries = await getCollection('blog');
+ return blogEntries.map(entry => ({
+ params: { slug: entry.slug },
+ props: { entry },
+ }));
 }
 
 const { entry } = Astro.props;
@@ -17,13 +17,13 @@ const { Content } = await entry.render();
 
 // Use EnhancedBlogLayout for featured posts or posts with enhanced metadata
 const useEnhancedLayout = entry.data.featured || 
-                          entry.data.expertReviewer || 
-                          entry.data.technicalDifficulty ||
-                          entry.data.readingTime >= 5;
+ entry.data.expertReviewer || 
+ entry.data.technicalDifficulty ||
+ entry.data.readingTime >= 5;
 
 const LayoutComponent = useEnhancedLayout ? EnhancedBlogLayout : BlogLayout;
 ---
 
 <LayoutComponent frontmatter={entry.data}>
-  <Content />
+ <Content />
 </LayoutComponent>

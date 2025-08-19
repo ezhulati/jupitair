@@ -36,24 +36,24 @@ const benefits = [
     ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
     ctaSecondary={{ text: "Get Free Quote", href: "/contact?service=restaurant-hvac" }}
     variant="gradient"
-    height="lg"
+    height="lg" class="hero-section"
   />
 
   <!-- Services Grid -->
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
           <Badge variant="primary" class="mb-4">Our Services</Badge>
-          <h2 class="break-words text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Restaurant HVAC Solutions
           </h2>
-          <p class="break-words text-xl text-gray-600">
+          <p class="text-lg sm:text-xl text-gray-600">
             From kitchen exhaust to dining comfort, we handle it all
           </p>
         </div>
 
-        <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map(service => (
             <Card variant="elevated" padding="lg">
               <h3 class="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
@@ -67,19 +67,19 @@ const benefits = [
   </section>
 
   <!-- Why Choose Us -->
-  <section class="py-16 bg-gray-50">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-gray-50">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
-          <h2 class="break-words text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Why Restaurants Choose Jupitair
           </h2>
         </div>
 
-        <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map(benefit => (
             <div class="text-center">
-              <div class="min-w-0 mb-4 text-primary-600 flex justify-center">
+              <div class="mb-4 text-primary-600 flex justify-center">
                 <Icon name={benefit.icon} size="xl" />
               </div>
               <h3 class="font-semibold text-gray-900 mb-2">{benefit.title}</h3>
@@ -92,16 +92,16 @@ const benefits = [
   </section>
 
   <!-- CTA -->
-  <section class="py-16 bg-primary-600 text-white">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-primary-600 text-white">
+    <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="break-words text-3xl md:text-4xl font-bold mb-4">
+        <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold mb-4">
           Keep Your Restaurant Comfortable
         </h2>
-        <p class="break-words text-xl mb-8 text-primary-100">
+        <p class="text-lg sm:text-xl mb-8 text-primary-100">
           Professional HVAC service that understands restaurant needs
         </p>
-        <div class="min-w-0 flex flex-col sm:flex-row gap-4 justify-center">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <Button href="tel:9403905676" variant="secondary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>

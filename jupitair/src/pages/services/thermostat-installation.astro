@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PremiumHero from '../../components/layout/PremiumHero.astro';
-import PremiumButton from '../../components/ui/PremiumButton.astro';
+
 import PremiumCard from '../../components/ui/PremiumCard.astro';
 import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
@@ -24,29 +24,29 @@ const pageDescription = "Professional smart thermostat installation in North Tex
     ctaPrimary={{ text: "Schedule Installation", href: "#contact" }}
     ctaSecondary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
     variant="gradient"
-    height="lg"
+    height="lg" class="hero-section"
   />
 
   <!-- Why Upgrade Section -->
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
       <div class="text-center mb-12">
-        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Why Upgrade Your Thermostat?</h2>
-        <p class="break-words text-xl text-gray-800 max-w-3xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Why Upgrade Your Thermostat?</h2>
+        <p class="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
           Smart thermostats offer superior comfort control, energy savings, and convenience compared to basic models
         </p>
       </div>
 
-      <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <PremiumCard variant="elevated" hover={true}>
           <div class="text-center space-y-4 p-6">
-            <div class="min-w-0 w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+            <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 class="break-words text-2xl font-bold text-gray-900">Energy Savings</h3>
-            <p class="text-gray-800">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Energy Savings</h3>
+            <p class="text-gray-700">
               Save 10-23% on heating and cooling costs with smart scheduling
             </p>
           </div>
@@ -54,13 +54,13 @@ const pageDescription = "Professional smart thermostat installation in North Tex
 
         <PremiumCard variant="elevated" hover={true}>
           <div class="text-center space-y-4 p-6">
-            <div class="min-w-0 w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
               </svg>
             </div>
-            <h3 class="break-words text-2xl font-bold text-gray-900">Remote Control</h3>
-            <p class="text-gray-800">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Remote Control</h3>
+            <p class="text-gray-700">
               Control your home's temperature from anywhere using your smartphone
             </p>
           </div>
@@ -68,13 +68,13 @@ const pageDescription = "Professional smart thermostat installation in North Tex
 
         <PremiumCard variant="elevated" hover={true}>
           <div class="text-center space-y-4 p-6">
-            <div class="min-w-0 w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
             </div>
-            <h3 class="break-words text-2xl font-bold text-gray-900">Smart Learning</h3>
-            <p class="text-gray-800">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Smart Learning</h3>
+            <p class="text-gray-700">
               Advanced models learn your schedule and preferences automatically
             </p>
           </div>
@@ -82,13 +82,13 @@ const pageDescription = "Professional smart thermostat installation in North Tex
 
         <PremiumCard variant="elevated" hover={true}>
           <div class="text-center space-y-4 p-6">
-            <div class="min-w-0 w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
             </div>
-            <h3 class="break-words text-2xl font-bold text-gray-900">Usage Reports</h3>
-            <p class="text-gray-800">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Usage Reports</h3>
+            <p class="text-gray-700">
               Track energy usage and receive tips for optimizing efficiency
             </p>
           </div>
@@ -96,13 +96,13 @@ const pageDescription = "Professional smart thermostat installation in North Tex
 
         <PremiumCard variant="elevated" hover={true}>
           <div class="text-center space-y-4 p-6">
-            <div class="min-w-0 w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-16 h-16 bg-emergency-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-emergency-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 class="break-words text-2xl font-bold text-gray-900">System Alerts</h3>
-            <p class="text-gray-800">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">System Alerts</h3>
+            <p class="text-gray-700">
               Receive notifications about filter changes and system maintenance
             </p>
           </div>
@@ -110,13 +110,13 @@ const pageDescription = "Professional smart thermostat installation in North Tex
 
         <PremiumCard variant="elevated" hover={true}>
           <div class="text-center space-y-4 p-6">
-            <div class="min-w-0 w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
             </div>
-            <h3 class="break-words text-2xl font-bold text-gray-900">Home Integration</h3>
-            <p class="text-gray-800">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Home Integration</h3>
+            <p class="text-gray-700">
               Compatible with Alexa, Google Home, and other smart home systems
             </p>
           </div>
@@ -126,47 +126,47 @@ const pageDescription = "Professional smart thermostat installation in North Tex
   </section>
 
   <!-- Thermostat Types Section -->
-  <section class="py-16 bg-gray-50">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-gray-50">
+    <div class="site-container section-padding">
       <div class="text-center mb-12">
-        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Thermostat Options</h2>
-        <p class="break-words text-xl text-gray-800">Choose the right thermostat for your home and lifestyle</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Thermostat Options</h2>
+        <p class="text-lg sm:text-xl text-gray-700">Choose the right thermostat for your home and lifestyle</p>
       </div>
 
-      <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <PremiumCard variant="elevated" padding="lg">
           <div class="space-y-4">
-            <div class="min-w-0 w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
               </svg>
             </div>
-            <h3 class="break-words text-2xl font-bold text-gray-900 text-center">Programmable Thermostats</h3>
-            <p class="text-gray-800 text-center mb-4">Basic programming with energy-saving schedules</p>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 text-center">Programmable Thermostats</h3>
+            <p class="text-gray-700 text-center mb-4">Basic programming with energy-saving schedules</p>
             <ul class="space-y-2 text-sm">
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>7-day programming</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Multiple schedules per day</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Vacation and hold modes</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Easy-to-read display</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Energy usage tracking</span>
               </li>
             </ul>
             <div class="text-center pt-4">
-              <p class="break-words text-2xl font-bold text-blue-600">$80-150</p>
+              <p class="text-xl sm:text-2xl font-bold text-primary-600">$80-150</p>
               <p class="text-sm text-gray-600">+ Installation</p>
             </div>
           </div>
@@ -177,37 +177,37 @@ const pageDescription = "Professional smart thermostat installation in North Tex
             <Badge variant="primary" size="lg">Most Popular</Badge>
           </div>
           <div class="space-y-4 pt-4">
-            <div class="min-w-0 w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+            <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
               </svg>
             </div>
-            <h3 class="break-words text-2xl font-bold text-white text-center">Smart WiFi Thermostats</h3>
+            <h3 class="text-xl sm:text-2xl font-bold text-white text-center">Smart WiFi Thermostats</h3>
             <p class="text-white text-center mb-4">Connected thermostats with smartphone control</p>
             <ul class="space-y-2 text-sm">
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>WiFi connectivity and app control</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Remote temperature adjustment</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Energy usage reports</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Maintenance reminders</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Voice control compatible</span>
               </li>
             </ul>
             <div class="text-center pt-4">
-              <p class="break-words text-2xl font-bold text-green-600">$150-300</p>
+              <p class="text-xl sm:text-2xl font-bold text-green-600">$150-300</p>
               <p class="text-sm text-gray-200">+ Installation</p>
             </div>
           </div>
@@ -215,37 +215,37 @@ const pageDescription = "Professional smart thermostat installation in North Tex
 
         <PremiumCard variant="elevated" padding="lg">
           <div class="space-y-4">
-            <div class="min-w-0 w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
             </div>
-            <h3 class="break-words text-2xl font-bold text-gray-900 text-center">Learning Smart Thermostats</h3>
-            <p class="text-gray-800 text-center mb-4">Advanced AI that learns your preferences</p>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 text-center">Learning Smart Thermostats</h3>
+            <p class="text-gray-700 text-center mb-4">Advanced AI that learns your preferences</p>
             <ul class="space-y-2 text-sm">
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Automatic schedule learning</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Geofencing technology</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Weather integration</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Advanced energy analytics</span>
               </li>
-              <li class="min-w-0 flex items-start gap-2">
-                <span class="text-green-500 mt-1">•</span>
+              <li class="flex items-start gap-2">
+                <span class="text-success-600 mt-1">•</span>
                 <span>Premium app features</span>
               </li>
             </ul>
             <div class="text-center pt-4">
-              <p class="break-words text-2xl font-bold text-purple-600">$250-400</p>
+              <p class="text-xl sm:text-2xl font-bold text-purple-600">$250-400</p>
               <p class="text-sm text-gray-600">+ Installation</p>
             </div>
           </div>
@@ -255,70 +255,70 @@ const pageDescription = "Professional smart thermostat installation in North Tex
   </section>
 
   <!-- Installation Process Section -->
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
       <div class="text-center mb-12">
-        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Professional Installation Process</h2>
-        <p class="break-words text-xl text-gray-800">Expert installation and setup for optimal performance</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Professional Installation Process</h2>
+        <p class="text-lg sm:text-xl text-gray-700">Expert installation and setup for optimal performance</p>
       </div>
 
       <div class="max-w-4xl mx-auto space-y-6">
         <PremiumCard variant="elevated" padding="md">
-          <div class="min-w-0 flex gap-6">
-            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               1
             </div>
             <div>
-              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">System Compatibility Check</h3>
-              <p class="text-gray-800">Assess your current HVAC system and wiring to ensure proper thermostat compatibility and operation.</p>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">System Compatibility Check</h3>
+              <p class="text-gray-700">Assess your current HVAC system and wiring to ensure proper thermostat compatibility and operation.</p>
             </div>
           </div>
         </PremiumCard>
 
         <PremiumCard variant="elevated" padding="md">
-          <div class="min-w-0 flex gap-6">
-            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               2
             </div>
             <div>
-              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Safe Removal & Wiring</h3>
-              <p class="text-gray-800">Carefully remove old thermostat, update wiring if needed, and prepare for new thermostat installation.</p>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Safe Removal & Wiring</h3>
+              <p class="text-gray-700">Carefully remove old thermostat, update wiring if needed, and prepare for new thermostat installation.</p>
             </div>
           </div>
         </PremiumCard>
 
         <PremiumCard variant="elevated" padding="md">
-          <div class="min-w-0 flex gap-6">
-            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               3
             </div>
             <div>
-              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Professional Installation</h3>
-              <p class="text-gray-800">Mount and connect new thermostat following manufacturer specifications and safety protocols.</p>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Professional Installation</h3>
+              <p class="text-gray-700">Mount and connect new thermostat following manufacturer specifications and safety protocols.</p>
             </div>
           </div>
         </PremiumCard>
 
         <PremiumCard variant="elevated" padding="md">
-          <div class="min-w-0 flex gap-6">
-            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               4
             </div>
             <div>
-              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">System Configuration</h3>
-              <p class="text-gray-800">Configure thermostat settings, test all functions, and ensure proper communication with HVAC system.</p>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">System Configuration</h3>
+              <p class="text-gray-700">Configure thermostat settings, test all functions, and ensure proper communication with HVAC system.</p>
             </div>
           </div>
         </PremiumCard>
 
         <PremiumCard variant="elevated" padding="md">
-          <div class="min-w-0 flex gap-6">
-            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               5
             </div>
             <div>
-              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Setup & Training</h3>
-              <p class="text-gray-800">Complete WiFi setup, app installation, schedule programming, and provide comprehensive operation training.</p>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Setup & Training</h3>
+              <p class="text-gray-700">Complete WiFi setup, app installation, schedule programming, and provide comprehensive operation training.</p>
             </div>
           </div>
         </PremiumCard>
@@ -327,29 +327,29 @@ const pageDescription = "Professional smart thermostat installation in North Tex
   </section>
 
   <!-- Popular Brands Section -->
-  <section class="py-16 bg-gray-50">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-gray-50">
+    <div class="site-container section-padding">
       <div class="text-center mb-12">
-        <h2 class="break-words text-3xl font-bold text-gray-900 mb-4">Popular Thermostat Brands</h2>
-        <p class="break-words text-xl text-gray-800">We install and service all major brands</p>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Popular Thermostat Brands</h2>
+        <p class="text-lg sm:text-xl text-gray-700">We install and service all major brands</p>
       </div>
 
-      <div class="min-w-0 grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
         <Card variant="bordered" padding="lg">
           <div class="text-center space-y-4">
-            <h3 class="break-words text-2xl font-bold text-gray-900">Nest</h3>
-            <p class="text-gray-800">Google's learning thermostat with advanced AI and sleek design</p>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Nest</h3>
+            <p class="text-gray-700">Google's learning thermostat with advanced AI and sleek design</p>
             <ul class="text-left space-y-2 text-sm">
-              <li class="min-w-0 flex items-center gap-2">
-                <span class="text-green-500">✓</span>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
                 <span>Auto-learning capabilities</span>
               </li>
-              <li class="min-w-0 flex items-center gap-2">
-                <span class="text-green-500">✓</span>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
                 <span>Energy history reports</span>
               </li>
-              <li class="min-w-0 flex items-center gap-2">
-                <span class="text-green-500">✓</span>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
                 <span>Google Assistant integration</span>
               </li>
             </ul>
@@ -358,19 +358,19 @@ const pageDescription = "Professional smart thermostat installation in North Tex
 
         <Card variant="bordered" padding="lg">
           <div class="text-center space-y-4">
-            <h3 class="break-words text-2xl font-bold text-gray-900">Ecobee</h3>
-            <p class="text-gray-800">Smart thermostats with room sensors and voice control</p>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Ecobee</h3>
+            <p class="text-gray-700">Smart thermostats with room sensors and voice control</p>
             <ul class="text-left space-y-2 text-sm">
-              <li class="min-w-0 flex items-center gap-2">
-                <span class="text-green-500">✓</span>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
                 <span>Remote room sensors</span>
               </li>
-              <li class="min-w-0 flex items-center gap-2">
-                <span class="text-green-500">✓</span>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
                 <span>Built-in Alexa</span>
               </li>
-              <li class="min-w-0 flex items-center gap-2">
-                <span class="text-green-500">✓</span>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
                 <span>Comprehensive app control</span>
               </li>
             </ul>
@@ -379,19 +379,19 @@ const pageDescription = "Professional smart thermostat installation in North Tex
 
         <Card variant="bordered" padding="lg">
           <div class="text-center space-y-4">
-            <h3 class="break-words text-2xl font-bold text-gray-900">Honeywell</h3>
-            <p class="text-gray-800">Reliable programmable and smart thermostats for every budget</p>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Honeywell</h3>
+            <p class="text-gray-700">Reliable programmable and smart thermostats for every budget</p>
             <ul class="text-left space-y-2 text-sm">
-              <li class="min-w-0 flex items-center gap-2">
-                <span class="text-green-500">✓</span>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
                 <span>Wide model selection</span>
               </li>
-              <li class="min-w-0 flex items-center gap-2">
-                <span class="text-green-500">✓</span>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
                 <span>Proven reliability</span>
               </li>
-              <li class="min-w-0 flex items-center gap-2">
-                <span class="text-green-500">✓</span>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
                 <span>Professional-grade features</span>
               </li>
             </ul>
@@ -402,36 +402,36 @@ const pageDescription = "Professional smart thermostat installation in North Tex
   </section>
 
   <!-- FAQ Section -->
-  <section class="py-16 bg-white">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto">
-        <h2 class="break-words text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
         
         <div class="space-y-6">
           <Card variant="bordered" padding="lg">
-            <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Can I install a smart thermostat myself?</h3>
-            <p class="text-gray-800">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Can I install a smart thermostat myself?</h3>
+            <p class="text-gray-700">
               While some thermostats are marketed as DIY-friendly, professional installation ensures proper wiring, configuration, and prevents damage to your HVAC system. We also handle WiFi setup and full configuration.
             </p>
           </Card>
 
           <Card variant="bordered" padding="lg">
-            <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Will a smart thermostat work with my old HVAC system?</h3>
-            <p class="text-gray-800">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Will a smart thermostat work with my old HVAC system?</h3>
+            <p class="text-gray-700">
               Most modern thermostats are compatible with older systems, but compatibility depends on your specific wiring and equipment. We'll assess your system and recommend the best options during our consultation.
             </p>
           </Card>
 
           <Card variant="bordered" padding="lg">
-            <h3 class="break-words text-xl font-bold text-gray-900 mb-2">How much money can I save with a smart thermostat?</h3>
-            <p class="text-gray-800">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">How much money can I save with a smart thermostat?</h3>
+            <p class="text-gray-700">
               EPA studies show smart thermostats can save 10-23% on heating and cooling costs. For an average North Texas home, this translates to $130-$180 in annual savings.
             </p>
           </Card>
 
           <Card variant="bordered" padding="lg">
-            <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Do you provide warranty on thermostat installation?</h3>
-            <p class="text-gray-800">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Do you provide warranty on thermostat installation?</h3>
+            <p class="text-gray-700">
               Yes, we provide a 1-year warranty on installation labor, and all thermostats come with manufacturer warranties ranging from 1-5 years depending on the model.
             </p>
           </Card>
@@ -441,13 +441,13 @@ const pageDescription = "Professional smart thermostat installation in North Tex
   </section>
 
   <!-- Contact Form Section -->
-  <section id="contact" class="py-16 bg-gray-50">
-    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+  <section id="contact" class="w-full bg-gray-50">
+    <div class="site-container section-padding">
       <div class="text-center mb-12">
-        <h2 class="break-words text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl md:text-4xl font-bold text-gray-900 mb-4">
           Schedule Your Thermostat Installation
         </h2>
-        <p class="break-words text-xl text-gray-800">
+        <p class="text-lg sm:text-xl text-gray-700">
           Professional installation and setup • Smart home integration available
         </p>
       </div>
