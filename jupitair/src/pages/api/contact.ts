@@ -91,7 +91,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
     
     // Create Zoho SMTP transporter with timeout
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       host: 'smtp.zoho.com',
       port: 465,
       secure: true, // SSL
@@ -145,8 +145,8 @@ export const POST: APIRoute = async ({ request }) => {
     
     const eventDetails = {
       title: `HVAC Service: ${data['first-name']} ${data['last-name']}`,
-      description: `Service: ${data.service.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}\\n` +
-                   `Property Type: ${data['property-type'].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}\\n` +
+      description: `Service: ${data.service.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}\\n` +
+                   `Property Type: ${data['property-type'].replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}\\n` +
                    `Phone: ${data.phone}\\n` +
                    `Email: ${data.email}\\n` +
                    `${data.message ? 'Notes: ' + data.message : ''}`,
@@ -229,7 +229,7 @@ export const POST: APIRoute = async ({ request }) => {
 
         const calendarEvent = await zohoCalendar.createCalendarEvent({
           title: `HVAC Service: ${data['first-name']} ${data['last-name']}`,
-          description: `Service: ${data.service.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}\nProperty Type: ${data['property-type'].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}\nPhone: ${data.phone}\nEmail: ${data.email}\n${data.message ? 'Notes: ' + data.message : ''}${data.emergency ? '\n⚠️ EMERGENCY SERVICE REQUEST' : ''}`,
+          description: `Service: ${data.service.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}\nProperty Type: ${data['property-type'].replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}\nPhone: ${data.phone}\nEmail: ${data.email}\n${data.message ? 'Notes: ' + data.message : ''}${data.emergency ? '\n⚠️ EMERGENCY SERVICE REQUEST' : ''}`,
           location: `${data.address}, ${data.city}, TX ${data.zip}`,
           startDateTime: new Date(appointmentDate.getFullYear(), appointmentDate.getMonth(), appointmentDate.getDate(), startHour, 0).toISOString(),
           endDateTime: new Date(appointmentDate.getFullYear(), appointmentDate.getMonth(), appointmentDate.getDate(), startHour + duration, 0).toISOString(),
@@ -324,8 +324,8 @@ export const POST: APIRoute = async ({ request }) => {
             <div style="background: #F3F4F6; padding: 20px; border-radius: 8px; margin: 20px 0;">
               <h3 style="color: #111827; margin-top: 0;">Your Request Details:</h3>
               <p><strong>Service Address:</strong> ${data.address}, ${data.city}, TX ${data.zip}</p>
-              <p><strong>Property Type:</strong> ${data['property-type'].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</p>
-              <p><strong>Service Needed:</strong> ${data.service.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</p>
+              <p><strong>Property Type:</strong> ${data['property-type'].replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}</p>
+              <p><strong>Service Needed:</strong> ${data.service.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}</p>
               ${data.message ? `<p><strong>Your Message:</strong> ${data.message}</p>` : ''}
             </div>
             

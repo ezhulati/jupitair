@@ -185,20 +185,15 @@ async function generateImage(prompt, filename) {
     const assetsPath = path.join(__dirname, 'assets', filename);
     await fs.writeFile(assetsPath, buffer);
     
-    // Upload to Cloudinary
-    const cloudinaryResult = await cloudinary.uploader.upload(assetsPath, {
-      folder: 'jupitair-hvac',
-      public_id: filename.replace('.png', ''),
-      overwrite: true,
-      resource_type: 'image'
-    });
+    console.log(`✅ Generated and saved locally: ${filename}`);
     
-    console.log(`✅ Generated and uploaded: ${filename}`);
+    // For now, use local path as the URL (can be updated with Cloudinary later)
+    const localUrl = `/assets/${filename}`;
     
     return {
       localPath: assetsPath,
-      cloudinaryUrl: cloudinaryResult.secure_url,
-      publicId: cloudinaryResult.public_id
+      cloudinaryUrl: localUrl, // Using local path for now
+      publicId: filename.replace('.png', '')
     };
     
   } catch (error) {

@@ -232,13 +232,13 @@ const blogSchema = {
     <!-- Main Content -->
     <div class="min-w-0 grid lg:grid-cols-3 gap-12">
       <div class="lg:col-span-2">
-        <div class="break-words overflow-x-hidden prose prose-lg max-w-none prose-headings:font-bold prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-white prose-a:no-underline hover:prose-a:underline prose-strong:text-white prose-ul:my-6 prose-ol:my-6 prose-li:my-2 prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-700 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-table:w-full prose-th:bg-gray-100 prose-th:text-left prose-td:border prose-td:p-3">
+        <div class="break-words overflow-x-hidden prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-blue-600 hover:prose-a:text-blue-700 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 prose-ul:my-6 prose-ol:my-6 prose-li:my-2 prose-li:text-gray-700 prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-700 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:text-gray-800 prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-table:w-full prose-th:bg-gray-100 prose-th:text-left prose-td:border prose-td:p-3">
           <slot />
         </div>
 
         <!-- Author Bio -->
         <div class="mt-12 p-6 bg-gray-50 rounded-xl border border-gray-200">
-          <h3 class="font-bold text-white mb-2">About the Author</h3>
+          <h3 class="font-bold text-gray-900 mb-2">About the Author</h3>
           <p class="text-gray-700">
             The Jupitair HVAC Team consists of licensed HVAC technicians and comfort specialists with over 15 years of experience serving North Texas. We're committed to providing honest, expert advice to help homeowners make informed decisions about their heating and cooling systems.
           </p>
@@ -247,7 +247,7 @@ const blogSchema = {
         <!-- Tags -->
         {frontmatter.tags && frontmatter.tags.length > 0 && (
           <div class="mt-8">
-            <h3 class="font-bold text-white mb-4">Tags:</h3>
+            <h3 class="font-bold text-gray-900 mb-4">Tags:</h3>
             <div class="min-w-0 flex flex-wrap gap-2">
               {frontmatter.tags.map(tag => (
                 <a 

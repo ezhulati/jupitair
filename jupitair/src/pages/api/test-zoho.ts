@@ -10,7 +10,15 @@ export const GET: APIRoute = async () => {
     const zohoClientSecret = import.meta.env.ZOHO_CLIENT_SECRET || process.env.ZOHO_CLIENT_SECRET;
     const zohoRefreshToken = import.meta.env.ZOHO_REFRESH_TOKEN || process.env.ZOHO_REFRESH_TOKEN;
 
-    const status = {
+    const status: {
+      configured: boolean;
+      hasClientId: boolean;
+      hasClientSecret: boolean;
+      hasRefreshToken: boolean;
+      calendars: any;
+      testAvailability: any;
+      error: string | null;
+    } = {
       configured: false,
       hasClientId: !!zohoClientId,
       hasClientSecret: !!zohoClientSecret,
