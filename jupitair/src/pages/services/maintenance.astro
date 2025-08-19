@@ -1,0 +1,334 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PremiumHero from '../../components/layout/PremiumHero.astro';
+import PremiumButton from '../../components/ui/PremiumButton.astro';
+import PremiumCard from '../../components/ui/PremiumCard.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import ContactForm from '../../components/forms/ContactForm.astro';
+
+const pageTitle = "HVAC Maintenance Plans | Preventive Service Programs | Jupitair HVAC";
+const pageDescription = "Protect your HVAC investment with Jupitair's comprehensive maintenance plans. Bi-annual tune-ups, priority service, and extended warranties. Save up to 30% on energy costs.";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  keywords="HVAC maintenance plans, AC tune-up, furnace maintenance, preventive HVAC service, North Texas HVAC maintenance, bi-annual service, priority repairs"
+>
+  <!-- Hero Section -->
+  <PremiumHero 
+    title="Professional HVAC Maintenance Plans"
+    subtitle="Protect Your Investment"
+    description="Keep your system running efficiently year-round with our comprehensive maintenance programs. Save money, prevent breakdowns, and extend equipment life."
+    ctaPrimary={{ text: "View Plans", href: "#plans" }}
+    ctaSecondary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
+    variant="gradient"
+    height="lg"
+  />
+
+  <!-- Benefits Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Why Regular Maintenance Matters</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          Studies show that 75% of HVAC failures are preventable with regular maintenance. 
+          Our plans help you avoid costly breakdowns and keep your system running at peak efficiency.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900">Save 15-30% on Energy</h3>
+            <p class="text-gray-700">
+              Well-maintained systems use significantly less energy, saving you hundreds annually on utility bills.
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900">Extend System Life</h3>
+            <p class="text-gray-700">
+              Regular maintenance can add 5-10 years to your HVAC system's lifespan, delaying costly replacement.
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900">Prevent Breakdowns</h3>
+            <p class="text-gray-700">
+              Catch small issues before they become major problems. Avoid emergency repairs and inconvenient failures.
+            </p>
+          </div>
+        </PremiumCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- Maintenance Plans -->
+  <section id="plans" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Choose Your Maintenance Plan</h2>
+        <p class="text-xl text-gray-700">All plans include bi-annual service visits and 24/7 emergency support</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Basic Plan -->
+        <PremiumCard variant="elevated" padding="lg">
+          <div class="text-center space-y-6">
+            <div class="space-y-2">
+              <h3 class="text-2xl font-bold text-gray-900">Essential</h3>
+              <div class="text-4xl font-bold text-blue-600">$199<span class="text-lg text-gray-600">/year</span></div>
+            </div>
+            <ul class="space-y-3 text-left">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">2 tune-ups per year (Spring & Fall)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">15% discount on repairs</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">Filter replacement included</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">Priority scheduling</span>
+              </li>
+            </ul>
+            <Button href="/contact" variant="outline" size="lg" class="w-full">
+              Get Started
+            </Button>
+          </div>
+        </PremiumCard>
+
+        <!-- Premium Plan -->
+        <PremiumCard variant="premium" padding="lg" class="relative">
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+            <span class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+              MOST POPULAR
+            </span>
+          </div>
+          <div class="text-center space-y-6 pt-4">
+            <div class="space-y-2">
+              <h3 class="text-2xl font-bold text-gray-900">Premium</h3>
+              <div class="text-4xl font-bold text-blue-600">$299<span class="text-lg text-gray-600">/year</span></div>
+            </div>
+            <ul class="space-y-3 text-left">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">Everything in Essential, plus:</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">20% discount on repairs</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">No overtime charges</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">Extended parts warranty</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">Indoor air quality check</span>
+              </li>
+            </ul>
+            <PremiumButton href="/contact" variant="primary" size="lg" class="w-full">
+              Get Started
+            </PremiumButton>
+          </div>
+        </PremiumCard>
+
+        <!-- Elite Plan -->
+        <PremiumCard variant="elevated" padding="lg">
+          <div class="text-center space-y-6">
+            <div class="space-y-2">
+              <h3 class="text-2xl font-bold text-gray-900">Elite</h3>
+              <div class="text-4xl font-bold text-blue-600">$449<span class="text-lg text-gray-600">/year</span></div>
+            </div>
+            <ul class="space-y-3 text-left">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">Everything in Premium, plus:</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">30% discount on repairs</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">Same-day service guarantee</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">Annual duct cleaning</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-gray-700">Transferable to new owner</span>
+              </li>
+            </ul>
+            <Button href="/contact" variant="outline" size="lg" class="w-full">
+              Get Started
+            </Button>
+          </div>
+        </PremiumCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">What's Included in Every Tune-Up</h2>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <Card variant="default" padding="md">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Spring AC Tune-Up</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-2">
+                <span class="text-blue-600 mt-1">•</span>
+                <span class="text-gray-700">Clean condenser coils</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-blue-600 mt-1">•</span>
+                <span class="text-gray-700">Check refrigerant levels</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-blue-600 mt-1">•</span>
+                <span class="text-gray-700">Test capacitors and contactors</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-blue-600 mt-1">•</span>
+                <span class="text-gray-700">Inspect electrical connections</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-blue-600 mt-1">•</span>
+                <span class="text-gray-700">Calibrate thermostat</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-blue-600 mt-1">•</span>
+                <span class="text-gray-700">Check drain line and pan</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-blue-600 mt-1">•</span>
+                <span class="text-gray-700">Test system operation</span>
+              </li>
+            </ul>
+          </Card>
+
+          <Card variant="default" padding="md">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Fall Heating Tune-Up</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-2">
+                <span class="text-orange-600 mt-1">•</span>
+                <span class="text-gray-700">Inspect heat exchanger</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-600 mt-1">•</span>
+                <span class="text-gray-700">Clean burners and pilot</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-600 mt-1">•</span>
+                <span class="text-gray-700">Test safety controls</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-600 mt-1">•</span>
+                <span class="text-gray-700">Check gas connections</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-600 mt-1">•</span>
+                <span class="text-gray-700">Inspect flue system</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-600 mt-1">•</span>
+                <span class="text-gray-700">Test carbon monoxide levels</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-600 mt-1">•</span>
+                <span class="text-gray-700">Lubricate moving parts</span>
+              </li>
+            </ul>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Start Saving with a Maintenance Plan
+      </h2>
+      <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+        Join over 2,000 North Texas homeowners who trust Jupitair for their HVAC maintenance
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <PremiumButton href="/contact" variant="emergency" size="xl">
+          Get Your Plan Today
+        </PremiumButton>
+        <PremiumButton href="tel:9403905676" variant="glass" size="xl">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+          </svg>
+          Call (940) 390-5676
+        </PremiumButton>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
