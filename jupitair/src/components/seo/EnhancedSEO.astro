@@ -25,8 +25,7 @@ const {
 
 // Construct the full URL for canonical and OG URL
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'https://jupitairhvac.com';
-const currentPath = Astro.url.pathname;
-const fullUrl = canonical || `${siteUrl}${currentPath}`;
+const fullUrl = canonical || siteUrl;
 
 // Determine the OG image URL
 let ogImageUrl = ogImage || '/images/og-default.jpg';

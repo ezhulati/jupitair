@@ -12,6 +12,8 @@ import ReviewsSection from '../components/reviews/ReviewsSection.astro';
 import { readFileSync } from 'fs';
 import { parse } from 'yaml';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   // Load cities data
   const citiesData = parse(readFileSync('./data/cities.yml', 'utf8'));

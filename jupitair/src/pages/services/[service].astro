@@ -11,6 +11,8 @@ import DynamicSchema from '../../components/seo/DynamicSchema.astro';
 import { readFileSync } from 'fs';
 import { parse } from 'yaml';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   try {
     const servicesData = parse(readFileSync('./src/content/services/services.yml', 'utf8'));

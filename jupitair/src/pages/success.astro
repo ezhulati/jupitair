@@ -3,8 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
 import PremiumCard from '../components/ui/PremiumCard.astro';
 
-// Check if this is an emergency submission
-const isEmergency = Astro.url.searchParams.get('emergency') === 'true';
+// Emergency status will be determined client-side
 
 const nextSteps = [
  {
@@ -106,9 +105,8 @@ const popularResources = [
  </div>
  </div>
 
- <!-- Emergency Notice (Shows prominently if marked as emergency) -->
- {isEmergency ? (
- <PremiumCard variant="gradient" padding="lg" class="mb-8 text-center animate-pulse-slow bg-gradient-to-r from-red-600 to-orange-600">
+ <!-- Emergency Notice (Will be shown/hidden with JavaScript) -->
+ <div id="emergency-notice" class="mb-8 text-center animate-pulse-slow bg-gradient-to-r from-red-600 to-orange-600 rounded-xl p-6 hidden">
  <div class="flex items-center justify-center gap-3 mb-4">
  <svg class="w-8 h-8 mr-2 text-white animate-pulse" fill="currentColor" viewBox="0 0 20 20">
  <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
@@ -124,15 +122,16 @@ const popularResources = [
  <p class="text-gray-100 mb-6">
  For immediate assistance, please call us directly - we're available 24/7 for emergencies
  </p>
- <Button href="tel:9403905676" variant="emergency" size="xl" class="animate-bounce">
+ <a href="tel:9403905676" class="inline-flex items-center px-6 py-3 text-lg font-semibold text-red-700 bg-white rounded-lg hover:bg-gray-100 animate-bounce">
  <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
  </svg>
  Call Now: (940) 390-5676 - Emergency Line
- </Button>
- </PremiumCard>
- ) : (
- <div class="mb-8 p-6 text-center animate-fade-in bg-gradient-to-r from-red-600 to-orange-600 rounded-xl">
+ </a>
+ </div>
+
+ <!-- Regular Notice (Default - will be hidden if emergency) -->
+ <div id="regular-notice" class="mb-8 p-6 text-center animate-fade-in bg-gradient-to-r from-red-600 to-orange-600 rounded-xl">
  <div class="flex items-center justify-center gap-3 mb-3">
  <svg class="w-6 h-6 mr-2 text-white animate-pulse" fill="currentColor" viewBox="0 0 20 20">
  <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
@@ -142,14 +141,13 @@ const popularResources = [
  <p class="text-white mb-4">
  For emergency HVAC service, don't wait for a callback
  </p>
- <Button href="tel:9403905676" variant="emergency" size="lg" class="px-8 py-3">
+ <a href="tel:9403905676" class="inline-flex items-center px-6 py-3 text-white border-2 border-white rounded-lg hover:bg-white hover:text-red-600">
  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
  </svg>
  Call Now: (940) 390-5676
- </Button>
+ </a>
  </div>
- )}
 
  <!-- Helpful Resources -->
  <div class="text-center">
@@ -274,6 +272,19 @@ const popularResources = [
 <script>
  // Track successful form submission
  document.addEventListener('DOMContentLoaded', () => {
+ // Check for emergency parameter in URL
+ const urlParams = new URLSearchParams(window.location.search);
+ const isEmergency = urlParams.get('emergency') === 'true';
+ 
+ // Show appropriate section based on emergency status
+ if (isEmergency) {
+ document.getElementById('emergency-notice').classList.remove('hidden');
+ document.getElementById('regular-notice').classList.add('hidden');
+ } else {
+ document.getElementById('emergency-notice').classList.add('hidden');
+ document.getElementById('regular-notice').classList.remove('hidden');
+ }
+
  // Send conversion event to analytics
  if (typeof gtag !== 'undefined') {
  gtag('event', 'conversion', {

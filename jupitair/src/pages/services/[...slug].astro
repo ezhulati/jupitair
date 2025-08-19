@@ -11,6 +11,8 @@ import Icon from '../../components/ui/Icon.astro';
 import DynamicSchema from '../../components/seo/DynamicSchema.astro';
 import ReviewsSection from '../../components/reviews/ReviewsSection.astro';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   try {
     const pages = await getCollection('pages');

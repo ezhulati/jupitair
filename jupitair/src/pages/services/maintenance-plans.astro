@@ -1,4 +1,20 @@
 ---
-// Redirect maintenance-plans to the main maintenance page
-return Astro.redirect('/services/maintenance', 301);
+// Static redirect for maintenance-plans to the main maintenance page
 ---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting to Maintenance Services</title>
+  <meta http-equiv="refresh" content="0; url=/services/maintenance">
+  <link rel="canonical" href="https://jupitairhvac.com/services/maintenance">
+</head>
+<body>
+  <p>Redirecting to <a href="/services/maintenance">Maintenance Services</a>...</p>
+  <script>
+    window.location.href = '/services/maintenance';
+  </script>
+</body>
+</html>

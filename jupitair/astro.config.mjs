@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
-import node from '@astrojs/node';
+import netlify from '@astrojs/netlify';
 
 export default defineConfig({
   integrations: [
@@ -13,6 +13,7 @@ export default defineConfig({
     react()
   ],
   output: 'static',
+  adapter: netlify(),
   site: 'https://jupitairhvac.com',
   build: {
     assets: 'assets'

@@ -3,6 +3,8 @@ import { readFileSync, readdirSync } from 'fs';
 import { parse } from 'yaml';
 import { join } from 'path';
 
+export const prerender = true;
+
 export const GET: APIRoute = async () => {
   try {
     // Load data from project root

@@ -5,6 +5,8 @@ import DynamicSchema from '../../components/seo/DynamicSchema.astro';
 import { readFileSync } from 'fs';
 import { parse } from 'yaml';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
  // Load data
  const citiesData = parse(readFileSync('./data/cities.yml', 'utf8'));
