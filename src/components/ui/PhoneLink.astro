@@ -89,93 +89,45 @@ const phoneIcon = `<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 
     </div>
   </div>
 ) : variant === 'premium' ? (
-  <!-- Premium button variant -->
-  <>
-    <!-- Mobile: Call Now button -->
-    <PremiumButton
-      href={`tel:${phoneNumber}`}
-      variant={emergency ? 'emergency' : 'premium'}
-      size={size}
-      class={`sm:hidden ${className}`}
-      aria-label="Call now"
-    >
-      {showIcon && (
-        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-          <Fragment set:html={phoneIcon} />
-        </svg>
-      )}
-      <span class="whitespace-nowrap">Call Now</span>
-    </PremiumButton>
-    
-    <!-- Desktop: Show number (or Call + number if in CTA context) -->
-    <PremiumButton
-      href={`tel:${phoneNumber}`}
-      variant={emergency ? 'emergency' : 'premium'}
-      size={size}
-      class={`hidden sm:inline-flex ${className}`}
-    >
-      {showIcon && (
-        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-          <Fragment set:html={phoneIcon} />
-        </svg>
-      )}
-      <span class="whitespace-nowrap">
-        {alwaysShowNumber ? displayNumber : `Call ${displayNumber}`}
-      </span>
-    </PremiumButton>
-  </>
-) : (
-  <!-- Standard button variant -->
-  <>
-    <!-- Mobile: Call Now button (except in footer/contact where we show number) -->
-    {alwaysShowNumber ? (
-      <Button
-        href={`tel:${phoneNumber}`}
-        variant={emergency ? 'emergency' : 'primary'}
-        size={size}
-        class={`sm:hidden ${className}`}
-      >
-        {showIcon && (
-          <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-            <Fragment set:html={phoneIcon} />
-          </svg>
-        )}
-        <span class="whitespace-nowrap">{displayNumber}</span>
-      </Button>
-    ) : (
-      <Button
-        href={`tel:${phoneNumber}`}
-        variant={emergency ? 'emergency' : 'primary'}
-        size={size}
-        class={`sm:hidden ${className}`}
-        aria-label="Call now"
-      >
-        {showIcon && (
-          <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-            <Fragment set:html={phoneIcon} />
-          </svg>
-        )}
-        <span class="whitespace-nowrap">Call Now</span>
-      </Button>
+  <!-- Premium button variant - single responsive button -->
+  <PremiumButton
+    href={`tel:${phoneNumber}`}
+    variant={emergency ? 'emergency' : 'premium'}
+    size={size}
+    class={className}
+    aria-label={`Call ${displayNumber}`}
+  >
+    {showIcon && (
+      <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <Fragment set:html={phoneIcon} />
+      </svg>
     )}
-    
-    <!-- Desktop: Show number -->
-    <Button
-      href={`tel:${phoneNumber}`}
-      variant={emergency ? 'emergency' : 'primary'}
-      size={size}
-      class={`hidden sm:inline-flex ${className}`}
-    >
-      {showIcon && (
-        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-          <Fragment set:html={phoneIcon} />
-        </svg>
-      )}
-      <span class="whitespace-nowrap">
-        {alwaysShowNumber ? displayNumber : `Call ${displayNumber}`}
-      </span>
-    </Button>
-  </>
+    <span class="whitespace-nowrap hidden sm:inline">Call {displayNumber}</span>
+    <span class="whitespace-nowrap sm:hidden">Call Now</span>
+  </PremiumButton>
+) : (
+  <!-- Standard button variant - single responsive button -->
+  <Button
+    href={`tel:${phoneNumber}`}
+    variant={emergency ? 'emergency' : 'primary'}
+    size={size}
+    class={className}
+    aria-label={`Call ${displayNumber}`}
+  >
+    {showIcon && (
+      <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <Fragment set:html={phoneIcon} />
+      </svg>
+    )}
+    {alwaysShowNumber ? (
+      <span class="whitespace-nowrap">{displayNumber}</span>
+    ) : (
+      <>
+        <span class="whitespace-nowrap hidden sm:inline">Call {displayNumber}</span>
+        <span class="whitespace-nowrap sm:hidden">Call Now</span>
+      </>
+    )}
+  </Button>
 )}
 
 <style>
