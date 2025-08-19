@@ -1,0 +1,189 @@
+---
+/**
+ * Smart phone display component
+ * - Shows "Call Now" button on mobile (can tap to call)
+ * - Shows phone number on desktop (can't call from computer)
+ * - Centralized phone number management
+ * - Ready for call tracking integration
+ */
+
+import { BUSINESS_CONFIG, getPhoneNumber } from '../../config/business';
+import Button from './Button.astro';
+import PremiumButton from './PremiumButton.astro';
+
+export interface Props {
+  variant?: 'button' | 'premium' | 'text' | 'hero';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  source?: 'main' | 'google' | 'facebook' | 'direct';
+  showIcon?: boolean;
+  class?: string;
+  context?: 'header' | 'footer' | 'cta' | 'contact' | 'blog';
+  emergency?: boolean;
+}
+
+const {
+  variant = 'button',
+  size = 'md',
+  source = 'main',
+  showIcon = true,
+  class: className = '',
+  context = 'cta',
+  emergency = false
+} = Astro.props;
+
+const phoneNumber = getPhoneNumber(source);
+const displayNumber = BUSINESS_CONFIG.phone.display;
+
+// Determine if we should show number based on context
+// Contact pages and footer always show number
+const alwaysShowNumber = context === 'contact' || context === 'footer';
+
+// Icon SVG for phone
+const phoneIcon = `<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>`;
+---
+
+{variant === 'text' ? (
+  <a 
+    href={`tel:${phoneNumber}`}
+    class={`inline-flex items-center gap-2 text-current hover:underline ${className}`}
+    aria-label={`Call ${displayNumber}`}
+  >
+    {showIcon && (
+      <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <Fragment set:html={phoneIcon} />
+      </svg>
+    )}
+    <span class="whitespace-nowrap">{displayNumber}</span>
+  </a>
+) : variant === 'hero' ? (
+  <!-- Hero variant - larger, more prominent -->
+  <div class={`inline-flex flex-col sm:flex-row items-center gap-4 ${className}`}>
+    <!-- Mobile: Call Now button -->
+    <a 
+      href={`tel:${phoneNumber}`}
+      class="sm:hidden w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-emergency-600 hover:bg-emergency-700 text-white font-bold text-lg rounded-lg shadow-lg transition-all hover:scale-105"
+      aria-label="Call now"
+    >
+      <svg class="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <Fragment set:html={phoneIcon} />
+      </svg>
+      <span>Call Now</span>
+    </a>
+    
+    <!-- Desktop: Show number with icon -->
+    <div class="hidden sm:flex items-center gap-3 text-current">
+      <div class="p-3 bg-white/10 rounded-full">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+          <Fragment set:html={phoneIcon} />
+        </svg>
+      </div>
+      <div>
+        <div class="text-sm opacity-90">Call 24/7</div>
+        <a 
+          href={`tel:${phoneNumber}`}
+          class="text-2xl font-bold hover:underline"
+        >
+          {displayNumber}
+        </a>
+      </div>
+    </div>
+  </div>
+) : variant === 'premium' ? (
+  <!-- Premium button variant -->
+  <>
+    <!-- Mobile: Call Now button -->
+    <PremiumButton
+      href={`tel:${phoneNumber}`}
+      variant={emergency ? 'emergency' : 'premium'}
+      size={size}
+      class={`sm:hidden ${className}`}
+      aria-label="Call now"
+    >
+      {showIcon && (
+        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+          <Fragment set:html={phoneIcon} />
+        </svg>
+      )}
+      <span class="whitespace-nowrap">Call Now</span>
+    </PremiumButton>
+    
+    <!-- Desktop: Show number (or Call + number if in CTA context) -->
+    <PremiumButton
+      href={`tel:${phoneNumber}`}
+      variant={emergency ? 'emergency' : 'premium'}
+      size={size}
+      class={`hidden sm:inline-flex ${className}`}
+    >
+      {showIcon && (
+        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+          <Fragment set:html={phoneIcon} />
+        </svg>
+      )}
+      <span class="whitespace-nowrap">
+        {alwaysShowNumber ? displayNumber : `Call ${displayNumber}`}
+      </span>
+    </PremiumButton>
+  </>
+) : (
+  <!-- Standard button variant -->
+  <>
+    <!-- Mobile: Call Now button (except in footer/contact where we show number) -->
+    {alwaysShowNumber ? (
+      <Button
+        href={`tel:${phoneNumber}`}
+        variant={emergency ? 'emergency' : 'primary'}
+        size={size}
+        class={`sm:hidden ${className}`}
+      >
+        {showIcon && (
+          <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <Fragment set:html={phoneIcon} />
+          </svg>
+        )}
+        <span class="whitespace-nowrap">{displayNumber}</span>
+      </Button>
+    ) : (
+      <Button
+        href={`tel:${phoneNumber}`}
+        variant={emergency ? 'emergency' : 'primary'}
+        size={size}
+        class={`sm:hidden ${className}`}
+        aria-label="Call now"
+      >
+        {showIcon && (
+          <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <Fragment set:html={phoneIcon} />
+          </svg>
+        )}
+        <span class="whitespace-nowrap">Call Now</span>
+      </Button>
+    )}
+    
+    <!-- Desktop: Show number -->
+    <Button
+      href={`tel:${phoneNumber}`}
+      variant={emergency ? 'emergency' : 'primary'}
+      size={size}
+      class={`hidden sm:inline-flex ${className}`}
+    >
+      {showIcon && (
+        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+          <Fragment set:html={phoneIcon} />
+        </svg>
+      )}
+      <span class="whitespace-nowrap">
+        {alwaysShowNumber ? displayNumber : `Call ${displayNumber}`}
+      </span>
+    </Button>
+  </>
+)}
+
+<style>
+  /* Ensure proper touch targets on mobile */
+  @media (max-width: 640px) {
+    a[href^="tel"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+</style>
