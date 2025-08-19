@@ -198,7 +198,7 @@ import PremiumCard from '../../components/ui/PremiumCard.astro';
 
 *Last Updated: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}*
 
-*Jupitair HVAC serves all of North Texas including Plano, Frisco, McKinney, Allen, and surrounding areas. TACLA License #123456.*
+*Jupitair HVAC serves all of North Texas including Plano, Frisco, McKinney, Allen, and surrounding areas. TACLA Licensed.*
 `;
   
   // Combine everything

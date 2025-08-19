@@ -18,12 +18,12 @@ const {
 
 {variant === 'inline' ? (
   <!-- Inline CTA for mid-article placement -->
-  <div class="bg-gradient-to-r from-blue-50 to-blue-100 border-l-4 border-blue-500 rounded-r-lg p-6 my-8">
-    <p class="text-lg font-semibold text-blue-900">{title}</p>
-    <p class="text-blue-800 mt-2">{description}</p>
+  <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-6 my-8">
+    <p class="text-lg font-semibold text-white">{title}</p>
+    <p class="text-blue-100 mt-2">{description}</p>
     <div class="mt-4 flex flex-col sm:flex-row gap-3">
       <PhoneLink variant="button" size="md" context="blog" class="inline-flex justify-center" />
-      <Button href="/schedule" variant="outline" size="md" class="justify-center">
+      <Button href="/schedule" variant="outline" size="md" class="justify-center !border-white !text-white hover:!bg-white hover:!text-blue-600">
         Schedule Online
       </Button>
     </div>

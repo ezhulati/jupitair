@@ -352,7 +352,7 @@ function getPageSpecificFAQs(config: SchemaConfig) {
     },
     {
       question: "Are you licensed and insured?",
-      answer: "Yes, Jupitair HVAC is fully licensed (Texas HVAC License #TACLA12345), insured, and bonded. All our technicians are EPA and NATE certified."
+      answer: "Yes, Jupitair HVAC is fully TACLA licensed, insured, and bonded. All our technicians are EPA and NATE certified."
     },
     {
       question: "Do you offer free estimates?",

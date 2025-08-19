@@ -12,10 +12,7 @@ export default defineConfig({
     mdx(),
     react()
   ],
-  output: 'hybrid',
-  adapter: node({
-    mode: 'standalone'
-  }),
+  output: 'static',
   site: 'https://jupitairhvac.com',
   build: {
     assets: 'assets'
