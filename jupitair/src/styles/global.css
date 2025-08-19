@@ -139,13 +139,7 @@
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
   
-  /* After-hours styling */
-  body.after-hours [data-emergency-cta]::after {
-    content: " • $250 after 7pm";
-    color: #fbbf24;
-    font-size: 0.875rem;
-    font-weight: 600;
-  }
+  /* After-hours styling - REMOVED duplicate text that was already added by JavaScript */
   
   /* After-hours tooltip */
   .after-hours-tooltip {
