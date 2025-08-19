@@ -46,10 +46,10 @@ const {
   </div>
   
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl relative z-20 py-16 sm:py-20 lg:py-28 xl:py-32">
-    <div class="min-w-0 grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+    <div class="min-w-0 grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center justify-center">
       
       <!-- Hero Content -->
-      <div class="text-center lg:text-left">
+      <div class="text-center">
         {showEmergencyBadge && (
           <div class="mb-6">
             <Badge variant="emergency" size="lg" class="min-w-0 inline-flex items-center space-x-2">
@@ -61,28 +61,28 @@ const {
           </div>
         )}
         
-        <h1 class="break-words text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight text-center lg:text-left" set:html={title}>
+        <h1 class="break-words text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight text-center" set:html={title}>
         </h1>
         
-        <p class="break-words text-lg sm:text-xl md:text-2xl text-blue-100 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+        <p class="break-words text-lg sm:text-xl md:text-2xl text-blue-100 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto">
           {subtitle}
         </p>
         
         {variant === 'home' && (
           <ul class="mb-8 space-y-3 text-lg">
-            <li class="min-w-0 flex items-center justify-center lg:justify-start">
+            <li class="min-w-0 flex items-center justify-center">
               <svg class="w-6 h-6 mr-2 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               Same-Day Service Available
             </li>
-            <li class="min-w-0 flex items-center justify-center lg:justify-start">
+            <li class="min-w-0 flex items-center justify-center">
               <svg class="w-6 h-6 mr-2 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               Licensed & Insured Technicians
             </li>
-            <li class="min-w-0 flex items-center justify-center lg:justify-start">
+            <li class="min-w-0 flex items-center justify-center">
               <svg class="w-6 h-6 mr-2 text-secondary-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
@@ -92,7 +92,7 @@ const {
         )}
         
         {showCTA && (
-          <div class="min-w-0 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <div class="min-w-0 flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               href="/contact" 
               variant="secondary" 
