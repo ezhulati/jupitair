@@ -1,5 +1,7 @@
 ---
 import Button from '../ui/Button.astro';
+import PhoneLink from '../ui/PhoneLink.astro';
+import { BUSINESS_CONFIG } from '../../config/business';
 ---
 
 <footer class="bg-gray-900 text-gray-300">
@@ -13,9 +15,12 @@ import Button from '../ui/Button.astro';
             <h5 class="font-bold text-lg">Emergency Service</h5>
             <p class="text-sm text-red-100">Available 24/7</p>
           </div>
-          <a href="tel:9403905676" class="bg-white text-red-600 px-6 py-3 rounded-lg font-bold text-lg hover:bg-red-50 transition-colors">
-            Call Now
-          </a>
+          <PhoneLink 
+            variant="button"
+            emergency={true}
+            context="footer"
+            class="bg-white text-red-600 px-6 py-3 rounded-lg font-bold text-lg hover:bg-red-50 transition-colors"
+          />
         </div>
       </div>
     </div>
@@ -41,12 +46,11 @@ import Button from '../ui/Button.astro';
         <!-- Contact Info -->
         <div class="space-y-3">
           <div class="min-w-0 flex items-center space-x-3">
-            <svg class="w-5 h-5 mr-2 text-secondary-500" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-            </svg>
-            <a href="tel:(940) 390-5676" class="text-secondary-400 hover:text-secondary-300 font-semibold">
-              (940) 390-5676
-            </a>
+            <PhoneLink 
+              variant="text"
+              context="footer"
+              class="text-secondary-400 hover:text-secondary-300 font-semibold"
+            />
           </div>
           
           <div class="min-w-0 flex items-center space-x-3">
@@ -117,9 +121,13 @@ import Button from '../ui/Button.astro';
         <div class="hidden sm:block bg-emergency-900 border border-emergency-700 rounded-lg p-4">
           <h5 class="text-emergency-300 font-semibold mb-2">Emergency Service</h5>
           <p class="text-emergency-400 text-sm mb-3">Available 24/7 for urgent HVAC issues</p>
-          <Button href="tel:(940) 390-5676" variant="emergency" size="sm" class="w-full justify-center">
-            Call Now
-          </Button>
+          <PhoneLink 
+            variant="button"
+            emergency={true}
+            size="sm"
+            context="footer"
+            class="w-full justify-center"
+          />
         </div>
       </div>
     </div>
