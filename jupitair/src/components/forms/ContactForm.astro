@@ -443,14 +443,6 @@ const { formId = 'contact-form', variant = 'premium' } = Astro.props;
           const formData = new FormData(form);
           const data = Object.fromEntries(formData);
           
-          // Check if emergency
-          if (data.emergency) {
-            if (confirm('This is an emergency! Would you like to call us directly for immediate assistance?')) {
-              window.location.href = 'tel:(940) 390-5676';
-              return;
-            }
-          }
-          
           // Show loading state
           const submitBtn = form.querySelector('button[type="submit"]');
           const originalText = submitBtn.textContent;
@@ -466,8 +458,9 @@ const { formId = 'contact-form', variant = 'premium' } = Astro.props;
             });
             
             if (response.ok) {
-              // Success - redirect to success page
-              window.location.href = '/success';
+              // Success - redirect to success page with emergency flag if needed
+              const successUrl = data.emergency ? '/success?emergency=true' : '/success';
+              window.location.href = successUrl;
             } else {
               throw new Error('Form submission failed');
             }
