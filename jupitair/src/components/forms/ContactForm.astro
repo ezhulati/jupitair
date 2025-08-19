@@ -1,6 +1,5 @@
 ---
 import Button from '../ui/Button.astro';
-import PremiumCard from '../ui/PremiumCard.astro';
 
 export interface Props {
   formId?: string;
@@ -10,7 +9,7 @@ export interface Props {
 const { formId = 'contact-form', variant = 'premium' } = Astro.props;
 ---
 
-<PremiumCard variant="glass" padding="lg" class="max-w-4xl mx-auto">
+<div class="bg-white rounded-lg p-8 max-w-4xl mx-auto">
   <form 
     class="space-y-6" 
     name="contact" 
@@ -293,7 +292,7 @@ const { formId = 'contact-form', variant = 'premium' } = Astro.props;
     </Button>
   </div>
   </form>
-</PremiumCard>
+</div>
 
 <style>
   /* Form Base Styles */
