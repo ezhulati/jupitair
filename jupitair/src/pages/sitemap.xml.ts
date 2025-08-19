@@ -1,20 +1,22 @@
 import type { APIRoute } from 'astro';
 import { readFileSync, readdirSync } from 'fs';
 import { parse } from 'yaml';
+import { join } from 'path';
 
 export const GET: APIRoute = async () => {
-  // Load data
-  const servicesData = parse(readFileSync('./data/services.yml', 'utf8'));
-  const citiesData = parse(readFileSync('./data/cities.yml', 'utf8'));
+  try {
+    // Load data from project root
+    const servicesData = parse(readFileSync(join(process.cwd(), 'data/services.yml'), 'utf8'));
+    const citiesData = parse(readFileSync(join(process.cwd(), 'data/cities.yml'), 'utf8'));
   
   const services = servicesData?.money_pages || [];
   const cities = citiesData?.cities || [];
   
-  // Get blog posts
-  const blogDir = './src/content/blog';
-  const blogPosts = readdirSync(blogDir)
-    .filter(file => file.endsWith('.mdx'))
-    .map(file => file.replace('.mdx', ''));
+    // Get blog posts
+    const blogDir = join(process.cwd(), 'src/content/blog');
+    const blogPosts = readdirSync(blogDir)
+      .filter(file => file.endsWith('.mdx'))
+      .map(file => file.replace('.mdx', ''));
   
   // Get current date in W3C format
   const currentDate = new Date().toISOString().split('T')[0];
@@ -115,10 +117,14 @@ ${urls.map(url => `  <url>
   </url>`).join('\n')}
 </urlset>`;
 
-  return new Response(xml, {
-    headers: {
-      'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=3600' // Cache for 1 hour
-    }
-  });
+    return new Response(xml, {
+      headers: {
+        'Content-Type': 'application/xml',
+        'Cache-Control': 'public, max-age=3600' // Cache for 1 hour
+      }
+    });
+  } catch (error) {
+    console.error('Error generating sitemap:', error);
+    return new Response('Error generating sitemap', { status: 500 });
+  }
 };

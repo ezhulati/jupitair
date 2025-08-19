@@ -1,0 +1,294 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PremiumHero from '../../components/layout/PremiumHero.astro';
+import PremiumButton from '../../components/ui/PremiumButton.astro';
+import PremiumCard from '../../components/ui/PremiumCard.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import ContactForm from '../../components/forms/ContactForm.astro';
+import Badge from '../../components/ui/Badge.astro';
+
+const pageTitle = "Air Purification Systems | Indoor Air Quality Solutions | Jupitair HVAC";
+const pageDescription = "Professional air purification and indoor air quality systems in North Texas. UV lights, HEPA filtration, whole-home air purifiers. Improve your home's air quality today.";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  keywords="air purification, indoor air quality, air purifiers, UV lights, HEPA filters, whole home air purification, North Texas air quality"
+>
+  <PremiumHero 
+    title="Advanced Air Purification Systems"
+    subtitle="Breathe Cleaner, Healthier Air"
+    description="Protect your family with professional-grade air purification systems. From UV lights to whole-home HEPA filtration, we provide complete indoor air quality solutions."
+    ctaPrimary={{ text: "Get Air Quality Assessment", href: "tel:9403905676" }}
+    ctaSecondary={{ text: "Get Quote", href: "#contact" }}
+    variant="gradient"
+    height="lg"
+  />
+
+  <!-- Health Benefits Banner -->
+  <section class="py-4 bg-green-600">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4 text-center">
+      <p class="text-white font-bold">
+        🌱 Reduce Allergens, Bacteria & Viruses by up to 99.9% - Call (940) 390-5676
+      </p>
+    </div>
+  </section>
+
+  <!-- Air Purification Solutions -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Professional Air Purification Solutions</h2>
+        <p class="break-words text-xl text-gray-800 max-w-3xl mx-auto">
+          We install and maintain advanced air purification systems to eliminate pollutants, allergens, and pathogens from your home
+        </p>
+      </div>
+
+      <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="min-w-0 w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="break-words text-xl font-bold text-gray-900 mb-3">UV Light Systems</h3>
+          <p class="text-gray-700 mb-4">Germicidal UV lights installed in your HVAC system destroy bacteria, viruses, and mold at the source.</p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Kills 99.9% of airborne pathogens</li>
+            <li>• Reduces mold and bacteria growth</li>
+            <li>• Low maintenance operation</li>
+            <li>• Energy efficient</li>
+          </ul>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="min-w-0 w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+            </svg>
+          </div>
+          <h3 class="break-words text-xl font-bold text-gray-900 mb-3">HEPA Filtration</h3>
+          <p class="text-gray-700 mb-4">Medical-grade HEPA filters capture 99.97% of particles as small as 0.3 microns.</p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Removes allergens and dust</li>
+            <li>• Captures pet dander</li>
+            <li>• Filters smoke and odors</li>
+            <li>• Hospital-grade filtration</li>
+          </ul>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="min-w-0 w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
+          </div>
+          <h3 class="break-words text-xl font-bold text-gray-900 mb-3">Whole-Home Purifiers</h3>
+          <p class="text-gray-700 mb-4">Complete air purification systems integrated with your existing HVAC for whole-home coverage.</p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Treats all air in your home</li>
+            <li>• Multiple filtration stages</li>
+            <li>• Smart monitoring features</li>
+            <li>• Seamless HVAC integration</li>
+          </ul>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="min-w-0 w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3 class="break-words text-xl font-bold text-gray-900 mb-3">Humidity Control</h3>
+          <p class="text-gray-700 mb-4">Whole-home humidifiers and dehumidifiers to maintain optimal humidity levels year-round.</p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Prevents mold and bacteria</li>
+            <li>• Reduces static electricity</li>
+            <li>• Protects wood furniture</li>
+            <li>• Improves comfort</li>
+          </ul>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="min-w-0 w-14 h-14 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <h3 class="break-words text-xl font-bold text-gray-900 mb-3">Air Quality Testing</h3>
+          <p class="text-gray-700 mb-4">Professional air quality assessments to identify pollutants and recommend the best purification solutions.</p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Comprehensive testing</li>
+            <li>• Pollutant identification</li>
+            <li>• Custom recommendations</li>
+            <li>• Before/after measurements</li>
+          </ul>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="min-w-0 w-14 h-14 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="break-words text-xl font-bold text-gray-900 mb-3">Maintenance Plans</h3>
+          <p class="text-gray-700 mb-4">Keep your air purification systems running at peak efficiency with regular maintenance and filter replacements.</p>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Regular filter changes</li>
+            <li>• System performance checks</li>
+            <li>• Priority service calls</li>
+            <li>• Extended warranties</li>
+          </ul>
+        </PremiumCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- Health Benefits Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="min-w-0 grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="break-words text-4xl font-bold text-gray-900 mb-6">Health Benefits of Clean Air</h2>
+          <p class="break-words text-lg text-gray-700 mb-6">
+            Poor indoor air quality can cause health issues and discomfort. Our air purification systems provide immediate and long-term health benefits for your family.
+          </p>
+          
+          <div class="space-y-4">
+            <div class="min-w-0 flex items-start gap-3">
+              <div class="min-w-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-0.5">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900">Reduce Allergies & Asthma</h3>
+                <p class="text-gray-600">Remove pollen, dust mites, and pet dander that trigger allergic reactions.</p>
+              </div>
+            </div>
+
+            <div class="min-w-0 flex items-start gap-3">
+              <div class="min-w-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-0.5">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900">Eliminate Odors</h3>
+                <p class="text-gray-600">Remove cooking smells, pet odors, and chemical vapors for fresher indoor air.</p>
+              </div>
+            </div>
+
+            <div class="min-w-0 flex items-start gap-3">
+              <div class="min-w-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-0.5">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900">Better Sleep Quality</h3>
+                <p class="text-gray-600">Cleaner air leads to better breathing and more restful sleep.</p>
+              </div>
+            </div>
+
+            <div class="min-w-0 flex items-start gap-3">
+              <div class="min-w-0 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-0.5">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900">Protection from Viruses</h3>
+                <p class="text-gray-600">UV lights and HEPA filters help reduce airborne pathogens and viruses.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-xl">
+          <h3 class="break-words text-2xl font-bold text-gray-900 mb-6">Free Air Quality Assessment</h3>
+          <p class="text-gray-700 mb-6">
+            Our certified technicians will test your indoor air quality and recommend the best purification solutions for your home.
+          </p>
+          
+          <div class="space-y-4 mb-6">
+            <div class="min-w-0 flex items-center gap-3">
+              <Badge variant="success">Included</Badge>
+              <span class="text-gray-700">Comprehensive air quality testing</span>
+            </div>
+            <div class="min-w-0 flex items-center gap-3">
+              <Badge variant="success">Included</Badge>
+              <span class="text-gray-700">Detailed pollutant analysis</span>
+            </div>
+            <div class="min-w-0 flex items-center gap-3">
+              <Badge variant="success">Included</Badge>
+              <span class="text-gray-700">Custom solution recommendations</span>
+            </div>
+            <div class="min-w-0 flex items-center gap-3">
+              <Badge variant="success">Included</Badge>
+              <span class="text-gray-700">No obligation estimate</span>
+            </div>
+          </div>
+          
+          <PremiumButton 
+            href="tel:9403905676" 
+            variant="premium" 
+            size="lg" 
+            class="w-full justify-center"
+          >
+            Schedule Free Assessment
+          </PremiumButton>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Areas -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Air Purification Services Throughout North Texas</h2>
+        <p class="break-words text-xl text-gray-700 max-w-3xl mx-auto">
+          Professional air purification system installation and maintenance in Frisco, Plano, McKinney, Allen, and surrounding areas
+        </p>
+      </div>
+
+      <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Card class="text-center hover:shadow-lg transition-shadow">
+          <h3 class="break-words font-semibold text-gray-900 mb-2">Frisco</h3>
+          <p class="text-gray-600 text-sm">Same-day air purification service</p>
+        </Card>
+        <Card class="text-center hover:shadow-lg transition-shadow">
+          <h3 class="break-words font-semibold text-gray-900 mb-2">Plano</h3>
+          <p class="text-gray-600 text-sm">UV light installation experts</p>
+        </Card>
+        <Card class="text-center hover:shadow-lg transition-shadow">
+          <h3 class="break-words font-semibold text-gray-900 mb-2">McKinney</h3>
+          <p class="text-gray-600 text-sm">HEPA filtration specialists</p>
+        </Card>
+        <Card class="text-center hover:shadow-lg transition-shadow">
+          <h3 class="break-words font-semibold text-gray-900 mb-2">Allen</h3>
+          <p class="text-gray-600 text-sm">Whole-home air quality solutions</p>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact" class="py-16 bg-gray-50">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Ready to Improve Your Indoor Air Quality?</h2>
+        <p class="break-words text-xl text-gray-700">
+          Contact us today for a free air quality assessment and custom purification solution recommendations.
+        </p>
+      </div>
+
+      <div class="max-w-2xl mx-auto">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

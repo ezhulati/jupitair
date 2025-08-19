@@ -217,8 +217,48 @@ const finalSchema = schema ? { ...baseSchema, ...schema } : baseSchema;
     
     <!-- After-hours detection script -->
     <script>
-      import { initAfterHoursDetection } from '../lib/after-hours';
-      initAfterHoursDetection();
+      // After-hours detection for emergency pricing
+      function isAfterHours() {
+        const now = new Date();
+        const centralTime = new Date(now.toLocaleString("en-US", {timeZone: "America/Chicago"}));
+        const hours = centralTime.getHours();
+        return hours >= 19 || hours < 7; // 7pm to 7am CST
+      }
+
+      function initAfterHoursDetection() {
+        const updateAfterHoursStatus = () => {
+          const afterHours = isAfterHours();
+          document.body.classList.toggle('after-hours', afterHours);
+          
+          // Update all emergency CTAs
+          const emergencyElements = document.querySelectorAll('[data-emergency-cta]');
+          emergencyElements.forEach(element => {
+            if (afterHours) {
+              const badge = element.querySelector('.after-hours-badge');
+              if (!badge && element instanceof HTMLElement) {
+                const span = document.createElement('span');
+                span.className = 'after-hours-badge inline-block ml-2 px-2 py-1 text-xs bg-yellow-100 text-yellow-800 rounded-full font-semibold';
+                span.textContent = '+$250 after 7pm';
+                element.appendChild(span);
+              }
+            } else {
+              const badge = element.querySelector('.after-hours-badge');
+              if (badge) badge.remove();
+            }
+          });
+        };
+        
+        updateAfterHoursStatus();
+        setInterval(updateAfterHoursStatus, 60000); // Check every minute
+        
+        // Update when user returns to tab
+        document.addEventListener('visibilitychange', () => {
+          if (!document.hidden) updateAfterHoursStatus();
+        });
+      }
+
+      // Initialize when page loads
+      document.addEventListener('DOMContentLoaded', initAfterHoursDetection);
     </script>
   </body>
 </html>
