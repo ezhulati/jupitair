@@ -34,6 +34,7 @@ import '../styles/spacing-system.css';
 import '../styles/enterprise-spacing.css';
 import '../styles/mobile-fixes.css';
 import '../styles/contained-design.css';
+import '../styles/header-offset.css';
 
 // Generate base schema for every page
 const baseSchema = {
@@ -212,7 +213,7 @@ const finalSchema = schema ? { ...baseSchema, ...schema } : baseSchema;
     <Header />
     
     <!-- Main content - padding handled by contained-design.css -->
-    <main id="main-content">
+    <main id="main-content" class="header-offset">
       <slot />
     </main>
     

@@ -97,13 +97,15 @@ const phoneIcon = `<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 
     class={className}
     aria-label={`Call ${displayNumber}`}
   >
-    {showIcon && (
-      <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-        <Fragment set:html={phoneIcon} />
-      </svg>
-    )}
     <span class="whitespace-nowrap hidden sm:inline">Call {displayNumber}</span>
-    <span class="whitespace-nowrap sm:hidden">Call Now</span>
+    <span class="whitespace-nowrap sm:hidden flex items-center gap-2">
+      {showIcon && (
+        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+          <Fragment set:html={phoneIcon} />
+        </svg>
+      )}
+      Call Now
+    </span>
   </PremiumButton>
 ) : (
   <!-- Standard button variant - single responsive button -->
@@ -114,17 +116,19 @@ const phoneIcon = `<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 
     class={className}
     aria-label={`Call ${displayNumber}`}
   >
-    {showIcon && (
-      <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-        <Fragment set:html={phoneIcon} />
-      </svg>
-    )}
     {alwaysShowNumber ? (
       <span class="whitespace-nowrap">{displayNumber}</span>
     ) : (
       <>
         <span class="whitespace-nowrap hidden sm:inline">Call {displayNumber}</span>
-        <span class="whitespace-nowrap sm:hidden">Call Now</span>
+        <span class="whitespace-nowrap sm:hidden flex items-center gap-2">
+          {showIcon && (
+            <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <Fragment set:html={phoneIcon} />
+            </svg>
+          )}
+          Call Now
+        </span>
       </>
     )}
   </Button>
