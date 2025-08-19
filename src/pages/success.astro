@@ -1,276 +1,302 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PremiumButton from '../components/ui/PremiumButton.astro';
+import Button from '../components/ui/Button.astro';
 import PremiumCard from '../components/ui/PremiumCard.astro';
 
+// Check if this is an emergency submission
+const isEmergency = Astro.url.searchParams.get('emergency') === 'true';
+
 const nextSteps = [
-  {
-    icon: 'phone',
-    title: 'Expect Our Call',
-    description: 'We\'ll contact you within 30 minutes during business hours, or first thing the next business day.',
-  },
-  {
-    icon: 'calendar',
-    title: 'Schedule Service',
-    description: 'We\'ll work with your schedule to find the perfect time for your service appointment.',
-  },
-  {
-    icon: 'technician',
-    title: 'Expert Service',
-    description: 'Our certified technician will arrive on time with all the tools needed to solve your HVAC issue.',
-  },
+ {
+ icon: 'phone',
+ title: 'Expect Our Call',
+ description: 'We\'ll contact you within 30 minutes during business hours, or first thing the next business day.',
+ },
+ {
+ icon: 'calendar',
+ title: 'Get Quote',
+ description: 'We\'ll work with your schedule to find the perfect time for your service appointment.',
+ },
+ {
+ icon: 'technician',
+ title: 'Expert Service',
+ description: 'Our certified technician will arrive on time with all the tools needed to solve your HVAC issue.',
+ },
 ];
 
 const popularResources = [
-  { title: 'AC Maintenance Tips', href: '/blog/ac-maintenance-checklist-spring' },
-  { title: 'Energy Saving Guide', href: '/blog/energy-saving-ac-settings-texas' },
-  { title: 'Emergency HVAC Guide', href: '/services/emergency-hvac' },
-  { title: 'Service Areas', href: '/areas' },
+ { title: 'AC Maintenance Tips', href: '/blog/ac-maintenance-checklist-spring' },
+ { title: 'Energy Saving Guide', href: '/blog/energy-saving-ac-settings-texas' },
+ { title: 'Emergency HVAC Guide', href: '/services/emergency-hvac' },
+ { title: 'Service Areas', href: '/areas' },
 ];
 ---
 
 <BaseLayout 
-  title="Thank You - Form Submitted Successfully | Jupitair HVAC" 
-  description="Your form has been submitted successfully. We'll contact you shortly."
-  noindex={true}
+ title="Thank You - Form Submitted Successfully | Jupitair HVAC" 
+ description="Your form has been submitted successfully. We'll contact you shortly."
+ noindex={true}
 >
-  <div class="min-h-screen flex items-center justify-center px-4 py-16 bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-    <!-- Animated Background -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute top-20 left-10 w-72 h-72 bg-green-500 rounded-full filter blur-[128px] opacity-20 animate-float"></div>
-      <div class="absolute bottom-20 right-10 w-96 h-96 bg-blue-500 rounded-full filter blur-[128px] opacity-20 animate-float-delayed"></div>
-    </div>
+ <div class="min-h-screen flex items-center justify-center px-4 w-full bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+ <!-- Animated Background -->
+ <div class="absolute inset-0 overflow-hidden pointer-events-none">
+ <div class="absolute top-20 left-10 w-72 h-72 bg-green-500 rounded-full filter blur-[128px] opacity-20 animate-float"></div>
+ <div class="absolute bottom-20 right-10 w-96 h-96 bg-blue-500 rounded-full filter blur-[128px] opacity-20 animate-float-delayed"></div>
+ </div>
 
-    <div class="relative z-10 max-w-4xl mx-auto">
-      <!-- Success Animation -->
-      <div class="text-center mb-8">
-        <div class="inline-flex items-center justify-center w-24 h-24 bg-green-100 dark:bg-green-900/20 rounded-full mb-6 animate-success-bounce">
-          <svg class="w-12 h-12 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg>
-        </div>
-        
-        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in">
-          Thank You for Contacting Us!
-        </h1>
-        
-        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto animate-fade-in-delayed">
-          Your request has been received successfully. We're already working on getting you the help you need.
-        </p>
+ <div class="relative z-10 max-w-4xl mx-auto">
+ <!-- Success Animation -->
+ <div class="text-center mb-8">
+ <div class="inline-flex items-center justify-center w-24 h-24 bg-green-100 dark:bg-green-900/20 rounded-full mb-6 animate-success-bounce">
+ <svg class="w-12 h-12 mr-2 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+ </svg>
+ </div>
+ 
+ <h1 class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in">
+ Thank You for Contacting Us!
+ </h1>
+ 
+ <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto animate-fade-in-delayed">
+ Your request has been received successfully. We're already working on getting you the help you need.
+ </p>
 
-        <!-- Confirmation Details -->
-        <div class="mt-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl inline-block animate-slide-up">
-          <div class="flex items-center gap-2 text-green-800 dark:text-green-200">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            <span class="font-semibold">Form submitted successfully</span>
-          </div>
-          <p class="text-sm text-green-700 dark:text-green-300 mt-1">
-            Confirmation #: <span class="font-mono">{Math.random().toString(36).substr(2, 9).toUpperCase()}</span>
-          </p>
-        </div>
-      </div>
+ <!-- Confirmation Details -->
+ <div class="mt-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl inline-block animate-slide-up">
+ <div class="flex items-center gap-2 text-green-800 dark:text-green-200">
+ <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+ <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+ </svg>
+ <span class="font-semibold">Form submitted successfully</span>
+ </div>
+ </div>
+ </div>
 
-      <!-- Next Steps -->
-      <div class="mb-12">
-        <h2 class="text-2xl font-semibold text-center text-gray-900 dark:text-white mb-8">
-          What Happens Next?
-        </h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          {nextSteps.map((step, index) => (
-            <PremiumCard variant="glass" padding="md" hover={true} class="animate-scale-in" style={`animation-delay: ${index * 100}ms`}>
-              <div class="text-center">
-                <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  {step.icon === 'phone' && (
-                    <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                  )}
-                  {step.icon === 'calendar' && (
-                    <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  )}
-                  {step.icon === 'technician' && (
-                    <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                  )}
-                </div>
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{step.title}</h3>
-                <p class="text-gray-600 dark:text-gray-400 text-sm">{step.description}</p>
-              </div>
-            </PremiumCard>
-          ))}
-        </div>
-      </div>
+ <!-- Next Steps -->
+ <div class="mb-12">
+ <h2 class="text-xl sm:text-2xl font-semibold text-center text-gray-900 dark:text-white mb-8">
+ What Happens Next?
+ </h2>
+ <div class="grid md:grid-cols-3 gap-6">
+ {nextSteps.map((step, index) => (
+ <PremiumCard variant="elevated" padding="md" hover={true} class="animate-scale-in" style={`animation-delay: ${index * 100}ms`}>
+ <div class="text-center">
+ <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+ {step.icon === 'phone' && (
+ <svg class="w-8 h-8 mr-2 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+ </svg>
+ )}
+ {step.icon === 'calendar' && (
+ <svg class="w-8 h-8 mr-2 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+ </svg>
+ )}
+ {step.icon === 'technician' && (
+ <svg class="w-8 h-8 mr-2 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+ </svg>
+ )}
+ </div>
+ <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{step.title}</h3>
+ <p class="text-gray-600 dark:text-gray-400 text-sm">{step.description}</p>
+ </div>
+ </PremiumCard>
+ ))}
+ </div>
+ </div>
 
-      <!-- Emergency Notice -->
-      <PremiumCard variant="gradient" padding="md" class="mb-8 text-center animate-fade-in">
-        <div class="flex items-center justify-center gap-3 mb-3">
-          <svg class="w-6 h-6 text-red-400 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-          </svg>
-          <h3 class="text-xl font-bold text-white">Need Immediate Help?</h3>
-        </div>
-        <p class="text-gray-200 mb-4">
-          For emergency HVAC service, don't wait for a callback
-        </p>
-        <PremiumButton href="tel:9403905676" variant="emergency" size="lg">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-          </svg>
-          Call Now: (940) 390-5676
-        </PremiumButton>
-      </PremiumCard>
+ <!-- Emergency Notice (Shows prominently if marked as emergency) -->
+ {isEmergency ? (
+ <PremiumCard variant="gradient" padding="lg" class="mb-8 text-center animate-pulse-slow bg-gradient-to-r from-red-600 to-orange-600">
+ <div class="flex items-center justify-center gap-3 mb-4">
+ <svg class="w-8 h-8 mr-2 text-white animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+ <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+ </svg>
+ <h3 class="text-xl sm:text-2xl font-bold text-white">Emergency Service Request Received!</h3>
+ <svg class="w-8 h-8 mr-2 text-white animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+ <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+ </svg>
+ </div>
+ <p class="text-white text-lg mb-2 font-semibold">
+ We understand this is urgent and will prioritize your request!
+ </p>
+ <p class="text-gray-100 mb-6">
+ For immediate assistance, please call us directly - we're available 24/7 for emergencies
+ </p>
+ <Button href="tel:9403905676" variant="emergency" size="xl" class="animate-bounce">
+ <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+ </svg>
+ Call Now: (940) 390-5676 - Emergency Line
+ </Button>
+ </PremiumCard>
+ ) : (
+ <div class="mb-8 p-6 text-center animate-fade-in bg-gradient-to-r from-red-600 to-orange-600 rounded-xl">
+ <div class="flex items-center justify-center gap-3 mb-3">
+ <svg class="w-6 h-6 mr-2 text-white animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+ <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+ </svg>
+ <h3 class="text-xl font-bold text-white">Need Immediate Help?</h3>
+ </div>
+ <p class="text-white mb-4">
+ For emergency HVAC service, don't wait for a callback
+ </p>
+ <Button href="tel:9403905676" variant="emergency" size="lg" class="px-8 py-3">
+ <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+ </svg>
+ Call Now: (940) 390-5676
+ </Button>
+ </div>
+ )}
 
-      <!-- Helpful Resources -->
-      <div class="text-center">
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-          While You Wait, Check Out These Resources
-        </h3>
-        <div class="flex flex-wrap justify-center gap-3">
-          {popularResources.map((resource) => (
-            <a
-              href={resource.href}
-              class="px-4 py-2 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-500 hover:text-blue-600 transition-all"
-            >
-              {resource.title}
-            </a>
-          ))}
-        </div>
-      </div>
+ <!-- Helpful Resources -->
+ <div class="text-center">
+ <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+ While You Wait, Check Out These Resources
+ </h3>
+ <div class="flex flex-wrap justify-center gap-3">
+ {popularResources.map((resource) => (
+ <a
+ href={resource.href}
+ class="px-4 py-2 bg-white text-gray-700 rounded-lg border border-gray-200 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 transition-all"
+ >
+ {resource.title}
+ </a>
+ ))}
+ </div>
+ </div>
 
-      <!-- Home Button -->
-      <div class="text-center mt-8">
-        <PremiumButton href="/" variant="primary" size="lg">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-          </svg>
-          Return to Homepage
-        </PremiumButton>
-      </div>
-    </div>
-  </div>
+ <!-- Home Button -->
+ <div class="text-center mt-8">
+ <Button href="/" variant="primary" size="lg">
+ <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+ <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+ </svg>
+ Return to Homepage
+ </Button>
+ </div>
+ </div>
+ </div>
 </BaseLayout>
 
 <style>
-  @keyframes success-bounce {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    25% {
-      transform: translateY(-10px);
-    }
-    50% {
-      transform: translateY(0);
-    }
-    75% {
-      transform: translateY(-5px);
-    }
-  }
+ @keyframes success-bounce {
+ 0%, 100% {
+ transform: translateY(0);
+ }
+ 25% {
+ transform: translateY(-10px);
+ }
+ 50% {
+ transform: translateY(0);
+ }
+ 75% {
+ transform: translateY(-5px);
+ }
+ }
 
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-  }
+ @keyframes float {
+ 0%, 100% {
+ transform: translateY(0px);
+ }
+ 50% {
+ transform: translateY(-20px);
+ }
+ }
 
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+ @keyframes fade-in {
+ from {
+ opacity: 0;
+ transform: translateY(20px);
+ }
+ to {
+ opacity: 1;
+ transform: translateY(0);
+ }
+ }
 
-  @keyframes slide-up {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+ @keyframes slide-up {
+ from {
+ opacity: 0;
+ transform: translateY(40px);
+ }
+ to {
+ opacity: 1;
+ transform: translateY(0);
+ }
+ }
 
-  @keyframes scale-in {
-    from {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
+ @keyframes scale-in {
+ from {
+ opacity: 0;
+ transform: scale(0.9);
+ }
+ to {
+ opacity: 1;
+ transform: scale(1);
+ }
+ }
 
-  .animate-success-bounce {
-    animation: success-bounce 2s ease-in-out infinite;
-  }
+ .animate-success-bounce {
+ animation: success-bounce 2s ease-in-out infinite;
+ }
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
+ .animate-float {
+ animation: float 6s ease-in-out infinite;
+ }
 
-  .animate-float-delayed {
-    animation: float 6s ease-in-out 3s infinite;
-  }
+ .animate-float-delayed {
+ animation: float 6s ease-in-out 3s infinite;
+ }
 
-  .animate-fade-in {
-    animation: fade-in 0.6s ease-out forwards;
-  }
+ .animate-fade-in {
+ animation: fade-in 0.6s ease-out forwards;
+ }
 
-  .animate-fade-in-delayed {
-    animation: fade-in 0.6s ease-out 0.2s forwards;
-    opacity: 0;
-  }
+ .animate-fade-in-delayed {
+ animation: fade-in 0.6s ease-out 0.2s forwards;
+ opacity: 0;
+ }
 
-  .animate-slide-up {
-    animation: slide-up 0.8s ease-out 0.4s forwards;
-    opacity: 0;
-  }
+ .animate-slide-up {
+ animation: slide-up 0.8s ease-out 0.4s forwards;
+ opacity: 0;
+ }
 
-  .animate-scale-in {
-    animation: scale-in 0.5s ease-out forwards;
-    opacity: 0;
-  }
+ .animate-scale-in {
+ animation: scale-in 0.5s ease-out forwards;
+ opacity: 0;
+ }
 </style>
 
 <script>
-  // Track successful form submission
-  document.addEventListener('DOMContentLoaded', () => {
-    // Send conversion event to analytics
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'conversion', {
-        'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
-        'value': 1.0,
-        'currency': 'USD',
-        'transaction_id': ''
-      });
+ // Track successful form submission
+ document.addEventListener('DOMContentLoaded', () => {
+ // Send conversion event to analytics
+ if (typeof gtag !== 'undefined') {
+ gtag('event', 'conversion', {
+ 'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+ 'value': 1.0,
+ 'currency': 'USD',
+ 'transaction_id': ''
+ });
 
-      // Track form success
-      gtag('event', 'form_success', {
-        event_category: 'engagement',
-        event_label: 'contact_form_success',
-        value: 1
-      });
-    }
+ // Track form success
+ gtag('event', 'form_success', {
+ event_category: 'engagement',
+ event_label: 'contact_form_success',
+ value: 1
+ });
+ }
 
-    // Store submission in localStorage for tracking
-    const submissions = JSON.parse(localStorage.getItem('form_submissions') || '[]');
-    submissions.push({
-      timestamp: new Date().toISOString(),
-      page: document.referrer
-    });
-    localStorage.setItem('form_submissions', JSON.stringify(submissions));
-  });
+ // Store submission in localStorage for tracking
+ const submissions = JSON.parse(localStorage.getItem('form_submissions') || '[]');
+ submissions.push({
+ timestamp: new Date().toISOString(),
+ page: document.referrer
+ });
+ localStorage.setItem('form_submissions', JSON.stringify(submissions));
+ });
 </script>

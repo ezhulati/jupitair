@@ -1,0 +1,450 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PremiumHero from '../../components/layout/PremiumHero.astro';
+
+import PremiumCard from '../../components/ui/PremiumCard.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import ContactForm from '../../components/forms/ContactForm.astro';
+import Badge from '../../components/ui/Badge.astro';
+
+const pageTitle = "Professional Duct Sealing Services | Air Duct Repair | Jupitair HVAC";
+const pageDescription = "Professional duct sealing in North Texas. Stop air leaks, improve efficiency, and reduce energy costs. Expert duct repair and sealing services.";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  keywords="duct sealing, air duct repair, duct leaks, energy efficiency, North Texas duct sealing, HVAC efficiency, air leakage repair"
+>
+  <PremiumHero 
+    title="Professional Duct Sealing Services"
+    subtitle="Stop Energy Loss"
+    description="Seal air leaks in your ductwork to improve system efficiency, reduce energy costs, and enhance comfort throughout your home."
+    ctaPrimary={{ text: "Schedule Service", href: "#contact" }}
+    ctaSecondary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
+    variant="gradient"
+    height="lg" class="hero-section"
+  />
+
+  <!-- Problem Section -->
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">The Hidden Energy Thief</h2>
+        <p class="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
+          Leaky ducts can waste 20-30% of your heated and cooled air, driving up energy bills and reducing comfort
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Common Duct Problems</h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 bg-emergency-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900">Disconnected Joints</h4>
+                <p class="text-gray-700">Duct sections that have separated at connections</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 bg-emergency-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900">Holes and Tears</h4>
+                <p class="text-gray-700">Damaged ductwork from age, pests, or installation issues</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 bg-emergency-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900">Poor Connections</h4>
+                <p class="text-gray-700">Loose or improperly sealed joints and fittings</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 bg-emergency-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900">Failed Tape Seals</h4>
+                <p class="text-gray-700">Old duct tape that has lost adhesion over time</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-xl">
+          <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">The Cost of Leaky Ducts</h3>
+          <div class="grid grid-cols-2 gap-6">
+            <div class="text-center">
+              <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-emergency-600 mb-2">30%</div>
+              <div class="text-sm text-gray-700">Energy Waste</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-emergency-600 mb-2">$500+</div>
+              <div class="text-sm text-gray-700">Annual Loss</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-emergency-600 mb-2">40%</div>
+              <div class="text-sm text-gray-700">Efficiency Loss</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-emergency-600 mb-2">10°F</div>
+              <div class="text-sm text-gray-700">Temperature Swings</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="section-full bg-gray-50">
+    <div class="site-container section-padding">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Benefits of Professional Duct Sealing</h2>
+        <p class="text-lg sm:text-xl text-gray-700">Transform your home's efficiency and comfort</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Lower Energy Bills</h3>
+            <p class="text-gray-700">
+              Reduce monthly energy costs by 20-30% with proper duct sealing
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Better Comfort</h3>
+            <p class="text-gray-700">
+              Eliminate hot and cold spots for consistent temperatures
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Improved Air Quality</h3>
+            <p class="text-gray-700">
+              Prevent outside air and contaminants from entering your system
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">System Efficiency</h3>
+            <p class="text-gray-700">
+              Reduce strain on your HVAC system for longer equipment life
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Environmental Impact</h3>
+            <p class="text-gray-700">
+              Reduce carbon footprint with improved energy efficiency
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="w-16 h-16 bg-emergency-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-emergency-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Quick ROI</h3>
+            <p class="text-gray-700">
+              Typical payback period of 2-3 years through energy savings
+            </p>
+          </div>
+        </PremiumCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Process Section -->
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Our Professional Sealing Process</h2>
+        <p class="text-lg sm:text-xl text-gray-700">Advanced techniques for lasting results</p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-6">
+        <PremiumCard variant="elevated" padding="md">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              1
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Comprehensive Assessment</h3>
+              <p class="text-gray-700">Detailed inspection using diagnostic equipment to identify all leaks and measure current system performance baseline.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              2
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Leak Detection</h3>
+              <p class="text-gray-700">Use specialized equipment including pressure testing and thermal imaging to locate all air leakage points throughout the system.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              3
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Professional Sealing</h3>
+              <p class="text-gray-700">Apply industry-leading mastic sealant and UL-listed tapes to permanently seal all identified leaks and connections.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              4
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Verification Testing</h3>
+              <p class="text-gray-700">Conduct post-sealing pressure tests to verify leak reduction and measure improvement in system performance.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              5
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Performance Report</h3>
+              <p class="text-gray-700">Provide detailed before/after documentation showing percentage improvement and projected energy savings.</p>
+            </div>
+          </div>
+        </PremiumCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="section-full bg-gray-50">
+    <div class="site-container section-padding">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Duct Sealing Investment</h2>
+        <p class="text-lg sm:text-xl text-gray-700">Professional sealing that pays for itself</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <Card variant="bordered" padding="lg">
+          <div class="text-center space-y-4">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Basic Sealing</h3>
+            <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-600">$1,200</div>
+            <p class="text-gray-700">Standard homes up to 2,000 sq ft</p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Comprehensive leak assessment</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Professional mastic sealing</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Post-work verification</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Performance report</span>
+              </li>
+            </ul>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg" class="border-primary-500 relative">
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+            <Badge variant="primary">Best Value</Badge>
+          </div>
+          <div class="text-center space-y-4 pt-4">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Complete Sealing</h3>
+            <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-600">$1,800</div>
+            <p class="text-gray-700">Homes up to 3,500 sq ft</p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Everything in Basic plus:</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Return air sealing</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Equipment connections</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>5-year warranty</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Energy savings guarantee</span>
+              </li>
+            </ul>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg">
+          <div class="text-center space-y-4">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Premium Service</h3>
+            <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-600">$2,400</div>
+            <p class="text-gray-700">Large homes over 3,500 sq ft</p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Complete service plus:</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Advanced leak detection</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Zone damper sealing</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>10-year warranty</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Energy audit included</span>
+              </li>
+            </ul>
+          </div>
+        </Card>
+      </div>
+
+      <div class="mt-12 text-center">
+        <Card variant="bordered" padding="lg" class="max-w-2xl mx-auto bg-green-50 border-green-200">
+          <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4">Energy Savings Guarantee</h3>
+          <p class="text-gray-700 mb-4">
+            We guarantee a minimum 15% reduction in energy usage or we'll return to re-seal at no charge.
+          </p>
+          <div class="text-sm text-green-700 font-medium">
+            Average customer saves $400-600 annually on energy bills
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+        
+        <div class="space-y-6">
+          <Card variant="bordered" padding="lg">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">How do I know if my ducts need sealing?</h3>
+            <p class="text-gray-700">
+              Signs include high energy bills, uneven room temperatures, dusty home, poor air quality, and rooms that are hard to heat or cool. We provide free assessments to determine your needs.
+            </p>
+          </Card>
+
+          <Card variant="bordered" padding="lg">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">What materials do you use for sealing?</h3>
+            <p class="text-gray-700">
+              We use professional-grade mastic sealant and UL-listed foil tape designed specifically for HVAC applications. These materials are durable, safe, and provide long-lasting seals.
+            </p>
+          </Card>
+
+          <Card variant="bordered" padding="lg">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">How long does duct sealing last?</h3>
+            <p class="text-gray-700">
+              Professional duct sealing typically lasts 10-15 years or more when done correctly. We provide warranties on our work and use materials designed for the long term.
+            </p>
+          </Card>
+
+          <Card variant="bordered" padding="lg">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Can you seal ducts in tight crawl spaces?</h3>
+            <p class="text-gray-700">
+              Yes, our technicians are trained to work in all types of spaces including tight crawl spaces, attics, and basements. We have specialized equipment and techniques for accessing difficult areas.
+            </p>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact" class="w-full bg-gray-50">
+    <div class="site-container section-padding">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl md:text-4xl font-bold text-gray-900 mb-4">
+          Schedule Your Duct Sealing Assessment
+        </h2>
+        <p class="text-lg sm:text-xl text-gray-700">
+          Stop wasting energy and money • Free estimates with energy savings projection
+        </p>
+      </div>
+      <ContactForm formId="duct-sealing-contact-form" />
+    </div>
+  </section>
+</BaseLayout>

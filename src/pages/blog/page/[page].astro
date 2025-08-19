@@ -1,0 +1,295 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PremiumHero from '../../../components/layout/PremiumHero.astro';
+import Card from '../../../components/ui/Card.astro';
+import PremiumCard from '../../../components/ui/PremiumCard.astro';
+import Button from '../../../components/ui/Button.astro';
+import Badge from '../../../components/ui/Badge.astro';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog', ({ data }) => {
+    return data.draft !== true;
+  });
+
+  // Sort posts by publish date (newest first)
+  const sortedPosts = allPosts.sort((a, b) => {
+    return new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime();
+  });
+
+  const postsPerPage = 9;
+  const totalPages = Math.ceil(sortedPosts.length / postsPerPage);
+
+  // Generate paths for each page
+  const paths = [];
+  for (let i = 1; i <= totalPages; i++) {
+    const startIndex = (i - 1) * postsPerPage;
+    const endIndex = startIndex + postsPerPage;
+    
+    paths.push({
+      params: { page: i.toString() },
+      props: {
+        posts: sortedPosts.slice(startIndex, endIndex),
+        currentPage: i,
+        totalPages,
+        allPosts: sortedPosts
+      }
+    });
+  }
+
+  return paths;
+}
+
+const { posts, currentPage, totalPages, allPosts } = Astro.props;
+
+// Get featured posts
+const featuredPosts = allPosts.filter(post => post.data.featured === true);
+const featuredPost = currentPage === 1 ? (featuredPosts[0] || allPosts[0]) : null;
+
+// Get categories with counts
+const categoryCounts = new Map();
+allPosts.forEach(post => {
+  const category = post.data.category;
+  categoryCounts.set(category, (categoryCounts.get(category) || 0) + 1);
+});
+
+const categories = [
+  { name: 'All Posts', count: allPosts.length },
+  ...Array.from(categoryCounts.entries())
+    .map(([name, count]) => ({ name, count }))
+    .sort((a, b) => b.count - a.count)
+];
+
+// Get popular posts
+const popularPosts = allPosts
+  .filter(post => 
+    post.data.title.toLowerCase().includes('cost') ||
+    post.data.title.toLowerCase().includes('emergency') ||
+    post.data.title.toLowerCase().includes('repair') ||
+    post.data.title.toLowerCase().includes('save') ||
+    post.data.featured
+  )
+  .slice(0, 5);
+
+// Format date helper
+function formatDate(date: Date | string) {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+
+// Generate category slug
+function getCategorySlug(category: string) {
+  return category.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-');
+}
+---
+
+<BaseLayout
+  title={`HVAC Blog & Resources - Page ${currentPage} | Jupitair`}
+  description="Expert HVAC tips, maintenance guides, and industry insights for North Texas homeowners and businesses. Learn how to save energy, maintain your system, and more."
+  keywords="HVAC blog, AC maintenance tips, heating guides, energy saving HVAC, North Texas HVAC advice"
+  canonical={`https://jupitairhvac.com/blog/page/${currentPage}`}
+>
+  <!-- Premium Hero Section -->
+  <PremiumHero 
+    title="HVAC Tips & Resources"
+    subtitle={`Expert Insights for North Texas - Page ${currentPage}`}
+    description="Get expert advice on maintaining your HVAC system, saving energy, and keeping your home or business comfortable year-round."
+    ctaPrimary={{ text: "Get Free Quote", href: "/contact" }}
+    ctaSecondary={{ text: "Get Quote", href: "/schedule" }}
+    variant="gradient"
+    height="md"
+  />
+
+  <!-- Blog Content Section -->
+  <section class="py-16">
+    <div class="site-container">
+      <div class="min-w-0 flex flex-col lg:flex-row gap-8">
+        <!-- Main Content Area -->
+        <div class="lg:w-2/3">
+          <!-- Featured Post (only on page 1) -->
+          {featuredPost && currentPage === 1 && (
+            <div class="mb-12">
+              <PremiumCard variant="elevated" padding="lg">
+                <div class="min-w-0 flex flex-col md:flex-row gap-6">
+                  <div class="md:w-1/2">
+                    <img 
+                      src={featuredPost.data.heroImage || '/images/blog-placeholder.jpg'} 
+                      alt={featuredPost.data.heroImageAlt || featuredPost.data.title}
+                      class="w-full h-64 object-cover rounded-lg"
+                    />
+                  </div>
+                  <div class="md:w-1/2">
+                    <Badge variant="primary" size="sm" class="mb-3">Featured</Badge>
+                    <h2 class="break-words text-2xl font-bold text-gray-900 mb-3">
+                      {featuredPost.data.title}
+                    </h2>
+                    <p class="text-gray-600 mb-4">
+                      {featuredPost.data.description}
+                    </p>
+                    <Button href={`/blog/${featuredPost.slug}`} variant="primary" size="md">
+                      Read More →
+                    </Button>
+                  </div>
+                </div>
+              </PremiumCard>
+            </div>
+          )}
+
+          <!-- Blog Grid -->
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {posts.map((post) => (
+              <Card variant="elevated" padding="md">
+                <img 
+                  src={post.data.heroImage || '/images/blog-placeholder.jpg'} 
+                  alt={post.data.heroImageAlt || post.data.title}
+                  class="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <div class="flex flex-wrap gap-2 mb-3">
+                  <Badge variant="secondary" size="xs">{post.data.category}</Badge>
+                  {post.data.featured && <Badge variant="primary" size="xs">Featured</Badge>}
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2">
+                  <a href={`/blog/${post.slug}`} class="hover:text-primary-600 transition-colors">
+                    {post.data.title}
+                  </a>
+                </h3>
+                <p class="text-sm text-gray-600 mb-3 line-clamp-2">
+                  {post.data.description}
+                </p>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs text-gray-500">{formatDate(post.data.publishDate)}</span>
+                  <a href={`/blog/${post.slug}`} class="text-primary-600 hover:text-primary-700 font-medium text-sm">
+                    Read →
+                  </a>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          <!-- Pagination -->
+          <div class="flex items-center justify-center gap-2">
+            {currentPage > 1 ? (
+              <Button 
+                href={currentPage === 2 ? '/blog' : `/blog/page/${currentPage - 1}`} 
+                variant="outline" 
+                size="sm"
+              >
+                Previous
+              </Button>
+            ) : (
+              <Button variant="outline" size="sm" disabled={true}>Previous</Button>
+            )}
+            
+            <span class="px-4 py-2 text-sm font-medium">Page {currentPage} of {totalPages}</span>
+            
+            {currentPage < totalPages ? (
+              <Button 
+                href={`/blog/page/${currentPage + 1}`} 
+                variant="outline" 
+                size="sm"
+              >
+                Next
+              </Button>
+            ) : (
+              <Button variant="outline" size="sm" disabled={true}>Next</Button>
+            )}
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="lg:w-1/3">
+          <div class="sticky top-24 space-y-6">
+            <!-- Categories -->
+            <Card variant="elevated" padding="lg">
+              <h3 class="font-bold text-gray-900 mb-4">Categories</h3>
+              <ul class="space-y-2">
+                {categories.map(category => (
+                  <li>
+                    <a href={category.name === 'All Posts' ? '/blog' : `/blog/category/${getCategorySlug(category.name)}`} 
+                       class="min-w-0 flex items-center justify-between text-gray-600 hover:text-primary-600 transition-colors">
+                      <span>{category.name}</span>
+                      <span class="bg-gray-100 px-2 py-1 rounded-full text-xs">{category.count}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+
+            <!-- Popular Posts -->
+            <Card variant="elevated" padding="lg">
+              <h3 class="font-bold text-gray-900 mb-4">Popular Posts</h3>
+              <ul class="space-y-3">
+                {popularPosts.map((post, index) => (
+                  <li class="min-w-0 flex items-start gap-3">
+                    <span class="break-words text-2xl font-bold text-primary-600">{index + 1}</span>
+                    <a href={`/blog/${post.slug}`} class="text-sm text-gray-600 hover:text-primary-600 transition-colors">
+                      {post.data.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+
+            <!-- Newsletter CTA -->
+            <PremiumCard variant="gradient" padding="lg">
+              <div class="text-center">
+                <div class="break-words text-3xl mb-3">📧</div>
+                <h3 class="font-bold text-gray-900 mb-2">HVAC Tips Newsletter</h3>
+                <p class="text-sm text-gray-600 mb-4">
+                  Get monthly maintenance tips and exclusive offers
+                </p>
+                <input 
+                  type="email" 
+                  placeholder="Your email"
+                  class="w-full px-4 py-2 mb-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500"
+                />
+                <Button variant="primary" size="sm" class="w-full">
+                  Subscribe
+                </Button>
+              </div>
+            </PremiumCard>
+
+            <!-- Need Help CTA -->
+            <Card variant="elevated" padding="lg" class="mt-6 bg-emergency-50 border-2 border-emergency-200">
+              <div class="text-center">
+                <div class="break-words text-3xl mb-3">🚨</div>
+                <h3 class="font-bold text-gray-900 mb-2">HVAC Emergency?</h3>
+                <p class="text-sm text-gray-600 mb-4">
+                  We're available 24/7 for emergency repairs
+                </p>
+                <Button href="tel:9403905676" variant="emergency" size="sm" class="w-full">
+                  Call (940) 390-5676
+                </Button>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services CTA -->
+  <section class="section-full bg-gray-50">
+    <div class="site-container">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="break-words text-3xl font-bold text-gray-900 mb-4">
+          Need Professional HVAC Service?
+        </h2>
+        <p class="break-words text-xl text-gray-600 mb-8">
+          Our expert technicians are ready to help with all your heating and cooling needs
+        </p>
+        <div class="min-w-0 flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/contact" variant="primary" size="lg">
+            Get Quote
+          </Button>
+          <Button href="/contact" variant="outline" size="lg">
+            Get Free Quote
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

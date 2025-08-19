@@ -1,0 +1,418 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PremiumHero from '../../components/layout/PremiumHero.astro';
+
+import PremiumCard from '../../components/ui/PremiumCard.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import ContactForm from '../../components/forms/ContactForm.astro';
+import Badge from '../../components/ui/Badge.astro';
+
+const pageTitle = "Professional Duct Cleaning Services | Air Duct Cleaning | Jupitair HVAC";
+const pageDescription = "Professional air duct cleaning in North Texas. Remove dust, allergens, and contaminants from your HVAC system. Improve air quality and system efficiency.";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  keywords="duct cleaning, air duct cleaning, HVAC cleaning, indoor air quality, North Texas duct cleaning, allergen removal, air quality improvement"
+>
+  <PremiumHero 
+    title="Professional Air Duct Cleaning Services"
+    subtitle="Breathe Cleaner Air"
+    description="Remove years of dust, allergens, and contaminants from your HVAC system. Professional duct cleaning improves air quality and system efficiency."
+    ctaPrimary={{ text: "Schedule Cleaning", href: "#contact" }}
+    ctaSecondary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
+    variant="gradient"
+    height="lg" class="hero-section"
+  />
+
+  <!-- Benefits Section -->
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Why Clean Your Air Ducts?</h2>
+        <p class="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
+          Over time, dust, debris, and contaminants accumulate in your ductwork, reducing air quality and system efficiency
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Improved Air Quality</h3>
+            <p class="text-gray-700">
+              Remove allergens, dust, and pollutants for healthier indoor air
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Better Efficiency</h3>
+            <p class="text-gray-700">
+              Clean ducts allow your HVAC system to operate more efficiently
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Lower Energy Costs</h3>
+            <p class="text-gray-700">
+              Reduce energy consumption and monthly utility bills
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Reduce Odors</h3>
+            <p class="text-gray-700">
+              Eliminate musty smells and stale air from your home
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="w-16 h-16 bg-emergency-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-emergency-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">System Protection</h3>
+            <p class="text-gray-700">
+              Protect HVAC components from dust and debris damage
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Allergy Relief</h3>
+            <p class="text-gray-700">
+              Reduce symptoms for family members with allergies or asthma
+            </p>
+          </div>
+        </PremiumCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- When to Clean Section -->
+  <section class="section-full bg-gray-50">
+    <div class="site-container section-padding">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Signs You Need Duct Cleaning</h2>
+        <p class="text-lg sm:text-xl text-gray-700">Watch for these indicators that it's time to clean your air ducts</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <Card variant="bordered" padding="lg">
+          <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4">Visible Signs</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2">
+              <span class="text-red-500 mt-1">•</span>
+              <span class="text-gray-700">Dust blowing from vents</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-500 mt-1">•</span>
+              <span class="text-gray-700">Visible debris in ductwork</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-500 mt-1">•</span>
+              <span class="text-gray-700">Rodent droppings or nests</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-500 mt-1">•</span>
+              <span class="text-gray-700">Mold growth in ducts</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-500 mt-1">•</span>
+              <span class="text-gray-700">Excessive dust on surfaces</span>
+            </li>
+          </ul>
+        </Card>
+
+        <Card variant="bordered" padding="lg">
+          <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4">Performance Issues</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2">
+              <span class="text-orange-500 mt-1">•</span>
+              <span class="text-gray-700">Reduced airflow from vents</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-orange-500 mt-1">•</span>
+              <span class="text-gray-700">Uneven room temperatures</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-orange-500 mt-1">•</span>
+              <span class="text-gray-700">Higher energy bills</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-orange-500 mt-1">•</span>
+              <span class="text-gray-700">System running longer</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-orange-500 mt-1">•</span>
+              <span class="text-gray-700">Frequent filter clogging</span>
+            </li>
+          </ul>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Process Section -->
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Our Professional Cleaning Process</h2>
+        <p class="text-lg sm:text-xl text-gray-700">Thorough, safe, and effective duct cleaning</p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-6">
+        <PremiumCard variant="elevated" padding="md">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              1
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">System Inspection</h3>
+              <p class="text-gray-700">Comprehensive assessment of your ductwork and HVAC system to identify problem areas and determine cleaning needs.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              2
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">System Preparation</h3>
+              <p class="text-gray-700">Protect your home with drop cloths and covers. Set up professional-grade vacuum equipment and access points.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              3
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Deep Cleaning</h3>
+              <p class="text-gray-700">Use specialized brushes, compressed air, and HEPA-filtered vacuums to remove debris from all ductwork components.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              4
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Component Cleaning</h3>
+              <p class="text-gray-700">Clean supply and return vents, registers, grilles, and accessible HVAC components including coils and blower.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="flex gap-6">
+            <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              5
+            </div>
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Final Inspection</h3>
+              <p class="text-gray-700">Verify all debris removal, seal access points, and test system operation. Provide before/after photos and documentation.</p>
+            </div>
+          </div>
+        </PremiumCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="section-full bg-gray-50">
+    <div class="site-container section-padding">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Transparent Duct Cleaning Pricing</h2>
+        <p class="text-lg sm:text-xl text-gray-700">Professional cleaning with no hidden fees</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <Card variant="bordered" padding="lg">
+          <div class="text-center space-y-4">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Basic Cleaning</h3>
+            <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-600">$399</div>
+            <p class="text-gray-700">Standard homes up to 2,000 sq ft</p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Main ductwork cleaning</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Register cleaning</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Basic system inspection</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>New filter included</span>
+              </li>
+            </ul>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg" class="border-primary-500 relative">
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+            <Badge variant="primary">Most Popular</Badge>
+          </div>
+          <div class="text-center space-y-4 pt-4">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Complete Cleaning</h3>
+            <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-600">$599</div>
+            <p class="text-gray-700">Homes up to 3,500 sq ft</p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>All basic services plus:</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Return air cleaning</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Blower component cleaning</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Sanitizer application</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Photo documentation</span>
+              </li>
+            </ul>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg">
+          <div class="text-center space-y-4">
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Premium Service</h3>
+            <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-600">$799</div>
+            <p class="text-gray-700">Large homes over 3,500 sq ft</p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Complete service plus:</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Coil cleaning</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>Dryer vent cleaning</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>UV light installation</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-success-600">✓</span>
+                <span>1-year warranty</span>
+              </li>
+            </ul>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+        
+        <div class="space-y-6">
+          <Card variant="bordered" padding="lg">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">How often should I have my ducts cleaned?</h3>
+            <p class="text-gray-700">
+              The EPA recommends duct cleaning every 3-5 years for most homes. However, you may need more frequent cleaning if you have pets, allergies, recent construction, or smokers in the home.
+            </p>
+          </Card>
+
+          <Card variant="bordered" padding="lg">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Will duct cleaning help with allergies?</h3>
+            <p class="text-gray-700">
+              Yes, professional duct cleaning removes allergens like dust mites, pollen, pet dander, and other irritants that accumulate in your ductwork, which can significantly improve indoor air quality for allergy sufferers.
+            </p>
+          </Card>
+
+          <Card variant="bordered" padding="lg">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">How long does duct cleaning take?</h3>
+            <p class="text-gray-700">
+              Most residential duct cleaning takes 3-5 hours depending on the size of your home and the extent of cleaning needed. We'll provide an accurate time estimate during our initial inspection.
+            </p>
+          </Card>
+
+          <Card variant="bordered" padding="lg">
+            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Is duct cleaning messy?</h3>
+            <p class="text-gray-700">
+              No, professional duct cleaning should not be messy. We use protective covers, drop cloths, and sealed vacuum systems to contain all debris. Your home will be cleaner after we finish.
+            </p>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact" class="w-full bg-gray-50">
+    <div class="site-container section-padding">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl md:text-4xl font-bold text-gray-900 mb-4">
+          Schedule Your Duct Cleaning Service
+        </h2>
+        <p class="text-lg sm:text-xl text-gray-700">
+          Improve your indoor air quality today • Free estimates available
+        </p>
+      </div>
+      <ContactForm formId="duct-cleaning-contact-form" />
+    </div>
+  </section>
+</BaseLayout>

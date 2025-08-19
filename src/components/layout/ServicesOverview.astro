@@ -12,24 +12,24 @@ const featuredServices = (servicesData?.money_pages || []).slice(0, 6); // Show 
 ---
 
 <section class="py-16 lg:py-24 bg-white">
-  <div class="container mx-auto px-4">
+  <div class="site-container">
     
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+      <h2 class="break-words text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
         Complete HVAC Services
       </h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+      <p class="break-words text-xl text-gray-800 max-w-3xl mx-auto leading-relaxed">
         From emergency repairs to new installations, we provide comprehensive HVAC services 
         throughout North Texas with same-day service and upfront pricing.
       </p>
     </div>
     
     <!-- Services Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+    <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
       {featuredServices.map((service: any) => (
-        <Card variant="service" padding="lg" class="h-full group flex flex-col">
-          <div class="flex items-start space-x-4 mb-4">
+        <Card variant="service" padding="lg" class="min-w-0 h-full group flex flex-col">
+          <div class="min-w-0 flex items-start space-x-4 mb-4">
             <!-- Service Icon -->
             <div class={`w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 ${
               service.emergency 
@@ -39,56 +39,56 @@ const featuredServices = (servicesData?.money_pages || []).slice(0, 6); // Show 
                   : 'bg-primary-100 text-primary-600'
             }`}>
               {service.slug === 'ac-repair' && (
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-7 h-7 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
                 </svg>
               )}
               {(service.slug === 'heating-repair' || service.slug === 'furnace-repair') && (
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-7 h-7 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03z" clip-rule="evenodd"/>
                 </svg>
               )}
               {(service.slug === 'hvac-installation' || service.slug === 'ac-installation') && (
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-7 h-7 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" clip-rule="evenodd"/>
                 </svg>
               )}
               {(service.slug === 'duct-cleaning' || service.slug === 'duct-repair-sealing') && (
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-7 h-7 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
                   <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-1-1h-3z"/>
                 </svg>
               )}
               {service.slug === 'thermostat-installation' && (
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-7 h-7 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
                 </svg>
               )}
               {(service.slug === 'energy-upgrades' || service.slug === 'indoor-air-quality') && (
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-7 h-7 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                 </svg>
               )}
               {service.slug === 'emergency-ac-repair' && (
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-7 h-7 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
                 </svg>
               )}
               {service.slug === 'ac-maintenance' && (
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-7 h-7 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
                 </svg>
               )}
               {service.slug === 'heat-pump-repair' && (
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-7 h-7 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03z" clip-rule="evenodd"/>
                 </svg>
               )}
             </div>
             
             <div class="flex-1 min-w-0">
-              <div class="flex items-start justify-between mb-2">
-                <h3 class="text-xl font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
+              <div class="min-w-0 flex items-start justify-between mb-2">
+                <h3 class="break-words text-xl font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
                   {service.name}
                 </h3>
                 {service.emergency && (
@@ -97,46 +97,46 @@ const featuredServices = (servicesData?.money_pages || []).slice(0, 6); // Show 
                   </Badge>
                 )}
               </div>
-              <p class="text-gray-600 leading-relaxed mb-4">
+              <p class="text-gray-800 leading-relaxed mb-4">
                 {service.shortDescription}
               </p>
             </div>
           </div>
           
           <!-- Flex-grow content section -->
-          <div class="flex-grow flex flex-col">
+          <div class="min-w-0 flex-grow flex flex-col">
             <!-- Service Details -->
             <div class="space-y-3 mb-4">
-              <div class="flex items-center justify-between text-sm">
-                <span class="text-gray-500">Starting at:</span>
+              <div class="min-w-0 flex items-center justify-between text-sm">
+                <span class="text-gray-700">Starting at:</span>
                 <span class="font-semibold text-primary-700">${service.pricing.starting}</span>
               </div>
-              <div class="flex items-center justify-between text-sm">
-                <span class="text-gray-500">Service time:</span>
+              <div class="min-w-0 flex items-center justify-between text-sm">
+                <span class="text-gray-700">Service time:</span>
                 <span class="text-gray-900">{service.service_time}</span>
               </div>
-              <div class="flex items-center justify-between text-sm">
-                <span class="text-gray-500">Warranty:</span>
+              <div class="min-w-0 flex items-center justify-between text-sm">
+                <span class="text-gray-700">Warranty:</span>
                 <span class="text-gray-900">{service.warranty}</span>
               </div>
             </div>
             
             <!-- Service Features -->
-            <ul class="space-y-2 mb-6 text-sm text-gray-600 flex-grow">
-              <li class="flex items-center">
-                <svg class="w-4 h-4 text-primary-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <ul class="min-w-0 space-y-2 mb-6 text-sm text-gray-800 flex-grow">
+              <li class="min-w-0 flex items-center">
+                <svg class="w-4 h-4 mr-2 text-primary-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Licensed & Insured Technicians
               </li>
-              <li class="flex items-center">
-                <svg class="w-4 h-4 text-primary-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <li class="min-w-0 flex items-center">
+                <svg class="w-4 h-4 mr-2 text-primary-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Upfront Pricing
               </li>
-              <li class="flex items-center">
-                <svg class="w-4 h-4 text-primary-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <li class="min-w-0 flex items-center">
+                <svg class="w-4 h-4 mr-2 text-primary-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 {service.residential && service.commercial ? 'Residential & Commercial' : service.residential ? 'Residential Service' : 'Commercial Service'}
@@ -145,11 +145,11 @@ const featuredServices = (servicesData?.money_pages || []).slice(0, 6); // Show 
           </div>
           
           <!-- CTA buttons anchored to bottom -->
-          <div class="flex flex-col sm:flex-row gap-2 mt-auto pt-4 border-t border-gray-100">
-            <Button href={`/services/${service.slug}`} variant="primary" size="sm" class="flex-1 text-center justify-center">
+          <div class="min-w-0 flex flex-col sm:flex-row gap-2 mt-auto pt-4 border-t border-gray-100">
+            <Button href={`/services/${service.slug}`} variant="primary" size="sm" class="min-w-0 flex-1 text-center justify-center">
               Learn More
             </Button>
-            <Button href="/schedule" variant="outline" size="sm" class="flex-1 text-center justify-center">
+            <Button href="/contact" variant="outline" size="sm" class="min-w-0 flex-1 text-center justify-center">
               Schedule
             </Button>
           </div>
@@ -159,35 +159,35 @@ const featuredServices = (servicesData?.money_pages || []).slice(0, 6); // Show 
     
     <!-- Emergency Service Callout -->
     <Card variant="elevated" padding="lg" class="bg-gradient-to-r from-emergency-600 to-emergency-700 text-white relative overflow-hidden">
-      <div class="grid md:grid-cols-2 gap-8 items-center relative z-10">
+      <div class="min-w-0 grid md:grid-cols-2 gap-8 items-center relative z-10">
         <div>
-          <div class="flex items-center space-x-3 mb-4">
-            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+          <div class="min-w-0 flex items-center space-x-3 mb-4">
+            <div class="min-w-0 w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
               </svg>
             </div>
-            <h3 class="text-2xl font-bold">24/7 Emergency Service</h3>
+            <h3 class="break-words text-2xl font-bold">24/7 Emergency Service</h3>
           </div>
           <p class="text-red-100 mb-6 text-lg leading-relaxed">
             HVAC emergency? Don't sweat it! Our certified technicians are available 
             around the clock for urgent heating and cooling issues.
           </p>
           <ul class="space-y-2 text-red-100">
-            <li class="flex items-center">
-              <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <li class="min-w-0 flex items-center">
+              <svg class="w-5 h-5 mr-2 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               Response within 2 hours
             </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <li class="min-w-0 flex items-center">
+              <svg class="w-5 h-5 mr-2 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               All 8 North Texas cities covered
             </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <li class="min-w-0 flex items-center">
+              <svg class="w-5 h-5 mr-2 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               No emergency service fees on weekends
@@ -197,7 +197,7 @@ const featuredServices = (servicesData?.money_pages || []).slice(0, 6); // Show 
         
         <div class="text-center">
           <div class="mb-6">
-            <p class="text-3xl font-bold mb-2">Call Right Now!</p>
+            <p class="break-words text-3xl font-bold mb-2">Call Right Now!</p>
             <p class="text-red-100">Available 24/7, 365 days a year</p>
           </div>
           <Button href="tel:(940) 390-5676" variant="secondary" size="xl" class="mb-4">
@@ -215,7 +215,7 @@ const featuredServices = (servicesData?.money_pages || []).slice(0, 6); // Show 
     
     <!-- View All Services CTA -->
     <div class="text-center mt-12">
-      <p class="text-gray-600 mb-6">
+      <p class="text-gray-800 mb-6">
         Need a different service? We offer comprehensive HVAC solutions.
       </p>
       <Button href="/services" variant="outline" size="lg">

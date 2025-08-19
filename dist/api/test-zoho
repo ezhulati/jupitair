@@ -1,1 +1,0 @@
-{"configured":false,"hasClientId":true,"hasClientSecret":true,"hasRefreshToken":false,"calendars":null,"testAvailability":null,"error":"Missing Zoho Calendar credentials. Please set ZOHO_CLIENT_ID, ZOHO_CLIENT_SECRET, and ZOHO_REFRESH_TOKEN environment variables."}

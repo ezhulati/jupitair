@@ -1,161 +1,126 @@
 ---
 export interface Props {
-  variant?: 'primary' | 'emergency' | 'cooling' | 'heating' | 'secondary' | 'ghost' | 'outline' | 'success' | 'premium' | 'glass';
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  variant?: 'premium' | 'premium-outline' | 'premium-ghost' | 'primary' | 'secondary' | 'emergency' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
   href?: string;
   type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
   fullWidth?: boolean;
   loading?: boolean;
-  disabled?: boolean;
   leftIcon?: string;
   rightIcon?: string;
   class?: string;
   id?: string;
   ariaLabel?: string;
+  ariaDescribedBy?: string;
   dataTracking?: string;
-  ripple?: boolean;
+  [key: string]: any;
 }
 
 const {
-  variant = 'primary',
+  variant = 'premium',
   size = 'md',
   href,
   type = 'button',
+  disabled = false,
   fullWidth = false,
   loading = false,
-  disabled = false,
   leftIcon,
   rightIcon,
   class: className = '',
   id,
   ariaLabel,
+  ariaDescribedBy,
   dataTracking,
-  ripple = true,
+  ...rest
 } = Astro.props;
 
-const Tag = href ? 'a' : 'button';
-
+// Base classes with improved accessibility
 const baseClasses = `
-  premium-btn
-  relative inline-flex items-center justify-center gap-2
-  font-semibold tracking-tight transition-all duration-200
-  transform-gpu will-change-transform
-  overflow-hidden isolate
-  disabled:opacity-50 disabled:cursor-not-allowed
-  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+  inline-flex items-center justify-center gap-2
+  font-semibold tracking-tight text-center
+  border-2 rounded-lg
+  transition-all duration-200 ease-in-out
+  focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+  disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none
+  select-none whitespace-nowrap relative overflow-hidden
   active:scale-[0.98]
 `;
 
+// Premium variants with gradient backgrounds and enhanced styling
 const variantClasses = {
+  premium: `
+    bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900
+    border-blue-600 hover:border-blue-700 active:border-blue-800
+    text-white
+    shadow-lg hover:shadow-xl hover:shadow-blue-600/30
+    focus-visible:ring-blue-500
+    before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/20 before:to-transparent before:opacity-0 before:transition-opacity
+    hover:before:opacity-100
+  `,
+  'premium-outline': `
+    bg-transparent hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 active:from-blue-100 active:to-blue-200
+    border-2 border-blue-600 hover:border-blue-700 active:border-blue-800
+    text-blue-700 hover:text-blue-800 active:text-blue-900
+    shadow-md hover:shadow-lg hover:shadow-blue-600/20
+    focus-visible:ring-blue-500
+  `,
+  'premium-ghost': `
+    bg-transparent hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 active:from-blue-100 active:to-blue-200
+    border-transparent hover:border-blue-200 active:border-blue-300
+    text-blue-700 hover:text-blue-800 active:text-blue-900
+    focus-visible:ring-blue-400
+  `,
   primary: `
-    bg-gradient-to-r from-blue-600 to-blue-700
-    text-white shadow-lg shadow-blue-600/25
-    hover:from-blue-700 hover:to-blue-800 hover:shadow-xl hover:shadow-blue-600/30
-    focus-visible:ring-blue-600
-    border border-blue-700
-    before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-400 before:to-blue-500
-    before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-20
-  `,
-  emergency: `
-    bg-gradient-to-r from-red-600 to-red-700
-    text-white shadow-lg shadow-red-600/25
-    hover:from-red-700 hover:to-red-800 hover:shadow-xl hover:shadow-red-600/30
-    focus-visible:ring-red-600
-    border border-red-700
-    emergency-pulse
-    before:absolute before:inset-0 before:bg-gradient-to-r before:from-red-400 before:to-red-500
-    before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-20
-  `,
-  cooling: `
-    bg-gradient-to-r from-cyan-500 to-cyan-600
-    text-white shadow-lg shadow-cyan-500/25
-    hover:from-cyan-600 hover:to-cyan-700 hover:shadow-xl hover:shadow-cyan-500/30
-    focus-visible:ring-cyan-500
-    border border-cyan-600
-    before:absolute before:inset-0 before:bg-gradient-to-r before:from-cyan-300 before:to-cyan-400
-    before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-20
-  `,
-  heating: `
-    bg-gradient-to-r from-orange-500 to-orange-600
-    text-white shadow-lg shadow-orange-500/25
-    hover:from-orange-600 hover:to-orange-700 hover:shadow-xl hover:shadow-orange-500/30
-    focus-visible:ring-orange-500
-    border border-orange-600
-    before:absolute before:inset-0 before:bg-gradient-to-r before:from-orange-300 before:to-orange-400
-    before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-20
+    bg-primary-600 hover:bg-primary-700 active:bg-primary-800
+    border-primary-600 hover:border-primary-700 active:border-primary-800
+    text-white
+    shadow-md hover:shadow-lg hover:shadow-primary-600/25
+    focus-visible:ring-primary-500
   `,
   secondary: `
-    bg-white dark:bg-gray-800
-    text-gray-900 dark:text-gray-100
-    border-2 border-gray-200 dark:border-gray-700
-    hover:bg-gray-50 dark:hover:bg-gray-700
-    hover:border-gray-300 dark:hover:border-gray-600
-    focus-visible:ring-gray-400
-    shadow-sm hover:shadow-md
+    bg-secondary-600 hover:bg-secondary-700 active:bg-secondary-800
+    border-secondary-600 hover:border-secondary-700 active:border-secondary-800
+    text-white
+    shadow-md hover:shadow-lg hover:shadow-secondary-600/25
+    focus-visible:ring-secondary-500
   `,
-  ghost: `
-    bg-transparent
-    text-gray-700 dark:text-gray-300
-    hover:bg-gray-100 dark:hover:bg-gray-800
-    hover:text-gray-900 dark:hover:text-gray-100
-    focus-visible:ring-gray-400
+  emergency: `
+    bg-emergency-600 hover:bg-emergency-700 active:bg-emergency-800
+    border-emergency-600 hover:border-emergency-700 active:border-emergency-800
+    text-white
+    shadow-md hover:shadow-lg hover:shadow-emergency-600/25
+    focus-visible:ring-emergency-500
+    animate-pulse-slow
   `,
   outline: `
-    bg-transparent
-    border-2 border-blue-600 dark:border-blue-400
-    text-blue-600 dark:text-blue-400
-    hover:bg-blue-50 dark:hover:bg-blue-950
-    hover:border-blue-700 dark:hover:border-blue-300
-    hover:text-blue-700 dark:hover:text-blue-300
-    focus-visible:ring-blue-600
+    bg-transparent hover:bg-primary-50 active:bg-primary-100
+    border-primary-600 hover:border-primary-700 active:border-primary-800
+    text-primary-700 hover:text-primary-800 active:text-primary-900
+    shadow-sm hover:shadow-md
+    focus-visible:ring-primary-500
   `,
-  success: `
-    bg-gradient-to-r from-green-600 to-green-700
-    text-white shadow-lg shadow-green-600/25
-    hover:from-green-700 hover:to-green-800 hover:shadow-xl hover:shadow-green-600/30
-    focus-visible:ring-green-600
-    border border-green-700
-    before:absolute before:inset-0 before:bg-gradient-to-r before:from-green-400 before:to-green-500
-    before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-20
-  `,
-  premium: `
-    bg-white
-    text-primary-700 font-bold
-    border-2 border-primary-200
-    shadow-xl shadow-primary-100/50
-    hover:bg-primary-50 hover:text-primary-800
-    hover:border-primary-300 hover:shadow-2xl hover:shadow-primary-200/50
-    focus-visible:ring-primary-600
-    transition-all duration-300
-    before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary-100 before:to-primary-50
-    before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-100
-  `,
-  glass: `
-    bg-white/10 backdrop-blur-md
-    text-white font-bold
-    border-2 border-white/30
-    shadow-lg shadow-black/10
-    hover:bg-white/20 hover:border-white/50
-    hover:shadow-xl hover:shadow-black/20
-    focus-visible:ring-white/50
-    transition-all duration-300
-  `,
+  ghost: `
+    bg-transparent hover:bg-gray-100 active:bg-gray-200
+    border-transparent hover:border-gray-200 active:border-gray-300
+    text-gray-700 hover:text-gray-900 active:text-gray-900
+    focus-visible:ring-gray-400
+  `
 };
 
+// Proper touch target sizes (minimum 44px per WCAG)
 const sizeClasses = {
-  xs: 'h-7 px-3 text-xs rounded-md',
-  sm: 'h-9 px-4 text-sm rounded-lg',
-  md: 'h-11 px-6 text-base rounded-lg',
-  lg: 'h-13 px-8 text-lg rounded-xl',
-  xl: 'h-16 px-10 text-xl rounded-xl',
+  sm: 'px-4 py-2.5 text-sm min-h-[44px]',
+  md: 'px-6 py-3 text-base min-h-[48px]',
+  lg: 'px-8 py-3.5 text-lg min-h-[52px]',
+  xl: 'px-10 py-4 text-xl min-h-[56px]'
 };
 
 const iconSizeClasses = {
-  xs: 'w-3 h-3',
   sm: 'w-4 h-4',
   md: 'w-5 h-5',
   lg: 'w-6 h-6',
-  xl: 'w-7 h-7',
+  xl: 'w-7 h-7'
 };
 
 const fullWidthClass = fullWidth ? 'w-full' : 'w-auto';
@@ -168,34 +133,34 @@ const classes = [
   fullWidthClass,
   loadingClass,
   className,
-].join(' ');
+].join(' ').replace(/\s+/g, ' ').trim();
+
+const Tag = href ? 'a' : 'button';
+const tagProps = href 
+  ? { href, role: 'button', ...rest } 
+  : { type, disabled: disabled || loading, ...rest };
+
+// Generate proper aria-label if not provided
+const effectiveAriaLabel = ariaLabel || (typeof Astro.slots.default === 'string' ? undefined : 'Premium Button');
 ---
 
 <Tag
   class={classes}
-  href={href}
-  type={!href ? type : undefined}
-  disabled={disabled || loading}
   id={id}
-  aria-label={ariaLabel}
+  aria-label={effectiveAriaLabel}
+  aria-describedby={ariaDescribedBy}
+  aria-disabled={disabled || loading ? 'true' : undefined}
   data-tracking={dataTracking}
-  data-ripple={ripple}
+  {...tagProps}
 >
-  {/* Ripple Effect Container */}
-  {ripple && (
-    <span class="ripple-container absolute inset-0 overflow-hidden rounded-inherit pointer-events-none"></span>
-  )}
-
-  {/* Shimmer Effect */}
-  <span class="absolute inset-0 -top-[2px] h-[2px] bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 shimmer-effect"></span>
-
-  {/* Loading Spinner */}
+  {/* Loading spinner with proper accessibility */}
   {loading && (
     <svg
-      class="animate-spin mr-2 {iconSizeClasses[size]}"
+      class={`animate-spin ${iconSizeClasses[size]}`}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
+      aria-hidden="true"
     >
       <circle
         class="opacity-25"
@@ -204,142 +169,107 @@ const classes = [
         r="10"
         stroke="currentColor"
         stroke-width="4"
-      ></circle>
+      />
       <path
         class="opacity-75"
         fill="currentColor"
         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-      ></path>
+      />
     </svg>
   )}
 
-  {/* Button Content */}
-  <span class="relative z-10 flex items-center gap-2">
-    {!loading && leftIcon && (
-      <svg class={iconSizeClasses[size]} fill="currentColor" viewBox="0 0 20 20">
-        <Fragment set:html={leftIcon} />
-      </svg>
-    )}
+  {/* Left icon with proper accessibility */}
+  {!loading && leftIcon && (
+    <svg 
+      class={iconSizeClasses[size]} 
+      fill="currentColor" 
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+    >
+      <Fragment set:html={leftIcon} />
+    </svg>
+  )}
+
+  {/* Button content */}
+  <span class="min-w-0 flex-1">
     <slot />
-    {!loading && rightIcon && (
-      <svg class={iconSizeClasses[size]} fill="currentColor" viewBox="0 0 20 20">
-        <Fragment set:html={rightIcon} />
-      </svg>
-    )}
   </span>
+
+  {/* Right icon with proper accessibility */}
+  {!loading && rightIcon && (
+    <svg 
+      class={iconSizeClasses[size]} 
+      fill="currentColor" 
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+    >
+      <Fragment set:html={rightIcon} />
+    </svg>
+  )}
+
+  {/* Screen reader text for loading state */}
+  {loading && (
+    <span class="sr-only">Loading...</span>
+  )}
 </Tag>
 
 <style>
-  @keyframes ripple {
-    0% {
-      transform: scale(0);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(4);
-      opacity: 0;
+  /* Ensure proper focus indicators for accessibility */
+  .focus-visible\:ring-2:focus-visible {
+    box-shadow: 0 0 0 2px var(--tw-ring-color);
+  }
+  
+  .focus-visible\:ring-offset-2:focus-visible {
+    box-shadow: 0 0 0 2px transparent, 0 0 0 4px var(--tw-ring-color);
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    button, a[role="button"] {
+      border-width: 3px !important;
     }
   }
 
-  @keyframes shimmer {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
-
-  @keyframes emergency-pulse {
-    0%, 100% {
-      box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
-    }
-    50% {
-      box-shadow: 0 0 0 20px rgba(220, 38, 38, 0);
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    button, a[role="button"] {
+      transition: none !important;
+      animation: none !important;
     }
   }
 
-  .emergency-pulse {
-    animation: emergency-pulse 2s infinite;
+  /* Ensure proper color contrast in forced colors mode */
+  @media (forced-colors: active) {
+    button, a[role="button"] {
+      border: 2px solid ButtonText !important;
+      background: ButtonFace !important;
+      color: ButtonText !important;
+    }
+    
+    button:hover, a[role="button"]:hover {
+      background: Highlight !important;
+      color: HighlightText !important;
+    }
   }
 
-  .shimmer-effect {
-    animation: shimmer 3s infinite;
-  }
-
-  .premium-btn {
+  /* Premium variant enhancements */
+  .premium-enhancement {
     position: relative;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
   }
 
-  .premium-btn::after {
+  .premium-enhancement::before {
     content: '';
     position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    background: radial-gradient(circle at center, white, transparent);
-    pointer-events: none;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
   }
 
-  .premium-btn:hover::after {
-    opacity: 0.1;
-  }
-
-  .rounded-inherit {
-    border-radius: inherit;
-  }
-
-  /* Ripple styles added via JavaScript */
-  .ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    transform: scale(0);
-    animation: ripple 600ms ease-out;
-    pointer-events: none;
+  .premium-enhancement:hover::before {
+    left: 100%;
   }
 </style>
-
-<script>
-  // Ripple Effect Implementation
-  document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.premium-btn[data-ripple="true"]');
-    
-    buttons.forEach((button) => {
-      button.addEventListener('click', function(e) {
-        const rippleContainer = this.querySelector('.ripple-container');
-        if (!rippleContainer) return;
-        
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
-        const ripple = document.createElement('span');
-        ripple.classList.add('ripple');
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = x + 'px';
-        ripple.style.top = y + 'px';
-        
-        rippleContainer.appendChild(ripple);
-        
-        setTimeout(() => {
-          ripple.remove();
-        }, 600);
-      });
-    });
-  });
-
-  // Add haptic feedback on mobile devices
-  if ('vibrate' in navigator) {
-    document.querySelectorAll('.premium-btn').forEach((button) => {
-      button.addEventListener('touchstart', () => {
-        navigator.vibrate(10);
-      });
-    });
-  }
-</script>

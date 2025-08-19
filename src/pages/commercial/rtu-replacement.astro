@@ -88,18 +88,18 @@ const schema = {
     ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
     ctaSecondary={{ text: "Get Free Quote", href: "/commercial/quote" }}
     variant="gradient"
-    height="lg"
+    height="lg" class="hero-section"
   />
 
   <!-- Urgency Bar -->
   <section class="bg-emergency-600 text-white py-4">
-    <div class="container mx-auto px-4">
+    <div class="site-container section-padding">
       <div class="flex items-center justify-center gap-4 text-center">
-        <svg class="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+        <svg class="w-6 h-6 mr-2 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
         </svg>
         <span class="font-bold">Failed RTU? Emergency replacement available with same-day crane service</span>
-        <svg class="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+        <svg class="w-6 h-6 mr-2 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
         </svg>
       </div>
@@ -107,20 +107,20 @@ const schema = {
   </section>
 
   <!-- RTU Sizes & Pricing -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
           <Badge variant="primary" class="mb-4">Transparent Pricing</Badge>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             RTU Replacement Pricing by Size
           </h2>
-          <p class="text-xl text-gray-600">
+          <p class="text-lg sm:text-xl text-gray-600">
             Complete installation including crane service and startup
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {rtuSizes.map((size, index) => (
             <PremiumCard 
               variant={index < 3 ? "elevated" : "default"} 
@@ -128,8 +128,8 @@ const schema = {
               class={index < 3 ? "border-2 border-primary-200 hover:shadow-2xl" : "hover:shadow-xl"}
             >
               <div class="text-center">
-                <div class="text-2xl font-bold text-gray-900 mb-2">{size.tons} Ton</div>
-                <div class="text-3xl font-bold text-primary-600 mb-3">{size.price}</div>
+                <div class="text-lg sm:text-xl sm:text-2xl font-bold text-gray-900 mb-2">{size.tons} Ton</div>
+                <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-600 mb-3">{size.price}</div>
                 <p class="text-sm text-gray-600 mb-4">{size.ideal}</p>
                 <Button href="/commercial/quote" variant="outline" size="sm" class="w-full">
                   Get Quote →
@@ -152,23 +152,23 @@ const schema = {
   </section>
 
   <!-- Key Benefits -->
-  <section class="py-16 bg-gradient-to-br from-gray-50 to-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-gradient-to-br from-gray-50 to-white">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Why Replace Your Aging RTU?
           </h2>
-          <p class="text-xl text-gray-600">
+          <p class="text-lg sm:text-xl text-gray-600">
             Modern RTUs deliver immediate benefits to your bottom line
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map(benefit => (
             <Card variant="elevated" padding="lg" class="text-center">
-              <div class="text-4xl mb-3">{benefit.icon}</div>
-              <div class="text-3xl font-bold text-primary-600 mb-2">{benefit.value}</div>
+              <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl mb-3">{benefit.icon}</div>
+              <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-600 mb-2">{benefit.value}</div>
               <h3 class="font-bold text-gray-900 mb-1">{benefit.title}</h3>
               <p class="text-sm text-gray-600">{benefit.desc}</p>
             </Card>
@@ -179,13 +179,13 @@ const schema = {
   </section>
 
   <!-- Complete Service Process -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <Badge variant="primary" class="mb-4">Our Process</Badge>
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Professional RTU Replacement Process
             </h2>
             <p class="text-lg text-gray-600 mb-8">
@@ -208,52 +208,52 @@ const schema = {
           </div>
 
           <div class="bg-gray-900 text-white rounded-2xl p-8">
-            <h3 class="text-2xl font-bold mb-6">What's Included</h3>
+            <h3 class="text-lg sm:text-xl sm:text-2xl font-bold mb-6">What's Included</h3>
             <ul class="space-y-3">
               <li class="flex items-start">
-                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 mr-2 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>Complete removal of old unit</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 mr-2 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>Crane service & rigging</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 mr-2 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>Curb adapter if needed</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 mr-2 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>Electrical & gas connections</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 mr-2 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>Control system integration</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 mr-2 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>Startup & commissioning</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 mr-2 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>10-year parts warranty</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 mr-2 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>2-year labor warranty</span>
@@ -275,26 +275,26 @@ const schema = {
   </section>
 
   <!-- Case Study / Success Story -->
-  <section class="py-16 bg-primary-600 text-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-primary-600 text-white">
+    <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto text-center">
         <Badge variant="secondary" class="mb-4 bg-white text-primary-600">Success Story</Badge>
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold mb-6">
           Recent RTU Replacement Project
         </h2>
         
         <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
-          <div class="grid md:grid-cols-3 gap-6 mb-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             <div>
-              <div class="text-3xl font-bold">$28K</div>
+              <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold">$28K</div>
               <div class="text-sm">Project Value</div>
             </div>
             <div>
-              <div class="text-3xl font-bold">2 Days</div>
+              <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold">2 Days</div>
               <div class="text-sm">Installation Time</div>
             </div>
             <div>
-              <div class="text-3xl font-bold">30%</div>
+              <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold">30%</div>
               <div class="text-sm">Energy Savings</div>
             </div>
           </div>
@@ -321,18 +321,18 @@ const schema = {
   />
 
   <!-- Final CTA -->
-  <section class="py-16 bg-gray-900 text-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-gray-900 text-white">
+    <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold mb-4">
           Need RTU Replacement? We're Ready
         </h2>
-        <p class="text-xl mb-8 text-gray-300">
+        <p class="text-lg sm:text-xl mb-8 text-gray-300">
           Free rooftop assessment • Competitive quotes • Fast installation
         </p>
         
         <div class="bg-gray-800 rounded-2xl p-8 mb-8">
-          <div class="grid md:grid-cols-2 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h3 class="font-bold text-lg mb-3">Emergency RTU Failure?</h3>
               <Button href="tel:(940) 390-5676" variant="emergency" size="lg" class="w-full bg-emergency-600 hover:bg-emergency-700">

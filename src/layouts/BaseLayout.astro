@@ -26,6 +26,7 @@ const {
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import MicrosoftClarity from '../components/MicrosoftClarity.astro';
 import '../styles/global.css';
 import '../styles/tokens.css';
 import '../styles/design-system.css';
@@ -199,6 +200,8 @@ const finalSchema = schema ? { ...baseSchema, ...schema } : baseSchema;
     <!-- Analytics -->
     <!-- Google Analytics -->
     <GoogleAnalytics trackingId="G-2X9H3CR9V3" />
+    <!-- Microsoft Clarity -->
+    <MicrosoftClarity clarityId="sxdxl6n9iu" />
   </head>
   <body class="font-sans bg-gray-50 text-gray-900">
     <!-- Skip to main content -->

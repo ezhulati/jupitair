@@ -126,27 +126,27 @@ const schema = {
     ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
     ctaSecondary={{ text: "Get Project Quote", href: "/commercial/quote" }}
     variant="gradient"
-    height="lg"
+    height="lg" class="hero-section"
   />
 
   <!-- Quick Stats Bar -->
   <section class="bg-gray-900 py-6 border-b border-gray-800">
-    <div class="container mx-auto px-4">
+    <div class="site-container section-padding">
       <div class="flex flex-wrap justify-center gap-8 text-white">
         <div class="text-center">
-          <div class="text-3xl font-bold text-primary-400">500+</div>
+          <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-400">500+</div>
           <div class="text-sm text-gray-400">Systems Installed</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold text-primary-400">$50M+</div>
+          <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-400">$50M+</div>
           <div class="text-sm text-gray-400">Projects Completed</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold text-primary-400">15+</div>
+          <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-400">15+</div>
           <div class="text-sm text-gray-400">Years Experience</div>
         </div>
         <div class="text-center">
-          <div class="text-3xl font-bold text-primary-400">100%</div>
+          <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-400">100%</div>
           <div class="text-sm text-gray-400">Licensed & Insured</div>
         </div>
       </div>
@@ -154,33 +154,33 @@ const schema = {
   </section>
 
   <!-- Project Types & Pricing -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
           <Badge variant="primary" class="mb-4">Installation Expertise</Badge>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Commercial Installation Projects We Handle
           </h2>
-          <p class="text-xl text-gray-600">
+          <p class="text-lg sm:text-xl text-gray-600">
             From small office buildings to massive warehouse facilities
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projectTypes.map(project => (
             <PremiumCard variant="elevated" padding="lg" class="hover:shadow-2xl transition-all">
-              <h3 class="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
-              <div class="text-2xl font-bold text-primary-600 mb-4">{project.range}</div>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
+              <div class="text-lg sm:text-xl sm:text-2xl font-bold text-primary-600 mb-4">{project.range}</div>
               <div class="space-y-2 text-sm">
                 <div class="flex items-start">
-                  <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 mr-2 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <span class="text-gray-600">{project.systems}</span>
                 </div>
                 <div class="flex items-start">
-                  <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 mr-2 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <span class="text-gray-600">{project.sqft}</span>
@@ -194,22 +194,22 @@ const schema = {
   </section>
 
   <!-- Why Choose Jupitair for Big Projects -->
-  <section class="py-16 bg-gradient-to-br from-gray-50 to-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-gradient-to-br from-gray-50 to-white">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Why Major Contractors Choose Jupitair
           </h2>
-          <p class="text-xl text-gray-600">
+          <p class="text-lg sm:text-xl text-gray-600">
             Trusted by general contractors and property owners for large-scale projects
           </p>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div class="space-y-6">
             <Card variant="elevated" padding="lg">
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Financial Strength</h3>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3">Financial Strength</h3>
               <ul class="space-y-2 text-gray-600">
                 <li class="flex items-start">
                   <span class="text-primary-600 mr-2">•</span>
@@ -227,7 +227,7 @@ const schema = {
             </Card>
 
             <Card variant="elevated" padding="lg">
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Project Management</h3>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3">Project Management</h3>
               <ul class="space-y-2 text-gray-600">
                 <li class="flex items-start">
                   <span class="text-primary-600 mr-2">•</span>
@@ -245,7 +245,7 @@ const schema = {
             </Card>
 
             <Card variant="elevated" padding="lg">
-              <h3 class="text-xl font-bold text-gray-900 mb-3">Equipment Partners</h3>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3">Equipment Partners</h3>
               <ul class="space-y-2 text-gray-600">
                 <li class="flex items-start">
                   <span class="text-primary-600 mr-2">•</span>
@@ -264,11 +264,11 @@ const schema = {
           </div>
 
           <div class="bg-gray-900 text-white rounded-2xl p-8">
-            <h3 class="text-2xl font-bold mb-6">Our Capabilities</h3>
+            <h3 class="text-lg sm:text-xl sm:text-2xl font-bold mb-6">Our Capabilities</h3>
             <div class="grid grid-cols-2 gap-4">
               {capabilities.map(cap => (
                 <div class="bg-gray-800 rounded-lg p-4">
-                  <div class="text-2xl mb-2">{cap.icon}</div>
+                  <div class="text-lg sm:text-xl sm:text-2xl mb-2">{cap.icon}</div>
                   <div class="font-semibold mb-1">{cap.title}</div>
                   <div class="text-sm text-gray-400">{cap.desc}</div>
                 </div>
@@ -281,24 +281,24 @@ const schema = {
   </section>
 
   <!-- Installation Process -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
           <Badge variant="primary" class="mb-4">Our Process</Badge>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Professional Installation Process
           </h2>
-          <p class="text-xl text-gray-600">
+          <p class="text-lg sm:text-xl text-gray-600">
             From consultation to commissioning, we handle everything
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {process.map(step => (
             <Card variant="elevated" padding="lg">
               <div class="flex items-start gap-4">
-                <div class="w-12 h-12 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center font-bold text-xl flex-shrink-0">
+                <div class="w-12 h-12 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center font-bold text-lg sm:text-xl flex-shrink-0">
                   {step.step}
                 </div>
                 <div class="flex-1">
@@ -315,25 +315,25 @@ const schema = {
   </section>
 
   <!-- Recent Projects CTA -->
-  <section class="py-16 bg-gradient-to-r from-primary-600 to-primary-700 text-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-gradient-to-r from-primary-600 to-primary-700 text-white">
+    <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold mb-4">
           Recent Large-Scale Installations
         </h2>
-        <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-            <div class="text-3xl font-bold mb-2">$1.2M</div>
+            <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold mb-2">$1.2M</div>
             <div class="text-sm">Medical Office Complex</div>
             <div class="text-xs mt-2 text-primary-200">Plano, TX - 85,000 sq ft</div>
           </div>
           <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-            <div class="text-3xl font-bold mb-2">$850K</div>
+            <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold mb-2">$850K</div>
             <div class="text-sm">Distribution Center</div>
             <div class="text-xs mt-2 text-primary-200">Irving, TX - 120,000 sq ft</div>
           </div>
           <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-            <div class="text-3xl font-bold mb-2">$650K</div>
+            <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold mb-2">$650K</div>
             <div class="text-sm">Corporate Office</div>
             <div class="text-xs mt-2 text-primary-200">Frisco, TX - 45,000 sq ft</div>
           </div>
@@ -353,18 +353,18 @@ const schema = {
   />
 
   <!-- Final CTA -->
-  <section class="py-16 bg-gray-900 text-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-gray-900 text-white">
+    <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold mb-4">
           Ready to Start Your Commercial HVAC Project?
         </h2>
-        <p class="text-xl mb-8 text-gray-300">
+        <p class="text-lg sm:text-xl mb-8 text-gray-300">
           Get a free consultation and detailed proposal for your installation project
         </p>
         
         <div class="bg-gray-800 rounded-2xl p-8 mb-8">
-          <div class="grid md:grid-cols-2 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h3 class="font-bold text-lg mb-3">For Immediate Consultation:</h3>
               <Button href="tel:(940) 390-5676" variant="primary" size="lg" class="w-full">

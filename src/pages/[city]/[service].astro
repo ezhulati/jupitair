@@ -6,25 +6,25 @@ import { readFileSync } from 'fs';
 import { parse } from 'yaml';
 
 export async function getStaticPaths() {
-  // Load data
-  const citiesData = parse(readFileSync('./data/cities.yml', 'utf8'));
-  const servicesData = parse(readFileSync('./data/services.yml', 'utf8'));
-  
-  const paths: any[] = [];
-  
-  (citiesData?.cities || []).forEach((city: any) => {
-    (servicesData?.money_pages || []).forEach((service: any) => {
-      paths.push({
-        params: { 
-          city: city.slug, 
-          service: service.slug 
-        },
-        props: { city, service, allServices: servicesData?.money_pages || [] }
-      });
-    });
-  });
-  
-  return paths;
+ // Load data
+ const citiesData = parse(readFileSync('./data/cities.yml', 'utf8'));
+ const servicesData = parse(readFileSync('./data/services.yml', 'utf8'));
+ 
+ const paths: any[] = [];
+ 
+ (citiesData?.cities || []).forEach((city: any) => {
+ (servicesData?.money_pages || []).forEach((service: any) => {
+ paths.push({
+ params: { 
+ city: city.slug, 
+ service: service.slug 
+ },
+ props: { city, service, allServices: servicesData?.money_pages || [] }
+ });
+ });
+ });
+ 
+ return paths;
 }
 
 const { city, service, allServices } = Astro.props;
@@ -33,246 +33,244 @@ const pageDescription = `Professional ${service.name.toLowerCase()} in ${city.na
 
 // Combined city + service schema
 const combinedSchema = {
-  "@type": ["LocalBusiness", "HVACBusiness"],
-  "name": `Jupitair HVAC - ${service.name} in ${city.name}`,
-  "description": `${service.description} in ${city.name}, Texas`,
-  "serviceType": service.name,
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": city.coordinates.lat,
-    "longitude": city.coordinates.lng
-  },
-  "areaServed": {
-    "@type": "City",
-    "name": city.name,
-    "addressRegion": "TX"
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": `${service.name} in ${city.name}`,
-    "itemListElement": [{
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": service.name,
-        "description": service.description,
-        "category": service.category,
-        "areaServed": {
-          "@type": "City",
-          "name": city.name,
-          "addressRegion": "TX"
-        }
-      },
-      "priceSpecification": {
-        "@type": "PriceSpecification",
-        "minPrice": service.pricing.starting,
-        "priceCurrency": "USD"
-      }
-    }]
-  }
+ "@type": ["LocalBusiness", "HVACBusiness"],
+ "name": `Jupitair HVAC - ${service.name} in ${city.name}`,
+ "description": `${service.description} in ${city.name}, Texas`,
+ "serviceType": service.name,
+ "geo": {
+ "@type": "GeoCoordinates",
+ "latitude": city.coordinates.lat,
+ "longitude": city.coordinates.lng
+ },
+ "areaServed": {
+ "@type": "City",
+ "name": city.name,
+ "addressRegion": "TX"
+ },
+ "hasOfferCatalog": {
+ "@type": "OfferCatalog",
+ "name": `${service.name} in ${city.name}`,
+ "itemListElement": [{
+ "@type": "Offer",
+ "itemOffered": {
+ "@type": "Service",
+ "name": service.name,
+ "description": service.description,
+ "category": service.category,
+ "areaServed": {
+ "@type": "City",
+ "name": city.name,
+ "addressRegion": "TX"
+ }
+ },
+ "priceSpecification": {
+ "@type": "PriceSpecification",
+ "minPrice": service.pricing.starting,
+ "priceCurrency": "USD"
+ }
+ }]
+ }
 };
 ---
 
 <BaseLayout 
-  title={pageTitle} 
-  description={pageDescription}
-  canonical={`https://jupitairhvac.com/${city.slug}/${service.slug}`}
-  keywords={`${[...(service.primary_keywords || []), ...(service.secondary_keywords || [])].join(', ')}, ${(city.keywords || []).join(', ')}, ${city.name} ${service.name}`}
+ title={pageTitle} 
+ description={pageDescription}
+ canonical={`https://jupitairhvac.com/${city.slug}/${service.slug}`}
+ keywords={`${[...(service.primary_keywords || []), ...(service.secondary_keywords || [])].join(', ')}, ${(city.keywords || []).join(', ')}, ${city.name} ${service.name}`}
 >
-  <!-- Dynamic Schema with Reviews -->
-  <DynamicSchema type="city-service" city={city.name} service={service.name} />
-  <div class="container mx-auto px-4 py-8">
-    <!-- Hero Section -->
-    <section class="hero bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 px-6 sm:px-8 lg:px-12 mb-12 rounded-lg">
-      <div class="text-center max-w-4xl mx-auto">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4">
-          {service.title} in {city.name}, TX
-        </h1>
-        <p class="text-xl md:text-2xl mb-8">
-          {service.description}
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button href="tel:(940) 390-5676" variant="emergency" size="xl" class="w-full sm:w-auto min-w-[200px] max-w-[280px] justify-center">
-            Call (940) 390-5676
-          </Button>
-          <Button href="/schedule" size="xl" class="w-full sm:w-auto min-w-[200px] max-w-[280px] justify-center border-2 border-white text-white bg-transparent hover:bg-white/20 hover:border-white hover:text-white">
-            Schedule Online
-          </Button>
-        </div>
-      </div>
-    </section>
+ <!-- Dynamic Schema with Reviews -->
+ <DynamicSchema type="city-service" city={city.name} service={service.name} />
+ <!-- Hero Section -->
+ <section class="section-full bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 mb-12">
+ <div class="site-container section-padding">
+ <h1 class="text-4xl md:text-6xl font-bold mb-4">
+ {service.title} in {city.name}, TX
+ </h1>
+ <p class="text-xl md:text-2xl mb-8">
+ {service.description}
+ </p>
+ <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+ <Button href="tel:(940) 390-5676" variant="emergency" size="xl" class="w-full sm:w-auto min-w-[200px] max-w-[280px] justify-center">
+ Call (940) 390-5676
+ </Button>
+ <Button href="/contact" size="xl" class="w-full sm:w-auto min-w-[200px] max-w-[280px] justify-center border-2 border-white text-white bg-transparent hover:bg-white hover:border-white hover:text-primary-700">
+ Schedule Online
+ </Button>
+ </div>
+ </div>
+ </section>
 
-    <!-- Local Service Information -->
-    <section class="mb-12">
-      <div class="grid md:grid-cols-2 gap-8">
-        <div>
-          <h2 class="text-3xl font-bold text-gray-900 mb-6">
-            Local {service.title} in {city.name}
-          </h2>
-          <p class="text-gray-600 mb-6 text-lg leading-relaxed">
-            Serving {city.name}, Texas with professional {service.name.toLowerCase()} services. 
-            Our certified technicians understand the local climate and specific HVAC challenges 
-            common to {city.name} and the surrounding North Texas area.
-          </p>
-          
-          <div class="bg-blue-50 p-6 rounded-lg mb-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-4">Why Choose Us for {service.title} in {city.name}</h3>
-            <ul class="space-y-2 text-gray-700">
-              <li>✓ Local {city.name} technicians</li>
-              <li>✓ {service.service_time}</li>
-              <li>✓ {service.warranty}</li>
-              <li>✓ Serving {city.name} residents for 15+ years</li>
-              <li>✓ Licensed & Insured in Texas</li>
-              {service.emergency && <li>✓ 24/7 Emergency Response in {city.name}</li>}
-            </ul>
-          </div>
-          
-          <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
-            <p class="text-yellow-800">
-              <strong>Fast Response:</strong> We provide {service.service_time.toLowerCase()} 
-              for {city.name} residents within our {city.serviceRadius}-mile service radius.
-            </p>
-          </div>
-        </div>
-        
-        <div>
-          <div class="bg-white p-6 rounded-lg shadow-md border mb-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-4">{service.title} Pricing in {city.name}</h3>
-            <div class="space-y-4">
-              <div>
-                <span class="font-medium text-gray-700">Starting Price:</span>
-                <span class="text-2xl font-bold text-primary-700 ml-2">${service.pricing.starting}</span>
-              </div>
-              <div>
-                <span class="font-medium text-gray-700">Average Cost:</span>
-                <span class="text-lg text-gray-900 ml-2">${service.pricing.average}</span>
-              </div>
-              <p class="text-sm text-gray-600">{service.pricing.description}</p>
-            </div>
-          </div>
-          
-          <div class="bg-white p-6 rounded-lg shadow-md border">
-            <h3 class="text-xl font-semibold text-gray-900 mb-4">Service Area Details</h3>
-            <div class="space-y-2 text-gray-600">
-              <p><strong>City:</strong> {city.name}, {city.state}</p>
-              <p><strong>Population:</strong> {city.population.toLocaleString()}</p>
-              <p><strong>County:</strong> {city.county}</p>
-              <p><strong>Service Radius:</strong> {city.serviceRadius} miles</p>
-              <p><strong>Zip Code:</strong> {city.zip}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+ <!-- Local Service Information -->
+ <section class="mb-12">
+ <div class="site-container section-padding">
+ <div>
+ <h2 class="text-3xl font-bold text-gray-900 mb-6">
+ Local {service.title} in {city.name}
+ </h2>
+ <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+ Serving {city.name}, Texas with professional {service.name.toLowerCase()} services. 
+ Our certified technicians understand the local climate and specific HVAC challenges 
+ common to {city.name} and the surrounding North Texas area.
+ </p>
+ 
+ <div class="bg-blue-50 p-6 rounded-lg mb-6">
+ <h3 class="text-xl font-semibold text-gray-900 mb-4">Why Choose Us for {service.title} in {city.name}</h3>
+ <ul class="space-y-2 text-gray-700">
+ <li>✓ Local {city.name} technicians</li>
+ <li>✓ {service.service_time}</li>
+ <li>✓ {service.warranty}</li>
+ <li>✓ Serving {city.name} residents for 15+ years</li>
+ <li>✓ Licensed & Insured in Texas</li>
+ {service.emergency && <li>✓ 24/7 Emergency Response in {city.name}</li>}
+ </ul>
+ </div>
+ 
+ <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+ <p class="text-yellow-800">
+ <strong>Fast Response:</strong> We provide {service.service_time.toLowerCase()} 
+ for {city.name} residents within our {city.serviceRadius}-mile service radius.
+ </p>
+ </div>
+ </div>
+ 
+ <div>
+ <div class="bg-white p-6 rounded-lg shadow-md border mb-6">
+ <h3 class="text-xl font-semibold text-gray-900 mb-4">{service.title} Pricing in {city.name}</h3>
+ <div class="space-y-4">
+ <div>
+ <span class="font-medium text-gray-700">Starting Price:</span>
+ <span class="text-2xl font-bold text-primary-700 ml-2">${service.pricing.starting}</span>
+ </div>
+ <div>
+ <span class="font-medium text-gray-700">Average Cost:</span>
+ <span class="text-lg text-gray-900 ml-2">${service.pricing.average}</span>
+ </div>
+ <p class="text-sm text-gray-600">{service.pricing.description}</p>
+ </div>
+ </div>
+ 
+ <div class="bg-white p-6 rounded-lg shadow-md border">
+ <h3 class="text-xl font-semibold text-gray-900 mb-4">Service Area Details</h3>
+ <div class="space-y-2 text-gray-600">
+ <p><strong>City:</strong> {city.name}, {city.state}</p>
+ <p><strong>Population:</strong> {city.population.toLocaleString()}</p>
+ <p><strong>County:</strong> {city.county}</p>
+ <p><strong>Service Radius:</strong> {city.serviceRadius} miles</p>
+ <p><strong>Zip Code:</strong> {city.zip}</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
 
-    <!-- Local Expertise -->
-    <section class="bg-gray-50 p-8 rounded-lg mb-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">
-        {city.name} HVAC Expertise
-      </h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="text-center">
-          <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-2">Licensed & Insured</h3>
-          <p class="text-gray-600 text-sm">Fully licensed to work in {city.name} and throughout Texas with comprehensive insurance coverage.</p>
-        </div>
-        <div class="text-center">
-          <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 2L3 7v11a1 1 0 001 1h3v-6h6v6h3a1 1 0 001-1V7l-7-5z"/>
-            </svg>
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-2">Local Knowledge</h3>
-          <p class="text-gray-600 text-sm">Deep understanding of {city.name}'s climate, building codes, and common HVAC challenges.</p>
-        </div>
-        <div class="text-center">
-          <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-            </svg>
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-2">Fast Response</h3>
-          <p class="text-gray-600 text-sm">{service.service_time} for {city.name} residents. Emergency service available 24/7.</p>
-        </div>
-      </div>
-    </section>
+ <!-- Local Expertise -->
+ <section class="bg-gray-50 p-8 rounded-lg mb-12">
+ <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">
+ {city.name} HVAC Expertise
+ </h2>
+ <div class="grid md:grid-cols-3 gap-6">
+ <div class="text-center">
+ <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+ <svg class="w-8 h-8 mr-2" fill="currentColor" viewBox="0 0 20 20">
+ <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+ </svg>
+ </div>
+ <h3 class="font-semibold text-gray-900 mb-2">Licensed & Insured</h3>
+ <p class="text-gray-600 text-sm">Fully licensed to work in {city.name} and throughout Texas with comprehensive insurance coverage.</p>
+ </div>
+ <div class="text-center">
+ <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+ <svg class="w-8 h-8 mr-2" fill="currentColor" viewBox="0 0 20 20">
+ <path d="M10 2L3 7v11a1 1 0 001 1h3v-6h6v6h3a1 1 0 001-1V7l-7-5z"/>
+ </svg>
+ </div>
+ <h3 class="font-semibold text-gray-900 mb-2">Local Knowledge</h3>
+ <p class="text-gray-600 text-sm">Deep understanding of {city.name}'s climate, building codes, and common HVAC challenges.</p>
+ </div>
+ <div class="text-center">
+ <div class="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+ <svg class="w-8 h-8 mr-2" fill="currentColor" viewBox="0 0 20 20">
+ <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+ </svg>
+ </div>
+ <h3 class="font-semibold text-gray-900 mb-2">Fast Response</h3>
+ <p class="text-gray-600 text-sm">{service.service_time} for {city.name} residents. Emergency service available 24/7.</p>
+ </div>
+ </div>
+ </section>
 
-    <!-- Related Services -->
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">
-        Other HVAC Services in {city.name}
-      </h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {/* Show related services, excluding current one */}
-        {allServices
-          .filter((s: any) => s.slug !== service.slug)
-          .slice(0, 6)
-          .map((relatedService: any) => (
-            <div class="bg-white p-4 rounded-lg shadow-md border hover:shadow-lg transition-shadow h-full flex flex-col">
-              <h3 class="font-semibold text-gray-900 mb-2">
-                {relatedService.title}
-              </h3>
-              <p class="text-sm text-gray-600 mb-3 flex-grow">{relatedService.shortDescription}</p>
-              
-              <div class="space-y-3 mt-auto">
-                <div class="flex justify-between items-center">
-                  <span class="text-sm text-gray-500">From ${relatedService.pricing.starting}</span>
-                  {relatedService.emergency && (
-                    <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">
-                      Emergency
-                    </span>
-                  )}
-                </div>
-                
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row gap-2">
-                  <Button href={`/${city.slug}/${relatedService.slug}`} variant="primary" size="sm" class="flex-1 text-center">
-                    Learn More
-                  </Button>
-                  <Button href="/schedule" variant="outline" size="sm" class="flex-1 text-center">
-                    Schedule
-                  </Button>
-                </div>
-              </div>
-            </div>
-          ))}
-      </div>
-    </section>
+ <!-- Related Services -->
+ <section class="mb-12">
+ <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">
+ Other HVAC Services in {city.name}
+ </h2>
+ <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+ {/* Show related services, excluding current one */}
+ {allServices
+ .filter((s: any) => s.slug !== service.slug)
+ .slice(0, 6)
+ .map((relatedService: any) => (
+ <div class="bg-white p-4 rounded-lg shadow-md border hover:shadow-lg transition-shadow h-full flex flex-col">
+ <h3 class="font-semibold text-gray-900 mb-2">
+ {relatedService.title}
+ </h3>
+ <p class="text-sm text-gray-600 mb-3 flex-grow">{relatedService.shortDescription}</p>
+ 
+ <div class="space-y-3 mt-auto">
+ <div class="flex justify-between items-center">
+ <span class="text-sm text-gray-500">From ${relatedService.pricing.starting}</span>
+ {relatedService.emergency && (
+ <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">
+ Emergency
+ </span>
+ )}
+ </div>
+ 
+ <!-- CTA Buttons -->
+ <div class="flex flex-col sm:flex-row gap-2">
+ <Button href={`/${city.slug}/${relatedService.slug}`} variant="primary" size="sm" class="flex-1 text-center">
+ Learn More
+ </Button>
+ <Button href="/contact" variant="outline" size="sm" class="flex-1 text-center">
+ Schedule
+ </Button>
+ </div>
+ </div>
+ </div>
+ ))}
+ </div>
+ </section>
 
-    <!-- Call to Action -->
-    {service.emergency ? (
-      <section class="bg-red-600 text-white p-8 rounded-lg">
-        <div class="text-center max-w-3xl mx-auto">
-          <h2 class="text-3xl font-bold mb-4">Emergency {service.title} in {city.name}</h2>
-          <p class="text-xl mb-6">
-            Need urgent {service.name.toLowerCase()} in {city.name}? We're available 24/7!
-          </p>
-          <Button href="tel:(940) 390-5676" variant="secondary" size="xl" class="inline-flex justify-center min-w-[200px] max-w-[280px] mx-auto">
-            Call Now: (940) 390-5676
-          </Button>
-        </div>
-      </section>
-    ) : (
-      <section class="bg-blue-600 text-white p-8 rounded-lg">
-        <div class="text-center max-w-3xl mx-auto">
-          <h2 class="text-3xl font-bold mb-4">Schedule {service.title} in {city.name}</h2>
-          <p class="text-xl mb-6">
-            Ready to schedule your {service.name.toLowerCase()}? Contact us today for a free estimate!
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button href="tel:(940) 390-5676" variant="emergency" size="xl" class="w-full sm:w-auto min-w-[200px] max-w-[280px] justify-center">
-              Call (940) 390-5676
-            </Button>
-            <Button href="/schedule" size="xl" class="w-full sm:w-auto min-w-[200px] max-w-[280px] justify-center border-2 border-white text-white bg-transparent hover:bg-white/20 hover:border-white hover:text-white">
-              Schedule Online
-            </Button>
-          </div>
-        </div>
-      </section>
-    )}
-  </div>
+ <!-- Call to Action -->
+ {service.emergency ? (
+ <section class="bg-red-600 text-white p-8 rounded-lg">
+ <div class="site-container section-padding">
+ <h2 class="text-3xl font-bold mb-4">Emergency {service.title} in {city.name}</h2>
+ <p class="text-xl mb-6">
+ Need urgent {service.name.toLowerCase()} in {city.name}? We're available 24/7!
+ </p>
+ <Button href="tel:(940) 390-5676" variant="secondary" size="xl" class="inline-flex justify-center min-w-[200px] max-w-[280px] mx-auto">
+ Call Now: (940) 390-5676
+ </Button>
+ </div>
+ </section>
+ ) : (
+ <section class="bg-blue-600 text-white p-8 rounded-lg">
+ <div class="site-container section-padding">
+ <h2 class="text-3xl font-bold mb-4">Schedule {service.title} in {city.name}</h2>
+ <p class="text-xl mb-6">
+ Ready to schedule your {service.name.toLowerCase()}? Contact us today for a free estimate!
+ </p>
+ <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+ <Button href="tel:(940) 390-5676" variant="emergency" size="xl" class="w-full sm:w-auto min-w-[200px] max-w-[280px] justify-center">
+ Call (940) 390-5676
+ </Button>
+ <Button href="/contact" size="xl" class="w-full sm:w-auto min-w-[200px] max-w-[280px] justify-center border-2 border-white text-white bg-transparent hover:bg-white hover:border-white hover:text-primary-700">
+ Schedule Online
+ </Button>
+ </div>
+ </div>
+ </section>
+ )}
 </BaseLayout>

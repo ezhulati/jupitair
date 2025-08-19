@@ -10,14 +10,14 @@ const cities = citiesData.cities;
 ---
 
 <section class="py-16 lg:py-24 bg-gray-50">
-  <div class="container mx-auto px-4">
+  <div class="site-container">
     
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+      <h2 class="break-words text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
         Serving North Texas
       </h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+      <p class="break-words text-xl text-gray-800 max-w-3xl mx-auto leading-relaxed">
         We proudly serve 8 cities throughout North Texas with professional HVAC services. 
         Local technicians, fast response times, and deep community knowledge.
       </p>
@@ -26,20 +26,20 @@ const cities = citiesData.cities;
     <!-- Service Area Map Visual -->
     <div class="mb-16">
       <Card variant="elevated" padding="lg" class="bg-white">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="min-w-0 grid lg:grid-cols-2 gap-12 items-center">
           
           <!-- Map Representation -->
           <div class="relative">
-            <div class="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8 h-96 flex items-center justify-center">
+            <div class="min-w-0 bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8 h-96 flex items-center justify-center">
               <div class="text-center">
-                <div class="w-24 h-24 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <div class="min-w-0 w-24 h-24 bg-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-12 h-12 mr-2 text-white" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
                   </svg>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">North Texas Coverage</h3>
-                <p class="text-gray-600 mb-4">8 cities, 500,000+ residents served</p>
-                <p class="text-sm text-gray-500">
+                <h3 class="break-words text-2xl font-bold text-gray-900 mb-2">North Texas Coverage</h3>
+                <p class="text-gray-800 mb-4">8 cities, 500,000+ residents served</p>
+                <p class="text-sm text-gray-700">
                   Frisco • Plano • McKinney • Allen<br>
                   Prosper • The Colony • Little Elm • Addison
                 </p>
@@ -48,8 +48,8 @@ const cities = citiesData.cities;
             
             <!-- Service radius indicator -->
             <div class="absolute top-4 right-4 bg-gradient-to-br from-success-500 to-success-600 text-white rounded-2xl px-4 py-3 shadow-lg">
-              <div class="flex items-center space-x-2">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <div class="min-w-0 flex items-center space-x-2">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
                 </svg>
                 <span class="font-bold text-lg">25 Mile Service Radius</span>
@@ -59,56 +59,56 @@ const cities = citiesData.cities;
           
           <!-- Service Area Benefits -->
           <div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-6">
+            <h3 class="break-words text-2xl font-bold text-gray-900 mb-6">
               Why Choose Local HVAC Service?
             </h3>
             
             <div class="space-y-6">
-              <div class="flex items-start space-x-4">
+              <div class="min-w-0 flex items-start space-x-4">
                 <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-6 h-6 mr-2 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
                   </svg>
                 </div>
                 <div>
                   <h4 class="font-semibold text-gray-900 mb-2">Fast Response Times</h4>
-                  <p class="text-gray-600">Same-day service for most repairs, with emergency response within 2 hours.</p>
+                  <p class="text-gray-800">Same-day service for most repairs, with emergency response within 2 hours.</p>
                 </div>
               </div>
               
-              <div class="flex items-start space-x-4">
+              <div class="min-w-0 flex items-start space-x-4">
                 <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-6 h-6 mr-2 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M10 2L3 7v11a1 1 0 001 1h3v-6h6v6h3a1 1 0 001-1V7l-7-5z"/>
                   </svg>
                 </div>
                 <div>
                   <h4 class="font-semibold text-gray-900 mb-2">Local Knowledge</h4>
-                  <p class="text-gray-600">Deep understanding of North Texas climate, building codes, and common HVAC issues.</p>
+                  <p class="text-gray-800">Deep understanding of North Texas climate, building codes, and common HVAC issues.</p>
                 </div>
               </div>
               
-              <div class="flex items-start space-x-4">
+              <div class="min-w-0 flex items-start space-x-4">
                 <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-6 h-6 mr-2 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0a6 6 0 11-12 0 6 6 0 0112 0z" clip-rule="evenodd"/>
                   </svg>
                 </div>
                 <div>
                   <h4 class="font-semibold text-gray-900 mb-2">Community Commitment</h4>
-                  <p class="text-gray-600">Serving North Texas since 2008, with deep roots in the communities we serve.</p>
+                  <p class="text-gray-800">Serving North Texas since 2008, with deep roots in the communities we serve.</p>
                 </div>
               </div>
               
-              <div class="flex items-start space-x-4">
+              <div class="min-w-0 flex items-start space-x-4">
                 <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg class="w-6 h-6 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-6 h-6 mr-2 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 </div>
                 <div>
                   <h4 class="font-semibold text-gray-900 mb-2">Licensed & Local</h4>
-                  <p class="text-gray-600">Fully licensed in Texas with local technicians who live and work in your community.</p>
+                  <p class="text-gray-800">Fully licensed in Texas with local technicians who live and work in your community.</p>
                 </div>
               </div>
             </div>
@@ -118,21 +118,21 @@ const cities = citiesData.cities;
     </div>
     
     <!-- Cities Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+    <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
       {cities.map((city: any) => (
         <Card variant="service" padding="md" class="text-center group">
           <div class="mb-4">
-            <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center mx-auto mb-3">
-              <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <div class="min-w-0 w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center mx-auto mb-3">
+              <svg class="w-8 h-8 mr-2 text-white" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
               </svg>
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
+            <h3 class="break-words text-xl font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
               {city.name}, TX
             </h3>
           </div>
           
-          <div class="space-y-2 text-sm text-gray-600 mb-4">
+          <div class="space-y-2 text-sm text-gray-800 mb-4">
             <p>Population: {city.population.toLocaleString()}</p>
             <p>County: {city.county}</p>
             <p>Service Radius: {city.serviceRadius} miles</p>
@@ -158,45 +158,45 @@ const cities = citiesData.cities;
     
     <!-- Service Coverage Details -->
     <Card variant="bordered" padding="lg">
-      <div class="grid md:grid-cols-3 gap-8 text-center">
+      <div class="min-w-0 grid md:grid-cols-3 gap-8 text-center">
         
         <div>
-          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="min-w-0 w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 mr-2 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Primary Service Areas</h3>
-          <p class="text-gray-600 mb-3">Full coverage with local technicians</p>
-          <ul class="text-sm text-gray-500 space-y-1">
+          <h3 class="break-words text-xl font-semibold text-gray-900 mb-2">Primary Service Areas</h3>
+          <p class="text-gray-800 mb-3">Full coverage with local technicians</p>
+          <ul class="text-sm text-gray-700 space-y-1">
             <li>Frisco • Plano • McKinney</li>
             <li>Allen • Prosper</li>
           </ul>
         </div>
         
         <div>
-          <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="min-w-0 w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 mr-2 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
               <path d="M10 2L3 7v11a1 1 0 001 1h3v-6h6v6h3a1 1 0 001-1V7l-7-5z"/>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Expanding Coverage</h3>
-          <p class="text-gray-600 mb-3">Growing service with rapid response</p>
-          <ul class="text-sm text-gray-500 space-y-1">
+          <h3 class="break-words text-xl font-semibold text-gray-900 mb-2">Expanding Coverage</h3>
+          <p class="text-gray-800 mb-3">Growing service with rapid response</p>
+          <ul class="text-sm text-gray-700 space-y-1">
             <li>The Colony • Little Elm</li>
             <li>Addison</li>
           </ul>
         </div>
         
         <div>
-          <div class="w-16 h-16 bg-emergency-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-emergency-600" fill="currentColor" viewBox="0 0 20 20">
+          <div class="min-w-0 w-16 h-16 bg-emergency-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 mr-2 text-emergency-600" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Emergency Service</h3>
-          <p class="text-gray-600 mb-3">24/7 coverage across all areas</p>
-          <ul class="text-sm text-gray-500 space-y-1">
+          <h3 class="break-words text-xl font-semibold text-gray-900 mb-2">Emergency Service</h3>
+          <p class="text-gray-800 mb-3">24/7 coverage across all areas</p>
+          <ul class="text-sm text-gray-700 space-y-1">
             <li>All 8 cities covered</li>
             <li>2-hour emergency response</li>
           </ul>
@@ -206,19 +206,19 @@ const cities = citiesData.cities;
     
     <!-- CTA Section -->
     <div class="text-center mt-12">
-      <h3 class="text-2xl font-bold text-gray-900 mb-4">
-        Ready to Schedule Service in Your Area?
+      <h3 class="break-words text-2xl font-bold text-gray-900 mb-4">
+        Ready to Get Quote in Your Area?
       </h3>
-      <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+      <p class="text-gray-800 mb-8 max-w-2xl mx-auto">
         Whether you need routine maintenance or emergency repair, our local technicians 
         are ready to help. Same-day service available in most areas.
       </p>
       
-      <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-        <Button href="tel:(940) 390-5676" variant="emergency" size="lg" class="flex-1 justify-center">
+      <div class="min-w-0 flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+        <Button href="tel:(940) 390-5676" variant="emergency" size="lg" class="min-w-0 flex-1 justify-center">
           Call (940) 390-5676
         </Button>
-        <Button href="/contact" variant="outline" size="lg" class="flex-1 justify-center">
+        <Button href="/contact" variant="outline" size="lg" class="min-w-0 flex-1 justify-center">
           Schedule Online
         </Button>
       </div>

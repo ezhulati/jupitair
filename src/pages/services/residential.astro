@@ -85,14 +85,14 @@ const serviceAreas = [
 >
   <!-- Hero Section -->
   <section class="bg-gradient-to-br from-primary-50 to-white py-16 lg:py-20">
-    <div class="container mx-auto px-4">
+    <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto text-center">
         <Badge variant="primary" class="mb-4">Residential Services</Badge>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
           Home HVAC Services
           <span class="block text-primary-600">You Can Trust</span>
         </h1>
-        <p class="text-xl text-gray-600 mb-8">
+        <p class="text-lg sm:text-xl text-gray-600 mb-8">
           From emergency AC repair to new system installation, we keep North Texas homes comfortable year-round.
         </p>
         
@@ -103,8 +103,8 @@ const serviceAreas = [
             </svg>
             Call (940) 390-5676
           </Button>
-          <Button href="/schedule" variant="outline" size="lg">
-            Schedule Service
+          <Button href="/contact" variant="outline" size="lg">
+            Get Quote
           </Button>
         </div>
       </div>
@@ -112,28 +112,28 @@ const serviceAreas = [
   </section>
 
   <!-- Services Grid -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl md:text-4xl font-bold text-gray-900 mb-4">
             Complete Home Comfort Solutions
           </h2>
-          <p class="text-xl text-gray-600">
+          <p class="text-lg sm:text-xl text-gray-600">
             Professional HVAC services for homeowners throughout North Texas.
           </p>
         </div>
         
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {residentialServices.map(service => (
             <Card variant="elevated" padding="lg" class="hover:shadow-2xl transition-shadow">
               <div class="flex items-start justify-between mb-4">
-                <div class="text-4xl">{service.icon}</div>
+                <div class="text-3xl sm:text-4xl lg:text-5xl">{service.icon}</div>
                 {service.emergency && (
                   <Badge variant="emergency" size="sm">24/7</Badge>
                 )}
               </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
               <p class="text-gray-600 mb-4">{service.description}</p>
               <div class="flex items-center justify-between">
                 <span class="text-lg font-semibold text-primary-600">{service.price}</span>
@@ -149,17 +149,17 @@ const serviceAreas = [
   </section>
 
   <!-- Why Choose Residential -->
-  <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-gray-50">
+    <div class="site-container section-padding">
       <div class="max-w-5xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl md:text-4xl font-bold text-gray-900 mb-6">
               Why Homeowners Choose Jupitair
             </h2>
             <div class="space-y-4">
               <div class="flex items-start gap-3">
-                <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 mr-2 text-success-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <div>
@@ -168,7 +168,7 @@ const serviceAreas = [
                 </div>
               </div>
               <div class="flex items-start gap-3">
-                <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 mr-2 text-success-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <div>
@@ -177,7 +177,7 @@ const serviceAreas = [
                 </div>
               </div>
               <div class="flex items-start gap-3">
-                <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 mr-2 text-success-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <div>
@@ -186,7 +186,7 @@ const serviceAreas = [
                 </div>
               </div>
               <div class="flex items-start gap-3">
-                <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 mr-2 text-success-600 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <div>
@@ -198,7 +198,7 @@ const serviceAreas = [
           </div>
           
           <div class="bg-white rounded-2xl p-8 shadow-xl">
-            <h3 class="text-2xl font-bold text-gray-900 mb-6">Service Areas</h3>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Service Areas</h3>
             <p class="text-gray-600 mb-6">
               We provide residential HVAC services to homeowners in these North Texas communities:
             </p>
@@ -221,13 +221,13 @@ const serviceAreas = [
   </section>
 
   <!-- CTA Section -->
-  <section class="py-16 bg-primary-600 text-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-primary-600 text-white">
+    <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl md:text-4xl font-bold mb-4">
           Need Home HVAC Service?
         </h2>
-        <p class="text-xl mb-8 text-primary-100">
+        <p class="text-lg sm:text-xl mb-8 text-primary-100">
           Fast, reliable service from North Texas's trusted HVAC contractor.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -237,7 +237,7 @@ const serviceAreas = [
             </svg>
             Call (940) 390-5676
           </Button>
-          <Button href="/schedule" variant="outline" size="lg" class="border-white text-white hover:bg-white hover:text-primary-600">
+          <Button href="/contact" variant="outline" size="lg" class="border-white text-white hover:bg-white hover:text-primary-600">
             Schedule Online
           </Button>
         </div>

@@ -1,12 +1,7 @@
 import { Cloudinary } from '@cloudinary/url-gen';
-import { auto } from '@cloudinary/url-gen/actions/resize';
 import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
-import { quality } from '@cloudinary/url-gen/actions/delivery';
-import { format } from '@cloudinary/url-gen/actions/delivery';
-import { fill, scale, fit, pad } from '@cloudinary/url-gen/actions/resize';
-import { focusOn } from '@cloudinary/url-gen/qualifiers/gravity';
-import { FocusOn } from '@cloudinary/url-gen/qualifiers/focusOn';
-import { sharpen } from '@cloudinary/url-gen/actions/adjust';
+import { fill, scale, fit } from '@cloudinary/url-gen/actions/resize';
+import { blur } from '@cloudinary/url-gen/actions/effect';
 
 // Initialize Cloudinary instance
 export const cld = new Cloudinary({
@@ -249,7 +244,7 @@ export function getOptimizedImageUrl(
   
   // Add blur for lazy loading placeholder
   if (blur) {
-    image = image.effect('blur:1000');
+    image = image.effect(blur(1000));
   }
   
   return image.toURL();
@@ -261,6 +256,6 @@ export function getBlurPlaceholder(publicId: string) {
     .format('auto')
     .quality('auto:low')
     .resize(scale().width(20))
-    .effect('blur:1000')
+    .effect(blur(1000))
     .toURL();
 }

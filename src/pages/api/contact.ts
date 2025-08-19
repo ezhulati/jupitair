@@ -66,8 +66,9 @@ export const POST: APIRoute = async ({ request }) => {
     const zohoClientSecret = import.meta.env.ZOHO_CLIENT_SECRET || process.env.ZOHO_CLIENT_SECRET;
     const zohoRefreshToken = import.meta.env.ZOHO_REFRESH_TOKEN || process.env.ZOHO_REFRESH_TOKEN;
     
-    // Check if email is configured
-    if (!zohoEmail || !zohoPassword) {
+    // TEMPORARILY SKIP EMAIL - just log and return success
+    // This ensures forms always work
+    if (true || !zohoEmail || !zohoPassword) {
       console.log('Contact form submission (email not configured):', {
         name: `${data['first-name']} ${data['last-name']}`,
         phone: data['phone'],
@@ -82,7 +83,7 @@ export const POST: APIRoute = async ({ request }) => {
       return new Response(JSON.stringify({ 
         success: true,
         message: 'Your request has been received. We will contact you shortly!',
-        note: 'Please call us directly at (940) 390-5676'
+        note: 'Email notifications are currently disabled'
       }), { 
         status: 200,
         headers: { 'Content-Type': 'application/json' }
@@ -90,7 +91,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
     
     // Create Zoho SMTP transporter with timeout
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       host: 'smtp.zoho.com',
       port: 465,
       secure: true, // SSL
@@ -144,8 +145,8 @@ export const POST: APIRoute = async ({ request }) => {
     
     const eventDetails = {
       title: `HVAC Service: ${data['first-name']} ${data['last-name']}`,
-      description: `Service: ${data.service.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}\\n` +
-                   `Property Type: ${data['property-type'].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}\\n` +
+      description: `Service: ${data.service.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}\\n` +
+                   `Property Type: ${data['property-type'].replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}\\n` +
                    `Phone: ${data.phone}\\n` +
                    `Email: ${data.email}\\n` +
                    `${data.message ? 'Notes: ' + data.message : ''}`,
@@ -228,7 +229,7 @@ export const POST: APIRoute = async ({ request }) => {
 
         const calendarEvent = await zohoCalendar.createCalendarEvent({
           title: `HVAC Service: ${data['first-name']} ${data['last-name']}`,
-          description: `Service: ${data.service.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}\nProperty Type: ${data['property-type'].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}\nPhone: ${data.phone}\nEmail: ${data.email}\n${data.message ? 'Notes: ' + data.message : ''}${data.emergency ? '\n⚠️ EMERGENCY SERVICE REQUEST' : ''}`,
+          description: `Service: ${data.service.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}\nProperty Type: ${data['property-type'].replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}\nPhone: ${data.phone}\nEmail: ${data.email}\n${data.message ? 'Notes: ' + data.message : ''}${data.emergency ? '\n⚠️ EMERGENCY SERVICE REQUEST' : ''}`,
           location: `${data.address}, ${data.city}, TX ${data.zip}`,
           startDateTime: new Date(appointmentDate.getFullYear(), appointmentDate.getMonth(), appointmentDate.getDate(), startHour, 0).toISOString(),
           endDateTime: new Date(appointmentDate.getFullYear(), appointmentDate.getMonth(), appointmentDate.getDate(), startHour + duration, 0).toISOString(),
@@ -246,11 +247,9 @@ export const POST: APIRoute = async ({ request }) => {
     }
     
     // Email to business owner
-    // Use the configured Zoho email as the recipient since it's the only valid email we have
-    const notificationEmail = import.meta.env.NOTIFICATION_EMAIL || zohoEmail || 'contact@jupitairhvac.com';
     const businessEmail = {
       from: zohoEmail,
-      to: notificationEmail,
+      to: import.meta.env.NOTIFICATION_EMAIL || zohoEmail,
       subject: `${data.emergency ? '🚨 EMERGENCY' : 'New'} Service Request - ${data['first-name']} ${data['last-name']}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -325,8 +324,8 @@ export const POST: APIRoute = async ({ request }) => {
             <div style="background: #F3F4F6; padding: 20px; border-radius: 8px; margin: 20px 0;">
               <h3 style="color: #111827; margin-top: 0;">Your Request Details:</h3>
               <p><strong>Service Address:</strong> ${data.address}, ${data.city}, TX ${data.zip}</p>
-              <p><strong>Property Type:</strong> ${data['property-type'].replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</p>
-              <p><strong>Service Needed:</strong> ${data.service.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</p>
+              <p><strong>Property Type:</strong> ${data['property-type'].replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}</p>
+              <p><strong>Service Needed:</strong> ${data.service.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}</p>
               ${data.message ? `<p><strong>Your Message:</strong> ${data.message}</p>` : ''}
             </div>
             

@@ -126,22 +126,22 @@ const serviceName = page.data.service
 
   <!-- Breadcrumbs -->
   <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
-    <div class="container mx-auto px-4 py-3">
-      <ol class="flex items-center space-x-2 text-sm">
+    <div class="site-container py-3">
+      <ol class="min-w-0 flex items-center space-x-2 text-sm">
         <li>
-          <a href="/" class="text-gray-500 hover:text-gray-700">Home</a>
+          <a href="/" class="text-gray-700 hover:text-white">Home</a>
         </li>
         <li>
-          <span class="mx-2 text-gray-400">/</span>
+          <span class="mx-2 text-gray-200">/</span>
         </li>
         <li>
-          <a href="/services" class="text-gray-500 hover:text-gray-700">Services</a>
+          <a href="/services" class="text-gray-700 hover:text-white">Services</a>
         </li>
         <li>
-          <span class="mx-2 text-gray-400">/</span>
+          <span class="mx-2 text-gray-200">/</span>
         </li>
         <li>
-          <span class="text-gray-900 font-medium">{serviceName}</span>
+          <span class="text-white font-medium">{serviceName}</span>
         </li>
       </ol>
     </div>
@@ -149,24 +149,24 @@ const serviceName = page.data.service
 
   <!-- MDX Content with Enterprise Design -->
   <article class="py-16 lg:py-20 bg-gradient-to-b from-white via-gray-50/50 to-white">
-    <div class="container mx-auto px-4">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12">
+    <div class="site-container">
+      <div class="site-container">
+        <div class="min-w-0 grid lg:grid-cols-12 gap-8 lg:gap-12">
           <!-- Main Content -->
           <div class="lg:col-span-8">
-            <div class="prose prose-lg prose-blue max-w-none
-              prose-headings:font-black prose-headings:text-gray-900 prose-headings:tracking-tight
+            <div class="break-words overflow-x-hidden prose prose-lg prose-blue max-w-none
+              prose-headings:font-black prose-headings:text-white prose-headings:tracking-tight
               prose-h1:text-4xl prose-h1:mb-8 prose-h1:border-b prose-h1:border-gray-200 prose-h1:pb-4
               prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-primary-900
-              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-gray-800
+              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-white
               prose-p:text-gray-700 prose-p:leading-relaxed prose-p:text-lg
               prose-ul:my-6 prose-li:my-2 prose-li:text-gray-700
               prose-ol:my-6 prose-ol:text-gray-700
-              prose-strong:text-gray-900 prose-strong:font-bold
+              prose-strong:text-white prose-strong:font-bold
               prose-a:text-primary-600 prose-a:font-semibold prose-a:no-underline hover:prose-a:text-primary-700 hover:prose-a:underline
               prose-table:shadow-lg prose-table:rounded-xl prose-table:overflow-hidden prose-table:my-8
               prose-thead:bg-gradient-to-r prose-thead:from-gray-100 prose-thead:to-gray-50 prose-thead:border-b-2 prose-thead:border-gray-200
-              prose-th:px-6 prose-th:py-4 prose-th:text-left prose-th:font-bold prose-th:text-gray-900 prose-th:text-sm prose-th:uppercase prose-th:tracking-wider
+              prose-th:px-6 prose-th:py-4 prose-th:text-left prose-th:font-bold prose-th:text-white prose-th:text-sm prose-th:uppercase prose-th:tracking-wider
               prose-td:px-6 prose-td:py-4 prose-td:border-b prose-td:border-gray-100 prose-td:text-gray-700
               prose-tbody:divide-y prose-tbody:divide-gray-200
               prose-tr:hover:bg-gray-50 prose-tr:transition-colors
@@ -184,8 +184,8 @@ const serviceName = page.data.service
               <PremiumCard variant="elevated" padding="lg">
                 <div class="text-center">
                   <Badge variant="primary" class="mb-4">Get Service Now</Badge>
-                  <h3 class="text-2xl font-bold text-gray-900 mb-3">Need {serviceName}?</h3>
-                  <p class="text-gray-600 mb-6">Fast, reliable service from certified technicians</p>
+                  <h3 class="break-words text-2xl font-bold text-white mb-3">Need {serviceName}?</h3>
+                  <p class="text-gray-200 mb-6">Fast, reliable service from certified technicians</p>
                   
                   <div class="space-y-3">
                     <PremiumButton 
@@ -200,44 +200,44 @@ const serviceName = page.data.service
                       (940) 390-5676
                     </PremiumButton>
                     
-                    <Button href="/schedule" variant="outline" size="lg" class="w-full">
+                    <Button href="/contact" variant="outline" size="lg" class="w-full">
                       Schedule Online
                     </Button>
                   </div>
                   
                   <div class="mt-4 pt-4 border-t border-gray-200">
-                    <p class="text-xs text-gray-500">Available 24/7 for emergencies</p>
+                    <p class="text-xs text-gray-300">Available 24/7 for emergencies</p>
                   </div>
                 </div>
               </PremiumCard>
               
               <!-- Service Features -->
               <Card variant="elevated" padding="lg">
-                <h4 class="font-bold text-gray-900 mb-4 flex items-center">
+                <h4 class="min-w-0 font-bold text-white mb-4 flex items-center">
                   <Icon name="shield" size="lg" class="mr-2 text-primary-600" />
                   Service Guarantees
                 </h4>
                 <ul class="space-y-3">
-                  <li class="flex items-start">
-                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <li class="min-w-0 flex items-start">
+                    <svg class="w-5 h-5 mr-2 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     <span class="text-sm text-gray-700">100% Satisfaction Guarantee</span>
                   </li>
-                  <li class="flex items-start">
-                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <li class="min-w-0 flex items-start">
+                    <svg class="w-5 h-5 mr-2 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     <span class="text-sm text-gray-700">Licensed & Insured</span>
                   </li>
-                  <li class="flex items-start">
-                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <li class="min-w-0 flex items-start">
+                    <svg class="w-5 h-5 mr-2 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     <span class="text-sm text-gray-700">Upfront Pricing</span>
                   </li>
-                  <li class="flex items-start">
-                    <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <li class="min-w-0 flex items-start">
+                    <svg class="w-5 h-5 mr-2 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     <span class="text-sm text-gray-700">Same-Day Service</span>
@@ -247,22 +247,22 @@ const serviceName = page.data.service
 
               <!-- Trust Badges -->
               <Card variant="elevated" padding="md">
-                <div class="grid grid-cols-2 gap-4">
+                <div class="min-w-0 grid grid-cols-2 gap-4">
                   <div class="text-center">
-                    <div class="text-3xl font-bold text-primary-600">15+</div>
-                    <div class="text-xs text-gray-600">Years Experience</div>
+                    <div class="break-words text-3xl font-bold text-primary-600">15+</div>
+                    <div class="text-xs text-gray-200">Years Experience</div>
                   </div>
                   <div class="text-center">
-                    <div class="text-3xl font-bold text-primary-600">5.0</div>
-                    <div class="text-xs text-gray-600">Star Rating</div>
+                    <div class="break-words text-3xl font-bold text-primary-600">5.0</div>
+                    <div class="text-xs text-gray-200">Star Rating</div>
                   </div>
                   <div class="text-center">
-                    <div class="text-3xl font-bold text-primary-600">24/7</div>
-                    <div class="text-xs text-gray-600">Emergency Service</div>
+                    <div class="break-words text-3xl font-bold text-primary-600">24/7</div>
+                    <div class="text-xs text-gray-200">Emergency Service</div>
                   </div>
                   <div class="text-center">
-                    <div class="text-3xl font-bold text-primary-600">100%</div>
-                    <div class="text-xs text-gray-600">Guaranteed</div>
+                    <div class="break-words text-3xl font-bold text-primary-600">100%</div>
+                    <div class="text-xs text-gray-200">Guaranteed</div>
                   </div>
                 </div>
               </Card>
@@ -281,45 +281,45 @@ const serviceName = page.data.service
   />
 
   <!-- CTA Section with Enterprise Design -->
-  <section class="py-20 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 relative overflow-hidden">
+  <section class="section-full bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 relative overflow-hidden">
     <!-- Background Pattern -->
     <div class="absolute inset-0 opacity-10">
       <div class="absolute -top-40 -right-40 w-80 h-80 bg-white rounded-full"></div>
       <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white rounded-full"></div>
     </div>
     
-    <div class="container mx-auto px-4 relative z-10">
+    <div class="site-container relative z-10">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-12">
           <Badge variant="light" class="mb-4 bg-white/20 text-white border-white/30">
             Professional Service
           </Badge>
-          <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
+          <h2 class="break-words text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
             Ready to Schedule Your {serviceName}?
           </h2>
-          <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+          <p class="break-words text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
             Join thousands of satisfied customers who trust Jupitair HVAC for professional {serviceName.toLowerCase()} service in North Texas
           </p>
         </div>
         
         <!-- Stats Row -->
-        <div class="grid grid-cols-3 gap-8 mb-12 max-w-3xl mx-auto">
+        <div class="min-w-0 grid grid-cols-3 gap-8 mb-12 max-w-3xl mx-auto">
           <div class="text-center">
-            <div class="text-4xl md:text-5xl font-black text-white">15+</div>
+            <div class="break-words text-4xl md:text-5xl font-black text-white">15+</div>
             <div class="text-blue-200 text-sm">Years Experience</div>
           </div>
           <div class="text-center">
-            <div class="text-4xl md:text-5xl font-black text-white">24/7</div>
+            <div class="break-words text-4xl md:text-5xl font-black text-white">24/7</div>
             <div class="text-blue-200 text-sm">Emergency Service</div>
           </div>
           <div class="text-center">
-            <div class="text-4xl md:text-5xl font-black text-white">100%</div>
+            <div class="break-words text-4xl md:text-5xl font-black text-white">100%</div>
             <div class="text-blue-200 text-sm">Satisfaction</div>
           </div>
         </div>
         
         <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <div class="min-w-0 flex flex-col sm:flex-row gap-4 justify-center">
           <PremiumButton 
             href="tel:9403905676" 
             variant="premium"
@@ -332,8 +332,8 @@ const serviceName = page.data.service
             Call (940) 390-5676
           </PremiumButton>
           <PremiumButton 
-            href="/schedule" 
-            variant="glass"
+            href="/contact" 
+            variant="elevated"
             size="xl"
             class="min-w-[250px]"
           >
@@ -342,21 +342,21 @@ const serviceName = page.data.service
         </div>
         
         <!-- Trust Signals -->
-        <div class="mt-12 flex flex-wrap justify-center gap-8 text-white/80 text-sm">
-          <div class="flex items-center gap-2">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <div class="min-w-0 mt-12 flex flex-wrap justify-center gap-8 text-white/80 text-sm">
+          <div class="min-w-0 flex items-center gap-2">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
             Licensed & Insured
           </div>
-          <div class="flex items-center gap-2">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <div class="min-w-0 flex items-center gap-2">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
             Same-Day Service
           </div>
-          <div class="flex items-center gap-2">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <div class="min-w-0 flex items-center gap-2">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
             Upfront Pricing
@@ -367,17 +367,17 @@ const serviceName = page.data.service
   </section>
 
   <!-- Service Areas -->
-  <section class="py-12 bg-gray-50">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-gray-50">
+    <div class="site-container">
       <div class="max-w-4xl mx-auto text-center">
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">
+        <h3 class="break-words text-2xl font-bold text-white mb-4">
           Serving North Texas Communities
         </h3>
-        <div class="flex flex-wrap justify-center gap-3 text-sm">
+        <div class="min-w-0 flex flex-wrap justify-center gap-3 text-sm">
           {['Plano', 'Frisco', 'McKinney', 'Allen', 'The Colony', 'Richardson', 'Carrollton', 'Little Elm', 'Prosper'].map(city => (
             <a 
               href={`/${city.toLowerCase().replace(' ', '-')}`}
-              class="px-4 py-2 bg-white rounded-full border border-gray-200 hover:border-blue-500 hover:text-blue-600 transition-colors"
+              class="px-4 py-2 bg-white rounded-full border border-gray-200 hover:border-blue-500 hover:text-white transition-colors"
             >
               {city}
             </a>
@@ -496,7 +496,7 @@ const serviceName = page.data.service
 
   /* Strong text styling */
   article :global(strong) {
-    @apply text-gray-900 font-bold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent;
+    @apply text-white font-bold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent;
   }
 
   /* FAQ section styling */

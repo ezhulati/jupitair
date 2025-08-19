@@ -95,16 +95,16 @@ const schema = {
     ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
     ctaSecondary={{ text: "Get Chiller Quote", href: "/commercial/quote" }}
     variant="gradient"
-    height="lg"
+    height="lg" class="hero-section"
   />
 
   <!-- Key Metrics Bar -->
   <section class="bg-gray-900 py-8 border-b border-gray-800">
-    <div class="container mx-auto px-4">
+    <div class="site-container section-padding">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
         {metrics.map(metric => (
           <div>
-            <div class="text-3xl md:text-4xl font-bold text-primary-400">{metric.value}</div>
+            <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-primary-400">{metric.value}</div>
             <div class="text-sm text-gray-400 mt-1">{metric.label}</div>
           </div>
         ))}
@@ -113,28 +113,28 @@ const schema = {
   </section>
 
   <!-- Chiller Types & Pricing -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
           <Badge variant="primary" class="mb-4">System Options</Badge>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Commercial Chiller Solutions
           </h2>
-          <p class="text-xl text-gray-600">
+          <p class="text-lg sm:text-xl text-gray-600">
             Complete chiller systems for every commercial application
           </p>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {chillerTypes.map(chiller => (
             <PremiumCard variant="elevated" padding="lg" class="hover:shadow-2xl transition-all">
-              <h3 class="text-2xl font-bold text-gray-900 mb-3">{chiller.type}</h3>
-              <div class="text-3xl font-bold text-primary-600 mb-4">{chiller.range}</div>
+              <h3 class="text-lg sm:text-xl sm:text-2xl font-bold text-gray-900 mb-3">{chiller.type}</h3>
+              <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-600 mb-4">{chiller.range}</div>
               
               <div class="space-y-3 mb-6">
                 <div class="flex items-start">
-                  <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 mr-2 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <div>
@@ -142,7 +142,7 @@ const schema = {
                   </div>
                 </div>
                 <div class="flex items-start">
-                  <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 mr-2 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <div>
@@ -150,7 +150,7 @@ const schema = {
                   </div>
                 </div>
                 <div class="flex items-start">
-                  <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 mr-2 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <div>
@@ -170,22 +170,22 @@ const schema = {
   </section>
 
   <!-- Comprehensive Services -->
-  <section class="py-16 bg-gradient-to-br from-gray-50 to-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-gradient-to-br from-gray-50 to-white">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Complete Chiller Services
           </h2>
-          <p class="text-xl text-gray-600">
+          <p class="text-lg sm:text-xl text-gray-600">
             From installation to optimization, we handle it all
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map(service => (
             <Card variant="elevated" padding="lg" class="text-center hover:shadow-xl transition-shadow">
-              <div class="text-4xl mb-3">{service.icon}</div>
+              <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl mb-3">{service.icon}</div>
               <h3 class="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
               <p class="text-sm text-gray-600">{service.desc}</p>
             </Card>
@@ -196,13 +196,13 @@ const schema = {
   </section>
 
   <!-- Why Choose Jupitair -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <Badge variant="primary" class="mb-4">Why Jupitair</Badge>
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Chiller Expertise You Can Trust
             </h2>
             <p class="text-lg text-gray-600 mb-8">
@@ -233,14 +233,14 @@ const schema = {
           </div>
 
           <div class="bg-gray-900 text-white rounded-2xl p-8">
-            <h3 class="text-2xl font-bold mb-6">Technical Expertise</h3>
+            <h3 class="text-lg sm:text-xl sm:text-2xl font-bold mb-6">Technical Expertise</h3>
             
             <div class="mb-8">
               <h4 class="font-semibold mb-4 text-primary-400">Equipment We Service:</h4>
               <div class="grid grid-cols-2 gap-3">
                 {expertise.map(item => (
                   <div class="flex items-center">
-                    <svg class="w-4 h-4 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 mr-2 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                     </svg>
                     <span class="text-sm">{item}</span>
@@ -265,30 +265,30 @@ const schema = {
   </section>
 
   <!-- Energy Savings CTA -->
-  <section class="py-16 bg-gradient-to-r from-primary-600 to-primary-700 text-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-gradient-to-r from-primary-600 to-primary-700 text-white">
+    <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto text-center">
         <Badge variant="secondary" class="mb-4 bg-white text-primary-600">Energy Savings</Badge>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold mb-4">
           Upgrade to High-Efficiency Chillers
         </h2>
-        <p class="text-xl mb-8 text-primary-100">
+        <p class="text-lg sm:text-xl mb-8 text-primary-100">
           Modern chillers can reduce energy costs by 30-50% compared to systems 15+ years old
         </p>
 
-        <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-            <div class="text-3xl font-bold mb-2">0.45</div>
+            <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold mb-2">0.45</div>
             <div class="text-sm">kW/ton Efficiency</div>
             <div class="text-xs mt-2 text-primary-200">Magnetic Bearing</div>
           </div>
           <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-            <div class="text-3xl font-bold mb-2">50%</div>
+            <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold mb-2">50%</div>
             <div class="text-sm">Energy Reduction</div>
             <div class="text-xs mt-2 text-primary-200">vs. Old Systems</div>
           </div>
           <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-            <div class="text-3xl font-bold mb-2">3-5 yr</div>
+            <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold mb-2">3-5 yr</div>
             <div class="text-sm">ROI Period</div>
             <div class="text-xs mt-2 text-primary-200">With Rebates</div>
           </div>
@@ -307,33 +307,33 @@ const schema = {
   </section>
 
   <!-- Case Studies -->
-  <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-gray-50">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
           <Badge variant="primary" class="mb-4">Project Showcase</Badge>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Recent Chiller Projects
           </h2>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card variant="elevated" padding="lg">
-            <div class="text-2xl font-bold text-primary-600 mb-2">$1.2M</div>
+            <div class="text-lg sm:text-xl sm:text-2xl font-bold text-primary-600 mb-2">$1.2M</div>
             <h3 class="font-bold text-gray-900 mb-2">Medical Center</h3>
             <p class="text-sm text-gray-600 mb-3">800-ton water-cooled chiller replacement with zero downtime during operation</p>
             <div class="text-xs text-gray-500">Dallas, TX</div>
           </Card>
           
           <Card variant="elevated" padding="lg">
-            <div class="text-2xl font-bold text-primary-600 mb-2">$850K</div>
+            <div class="text-lg sm:text-xl sm:text-2xl font-bold text-primary-600 mb-2">$850K</div>
             <h3 class="font-bold text-gray-900 mb-2">Data Center</h3>
             <p class="text-sm text-gray-600 mb-3">Redundant 500-ton air-cooled chillers with N+1 configuration</p>
             <div class="text-xs text-gray-500">Plano, TX</div>
           </Card>
           
           <Card variant="elevated" padding="lg">
-            <div class="text-2xl font-bold text-primary-600 mb-2">$650K</div>
+            <div class="text-lg sm:text-xl sm:text-2xl font-bold text-primary-600 mb-2">$650K</div>
             <h3 class="font-bold text-gray-900 mb-2">Office Tower</h3>
             <p class="text-sm text-gray-600 mb-3">400-ton magnetic bearing chiller for LEED Gold certification</p>
             <div class="text-xs text-gray-500">Frisco, TX</div>
@@ -351,18 +351,18 @@ const schema = {
   />
 
   <!-- Final CTA -->
-  <section class="py-16 bg-gray-900 text-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-gray-900 text-white">
+    <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold mb-4">
           Ready to Discuss Your Chiller Project?
         </h2>
-        <p class="text-xl mb-8 text-gray-300">
+        <p class="text-lg sm:text-xl mb-8 text-gray-300">
           Expert consultation • Competitive pricing • Reliable service
         </p>
         
         <div class="bg-gray-800 rounded-2xl p-8 mb-8">
-          <div class="grid md:grid-cols-2 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h3 class="font-bold text-lg mb-3">Chiller Emergency?</h3>
               <Button href="tel:(940) 390-5676" variant="emergency" size="lg" class="w-full bg-emergency-600 hover:bg-emergency-700">

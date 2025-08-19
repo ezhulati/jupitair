@@ -341,6 +341,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+"frozen-evaporator-coil-enhanced.mdx": {
+	id: "frozen-evaporator-coil-enhanced.mdx";
+  slug: "frozen-evaporator-coil-enhanced";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
 "frozen-evaporator-coil.mdx": {
 	id: "frozen-evaporator-coil.mdx";
   slug: "frozen-evaporator-coil";
@@ -608,92 +615,14 @@ declare module 'astro:content' {
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
 };
-"pages": {
-"services/ac-installation.mdx": {
-	id: "services/ac-installation.mdx";
-  slug: "services/ac-installation";
+"pages": Record<string, {
+  id: string;
+  slug: string;
   body: string;
   collection: "pages";
-  data: InferEntrySchema<"pages">
-} & { render(): Render[".mdx"] };
-"services/ac-repair.mdx": {
-	id: "services/ac-repair.mdx";
-  slug: "services/ac-repair";
-  body: string;
-  collection: "pages";
-  data: InferEntrySchema<"pages">
-} & { render(): Render[".mdx"] };
-"services/commercial-hvac.mdx": {
-	id: "services/commercial-hvac.mdx";
-  slug: "services/commercial-hvac";
-  body: string;
-  collection: "pages";
-  data: InferEntrySchema<"pages">
-} & { render(): Render[".mdx"] };
-"services/duct-cleaning.mdx": {
-	id: "services/duct-cleaning.mdx";
-  slug: "services/duct-cleaning";
-  body: string;
-  collection: "pages";
-  data: InferEntrySchema<"pages">
-} & { render(): Render[".mdx"] };
-"services/duct-sealing.mdx": {
-	id: "services/duct-sealing.mdx";
-  slug: "services/duct-sealing";
-  body: string;
-  collection: "pages";
-  data: InferEntrySchema<"pages">
-} & { render(): Render[".mdx"] };
-"services/emergency-hvac.mdx": {
-	id: "services/emergency-hvac.mdx";
-  slug: "services/emergency-hvac";
-  body: string;
-  collection: "pages";
-  data: InferEntrySchema<"pages">
-} & { render(): Render[".mdx"] };
-"services/heat-pump-systems.mdx": {
-	id: "services/heat-pump-systems.mdx";
-  slug: "services/heat-pump-systems";
-  body: string;
-  collection: "pages";
-  data: InferEntrySchema<"pages">
-} & { render(): Render[".mdx"] };
-"services/heating-installation.mdx": {
-	id: "services/heating-installation.mdx";
-  slug: "services/heating-installation";
-  body: string;
-  collection: "pages";
-  data: InferEntrySchema<"pages">
-} & { render(): Render[".mdx"] };
-"services/heating-repair.mdx": {
-	id: "services/heating-repair.mdx";
-  slug: "services/heating-repair";
-  body: string;
-  collection: "pages";
-  data: InferEntrySchema<"pages">
-} & { render(): Render[".mdx"] };
-"services/indoor-air-quality.mdx": {
-	id: "services/indoor-air-quality.mdx";
-  slug: "services/indoor-air-quality";
-  body: string;
-  collection: "pages";
-  data: InferEntrySchema<"pages">
-} & { render(): Render[".mdx"] };
-"services/maintenance-plans.mdx": {
-	id: "services/maintenance-plans.mdx";
-  slug: "services/maintenance-plans";
-  body: string;
-  collection: "pages";
-  data: InferEntrySchema<"pages">
-} & { render(): Render[".mdx"] };
-"services/thermostat-installation.mdx": {
-	id: "services/thermostat-installation.mdx";
-  slug: "services/thermostat-installation";
-  body: string;
-  collection: "pages";
-  data: InferEntrySchema<"pages">
-} & { render(): Render[".mdx"] };
-};
+  data: InferEntrySchema<"pages">;
+  render(): Render[".md"];
+}>;
 
 	};
 

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PremiumHero from '../components/layout/PremiumHero.astro';
-import PremiumButton from '../components/ui/PremiumButton.astro';
+
 import PremiumCard from '../components/ui/PremiumCard.astro';
 import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
@@ -49,27 +49,27 @@ const aboutSchema = {
     subtitle="Your Trusted HVAC Partner Since 2008"
     description="15+ years of providing reliable heating and cooling solutions to North Texas families and businesses. Owner-operated for personalized service you can trust."
     ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
-    ctaSecondary={{ text: "Schedule Service", href: "/schedule" }}
+    ctaSecondary={{ text: "Get Quote", href: "/schedule" }}
     variant="gradient"
     height="md"
   />
   
   <!-- About Content Section -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Built on Trust, Driven by Comfort
           </h2>
-          <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+          <p class="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
             At Jupitair HVAC, we believe true comfort starts with trust. With years of HVAC expertise, we deliver innovative, reliable, and personalized solutions tailored to your needs.
           </p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-6">Our Mission</h3>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Our Mission</h3>
             <p class="text-gray-700 mb-6 leading-relaxed">
               We're dedicated to providing exceptional HVAC services that enhance the comfort and quality of life for families and businesses throughout North Texas. Every installation, repair, and maintenance visit is guided by our commitment to excellence and customer satisfaction.
             </p>
@@ -82,31 +82,31 @@ const aboutSchema = {
               <h4 class="text-xl font-bold text-gray-900 mb-4">Why Choose Jupitair?</h4>
               <ul class="space-y-3 text-gray-700">
                 <li class="flex items-center">
-                  <svg class="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 mr-2 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   15+ years of HVAC experience
                 </li>
                 <li class="flex items-center">
-                  <svg class="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 mr-2 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Licensed & insured technicians
                 </li>
                 <li class="flex items-center">
-                  <svg class="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 mr-2 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   24/7 emergency service
                 </li>
                 <li class="flex items-center">
-                  <svg class="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 mr-2 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Upfront, transparent pricing
                 </li>
                 <li class="flex items-center">
-                  <svg class="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 mr-2 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Comprehensive warranties
@@ -121,13 +121,13 @@ const aboutSchema = {
 
   <!-- Our Values -->
   <section class="py-16 lg:py-24 bg-gray-50">
-    <div class="container mx-auto px-4">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Our Core Values
           </h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
             These principles guide everything we do, from our first phone call to years of ongoing service.
           </p>
         </div>
@@ -135,36 +135,36 @@ const aboutSchema = {
         <div class="grid md:grid-cols-3 gap-8">
           <div class="text-center">
             <div class="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-10 h-10 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-10 h-10 mr-2 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-4">Reliability</h3>
-            <p class="text-gray-600 leading-relaxed">
+            <p class="text-gray-700 leading-relaxed">
               We show up when we say we will, complete work as promised, and stand behind our service with comprehensive warranties.
             </p>
           </div>
 
           <div class="text-center">
             <div class="w-20 h-20 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-10 h-10 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-10 h-10 mr-2 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
               </svg>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-4">Care</h3>
-            <p class="text-gray-600 leading-relaxed">
+            <p class="text-gray-700 leading-relaxed">
               Your comfort isn't just our job – it's our passion. We treat every home and business as if it were our own.
             </p>
           </div>
 
           <div class="text-center">
             <div class="w-20 h-20 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-10 h-10 text-success-600" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-10 h-10 mr-2 text-success-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
               </svg>
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-4">Excellence</h3>
-            <p class="text-gray-600 leading-relaxed">
+            <p class="text-gray-700 leading-relaxed">
               We continuously invest in training, tools, and technology to deliver the highest quality HVAC services in North Texas.
             </p>
           </div>
@@ -175,13 +175,13 @@ const aboutSchema = {
 
   <!-- Service Areas -->
   <section class="py-16 lg:py-24 bg-white">
-    <div class="container mx-auto px-4">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Serving North Texas Communities
           </h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p class="text-xl text-gray-700 max-w-3xl mx-auto">
             We're proud to serve 8 cities across North Texas, bringing reliable HVAC services to your neighborhood.
           </p>
         </div>
@@ -189,42 +189,42 @@ const aboutSchema = {
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
           <a href="/frisco" class="group p-6 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-all duration-200">
             <h3 class="font-bold text-gray-900 group-hover:text-primary-600 mb-2">Frisco</h3>
-            <p class="text-sm text-gray-600">205,000+ residents</p>
+            <p class="text-sm text-gray-700">205,000+ residents</p>
             <p class="text-xs text-primary-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">View services →</p>
           </a>
           <a href="/plano" class="group p-6 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-all duration-200">
             <h3 class="font-bold text-gray-900 group-hover:text-primary-600 mb-2">Plano</h3>
-            <p class="text-sm text-gray-600">285,000+ residents</p>
+            <p class="text-sm text-gray-700">285,000+ residents</p>
             <p class="text-xs text-primary-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">View services →</p>
           </a>
           <a href="/mckinney" class="group p-6 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-all duration-200">
             <h3 class="font-bold text-gray-900 group-hover:text-primary-600 mb-2">McKinney</h3>
-            <p class="text-sm text-gray-600">195,000+ residents</p>
+            <p class="text-sm text-gray-700">195,000+ residents</p>
             <p class="text-xs text-primary-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">View services →</p>
           </a>
           <a href="/allen" class="group p-6 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-all duration-200">
             <h3 class="font-bold text-gray-900 group-hover:text-primary-600 mb-2">Allen</h3>
-            <p class="text-sm text-gray-600">105,000+ residents</p>
+            <p class="text-sm text-gray-700">105,000+ residents</p>
             <p class="text-xs text-primary-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">View services →</p>
           </a>
           <a href="/prosper" class="group p-6 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-all duration-200">
             <h3 class="font-bold text-gray-900 group-hover:text-primary-600 mb-2">Prosper</h3>
-            <p class="text-sm text-gray-600">30,000+ residents</p>
+            <p class="text-sm text-gray-700">30,000+ residents</p>
             <p class="text-xs text-primary-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">View services →</p>
           </a>
           <a href="/the-colony" class="group p-6 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-all duration-200">
             <h3 class="font-bold text-gray-900 group-hover:text-primary-600 mb-2">The Colony</h3>
-            <p class="text-sm text-gray-600">44,000+ residents</p>
+            <p class="text-sm text-gray-700">44,000+ residents</p>
             <p class="text-xs text-primary-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">View services →</p>
           </a>
           <a href="/little-elm" class="group p-6 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-all duration-200">
             <h3 class="font-bold text-gray-900 group-hover:text-primary-600 mb-2">Little Elm</h3>
-            <p class="text-sm text-gray-600">51,000+ residents</p>
+            <p class="text-sm text-gray-700">51,000+ residents</p>
             <p class="text-xs text-primary-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">View services →</p>
           </a>
           <a href="/addison" class="group p-6 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-all duration-200">
             <h3 class="font-bold text-gray-900 group-hover:text-primary-600 mb-2">Addison</h3>
-            <p class="text-sm text-gray-600">16,000+ residents</p>
+            <p class="text-sm text-gray-700">16,000+ residents</p>
             <p class="text-xs text-primary-600 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">View services →</p>
           </a>
         </div>
@@ -234,10 +234,10 @@ const aboutSchema = {
 
   <!-- Stats -->
   <section class="py-16 lg:py-24 bg-primary-600 text-white">
-    <div class="container mx-auto px-4">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          <h2 class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold mb-6">
             Trusted by North Texas
           </h2>
           <p class="text-xl text-blue-100 max-w-3xl mx-auto">
@@ -247,19 +247,19 @@ const aboutSchema = {
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div class="text-center">
-            <div class="text-4xl md:text-5xl font-bold mb-2">15+</div>
+            <div class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl md:text-5xl font-bold mb-2">15+</div>
             <div class="text-blue-100">Years of Excellence</div>
           </div>
           <div class="text-center">
-            <div class="text-4xl md:text-5xl font-bold mb-2">70K+</div>
+            <div class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl md:text-5xl font-bold mb-2">70K+</div>
             <div class="text-blue-100">Satisfied Customers</div>
           </div>
           <div class="text-center">
-            <div class="text-4xl md:text-5xl font-bold mb-2">8</div>
+            <div class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl md:text-5xl font-bold mb-2">8</div>
             <div class="text-blue-100">Cities Served</div>
           </div>
           <div class="text-center">
-            <div class="text-4xl md:text-5xl font-bold mb-2">45K+</div>
+            <div class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl md:text-5xl font-bold mb-2">45K+</div>
             <div class="text-blue-100">Systems Installed</div>
           </div>
         </div>
@@ -269,12 +269,12 @@ const aboutSchema = {
 
   <!-- Contact CTA -->
   <section class="py-16 lg:py-24 bg-gray-50">
-    <div class="container mx-auto px-4">
+    <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        <h2 class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
           Experience the Jupitair Difference
         </h2>
-        <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+        <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
           Ready to experience the comfort and peace of mind that comes with professional HVAC service? Contact us today for your free estimate.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">

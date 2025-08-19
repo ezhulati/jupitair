@@ -36,24 +36,24 @@ const benefits = [
     ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
     ctaSecondary={{ text: "Get Free Quote", href: "/contact?service=restaurant-hvac" }}
     variant="gradient"
-    height="lg"
+    height="lg" class="hero-section"
   />
 
   <!-- Services Grid -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
           <Badge variant="primary" class="mb-4">Our Services</Badge>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Restaurant HVAC Solutions
           </h2>
-          <p class="text-xl text-gray-600">
+          <p class="text-lg sm:text-xl text-gray-600">
             From kitchen exhaust to dining comfort, we handle it all
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map(service => (
             <Card variant="elevated" padding="lg">
               <h3 class="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
@@ -67,16 +67,16 @@ const benefits = [
   </section>
 
   <!-- Why Choose Us -->
-  <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-gray-50">
+    <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Why Restaurants Choose Jupitair
           </h2>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map(benefit => (
             <div class="text-center">
               <div class="mb-4 text-primary-600 flex justify-center">
@@ -92,13 +92,13 @@ const benefits = [
   </section>
 
   <!-- CTA -->
-  <section class="py-16 bg-primary-600 text-white">
-    <div class="container mx-auto px-4">
+  <section class="section-full bg-primary-600 text-white">
+    <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold mb-4">
           Keep Your Restaurant Comfortable
         </h2>
-        <p class="text-xl mb-8 text-primary-100">
+        <p class="text-lg sm:text-xl mb-8 text-primary-100">
           Professional HVAC service that understands restaurant needs
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">

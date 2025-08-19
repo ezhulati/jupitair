@@ -1,11 +1,6 @@
 ---
 import Button from '../ui/Button.astro';
-import reviewsData from '../../data/reviews.json';
 
-const avgRating = reviewsData.averageRating;
-const totalReviews = reviewsData.totalReviews;
-
-// All service areas in priority order
 const cities = [
   { name: 'Frisco', slug: 'frisco' },
   { name: 'Plano', slug: 'plano' },
@@ -18,213 +13,603 @@ const cities = [
 ];
 ---
 
-<header class="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 transition-all duration-300">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl">
-    <!-- Top bar with contact info -->
-    <div class="bg-gradient-to-r from-gray-50 to-gray-100 py-2.5 hidden md:block">
+<style>
+  .nav-dropdown {
+    position: fixed !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 2147483647 !important;
+  }
+  
+  .nav-item:hover .nav-dropdown,
+  .nav-item:focus-within .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .mobile-menu {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .nav-dropdown {
+      border-width: 2px !important;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .nav-dropdown,
+    .mobile-menu {
+      transition: none !important;
+    }
+  }
+</style>
+
+<!-- Skip to main content link for accessibility -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-600 text-white px-4 py-2 rounded z-[99999]">
+  Skip to main content
+</a>
+
+<!-- Header -->
+<header 
+  class="bg-white shadow-lg fixed top-0 left-0 right-0 z-[99998] transition-transform duration-300" 
+  id="main-header"
+  role="banner"
+>
+  <!-- Top Bar - Full width background, contained content -->
+  <div class="bg-primary-600 text-white py-2 hidden md:block">
+    <div class="header-container">
       <div class="flex justify-between items-center text-sm">
-        <div class="flex items-center gap-8">
-          <span class="text-gray-500 font-light">Licensed & Insured</span>
-          <span class="text-gray-500 font-light">Serving North Texas Since 2008</span>
-        </div>
-        <div class="flex items-center gap-6">
-          <a href="tel:(940) 390-5676" class="text-gray-900 hover:text-primary-600 font-medium transition-colors flex items-center gap-2">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <span class="font-medium">Licensed & Insured • Serving North Texas Since 2008</span>
+        <div class="flex items-center gap-4">
+          <a 
+            href="tel:(940) 390-5676" 
+            class="flex items-center gap-2 hover:text-blue-200 transition-colors font-semibold"
+            aria-label="Call Jupitair HVAC at (940) 390-5676"
+          >
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
             </svg>
             (940) 390-5676
           </a>
-          <span class="bg-emergency-100 text-emergency-700 px-3 py-1 rounded-full text-xs font-medium" data-emergency-cta>24/7 Emergency</span>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Main navigation -->
-    <nav class="py-3 lg:py-4" aria-label="Main navigation">
-      <div class="flex items-center justify-between">
-        <!-- Logo -->
-        <div class="flex items-center">
-          <a href="/" class="group">
-            <img 
-              src="/images/logo-color.png" 
-              alt="Jupitair HVAC"
-              class="h-20 sm:h-24 lg:h-28 w-auto transition-transform duration-200 group-hover:scale-105"
-            />
-          </a>
-        </div>
-        
-        <!-- Desktop Navigation -->
-        <div class="hidden lg:flex items-center gap-1">
-          <!-- Residential Services Dropdown -->
-          <div class="relative group">
-            <button class="flex items-center gap-1.5 px-4 py-2.5 text-gray-700 hover:text-primary-600 font-medium rounded-lg hover:bg-gray-50 transition-all duration-200">
-              <span>Residential</span>
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-              </svg>
-            </button>
-            <div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-              <div class="p-3">
-                <a href="/services" class="block px-4 py-3 text-sm font-semibold text-gray-900 hover:bg-gray-50 rounded-lg transition-colors">View All Services →</a>
-                <div class="h-px bg-gray-100 my-2"></div>
-                <a href="/services/ac-repair" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors">AC Repair</a>
-                <a href="/services/heating-repair" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors">Heating Repair</a>
-                <a href="/services/ac-installation" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors">AC Installation</a>
-                <a href="/services/maintenance-plans" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors">Maintenance Plans</a>
-                <a href="/services/emergency-hvac" class="block px-4 py-2.5 text-sm text-emergency-600 font-medium hover:bg-emergency-50 rounded-lg transition-colors">
-                  <span class="flex items-center gap-2">
-                    <span class="relative flex h-2 w-2">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emergency-400 opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-2 w-2 bg-emergency-500"></span>
-                    </span>
-                    24/7 Emergency
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Commercial Dropdown -->
-          <div class="relative group">
-            <button class="flex items-center gap-1.5 px-4 py-2.5 text-gray-700 hover:text-primary-600 font-medium rounded-lg hover:bg-gray-50 transition-all duration-200">
-              <span>Commercial</span>
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-              </svg>
-            </button>
-            <div class="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-              <div class="p-3">
-                <a href="/services/commercial-hvac" class="block px-4 py-3 text-sm font-semibold text-gray-900 hover:bg-gray-50 rounded-lg transition-colors">View Commercial Services →</a>
-                <div class="h-px bg-gray-100 my-2"></div>
-                <a href="/commercial/restaurant-hvac" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors group">
-                  <span class="font-medium block">Restaurant HVAC</span>
-                  <span class="text-xs text-gray-500 mt-0.5 block">$15K - $40K</span>
-                </a>
-                <a href="/commercial/retail-hvac" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors group">
-                  <span class="font-medium block">Retail & Strip Mall</span>
-                  <span class="text-xs text-gray-500 mt-0.5 block">$8K - $30K</span>
-                </a>
-                <a href="/commercial/office-hvac" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors group">
-                  <span class="font-medium block">Small Office Buildings</span>
-                  <span class="text-xs text-gray-500 mt-0.5 block">$15K - $50K</span>
-                </a>
-                <a href="/commercial/rtu-replacement" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors group">
-                  <span class="font-medium block">RTU Replacement</span>
-                  <span class="text-xs text-gray-500 mt-0.5 block">$8K - $45K</span>
-                </a>
-                <a href="/commercial/preventive-maintenance" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors group">
-                  <span class="font-medium block">Maintenance Programs</span>
-                  <span class="text-xs text-gray-500 mt-0.5 block">From $199/month</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Service Areas Dropdown -->
-          <div class="relative group">
-            <button class="flex items-center gap-1.5 px-4 py-2.5 text-gray-700 hover:text-primary-600 font-medium rounded-lg hover:bg-gray-50 transition-all duration-200">
-              <span>Service Areas</span>
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-              </svg>
-            </button>
-            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-              <div class="p-3 space-y-1">
-                {cities.map(city => (
-                  <a href={`/${city.slug}`} class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600 rounded-lg transition-colors">{city.name}, TX</a>
-                ))}
-              </div>
-            </div>
-          </div>
-          
-          <a href="/about" class="px-4 py-2.5 text-gray-700 hover:text-primary-600 font-medium rounded-lg hover:bg-gray-50 transition-all duration-200">About</a>
-          <a href="/schedule" class="px-4 py-2.5 text-gray-700 hover:text-primary-600 font-medium rounded-lg hover:bg-gray-50 transition-all duration-200">Schedule</a>
-          <a href="/blog" class="px-4 py-2.5 text-gray-700 hover:text-primary-600 font-medium rounded-lg hover:bg-gray-50 transition-all duration-200">Blog</a>
-          <a href="/contact" class="px-4 py-2.5 text-gray-700 hover:text-primary-600 font-medium rounded-lg hover:bg-gray-50 transition-all duration-200">Contact</a>
-        </div>
-        
-        <!-- CTA Button -->
-        <div class="hidden lg:flex items-center gap-3 ml-4">
-          <Button href="/schedule" size="lg" class="bg-primary-600 text-white hover:bg-primary-700 px-8 py-3 rounded-lg font-semibold shadow-sm hover:shadow-md transition-all duration-200">
-            Get Quote
-          </Button>
-        </div>
-        
-        <!-- Mobile menu button -->
-        <button class="lg:hidden p-2.5 text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-200" id="mobile-menu-button" aria-label="Toggle mobile menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-          <span class="sr-only">Open mobile menu</span>
-        </button>
-      </div>
-    </nav>
-    
-    <!-- Mobile menu -->
-    <div class="lg:hidden hidden bg-white/95 backdrop-blur-md border-t border-gray-100" id="mobile-menu">
-      <div class="py-4 max-h-[calc(100vh-80px)] overflow-y-auto">
-        <!-- Emergency contact for mobile -->
-        <div class="mb-4 mx-4 p-4 bg-gradient-to-r from-emergency-50 to-emergency-100 rounded-xl">
-          <a href="tel:(940) 390-5676" class="block text-center" data-emergency="true">
-            <div class="flex items-center justify-center gap-2 mb-1">
-              <span class="relative flex h-3 w-3">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emergency-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-emergency-500"></span>
-              </span>
-              <span class="text-emergency-700 font-bold text-lg">Emergency Service</span>
-            </div>
-            <span class="text-emergency-600 text-sm" data-emergency-cta>(940) 390-5676 • Available 24/7</span>
-          </a>
-        </div>
-        
-        <!-- Services -->
-        <div class="mb-4 px-4">
-          <h3 class="font-semibold text-gray-900 mb-3 text-sm uppercase tracking-wider">Services</h3>
-          <div class="space-y-1">
-            <a href="/services/ac-repair" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">AC Repair</a>
-            <a href="/services/furnace-repair" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">Heating Repair</a>
-            <a href="/services/ac-installation" class="block px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">HVAC Installation</a>
-            <a href="/services/emergency-ac-repair" class="block px-4 py-3 text-emergency-600 font-medium hover:bg-emergency-50 rounded-lg transition-colors">Emergency Service</a>
-          </div>
-        </div>
-        
-        <!-- Service Areas -->
-        <div class="mb-4">
-          <h3 class="font-semibold text-gray-900 mb-2 px-4">Service Areas</h3>
-          {cities.map(city => (
-            <a href={`/${city.slug}`} class="block px-4 py-2 text-gray-700 hover:bg-primary-50 rounded-lg transition-colors duration-200">{city.name}</a>
-          ))}
-        </div>
-        
-        <!-- Other links -->
-        <div class="border-t border-gray-200 pt-4">
-          <a href="/about" class="block px-4 py-2 text-gray-700 hover:bg-primary-50">About</a>
-          <a href="/schedule" class="block px-4 py-2 text-gray-700 hover:bg-primary-50">Schedule Service</a>
-          <a href="/contact" class="block px-4 py-2 text-gray-700 hover:bg-primary-50">Contact</a>
-          <a href="/blog" class="block px-4 py-2 text-gray-700 hover:bg-primary-50">Blog</a>
-        </div>
-        
-        <!-- CTA -->
-        <div class="px-4 pt-6 pb-4 border-t border-gray-200">
-          <Button href="/schedule" variant="primary" size="lg" class="w-full justify-center shadow-lg">
-            Schedule Service
-          </Button>
+          <span 
+            class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse" 
+            data-emergency-cta
+            role="status"
+            aria-label="24/7 Emergency service available"
+          >
+            24/7 EMERGENCY
+          </span>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Main Navigation - Contained -->
+  <nav class="py-0.5" role="navigation" aria-label="Main navigation">
+    <div class="header-container">
+      <div class="flex items-center justify-between">
+        
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="/" class="block" aria-label="Jupitair HVAC - Home">
+            <img 
+              src="/images/logo-color.png" 
+              alt="Jupitair HVAC Logo" 
+              class="h-24 w-auto hover:scale-105 transition-transform duration-200"
+              loading="eager"
+            />
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex items-center space-x-8" role="menubar">
+          
+          <!-- Residential Services -->
+          <div class="relative nav-item group" role="none">
+            <button 
+              class="flex items-center px-3 py-2 text-gray-700 hover:text-primary-600 focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded"
+              role="menuitem"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="residential-dropdown"
+              id="residential-trigger"
+            >
+              Residential
+              <svg class="ml-1 w-4 h-4 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            
+            <div 
+              class="w-80 bg-white rounded-lg shadow-2xl border border-gray-100 nav-dropdown"
+              role="menu"
+              aria-labelledby="residential-trigger"
+              id="residential-dropdown"
+            >
+              <div class="p-6">
+                <div class="mb-4">
+                  <a 
+                    href="/services" 
+                    class="flex items-center justify-between px-4 py-3 text-sm font-bold text-primary-600 hover:bg-primary-50 focus:bg-primary-50 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset"
+                    role="menuitem"
+                  >
+                    <span>View All Services</span>
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                  </a>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-2" role="group" aria-label="Residential services">
+                  <a href="/services/ac-repair" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 focus:bg-gray-50 hover:text-primary-600 focus:text-primary-600 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset" role="menuitem">AC Repair</a>
+                  <a href="/services/heating-repair" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 focus:bg-gray-50 hover:text-primary-600 focus:text-primary-600 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset" role="menuitem">Heating Repair</a>
+                  <a href="/services/ac-installation" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 focus:bg-gray-50 hover:text-primary-600 focus:text-primary-600 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset" role="menuitem">AC Installation</a>
+                  <a href="/services/heating-installation" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 focus:bg-gray-50 hover:text-primary-600 focus:text-primary-600 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset" role="menuitem">Heating Install</a>
+                  <a href="/services/maintenance-plans" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 focus:bg-gray-50 hover:text-primary-600 focus:text-primary-600 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset" role="menuitem">Maintenance</a>
+                  <a href="/services/indoor-air-quality" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 focus:bg-gray-50 hover:text-primary-600 focus:text-primary-600 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset" role="menuitem">Air Quality</a>
+                </div>
+                
+                <div class="mt-4 pt-3 border-t border-gray-100">
+                  <a 
+                    href="/services/emergency-hvac" 
+                    class="flex items-center px-3 py-2 text-sm text-red-600 font-bold hover:bg-red-50 focus:bg-red-50 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-inset"
+                    role="menuitem"
+                  >
+                    <span class="flex h-2 w-2 mr-2" aria-hidden="true">
+                      <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-red-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                    </span>
+                    24/7 Emergency Service
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Commercial -->
+          <div class="relative nav-item group" role="none">
+            <button 
+              class="flex items-center px-3 py-2 text-gray-700 hover:text-primary-600 focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded"
+              role="menuitem"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="commercial-dropdown"
+              id="commercial-trigger"
+            >
+              Commercial
+              <svg class="ml-1 w-4 h-4 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            
+            <div 
+              class="w-96 bg-white rounded-lg shadow-2xl border border-gray-100 nav-dropdown"
+              role="menu"
+              aria-labelledby="commercial-trigger"
+              id="commercial-dropdown"
+            >
+              <div class="p-6">
+                <div class="mb-4">
+                  <a 
+                    href="/services/commercial-hvac" 
+                    class="flex items-center justify-between px-4 py-3 text-sm font-bold text-primary-600 hover:bg-primary-50 focus:bg-primary-50 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset"
+                    role="menuitem"
+                  >
+                    <span>Commercial HVAC Services</span>
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                  </a>
+                </div>
+                
+                <div class="space-y-2" role="group" aria-label="Commercial services">
+                  <a 
+                    href="/commercial/restaurant-hvac" 
+                    class="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 focus:bg-gray-50 hover:text-primary-600 focus:text-primary-600 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset"
+                    role="menuitem"
+                  >
+                    <div>
+                      <div class="font-semibold">Restaurant HVAC</div>
+                      <div class="text-xs text-gray-500">Kitchen ventilation & dining comfort</div>
+                    </div>
+                    <span class="text-xs text-green-600 font-bold bg-green-50 px-2 py-1 rounded" aria-label="Price range $15,000 to $40,000">$15K-$40K</span>
+                  </a>
+                  
+                  <a 
+                    href="/commercial/retail-hvac" 
+                    class="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 focus:bg-gray-50 hover:text-primary-600 focus:text-primary-600 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset"
+                    role="menuitem"
+                  >
+                    <div>
+                      <div class="font-semibold">Retail & Strip Mall</div>
+                      <div class="text-xs text-gray-500">Multi-zone climate systems</div>
+                    </div>
+                    <span class="text-xs text-green-600 font-bold bg-green-50 px-2 py-1 rounded" aria-label="Price range $8,000 to $30,000">$8K-$30K</span>
+                  </a>
+                  
+                  <a 
+                    href="/commercial/office-hvac" 
+                    class="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 focus:bg-gray-50 hover:text-primary-600 focus:text-primary-600 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset"
+                    role="menuitem"
+                  >
+                    <div>
+                      <div class="font-semibold">Office Buildings</div>
+                      <div class="text-xs text-gray-500">Professional climate control</div>
+                    </div>
+                    <span class="text-xs text-green-600 font-bold bg-green-50 px-2 py-1 rounded" aria-label="Price range $15,000 to $50,000">$15K-$50K</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Areas -->
+          <div class="relative nav-item group" role="none">
+            <button 
+              class="flex items-center px-3 py-2 text-gray-700 hover:text-primary-600 focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded"
+              role="menuitem"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="areas-dropdown"
+              id="areas-trigger"
+            >
+              Service Areas
+              <svg class="ml-1 w-4 h-4 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+            
+            <div 
+              class="w-64 bg-white rounded-lg shadow-2xl border border-gray-100 nav-dropdown"
+              role="menu"
+              aria-labelledby="areas-trigger"
+              id="areas-dropdown"
+            >
+              <div class="p-6">
+                <div class="mb-3">
+                  <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider">North Texas Cities</h4>
+                </div>
+                <div class="grid grid-cols-2 gap-1" role="group" aria-label="Service areas">
+                  {cities.map(city => (
+                    <a 
+                      href={`/${city.slug}`} 
+                      class="block px-3 py-2 text-sm text-gray-700 hover:bg-primary-50 focus:bg-primary-50 hover:text-primary-600 focus:text-primary-600 rounded-lg transition-colors text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset" 
+                      role="menuitem"
+                    >
+                      {city.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Regular Links -->
+          <a href="/about" class="px-3 py-2 text-gray-700 hover:text-primary-600 focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded" role="menuitem">About</a>
+          <a href="/blog" class="px-3 py-2 text-gray-700 hover:text-primary-600 focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded" role="menuitem">Blog</a>
+          <a href="/contact" class="px-3 py-2 text-gray-700 hover:text-primary-600 focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded" role="menuitem">Contact</a>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="hidden lg:flex items-center ml-6">
+          <Button 
+            href="/contact" 
+            variant="primary" 
+            size="lg"
+            class="bg-primary-600 hover:bg-primary-700 text-white font-bold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+            ariaLabel="Get free HVAC quote"
+          >
+            Get Free Quote
+          </Button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="lg:hidden">
+          <button 
+            type="button" 
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            id="mobile-menu-btn"
+          >
+            <span class="sr-only">Open main menu</span>
+            <!-- Hamburger icon -->
+            <svg class="h-6 w-6" id="hamburger" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
 </header>
 
+<!-- Mobile Menu Overlay -->
+<div class="lg:hidden fixed inset-0 z-[99997] opacity-0 invisible transition-all duration-300" id="mobile-overlay" aria-hidden="true">
+  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+</div>
+
+<!-- Mobile Menu -->
+<div class="lg:hidden fixed top-0 left-0 h-full w-80 bg-white z-[99998] mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="flex flex-col h-full">
+    <!-- Mobile Menu Header -->
+    <div class="flex items-center justify-between p-4 border-b border-gray-200">
+      <img src="/images/logo-color.png" alt="Jupitair HVAC" class="h-12" />
+      <button type="button" class="p-2 rounded-md text-gray-700 hover:text-primary-600" id="mobile-close">
+        <span class="sr-only">Close menu</span>
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Content -->
+    <div class="flex-1 overflow-y-auto py-6">
+      <nav class="space-y-1 px-4">
+        <!-- Residential Services -->
+        <div class="space-y-1">
+          <h3 class="px-3 py-2 text-sm font-semibold text-gray-900 uppercase tracking-wider">Residential</h3>
+          <a href="/services" class="block px-3 py-2 text-base text-primary-600 font-medium hover:bg-primary-50 rounded-md">View All Services</a>
+          <a href="/services/ac-repair" class="block px-3 py-2 text-base text-gray-700 hover:bg-gray-50 rounded-md">AC Repair</a>
+          <a href="/services/heating-repair" class="block px-3 py-2 text-base text-gray-700 hover:bg-gray-50 rounded-md">Heating Repair</a>
+          <a href="/services/ac-installation" class="block px-3 py-2 text-base text-gray-700 hover:bg-gray-50 rounded-md">AC Installation</a>
+          <a href="/services/heating-installation" class="block px-3 py-2 text-base text-gray-700 hover:bg-gray-50 rounded-md">Heating Installation</a>
+          <a href="/services/maintenance-plans" class="block px-3 py-2 text-base text-gray-700 hover:bg-gray-50 rounded-md">Maintenance</a>
+          <a href="/services/indoor-air-quality" class="block px-3 py-2 text-base text-gray-700 hover:bg-gray-50 rounded-md">Air Quality</a>
+          <a href="/services/emergency-hvac" class="block px-3 py-2 text-base text-red-600 font-medium hover:bg-red-50 rounded-md">24/7 Emergency</a>
+        </div>
+
+        <!-- Commercial -->
+        <div class="space-y-1 pt-4">
+          <h3 class="px-3 py-2 text-sm font-semibold text-gray-900 uppercase tracking-wider">Commercial</h3>
+          <a href="/services/commercial-hvac" class="block px-3 py-2 text-base text-primary-600 font-medium hover:bg-primary-50 rounded-md">Commercial HVAC</a>
+          <a href="/commercial/restaurant-hvac" class="block px-3 py-2 text-base text-gray-700 hover:bg-gray-50 rounded-md">Restaurant HVAC</a>
+          <a href="/commercial/retail-hvac" class="block px-3 py-2 text-base text-gray-700 hover:bg-gray-50 rounded-md">Retail & Strip Mall</a>
+          <a href="/commercial/office-hvac" class="block px-3 py-2 text-base text-gray-700 hover:bg-gray-50 rounded-md">Office Buildings</a>
+        </div>
+
+        <!-- Service Areas -->
+        <div class="space-y-1 pt-4">
+          <h3 class="px-3 py-2 text-sm font-semibold text-gray-900 uppercase tracking-wider">Service Areas</h3>
+          {cities.map(city => (
+            <a href={`/${city.slug}`} class="block px-3 py-2 text-base text-gray-700 hover:bg-gray-50 rounded-md">{city.name}</a>
+          ))}
+        </div>
+
+        <!-- Main Links -->
+        <div class="space-y-1 pt-4 border-t border-gray-200">
+          <a href="/about" class="block px-3 py-2 text-base text-gray-700 hover:bg-gray-50 rounded-md">About</a>
+          <a href="/blog" class="block px-3 py-2 text-base text-gray-700 hover:bg-gray-50 rounded-md">Blog</a>
+          <a href="/contact" class="block px-3 py-2 text-base text-gray-700 hover:bg-gray-50 rounded-md">Contact</a>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Mobile Menu Footer -->
+    <div class="border-t border-gray-200 p-4 space-y-4">
+      <a 
+        href="/contact" 
+        class="block w-full bg-primary-600 text-white text-center px-4 py-3 rounded-md font-bold hover:bg-primary-700 transition-colors"
+      >
+        Get Free Quote
+      </a>
+      <a 
+        href="tel:(940) 390-5676" 
+        class="flex items-center justify-center gap-2 text-primary-600 font-bold"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+        </svg>
+        (940) 390-5676
+      </a>
+    </div>
+  </div>
+</div>
+
 <script>
-  // Mobile menu toggle
   document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    // Mobile menu functionality
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    const mobileClose = document.getElementById('mobile-close');
+    const hamburger = document.getElementById('hamburger');
+
+    function openMobileMenu() {
+      mobileMenu.classList.add('open');
+      mobileOverlay.classList.remove('opacity-0', 'invisible');
+      hamburger.classList.add('hidden');
+      document.body.style.overflow = 'hidden';
+      
+      // Update ARIA attributes
+      mobileMenuBtn.setAttribute('aria-expanded', 'true');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      
+      // Focus the first focusable element in the menu
+      const firstFocusable = mobileMenu.querySelector('button, a, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (firstFocusable) {
+        firstFocusable.focus();
+      }
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      mobileOverlay.classList.add('opacity-0', 'invisible');
+      hamburger.classList.remove('hidden');
+      document.body.style.overflow = '';
+      
+      // Update ARIA attributes
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      
+      // Return focus to menu button
+      mobileMenuBtn.focus();
+    }
+
+    mobileMenuBtn.addEventListener('click', function() {
+      if (mobileMenu.classList.contains('open')) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+
+    mobileClose.addEventListener('click', closeMobileMenu);
+    mobileOverlay.addEventListener('click', closeMobileMenu);
+
+    // Close menu when clicking on links
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Handle escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        closeMobileMenu();
+      }
+    });
+
+    // Trap focus within mobile menu when open
+    function trapFocus(e) {
+      if (!mobileMenu.classList.contains('open')) return;
+      
+      const focusableElements = mobileMenu.querySelectorAll(
+        'button, a, input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (e.key === 'Tab') {
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
+    }
+
+    document.addEventListener('keydown', trapFocus);
+
+    // Enhanced dropdown functionality for desktop
+    const navButtons = document.querySelectorAll('.nav-item button');
     
-    if (mobileMenuButton && mobileMenu) {
-      mobileMenuButton.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
+    navButtons.forEach(button => {
+      const dropdown = button.nextElementSibling;
+      
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        
+        // Close all other dropdowns
+        navButtons.forEach(otherButton => {
+          if (otherButton !== button) {
+            otherButton.setAttribute('aria-expanded', 'false');
+          }
+        });
+        
+        // Toggle current dropdown
+        button.setAttribute('aria-expanded', (!isExpanded).toString());
+        
+        if (!isExpanded && dropdown) {
+          // Position dropdown
+          const rect = button.getBoundingClientRect();
+          dropdown.style.top = (rect.bottom + window.scrollY) + 'px';
+          dropdown.style.left = rect.left + 'px';
+          
+          // Focus first link in dropdown
+          const firstLink = dropdown.querySelector('a');
+          if (firstLink) {
+            setTimeout(() => firstLink.focus(), 100);
+          }
+        }
+      });
+
+      // Handle keyboard navigation
+      button.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          button.click();
+        }
+      });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.nav-item')) {
+        navButtons.forEach(button => {
+          button.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+
+    // Position fixed dropdowns correctly
+    function positionDropdowns() {
+      const navItems = document.querySelectorAll('.nav-item');
+      
+      navItems.forEach(item => {
+        const dropdown = item.querySelector('.nav-dropdown');
+        if (dropdown) {
+          item.addEventListener('mouseenter', function() {
+            const rect = item.getBoundingClientRect();
+            dropdown.style.top = (rect.bottom + window.scrollY) + 'px';
+            dropdown.style.left = rect.left + 'px';
+          });
+        }
       });
     }
+
+    positionDropdowns();
+
+    // Reposition on window resize
+    window.addEventListener('resize', positionDropdowns);
+
+    // Hide/show header on scroll
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateHeader() {
+      const header = document.getElementById('main-header');
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > 100) { // Only start hiding after scrolling 100px
+        if (currentScrollY > lastScrollY) {
+          // Scrolling down - hide header
+          header.style.transform = 'translateY(-100%)';
+        } else {
+          // Scrolling up - show header
+          header.style.transform = 'translateY(0)';
+        }
+      } else {
+        // Always show header at top of page
+        header.style.transform = 'translateY(0)';
+      }
+      
+      lastScrollY = currentScrollY;
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
   });
 </script>

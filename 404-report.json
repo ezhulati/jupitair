@@ -1,0 +1,481 @@
+{
+  "timestamp": "2025-08-19T00:41:37.513Z",
+  "summary": {
+    "total": 93,
+    "working": 80,
+    "notFound": 13,
+    "errors": 0
+  },
+  "results": {
+    "working": [
+      {
+        "url": "/",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/"
+      },
+      {
+        "url": "/contact",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/contact"
+      },
+      {
+        "url": "/about",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/about"
+      },
+      {
+        "url": "/schedule",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/schedule"
+      },
+      {
+        "url": "/services",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/services"
+      },
+      {
+        "url": "/terms",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/terms"
+      },
+      {
+        "url": "/style-guide",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/style-guide"
+      },
+      {
+        "url": "/success",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/success"
+      },
+      {
+        "url": "/privacy",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/privacy"
+      },
+      {
+        "url": "/sitemap",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/sitemap"
+      },
+      {
+        "url": "/commercial",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/commercial"
+      },
+      {
+        "url": "/services/emergency-ac-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/services/emergency-ac-repair"
+      },
+      {
+        "url": "/services/ac-maintenance",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/services/ac-maintenance"
+      },
+      {
+        "url": "/services/ac-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/services/ac-repair"
+      },
+      {
+        "url": "/services/ac-installation",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/services/ac-installation"
+      },
+      {
+        "url": "/services/furnace-installation",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/services/furnace-installation"
+      },
+      {
+        "url": "/services/furnace-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/services/furnace-repair"
+      },
+      {
+        "url": "/services/heat-pump-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/services/heat-pump-repair"
+      },
+      {
+        "url": "/services/heat-pump-installation",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/services/heat-pump-installation"
+      },
+      {
+        "url": "/services/ductless-mini-split-installation",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/services/ductless-mini-split-installation"
+      },
+      {
+        "url": "/services/duct-repair-sealing",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/services/duct-repair-sealing"
+      },
+      {
+        "url": "/services/thermostat-installation",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/services/thermostat-installation"
+      },
+      {
+        "url": "/services/indoor-air-quality",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/services/indoor-air-quality"
+      },
+      {
+        "url": "/services/residential",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/services/residential"
+      },
+      {
+        "url": "/commercial/chiller-systems",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/commercial/chiller-systems"
+      },
+      {
+        "url": "/commercial/emergency-service",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/commercial/emergency-service"
+      },
+      {
+        "url": "/commercial/office-hvac",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/commercial/office-hvac"
+      },
+      {
+        "url": "/commercial/new-installation",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/commercial/new-installation"
+      },
+      {
+        "url": "/commercial/restaurant-hvac",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/commercial/restaurant-hvac"
+      },
+      {
+        "url": "/commercial/preventive-maintenance",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/commercial/preventive-maintenance"
+      },
+      {
+        "url": "/frisco",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/frisco"
+      },
+      {
+        "url": "/frisco/emergency-ac-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/frisco/emergency-ac-repair"
+      },
+      {
+        "url": "/commercial/rtu-replacement",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/commercial/rtu-replacement"
+      },
+      {
+        "url": "/commercial/retail-hvac",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/commercial/retail-hvac"
+      },
+      {
+        "url": "/frisco/ac-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/frisco/ac-repair"
+      },
+      {
+        "url": "/frisco/ac-installation",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/frisco/ac-installation"
+      },
+      {
+        "url": "/frisco/ac-maintenance",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/frisco/ac-maintenance"
+      },
+      {
+        "url": "/frisco/furnace-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/frisco/furnace-repair"
+      },
+      {
+        "url": "/frisco/furnace-installation",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/frisco/furnace-installation"
+      },
+      {
+        "url": "/plano",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/plano"
+      },
+      {
+        "url": "/plano/emergency-ac-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/plano/emergency-ac-repair"
+      },
+      {
+        "url": "/plano/ac-installation",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/plano/ac-installation"
+      },
+      {
+        "url": "/plano/ac-maintenance",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/plano/ac-maintenance"
+      },
+      {
+        "url": "/plano/furnace-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/plano/furnace-repair"
+      },
+      {
+        "url": "/plano/ac-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/plano/ac-repair"
+      },
+      {
+        "url": "/plano/furnace-installation",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/plano/furnace-installation"
+      },
+      {
+        "url": "/mckinney",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/mckinney"
+      },
+      {
+        "url": "/mckinney/emergency-ac-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/mckinney/emergency-ac-repair"
+      },
+      {
+        "url": "/mckinney/ac-installation",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/mckinney/ac-installation"
+      },
+      {
+        "url": "/mckinney/ac-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/mckinney/ac-repair"
+      },
+      {
+        "url": "/mckinney/ac-maintenance",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/mckinney/ac-maintenance"
+      },
+      {
+        "url": "/mckinney/furnace-installation",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/mckinney/furnace-installation"
+      },
+      {
+        "url": "/mckinney/furnace-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/mckinney/furnace-repair"
+      },
+      {
+        "url": "/allen",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/allen"
+      },
+      {
+        "url": "/allen/ac-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/allen/ac-repair"
+      },
+      {
+        "url": "/allen/emergency-ac-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/allen/emergency-ac-repair"
+      },
+      {
+        "url": "/allen/ac-maintenance",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/allen/ac-maintenance"
+      },
+      {
+        "url": "/allen/furnace-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/allen/furnace-repair"
+      },
+      {
+        "url": "/allen/ac-installation",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/allen/ac-installation"
+      },
+      {
+        "url": "/allen/furnace-installation",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/allen/furnace-installation"
+      },
+      {
+        "url": "/prosper",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/prosper"
+      },
+      {
+        "url": "/prosper/ac-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/prosper/ac-repair"
+      },
+      {
+        "url": "/prosper/emergency-ac-repair",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/prosper/emergency-ac-repair"
+      },
+      {
+        "url": "/blog",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/blog"
+      },
+      {
+        "url": "/blog/ac-blowing-warm-air",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/blog/ac-blowing-warm-air"
+      },
+      {
+        "url": "/blog/ac-leaking-water-what-to-do",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/blog/ac-leaking-water-what-to-do"
+      },
+      {
+        "url": "/blog/ac-lifespan-dfw",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/blog/ac-lifespan-dfw"
+      },
+      {
+        "url": "/blog/ac-maintenance-checklist-spring",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/blog/ac-maintenance-checklist-spring"
+      },
+      {
+        "url": "/blog/ac-repair-cost-north-texas-2025",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/blog/ac-repair-cost-north-texas-2025"
+      },
+      {
+        "url": "/robots.txt",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/robots.txt"
+      },
+      {
+        "url": "/oauth/callback",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/oauth/callback"
+      },
+      {
+        "url": "/oauth/setup",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/oauth/setup"
+      },
+      {
+        "url": "/little-elm",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/little-elm"
+      },
+      {
+        "url": "/the-colony",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/the-colony"
+      },
+      {
+        "url": "/addison",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/addison"
+      },
+      {
+        "url": "/favicon.ico",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/favicon.ico"
+      },
+      {
+        "url": "/manifest.json",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/manifest.json"
+      },
+      {
+        "url": "/services/duct-cleaning",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/services/duct-cleaning"
+      },
+      {
+        "url": "/cloudinary-test",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/cloudinary-test"
+      },
+      {
+        "url": "/cloudinary-demo",
+        "status": 200,
+        "fullUrl": "http://localhost:4322/cloudinary-demo"
+      }
+    ],
+    "notFound": [
+      {
+        "url": "/api/contact",
+        "status": 404,
+        "fullUrl": "http://localhost:4322/api/contact"
+      },
+      {
+        "url": "/api/reviews-aggregator",
+        "status": 404,
+        "fullUrl": "http://localhost:4322/api/reviews-aggregator"
+      },
+      {
+        "url": "/api/test-email",
+        "status": 404,
+        "fullUrl": "http://localhost:4322/api/test-email"
+      },
+      {
+        "url": "/api/test-form",
+        "status": 404,
+        "fullUrl": "http://localhost:4322/api/test-form"
+      },
+      {
+        "url": "/api/booking",
+        "status": 404,
+        "fullUrl": "http://localhost:4322/api/booking"
+      },
+      {
+        "url": "/api/availability",
+        "status": 404,
+        "fullUrl": "http://localhost:4322/api/availability"
+      },
+      {
+        "url": "/sitemap.xml",
+        "status": 404,
+        "fullUrl": "http://localhost:4322/sitemap.xml"
+      },
+      {
+        "url": "/api/test-zoho",
+        "status": 404,
+        "fullUrl": "http://localhost:4322/api/test-zoho"
+      },
+      {
+        "url": "/404",
+        "status": 404,
+        "fullUrl": "http://localhost:4322/404"
+      },
+      {
+        "url": "/icon-192.png",
+        "status": 404,
+        "fullUrl": "http://localhost:4322/icon-192.png"
+      },
+      {
+        "url": "/icon-512.png",
+        "status": 404,
+        "fullUrl": "http://localhost:4322/icon-512.png"
+      },
+      {
+        "url": "/services/air-purification",
+        "status": 404,
+        "fullUrl": "http://localhost:4322/services/air-purification"
+      },
+      {
+        "url": "/services/zoning-systems",
+        "status": 404,
+        "fullUrl": "http://localhost:4322/services/zoning-systems"
+      }
+    ],
+    "errors": []
+  }
+}
