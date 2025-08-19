@@ -341,6 +341,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+"frozen-evaporator-coil-enhanced.mdx": {
+	id: "frozen-evaporator-coil-enhanced.mdx";
+  slug: "frozen-evaporator-coil-enhanced";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
 "frozen-evaporator-coil.mdx": {
 	id: "frozen-evaporator-coil.mdx";
   slug: "frozen-evaporator-coil";

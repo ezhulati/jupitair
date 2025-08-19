@@ -255,10 +255,10 @@ const faqs = [
     <section class="mb-20">
       <div class="text-center mb-12">
         <Badge variant="primary" class="mb-4">Our Services</Badge>
-        <h2 class="break-words text-4xl md:text-5xl font-bold text-white mb-4">
+        <h2 class="break-words text-4xl md:text-5xl font-bold text-gray-900 mb-4">
           Complete Restaurant HVAC Solutions
         </h2>
-        <p class="break-words text-xl text-gray-200 max-w-3xl mx-auto">
+        <p class="break-words text-xl text-gray-700 max-w-3xl mx-auto">
           From kitchen exhaust to dining comfort, we provide comprehensive HVAC services designed for the unique demands of restaurant operations
         </p>
       </div>
@@ -284,11 +284,11 @@ const faqs = [
                   )}
                 </svg>
               </div>
-              <h3 class="break-words text-xl font-bold text-white mb-2">{service.name}</h3>
-              <p class="text-gray-200 text-sm mb-4">{service.description}</p>
+              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">{service.name}</h3>
+              <p class="text-gray-700 text-sm mb-4">{service.description}</p>
               <div class="min-w-0 flex items-baseline gap-2 mb-4">
-                <span class="break-words text-2xl font-bold text-white">From {service.price}</span>
-                <span class="text-sm text-gray-300">({service.range})</span>
+                <span class="break-words text-2xl font-bold text-gray-900">From {service.price}</span>
+                <span class="text-sm text-gray-600">({service.range})</span>
               </div>
             </div>
             
@@ -321,10 +321,10 @@ const faqs = [
       <div class="px-8">
         <div class="text-center mb-12">
           <Badge variant="secondary" class="mb-4">Solutions</Badge>
-          <h2 class="break-words text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 class="break-words text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Common Restaurant HVAC Problems We Solve
           </h2>
-          <p class="break-words text-xl text-gray-200 max-w-3xl mx-auto">
+          <p class="break-words text-xl text-gray-700 max-w-3xl mx-auto">
             Don't let HVAC issues affect your customers' experience or your bottom line
           </p>
         </div>
@@ -339,8 +339,8 @@ const faqs = [
                   </svg>
                 </div>
                 <div class="min-w-0 flex-1">
-                  <h3 class="font-bold text-white mb-2">{item.problem}</h3>
-                  <p class="text-gray-200 text-sm mb-2">{item.solution}</p>
+                  <h3 class="font-bold text-gray-900 mb-2">{item.problem}</h3>
+                  <p class="text-gray-700 text-sm mb-2">{item.solution}</p>
                   <Badge variant="success" size="sm">{item.savings}</Badge>
                 </div>
               </div>
@@ -354,7 +354,7 @@ const faqs = [
     <section class="mb-20">
       <div class="text-center mb-12">
         <Badge variant="primary" class="mb-4">Why Choose Us</Badge>
-        <h2 class="break-words text-3xl md:text-4xl font-bold text-white mb-4">
+        <h2 class="break-words text-3xl md:text-4xl font-bold text-gray-900 mb-4">
           The Jupitair Advantage for Restaurants
         </h2>
       </div>
@@ -376,8 +376,8 @@ const faqs = [
                   )}
                 </svg>
               </div>
-              <h3 class="break-words text-xl font-bold text-white mb-2">{benefit.title}</h3>
-              <p class="text-gray-200">{benefit.description}</p>
+              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
+              <p class="text-gray-700">{benefit.description}</p>
             </div>
           </PremiumCard>
         ))}
@@ -388,7 +388,7 @@ const faqs = [
     <section class="mb-20">
       <div class="text-center mb-12">
         <Badge variant="secondary" class="mb-4">Our Process</Badge>
-        <h2 class="break-words text-3xl md:text-4xl font-bold text-white mb-4">
+        <h2 class="break-words text-3xl md:text-4xl font-bold text-gray-900 mb-4">
           How We Work With Restaurants
         </h2>
       </div>
@@ -396,11 +396,11 @@ const faqs = [
       <div class="min-w-0 grid md:grid-cols-4 gap-8">
         {processSteps.map((step, index) => (
           <div class="text-center">
-            <div class="break-words min-w-0 w-16 h-16 bg-blue-100 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+            <div class="break-words min-w-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
               {step.number}
             </div>
-            <h3 class="font-bold text-white mb-2">{step.title}</h3>
-            <p class="text-gray-200 text-sm">{step.description}</p>
+            <h3 class="font-bold text-gray-900 mb-2">{step.title}</h3>
+            <p class="text-gray-700 text-sm">{step.description}</p>
             {index < processSteps.length - 1 && (
               <div class="hidden md:block absolute top-8 left-full w-full">
                 <svg class="w-8 h-8 text-gray-300 -ml-4" fill="currentColor" viewBox="0 0 24 24">
@@ -419,7 +419,7 @@ const faqs = [
         <div class="max-w-3xl mx-auto">
           <div class="text-center mb-12">
             <Badge variant="secondary" class="mb-4">FAQs</Badge>
-            <h2 class="break-words text-3xl md:text-4xl font-bold text-white">
+            <h2 class="break-words text-3xl md:text-4xl font-bold text-gray-900">
               Restaurant HVAC Questions
             </h2>
           </div>
@@ -427,11 +427,11 @@ const faqs = [
           <div class="space-y-6">
             {faqs.map((faq, index) => (
               <div class="pb-6 border-b border-gray-200 last:border-0">
-                <h3 class="min-w-0 text-lg font-bold text-white mb-3 flex items-start gap-3">
-                  <span class="text-white">Q{index + 1}.</span>
+                <h3 class="min-w-0 text-lg font-bold text-gray-900 mb-3 flex items-start gap-3">
+                  <span class="text-gray-900">Q{index + 1}.</span>
                   {faq.question}
                 </h3>
-                <p class="text-gray-200 pl-8">{faq.answer}</p>
+                <p class="text-gray-700 pl-8">{faq.answer}</p>
               </div>
             ))}
           </div>

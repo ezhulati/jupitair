@@ -60,6 +60,11 @@ function formatDate(date: Date | string) {
     day: 'numeric'
   });
 }
+
+// Generate category slug
+function getCategorySlug(category: string) {
+  return category.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-');
+}
 ---
 
 <BaseLayout
@@ -152,9 +157,13 @@ function formatDate(date: Date | string) {
 
             <!-- Pagination -->
             <div class="min-w-0 mt-12 flex items-center justify-center gap-2">
-              <Button variant="outline" size="sm" disabled={currentPage === 1}>Previous</Button>
+              <Button variant="outline" size="sm" disabled={true}>Previous</Button>
               <span class="px-4 py-2 text-sm font-medium">Page {currentPage} of {totalPages}</span>
-              <Button variant="outline" size="sm" disabled={currentPage === totalPages}>Next</Button>
+              {totalPages > 1 ? (
+                <Button href="/blog/page/2" variant="outline" size="sm">Next</Button>
+              ) : (
+                <Button variant="outline" size="sm" disabled={true}>Next</Button>
+              )}
             </div>
           </div>
 
@@ -183,7 +192,7 @@ function formatDate(date: Date | string) {
               <ul class="space-y-2">
                 {categories.slice(0, 8).map(category => (
                   <li>
-                    <a href={`/blog/category/${category.name.toLowerCase().replace(/\s+/g, '-')}`} 
+                    <a href={category.name === 'All Posts' ? '/blog' : `/blog/category/${getCategorySlug(category.name)}`} 
                        class="min-w-0 flex items-center justify-between text-gray-600 hover:text-primary-600 transition-colors">
                       <span>{category.name}</span>
                       <span class="text-sm text-gray-400">({category.count})</span>
