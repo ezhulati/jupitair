@@ -236,7 +236,7 @@ const { formId = 'contact-form', variant = 'premium' } = Astro.props;
             required
             min={new Date().toISOString().split('T')[0]}
             max={new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
-            class="form-input"
+            class="form-input w-full"
           />
         </div>
       </div>
@@ -392,6 +392,12 @@ const { formId = 'contact-form', variant = 'premium' } = Astro.props;
     background-repeat: no-repeat;
     background-size: 1.5em 1.5em;
     padding-right: 3rem;
+  }
+
+  /* Fix date input overflow on mobile */
+  input[type="date"].form-input {
+    @apply max-w-full box-border;
+    min-width: 0;
   }
 
   /* Premium hover effects */
