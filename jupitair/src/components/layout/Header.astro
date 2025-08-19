@@ -328,10 +328,6 @@ const cities = [
             <svg class="h-6 w-6" id="hamburger" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-            <!-- Close icon -->
-            <svg class="h-6 w-6 hidden" id="close" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
           </button>
         </div>
       </div>
@@ -430,13 +426,11 @@ const cities = [
     const mobileOverlay = document.getElementById('mobile-overlay');
     const mobileClose = document.getElementById('mobile-close');
     const hamburger = document.getElementById('hamburger');
-    const close = document.getElementById('close');
 
     function openMobileMenu() {
       mobileMenu.classList.add('open');
       mobileOverlay.classList.remove('opacity-0', 'invisible');
       hamburger.classList.add('hidden');
-      close.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
       
       // Update ARIA attributes
@@ -454,7 +448,6 @@ const cities = [
       mobileMenu.classList.remove('open');
       mobileOverlay.classList.add('opacity-0', 'invisible');
       hamburger.classList.remove('hidden');
-      close.classList.add('hidden');
       document.body.style.overflow = '';
       
       // Update ARIA attributes
