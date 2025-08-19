@@ -247,15 +247,14 @@ const blogSchema = {
         <!-- Tags -->
         {frontmatter.tags && frontmatter.tags.length > 0 && (
           <div class="mt-8">
-            <h3 class="font-bold text-gray-900 mb-4">Tags:</h3>
+            <h3 class="font-bold text-gray-900 mb-4">Topics:</h3>
             <div class="min-w-0 flex flex-wrap gap-2">
               {frontmatter.tags.map(tag => (
-                <a 
-                  href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`}
-                  class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors"
+                <span 
+                  class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
                 >
-                  #{tag}
-                </a>
+                  {tag}
+                </span>
               ))}
             </div>
           </div>
