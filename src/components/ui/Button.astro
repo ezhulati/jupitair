@@ -37,7 +37,7 @@ const {
 
 // Base classes with improved accessibility
 const baseClasses = `
-  inline-flex items-center justify-center gap-2
+  inline-flex items-center justify-center gap-2 flex-nowrap
   font-semibold tracking-tight text-center
   border-2 rounded-lg
   transition-all duration-200 ease-in-out
@@ -159,7 +159,7 @@ const effectiveAriaLabel = ariaLabel || (typeof Astro.slots.default === 'string'
   {/* Left icon with proper accessibility */}
   {!loading && leftIcon && (
     <svg 
-      class={iconSizeClasses[size]} 
+      class={`${iconSizeClasses[size]} flex-shrink-0`} 
       fill="currentColor" 
       viewBox="0 0 20 20"
       aria-hidden="true"
@@ -169,14 +169,14 @@ const effectiveAriaLabel = ariaLabel || (typeof Astro.slots.default === 'string'
   )}
 
   {/* Button content */}
-  <span class="min-w-0 flex-1">
+  <span class="inline-block">
     <slot />
   </span>
 
   {/* Right icon with proper accessibility */}
   {!loading && rightIcon && (
     <svg 
-      class={iconSizeClasses[size]} 
+      class={`${iconSizeClasses[size]} flex-shrink-0`} 
       fill="currentColor" 
       viewBox="0 0 20 20"
       aria-hidden="true"
