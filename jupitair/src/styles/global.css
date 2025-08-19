@@ -81,6 +81,8 @@
 
   .btn-secondary {
     @apply bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-4 focus:ring-secondary-300;
+    color: #1e40af !important;
+    border: 2px solid #1e40af !important;
   }
 
   .btn-emergency {
@@ -107,6 +109,11 @@
   .backdrop-saturate-150 {
     backdrop-filter: saturate(1.5);
     -webkit-backdrop-filter: saturate(1.5);
+  }
+
+  /* Contrast fixes for accessibility */
+  .text-gray-400, .text-gray-300 {
+    color: #374151 !important;
   }
 
   /* Animation utilities */

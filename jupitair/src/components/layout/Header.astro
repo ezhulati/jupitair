@@ -40,7 +40,7 @@ const cities = [
 </style>
 
 <!-- Header -->
-<header class="bg-white shadow-lg sticky top-0 z-[99998]">
+<header class="bg-white shadow-lg fixed top-0 left-0 right-0 z-[99998] transition-transform duration-300" id="main-header">
   <!-- Top Bar -->
   <div class="bg-primary-600 text-white py-2 hidden md:block">
     <div class="container mx-auto px-4 max-w-7xl">
@@ -389,5 +389,39 @@ const cities = [
 
     // Reposition on window resize
     window.addEventListener('resize', positionDropdowns);
+
+    // Hide/show header on scroll
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateHeader() {
+      const header = document.getElementById('main-header');
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > 100) { // Only start hiding after scrolling 100px
+        if (currentScrollY > lastScrollY) {
+          // Scrolling down - hide header
+          header.style.transform = 'translateY(-100%)';
+        } else {
+          // Scrolling up - show header
+          header.style.transform = 'translateY(0)';
+        }
+      } else {
+        // Always show header at top of page
+        header.style.transform = 'translateY(0)';
+      }
+      
+      lastScrollY = currentScrollY;
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
   });
 </script>
