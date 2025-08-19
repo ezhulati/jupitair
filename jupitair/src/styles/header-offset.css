@@ -1,0 +1,38 @@
+/* Header offset for fixed navigation */
+
+:root {
+  --header-height: 140px; /* Header height including top bar + spacing */
+  --header-height-mobile: 120px;
+  --header-spacing: 30px; /* Space between header and content */
+}
+
+/* Apply to main content areas */
+.header-offset {
+  padding-top: calc(var(--header-height-mobile) + var(--header-spacing));
+}
+
+@media (min-width: 768px) {
+  .header-offset {
+    padding-top: calc(var(--header-height) + var(--header-spacing));
+  }
+}
+
+/* Ensure anchors account for fixed header */
+:target::before {
+  content: "";
+  display: block;
+  height: var(--header-height);
+  margin-top: calc(var(--header-height) * -1);
+  visibility: hidden;
+}
+
+/* Smooth scroll with offset */
+html {
+  scroll-padding-top: var(--header-height);
+}
+
+@media (max-width: 767px) {
+  html {
+    scroll-padding-top: var(--header-height-mobile);
+  }
+}

@@ -25,6 +25,8 @@ const {
 
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import MicrosoftClarity from '../components/MicrosoftClarity.astro';
 import '../styles/global.css';
 import '../styles/tokens.css';
 import '../styles/design-system.css';
@@ -32,6 +34,7 @@ import '../styles/spacing-system.css';
 import '../styles/enterprise-spacing.css';
 import '../styles/mobile-fixes.css';
 import '../styles/contained-design.css';
+import '../styles/header-offset.css';
 
 // Generate base schema for every page
 const baseSchema = {
@@ -196,10 +199,10 @@ const finalSchema = schema ? { ...baseSchema, ...schema } : baseSchema;
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Analytics -->
-    <script>
-      // GTM placeholder - replace with actual GTM code
-      console.log('GTM placeholder - add actual tracking code');
-    </script>
+    <!-- Google Analytics -->
+    <GoogleAnalytics trackingId="G-2X9H3CR9V3" />
+    <!-- Microsoft Clarity -->
+    <MicrosoftClarity clarityId="sxdxl6n9iu" />
   </head>
   <body class="font-sans bg-gray-50 text-gray-900">
     <!-- Skip to main content -->
@@ -210,7 +213,7 @@ const finalSchema = schema ? { ...baseSchema, ...schema } : baseSchema;
     <Header />
     
     <!-- Main content - padding handled by contained-design.css -->
-    <main id="main-content">
+    <main id="main-content" class="header-offset">
       <slot />
     </main>
     
