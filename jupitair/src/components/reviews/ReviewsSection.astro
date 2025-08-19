@@ -68,12 +68,12 @@ const totalReviews = reviewsData.totalReviews;
 ---
 
 <section class="py-16 lg:py-24 bg-gray-50 relative overflow-hidden">
-  <div class="container mx-auto px-4 relative z-10">
+  <div class="max-w-7xl overflow-x-hidden container mx-auto px-4 relative z-10">
     
     <!-- Section Header -->
     <div class="text-center mb-12">
-      <div class="flex items-center justify-center gap-2 mb-4">
-        <div class="flex items-center">
+      <div class="min-w-0 flex items-center justify-center gap-2 mb-4">
+        <div class="min-w-0 flex items-center">
           {[...Array(5)].map((_, i) => (
             <svg
               class={`w-6 h-6 ${i < Math.floor(avgRating) ? 'text-yellow-400' : 'text-gray-300'}`}
@@ -84,14 +84,14 @@ const totalReviews = reviewsData.totalReviews;
             </svg>
           ))}
         </div>
-        <span class="text-2xl font-bold text-gray-900">{avgRating}</span>
+        <span class="break-words text-2xl font-bold text-gray-900">{avgRating}</span>
         <span class="text-gray-600">({totalReviews} reviews)</span>
       </div>
       
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+      <h2 class="break-words text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
         What Our Customers Say
       </h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      <p class="break-words text-xl text-gray-600 max-w-3xl mx-auto">
         Real reviews from real customers across North Texas. 
         We're proud to maintain a {avgRating}-star rating with over {totalReviews} satisfied customers.
       </p>
@@ -99,7 +99,7 @@ const totalReviews = reviewsData.totalReviews;
     
     <!-- Reviews Grid -->
     {variant === 'grid' && (
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         {displayReviews.map((review) => (
           <ReviewCard
             author={review.author}
@@ -133,9 +133,9 @@ const totalReviews = reviewsData.totalReviews;
     )}
     
     <!-- Trust Badges -->
-    <div class="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+    <div class="min-w-0 grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
       <div class="text-center">
-        <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-3">
+        <div class="min-w-0 w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-3">
           <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
           </svg>
@@ -145,15 +145,15 @@ const totalReviews = reviewsData.totalReviews;
       </div>
       
       <div class="text-center">
-        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
-          <span class="text-2xl font-bold text-yellow-600">{avgRating}</span>
+        <div class="min-w-0 w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
+          <span class="break-words text-2xl font-bold text-yellow-600">{avgRating}</span>
         </div>
         <h3 class="font-semibold text-gray-900">Average Rating</h3>
         <p class="text-sm text-gray-600 mt-1">Across {totalReviews} reviews</p>
       </div>
       
       <div class="text-center">
-        <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-3">
+        <div class="min-w-0 w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-3">
           <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.715-5.349L11 6.477V16h2a1 1 0 110 2H7a1 1 0 110-2h2V6.477L6.237 7.582l1.715 5.349a1 1 0 01-.285 1.05A3.989 3.989 0 015 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L9 4.323V3a1 1 0 011-1zm-5 8.274l-.818 2.552c.25.112.526.174.818.174.292 0 .569-.062.818-.174L5 10.274zm10 0l-.818 2.552c.25.112.526.174.818.174.292 0 .569-.062.818-.174L15 10.274z" clip-rule="evenodd"/>
           </svg>
@@ -166,22 +166,22 @@ const totalReviews = reviewsData.totalReviews;
     <!-- CTA -->
     {showCta && (
       <div class="text-center">
-        <h3 class="text-2xl font-bold text-gray-900 mb-4">
+        <h3 class="break-words text-2xl font-bold text-gray-900 mb-4">
           Join Our Happy Customers
         </h3>
         <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
           Experience the Jupitair difference with professional HVAC service, 
           upfront pricing, and our satisfaction guarantee.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
-          <Button href="/contact" variant="primary" size="lg" class="flex-1 justify-center">
+        <div class="min-w-0 flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
+          <Button href="/contact" variant="primary" size="lg" class="min-w-0 flex-1 justify-center">
             Get Your Free Estimate
           </Button>
           <Button 
             href="https://search.google.com/local/writereview?placeid=ChIJAazsg-twakURAJ2zXUWzH-4" 
             variant="outline" 
             size="lg" 
-            class="flex-1 justify-center"
+            class="min-w-0 flex-1 justify-center"
             target="_blank"
             rel="noopener"
           >

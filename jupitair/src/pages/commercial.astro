@@ -163,10 +163,10 @@ const commercialSchema = {
   
   <!-- Trust Signals Bar -->
   <section class="bg-gray-900 border-b border-gray-800">
-    <div class="container mx-auto px-4 py-4">
-      <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-sm">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4 py-4">
+      <div class="min-w-0 flex flex-wrap items-center justify-center gap-4 md:gap-8 text-sm">
         {trustSignals.map(signal => (
-          <div class="flex items-center gap-2 text-gray-300">
+          <div class="min-w-0 flex items-center gap-2 text-gray-300">
             <svg class="w-5 h-5 text-primary-500" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
@@ -179,40 +179,40 @@ const commercialSchema = {
 
   <!-- Why Commercial Clients Choose Us -->
   <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="break-words text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Why North Texas Businesses Choose Jupitair
           </h2>
-          <p class="text-xl text-gray-600">
+          <p class="break-words text-xl text-gray-800">
             We understand that commercial HVAC is about more than comfort—it's about your bottom line.
           </p>
         </div>
         
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="min-w-0 grid md:grid-cols-3 gap-8">
           <Card variant="elevated" padding="lg">
             <div class="mb-4 text-primary-600">
               <Icon name="lightning" size="xl" />
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Fast Response</h3>
-            <p class="text-gray-600 mb-4">
+            <h3 class="break-words text-xl font-bold text-gray-900 mb-3">Fast Response</h3>
+            <p class="text-gray-800 mb-4">
               Owner-operated means direct communication and faster service when you need it.
             </p>
-            <ul class="space-y-2 text-sm text-gray-600">
-              <li class="flex items-start">
+            <ul class="space-y-2 text-sm text-gray-800">
+              <li class="min-w-0 flex items-start">
                 <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Same-day service available
               </li>
-              <li class="flex items-start">
+              <li class="min-w-0 flex items-start">
                 <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Weekend installations
               </li>
-              <li class="flex items-start">
+              <li class="min-w-0 flex items-start">
                 <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
@@ -225,24 +225,24 @@ const commercialSchema = {
             <div class="mb-4 text-primary-600">
               <Icon name="money" size="xl" />
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Control Costs</h3>
-            <p class="text-gray-600 mb-4">
+            <h3 class="break-words text-xl font-bold text-gray-900 mb-3">Control Costs</h3>
+            <p class="text-gray-800 mb-4">
               Predictable maintenance budgets and energy-saving solutions that reduce operating costs.
             </p>
-            <ul class="space-y-2 text-sm text-gray-600">
-              <li class="flex items-start">
+            <ul class="space-y-2 text-sm text-gray-800">
+              <li class="min-w-0 flex items-start">
                 <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Flat-rate pricing options
               </li>
-              <li class="flex items-start">
+              <li class="min-w-0 flex items-start">
                 <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Energy audits included
               </li>
-              <li class="flex items-start">
+              <li class="min-w-0 flex items-start">
                 <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
@@ -255,24 +255,24 @@ const commercialSchema = {
             <div class="mb-4 text-primary-600">
               <Icon name="trophy" size="xl" />
             </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-3">Personal Service</h3>
-            <p class="text-gray-600 mb-4">
+            <h3 class="break-words text-xl font-bold text-gray-900 mb-3">Personal Service</h3>
+            <p class="text-gray-800 mb-4">
               Deal directly with the owner who has 15+ years of commercial HVAC experience.
             </p>
-            <ul class="space-y-2 text-sm text-gray-600">
-              <li class="flex items-start">
+            <ul class="space-y-2 text-sm text-gray-800">
+              <li class="min-w-0 flex items-start">
                 <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Owner on every job
               </li>
-              <li class="flex items-start">
+              <li class="min-w-0 flex items-start">
                 <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Quality guaranteed
               </li>
-              <li class="flex items-start">
+              <li class="min-w-0 flex items-start">
                 <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
@@ -287,28 +287,28 @@ const commercialSchema = {
 
   <!-- Big-Dollar Commercial Services -->
   <section class="section-spacing bg-gray-50">
-    <div class="container mx-auto px-4">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
           <Badge variant="primary" class="mb-4">Our Services</Badge>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="break-words text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Commercial HVAC Services We Specialize In
           </h2>
-          <p class="text-xl text-gray-600">
+          <p class="break-words text-xl text-gray-800">
             Fast, reliable HVAC solutions for restaurants, retail, and offices
           </p>
         </div>
         
         <!-- Featured Big-Dollar Services -->
-        <div class="grid lg:grid-cols-3 gap-8 mb-12">
+        <div class="min-w-0 grid lg:grid-cols-3 gap-8 mb-12">
           {commercialServices.filter(s => s.featured).map(service => (
             <PremiumCard variant="elevated" padding="lg" class="hover:shadow-2xl transition-all duration-300">
               <div class="mb-4 text-primary-600">
                 <Icon name={service.icon} size="2xl" />
               </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
-              <div class="text-2xl font-bold text-primary-600 mb-4">{service.price}</div>
-              <p class="text-gray-600 mb-6">{service.description}</p>
+              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
+              <div class="break-words text-2xl font-bold text-primary-600 mb-4">{service.price}</div>
+              <p class="text-gray-800 mb-6">{service.description}</p>
               <Button href={service.link} variant="primary" size="md" class="w-full">
                 Learn More →
               </Button>
@@ -317,17 +317,17 @@ const commercialSchema = {
         </div>
         
         <!-- Other Services Grid -->
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="min-w-0 grid md:grid-cols-3 gap-6">
           {commercialServices.filter(s => !s.featured).map(service => (
             <Card variant="elevated" padding="lg">
-              <div class="flex items-start justify-between mb-3">
+              <div class="min-w-0 flex items-start justify-between mb-3">
                 <div class="text-primary-600">
                   <Icon name={service.icon} size="lg" />
                 </div>
                 <span class="text-sm font-semibold text-primary-600">{service.price}</span>
               </div>
               <h3 class="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
-              <p class="text-sm text-gray-600 mb-4">{service.description}</p>
+              <p class="text-sm text-gray-800 mb-4">{service.description}</p>
               <Button href={service.link} variant="outline" size="sm">
                 Learn More →
               </Button>
@@ -341,18 +341,18 @@ const commercialSchema = {
 
   <!-- Industries We Serve -->
   <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="break-words text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Industries We Serve
           </h2>
-          <p class="text-xl text-gray-600">
+          <p class="break-words text-xl text-gray-800">
             Specialized HVAC solutions for every commercial sector.
           </p>
         </div>
         
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="min-w-0 grid grid-cols-2 md:grid-cols-4 gap-6">
           {industries.map(industry => (
             <div class="text-center p-6 rounded-xl bg-gray-50 hover:bg-primary-50 transition-colors duration-300 cursor-pointer">
               <div class="mb-3 text-primary-600">
@@ -368,31 +368,31 @@ const commercialSchema = {
 
   <!-- Preventive Maintenance CTA -->
   <section class="py-16 bg-gradient-to-r from-primary-600 to-primary-700 text-white">
-    <div class="container mx-auto px-4">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        <h2 class="break-words text-3xl md:text-4xl font-bold mb-4">
           Protect Your Investment with Preventive Maintenance
         </h2>
-        <p class="text-xl mb-8 text-primary-100">
+        <p class="break-words text-xl mb-8 text-primary-100">
           Custom maintenance programs that reduce repairs by up to 75% and extend equipment life by 40%.
         </p>
         
-        <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="min-w-0 grid md:grid-cols-3 gap-6 mb-8">
           <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-            <div class="text-3xl font-bold">75%</div>
+            <div class="break-words text-3xl font-bold">75%</div>
             <div class="text-sm">Fewer Breakdowns</div>
           </div>
           <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-            <div class="text-3xl font-bold">30%</div>
+            <div class="break-words text-3xl font-bold">30%</div>
             <div class="text-sm">Energy Savings</div>
           </div>
           <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-            <div class="text-3xl font-bold">24/7</div>
+            <div class="break-words text-3xl font-bold">24/7</div>
             <div class="text-sm">Priority Service</div>
           </div>
         </div>
         
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <div class="min-w-0 flex flex-col sm:flex-row gap-4 justify-center">
           <Button href="/commercial/preventive-maintenance" variant="secondary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
             View Maintenance Plans
           </Button>
@@ -413,17 +413,17 @@ const commercialSchema = {
 
   <!-- Final CTA -->
   <section class="py-16 bg-gray-900 text-white">
-    <div class="container mx-auto px-4">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        <h2 class="break-words text-3xl md:text-4xl font-bold mb-4">
           Ready to Upgrade Your Commercial HVAC?
         </h2>
-        <p class="text-xl mb-8 text-gray-300">
+        <p class="break-words text-xl mb-8 text-gray-300">
           Join hundreds of North Texas businesses that trust Jupitair for their commercial HVAC needs.
         </p>
         
         <div class="bg-gray-800 rounded-2xl p-8 mb-8">
-          <div class="grid md:grid-cols-2 gap-6 text-left">
+          <div class="min-w-0 grid md:grid-cols-2 gap-6 text-left">
             <div>
               <h3 class="font-bold text-lg mb-3">For Immediate Service:</h3>
               <Button href="tel:(940) 390-5676" variant="primary" size="lg" class="w-full">
@@ -444,20 +444,20 @@ const commercialSchema = {
           </div>
         </div>
         
-        <div class="flex flex-wrap justify-center gap-8 text-sm text-gray-400">
-          <div class="flex items-center gap-2">
+        <div class="min-w-0 flex flex-wrap justify-center gap-8 text-sm text-gray-400">
+          <div class="min-w-0 flex items-center gap-2">
             <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
             Licensed & Insured
           </div>
-          <div class="flex items-center gap-2">
+          <div class="min-w-0 flex items-center gap-2">
             <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
             NATE Certified
           </div>
-          <div class="flex items-center gap-2">
+          <div class="min-w-0 flex items-center gap-2">
             <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>

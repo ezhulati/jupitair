@@ -1,0 +1,298 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PremiumHero from '../../components/layout/PremiumHero.astro';
+import PremiumButton from '../../components/ui/PremiumButton.astro';
+import PremiumCard from '../../components/ui/PremiumCard.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import ContactForm from '../../components/forms/ContactForm.astro';
+import Badge from '../../components/ui/Badge.astro';
+
+const pageTitle = "AC Repair Services | Fast Air Conditioning Repair | Jupitair HVAC";
+const pageDescription = "Emergency AC repair in North Texas. Same-day service, certified technicians, all brands. 2-hour response time. Call (940) 390-5676 for immediate AC repair.";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  keywords="AC repair, air conditioning repair, emergency AC repair, North Texas AC repair, same-day AC service, cooling system repair"
+>
+  <PremiumHero 
+    title="Professional AC Repair Services"
+    subtitle="Same-Day Emergency Service"
+    description="When your AC breaks down, we're here 24/7. Expert technicians, guaranteed repairs, and transparent pricing. Most repairs completed the same day."
+    ctaPrimary={{ text: "Get Emergency Service", href: "tel:9403905676" }}
+    ctaSecondary={{ text: "Get Quote", href: "#contact" }}
+    variant="gradient"
+    height="lg"
+  />
+
+  <!-- Emergency Banner -->
+  <section class="py-4 bg-red-600">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4 text-center">
+      <p class="text-white font-bold">
+        🚨 AC Emergency? Call (940) 390-5676 for 2-Hour Response Time
+      </p>
+    </div>
+  </section>
+
+  <!-- Common AC Problems -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Common AC Problems We Fix</h2>
+        <p class="break-words text-xl text-gray-800 max-w-3xl mx-auto">
+          Our certified technicians diagnose and repair all AC issues quickly and efficiently
+        </p>
+      </div>
+
+      <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="p-6 space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">AC Won't Turn On</h3>
+            <p class="text-gray-800">Electrical issues, thermostat problems, or circuit breaker trips</p>
+            <Badge variant="emergency" size="sm">Emergency Service</Badge>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="p-6 space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">Blowing Warm Air</h3>
+            <p class="text-gray-800">Low refrigerant, dirty coils, or compressor failure</p>
+            <Badge variant="warning" size="sm">Same Day Fix</Badge>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="p-6 space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">Frozen Evaporator Coil</h3>
+            <p class="text-gray-800">Restricted airflow, low refrigerant, or dirty filter</p>
+            <Badge variant="warning" size="sm">2-Hour Response</Badge>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="p-6 space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.142M6.343 6.343a9 9 0 000 12.728m2.829-9.9a5 5 0 000 7.072M13 5h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">Strange Noises</h3>
+            <p class="text-gray-800">Grinding, squealing, or banging sounds from unit</p>
+            <Badge variant="primary" size="sm">Diagnostic Available</Badge>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="p-6 space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">Poor Air Quality</h3>
+            <p class="text-gray-800">Dirty filters, duct issues, or humidity problems</p>
+            <Badge variant="success" size="sm">Air Quality Test</Badge>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="p-6 space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">High Energy Bills</h3>
+            <p class="text-gray-800">Inefficient operation due to maintenance issues</p>
+            <Badge variant="primary" size="sm">Efficiency Check</Badge>
+          </div>
+        </PremiumCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Repair Process -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Our AC Repair Process</h2>
+        <p class="break-words text-xl text-gray-800">Fast, reliable service every time</p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-6">
+        <PremiumCard variant="elevated" padding="md">
+          <div class="min-w-0 flex gap-6">
+            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              1
+            </div>
+            <div>
+              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Emergency Dispatch</h3>
+              <p class="text-gray-800">Call us and we'll dispatch a certified technician within 2 hours for emergency repairs.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="min-w-0 flex gap-6">
+            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              2
+            </div>
+            <div>
+              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Complete Diagnosis</h3>
+              <p class="text-gray-800">Our technician performs a thorough diagnostic to identify the root cause of the problem.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="min-w-0 flex gap-6">
+            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              3
+            </div>
+            <div>
+              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Upfront Pricing</h3>
+              <p class="text-gray-800">You'll receive a detailed quote before any work begins. No surprises or hidden fees.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="min-w-0 flex gap-6">
+            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              4
+            </div>
+            <div>
+              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Professional Repair</h3>
+              <p class="text-gray-800">Using quality parts and proven techniques, we fix your AC right the first time.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="min-w-0 flex gap-6">
+            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              5
+            </div>
+            <div>
+              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Quality Guarantee</h3>
+              <p class="text-gray-800">All repairs come with our satisfaction guarantee and warranty on parts and labor.</p>
+            </div>
+          </div>
+        </PremiumCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Transparent AC Repair Pricing</h2>
+        <p class="break-words text-xl text-gray-800">No hidden fees or surprise charges</p>
+      </div>
+
+      <div class="min-w-0 grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <Card variant="bordered" padding="lg">
+          <div class="text-center space-y-4">
+            <h3 class="break-words text-2xl font-bold text-gray-900">Diagnostic</h3>
+            <div class="break-words text-4xl font-bold text-blue-600">$89</div>
+            <p class="text-gray-800">Complete system inspection and diagnosis</p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Full system evaluation</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Written estimate</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Waived if repair completed</span>
+              </li>
+            </ul>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg" class="border-blue-500 relative">
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+            <Badge variant="primary">Most Common</Badge>
+          </div>
+          <div class="text-center space-y-4 pt-4">
+            <h3 class="break-words text-2xl font-bold text-gray-900">Minor Repairs</h3>
+            <div class="break-words text-4xl font-bold text-blue-600">$150-$400</div>
+            <p class="text-gray-800">Capacitors, contactors, thermostats</p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Same-day completion</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>1-year warranty</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Quality OEM parts</span>
+              </li>
+            </ul>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg">
+          <div class="text-center space-y-4">
+            <h3 class="break-words text-2xl font-bold text-gray-900">Major Repairs</h3>
+            <div class="break-words text-4xl font-bold text-blue-600">$500-$1,500</div>
+            <p class="text-gray-800">Compressors, coils, major components</p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Extended warranties</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Financing available</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Replacement consultation</span>
+              </li>
+            </ul>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact" class="py-16 bg-gray-50">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Get Fast AC Repair Service
+        </h2>
+        <p class="break-words text-xl text-gray-800">
+          Emergency service available 24/7 • Same-day repairs
+        </p>
+      </div>
+      <ContactForm formId="ac-repair-contact-form" />
+    </div>
+  </section>
+</BaseLayout>

@@ -207,32 +207,8 @@ const classes = [
     perspective: 1000px;
   }
 
-  /* Glass morphism enhancements */
-  .premium-card[data-variant="glass"] {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.8),
-      rgba(255, 255, 255, 0.6)
-    );
-  }
-
-  @supports (backdrop-filter: blur(20px)) {
-    .premium-card[data-variant="glass"] {
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-    }
-  }
-
-  /* Dark mode adjustments */
-  @media (prefers-color-scheme: dark) {
-    .premium-card[data-variant="glass"] {
-      background: linear-gradient(
-        135deg,
-        rgba(17, 24, 39, 0.8),
-        rgba(17, 24, 39, 0.6)
-      );
-    }
-  }
+  /* Glass morphism enhancements (NOT USED - all glass cards converted to elevated) */
+  /* REMOVED: glass styling to eliminate contrast issues */
 
   /* Performance optimizations */
   .premium-card {

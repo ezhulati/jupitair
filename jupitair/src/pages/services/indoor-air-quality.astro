@@ -1,0 +1,543 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PremiumHero from '../../components/layout/PremiumHero.astro';
+import PremiumButton from '../../components/ui/PremiumButton.astro';
+import PremiumCard from '../../components/ui/PremiumCard.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import ContactForm from '../../components/forms/ContactForm.astro';
+import Badge from '../../components/ui/Badge.astro';
+
+const pageTitle = "Indoor Air Quality Services | Air Purification Systems | Jupitair HVAC";
+const pageDescription = "Improve your indoor air quality in North Texas. Air purifiers, UV lights, humidity control, and filtration systems. Breathe cleaner, healthier air at home.";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  keywords="indoor air quality, air purification, UV lights, humidity control, air filtration, North Texas air quality, allergen removal, clean air systems"
+>
+  <PremiumHero 
+    title="Indoor Air Quality Solutions"
+    subtitle="Breathe Cleaner, Healthier Air"
+    description="Transform your home's air quality with professional air purification systems, humidity control, and advanced filtration. Perfect for North Texas homes."
+    ctaPrimary={{ text: "Get Air Quality Assessment", href: "#contact" }}
+    ctaSecondary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
+    variant="gradient"
+    height="lg"
+  />
+
+  <!-- Air Quality Problems Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Common Indoor Air Quality Issues</h2>
+        <p class="break-words text-xl text-gray-800 max-w-3xl mx-auto">
+          Poor indoor air quality affects health, comfort, and quality of life. North Texas homes face unique challenges.
+        </p>
+      </div>
+
+      <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="min-w-0 w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-10 0h10m-10 0a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2m-3 4h3m-3 4h3m-6-4h.01M9 16h.01" />
+              </svg>
+            </div>
+            <h3 class="break-words text-2xl font-bold text-gray-900">Dust & Allergens</h3>
+            <p class="text-gray-800">
+              Pollen, dust mites, pet dander, and outdoor allergens affecting comfort
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="min-w-0 w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-2xl font-bold text-gray-900">Humidity Problems</h3>
+            <p class="text-gray-800">
+              Too high or too low humidity causing discomfort and health issues
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="min-w-0 w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-2xl font-bold text-gray-900">Bacteria & Viruses</h3>
+            <p class="text-gray-800">
+              Airborne pathogens and microorganisms affecting family health
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="min-w-0 w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-2xl font-bold text-gray-900">Odors & VOCs</h3>
+            <p class="text-gray-800">
+              Chemical odors, cooking smells, and volatile organic compounds
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="min-w-0 w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-2xl font-bold text-gray-900">Mold & Mildew</h3>
+            <p class="text-gray-800">
+              Moisture-related growth causing respiratory and health problems
+            </p>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="min-w-0 w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+            </div>
+            <h3 class="break-words text-2xl font-bold text-gray-900">Poor Ventilation</h3>
+            <p class="text-gray-800">
+              Stale air, CO2 buildup, and insufficient fresh air circulation
+            </p>
+          </div>
+        </PremiumCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Solutions Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Our Indoor Air Quality Solutions</h2>
+        <p class="break-words text-xl text-gray-800">Comprehensive systems to improve your home's air quality</p>
+      </div>
+
+      <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <PremiumCard variant="elevated" padding="lg" hover={true}>
+          <div class="space-y-4">
+            <div class="min-w-0 w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-2xl font-bold text-gray-900 text-center">High-Efficiency Filtration</h3>
+            <p class="text-gray-800 text-center mb-4">Advanced filters to capture particles and allergens</p>
+            <ul class="space-y-2 text-sm">
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>HEPA and MERV 13+ filters</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Captures 99.97% of particles</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Removes dust, pollen, pet dander</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Electronic air cleaners available</span>
+              </li>
+            </ul>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="lg" hover={true}>
+          <div class="space-y-4">
+            <div class="min-w-0 w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-2xl font-bold text-gray-900 text-center">UV Light Systems</h3>
+            <p class="text-gray-800 text-center mb-4">Germicidal UV lights to eliminate pathogens</p>
+            <ul class="space-y-2 text-sm">
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Kills bacteria, viruses, mold</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Reduces illness transmission</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Prevents coil mold growth</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Low maintenance operation</span>
+              </li>
+            </ul>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="lg" hover={true}>
+          <div class="space-y-4">
+            <div class="min-w-0 w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-2xl font-bold text-gray-900 text-center">Humidity Control</h3>
+            <p class="text-gray-800 text-center mb-4">Whole-home humidification and dehumidification</p>
+            <ul class="space-y-2 text-sm">
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Maintains optimal 40-60% humidity</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Prevents mold and bacteria growth</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Reduces static and dry air</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Automatic operation</span>
+              </li>
+            </ul>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="lg" hover={true}>
+          <div class="space-y-4">
+            <div class="min-w-0 w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-2xl font-bold text-gray-900 text-center">Air Purifiers</h3>
+            <p class="text-gray-800 text-center mb-4">Whole-home and portable air purification systems</p>
+            <ul class="space-y-2 text-sm">
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Multiple purification technologies</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Removes odors and chemicals</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Smart monitoring capabilities</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Whisper-quiet operation</span>
+              </li>
+            </ul>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="lg" hover={true}>
+          <div class="space-y-4">
+            <div class="min-w-0 w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-2xl font-bold text-gray-900 text-center">Ventilation Solutions</h3>
+            <p class="text-gray-800 text-center mb-4">Fresh air ventilation and energy recovery systems</p>
+            <ul class="space-y-2 text-sm">
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Heat and energy recovery ventilators</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Balanced fresh air exchange</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Reduces CO2 and stale air</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Energy-efficient operation</span>
+              </li>
+            </ul>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="lg" hover={true}>
+          <div class="space-y-4">
+            <div class="min-w-0 w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-2xl font-bold text-gray-900 text-center">Air Quality Testing</h3>
+            <p class="text-gray-800 text-center mb-4">Professional assessment and monitoring</p>
+            <ul class="space-y-2 text-sm">
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Comprehensive air quality testing</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Particle count analysis</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Humidity and temperature monitoring</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Customized improvement plan</span>
+              </li>
+            </ul>
+          </div>
+        </PremiumCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Benefits of Better Indoor Air Quality</h2>
+        <p class="break-words text-xl text-gray-800">Invest in your family's health and comfort</p>
+      </div>
+
+      <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <Card variant="bordered" padding="lg">
+          <div class="space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">Better Health</h3>
+            <p class="text-gray-800">
+              Reduced allergies, asthma symptoms, and respiratory issues for the whole family.
+            </p>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg">
+          <div class="space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">Improved Sleep</h3>
+            <p class="text-gray-800">
+              Cleaner air promotes better sleep quality and more restful nights.
+            </p>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg">
+          <div class="space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">Increased Energy</h3>
+            <p class="text-gray-800">
+              Better air quality leads to improved concentration and energy levels.
+            </p>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg">
+          <div class="space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">Odor Elimination</h3>
+            <p class="text-gray-800">
+              Remove cooking odors, pet smells, and chemical odors for fresher air.
+            </p>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg">
+          <div class="space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">Home Protection</h3>
+            <p class="text-gray-800">
+              Prevent mold, mildew, and moisture damage to your home and furnishings.
+            </p>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg">
+          <div class="space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">Lower Costs</h3>
+            <p class="text-gray-800">
+              Reduced medical bills and fewer sick days for your family.
+            </p>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Air Quality Solution Pricing</h2>
+        <p class="break-words text-xl text-gray-800">Affordable options for every home and budget</p>
+      </div>
+
+      <div class="min-w-0 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <Card variant="bordered" padding="lg">
+          <div class="text-center space-y-4">
+            <h3 class="break-words text-2xl font-bold text-gray-900">Basic Package</h3>
+            <div class="break-words text-4xl font-bold text-green-600">$299</div>
+            <p class="text-gray-800">High-efficiency filtration upgrade</p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>MERV 13 filter system</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Professional installation</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Filter replacement program</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>1-year warranty</span>
+              </li>
+            </ul>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg" class="border-blue-500 relative">
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+            <Badge variant="primary">Most Popular</Badge>
+          </div>
+          <div class="text-center space-y-4 pt-4">
+            <h3 class="break-words text-2xl font-bold text-gray-900">Complete Package</h3>
+            <div class="break-words text-4xl font-bold text-blue-600">$1,299</div>
+            <p class="text-gray-800">UV lights + advanced filtration</p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Everything in Basic plus:</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>UV germicidal lights</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Whole-home air purifier</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Air quality testing</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>3-year warranty</span>
+              </li>
+            </ul>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg">
+          <div class="text-center space-y-4">
+            <h3 class="break-words text-2xl font-bold text-gray-900">Premium Package</h3>
+            <div class="break-words text-4xl font-bold text-purple-600">$2,499</div>
+            <p class="text-gray-800">Complete air quality system</p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Everything in Complete plus:</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Whole-home humidifier</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Energy recovery ventilator</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Smart air quality monitoring</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>5-year warranty</span>
+              </li>
+            </ul>
+          </div>
+        </Card>
+      </div>
+
+      <div class="mt-12 text-center">
+        <Card variant="bordered" padding="lg" class="max-w-2xl mx-auto bg-green-50 border-green-200">
+          <h3 class="break-words text-xl font-bold text-gray-900 mb-4">Free Air Quality Assessment</h3>
+          <p class="text-gray-800 mb-4">
+            We'll test your home's air quality and recommend the best solutions for your needs
+          </p>
+          <div class="text-sm text-green-700 font-medium">
+            Financing available with approved credit
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact" class="py-16 bg-white">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Improve Your Indoor Air Quality Today
+        </h2>
+        <p class="break-words text-xl text-gray-800">
+          Free air quality assessment • Custom solutions for your home
+        </p>
+      </div>
+      <ContactForm formId="air-quality-contact-form" />
+    </div>
+  </section>
+</BaseLayout>

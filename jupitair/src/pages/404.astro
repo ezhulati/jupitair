@@ -20,7 +20,7 @@ const popularCities = [
   description="The page you're looking for cannot be found. Let us help you find what you need."
   noindex={true}
 >
-  <div class="min-h-screen flex items-center justify-center px-4 py-16 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+  <div class="min-w-0 min-h-screen flex items-center justify-center px-4 py-16 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
     <!-- Animated Background Elements -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
       <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full filter blur-[128px] opacity-20 animate-float"></div>
@@ -47,27 +47,27 @@ const popularCities = [
       </div>
 
       <!-- Error Message -->
-      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in">
+      <h1 class="break-words text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in">
         Oops! This Page is Out of Service
       </h1>
       
-      <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto animate-fade-in-delayed">
+      <p class="break-words text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto animate-fade-in-delayed">
         Just like a broken AC on a hot Texas day, this page seems to have stopped working. 
         Let's get you back to a page that's running smoothly!
       </p>
 
       <!-- Search Bar -->
-      <PremiumCard variant="glass" padding="none" class="max-w-xl mx-auto mb-12 animate-slide-up">
-        <form action="/search" method="get" class="flex items-center p-2">
+      <PremiumCard variant="elevated" padding="none" class="max-w-xl mx-auto mb-12 animate-slide-up">
+        <form action="/search" method="get" class="overflow-x-hidden min-w-0 flex items-center p-2">
           <input
             type="search"
             name="q"
             placeholder="Search for services, locations, or information..."
-            class="flex-1 px-4 py-3 bg-transparent border-0 focus:outline-none text-gray-900 dark:text-white placeholder-gray-500"
+            class="min-w-0 flex-1 px-4 py-3 bg-transparent border-0 focus:outline-none text-gray-900 dark:text-white placeholder-gray-500"
           />
           <button
             type="submit"
-            class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors flex items-center gap-2"
+            class="min-w-0 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors flex items-center gap-2"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -79,10 +79,10 @@ const popularCities = [
 
       <!-- Quick Actions -->
       <div class="mb-12">
-        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+        <h2 class="break-words text-2xl font-semibold text-gray-900 dark:text-white mb-6">
           Popular Pages
         </h2>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
+        <div class="min-w-0 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
           {suggestedPages.map((page) => (
             <PremiumCard variant="interactive" padding="none" hover={true} class="animate-scale-in">
               <a href={page.href} class="block p-6 text-center">
@@ -125,7 +125,7 @@ const popularCities = [
         <p class="text-gray-600 dark:text-gray-400 mb-4">
           Looking for HVAC service in your area?
         </p>
-        <div class="flex flex-wrap justify-center gap-3">
+        <div class="min-w-0 flex flex-wrap justify-center gap-3">
           {popularCities.map((city) => (
             <a
               href={`/${city.toLowerCase()}`}
@@ -138,7 +138,7 @@ const popularCities = [
       </div>
 
       <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <div class="min-w-0 flex flex-col sm:flex-row gap-4 justify-center items-center">
         <PremiumButton href="/" variant="primary" size="lg">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />

@@ -1,0 +1,504 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PremiumHero from '../../components/layout/PremiumHero.astro';
+import PremiumButton from '../../components/ui/PremiumButton.astro';
+import PremiumCard from '../../components/ui/PremiumCard.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import ContactForm from '../../components/forms/ContactForm.astro';
+import Badge from '../../components/ui/Badge.astro';
+
+const pageTitle = "Heating Installation Services | Furnace & Heat Pump Install | Jupitair HVAC";
+const pageDescription = "Professional heating system installation in North Texas. Gas furnaces, electric heat pumps, and dual fuel systems. Expert installation with warranties.";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  keywords="heating installation, furnace installation, heat pump installation, North Texas heating, gas furnace install, electric heating systems"
+>
+  <PremiumHero 
+    title="Professional Heating System Installation"
+    subtitle="Stay Warm All Winter"
+    description="Expert installation of gas furnaces, electric heat pumps, and dual fuel systems. Professional service with warranties and financing available."
+    ctaPrimary={{ text: "Get Free Quote", href: "#contact" }}
+    ctaSecondary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
+    variant="gradient"
+    height="lg"
+  />
+
+  <!-- Why New Heating Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Time for a New Heating System?</h2>
+        <p class="break-words text-xl text-gray-800 max-w-3xl mx-auto">
+          Modern heating systems are more efficient, reliable, and safer than older units. Upgrade for better comfort and lower energy bills.
+        </p>
+      </div>
+
+      <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Card variant="bordered" padding="md">
+          <div class="text-center space-y-3">
+            <div class="min-w-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto">
+              <span class="break-words text-2xl font-bold text-red-600">15+</span>
+            </div>
+            <h3 class="font-bold text-gray-900">System Age</h3>
+            <p class="text-sm text-gray-800">Heating systems over 15 years old should be replaced</p>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="md">
+          <div class="text-center space-y-3">
+            <div class="min-w-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto">
+              <span class="break-words text-2xl font-bold text-orange-600">$$$</span>
+            </div>
+            <h3 class="font-bold text-gray-900">High Bills</h3>
+            <p class="text-sm text-gray-800">Rising energy costs from inefficient equipment</p>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="md">
+          <div class="text-center space-y-3">
+            <div class="min-w-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-gray-900">Frequent Repairs</h3>
+            <p class="text-sm text-gray-800">Multiple service calls indicate system failure</p>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="md">
+          <div class="text-center space-y-3">
+            <div class="min-w-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-gray-900">Poor Comfort</h3>
+            <p class="text-sm text-gray-800">Uneven heating and temperature swings</p>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Heating System Types Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Heating System Options</h2>
+        <p class="break-words text-xl text-gray-800">Choose the right heating solution for your home</p>
+      </div>
+
+      <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="min-w-0 w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-2xl font-bold text-gray-900">Gas Furnaces</h3>
+            <p class="text-gray-800 mb-4">
+              Most popular choice for reliable, cost-effective heating
+            </p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Lower operating costs</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Fast, powerful heating</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Works in any weather</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Long lifespan (15-20 years)</span>
+              </li>
+            </ul>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="min-w-0 w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-2xl font-bold text-gray-900">Electric Heat Pumps</h3>
+            <p class="text-gray-800 mb-4">
+              Energy-efficient heating and cooling in one system
+            </p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Dual heating/cooling</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>High efficiency ratings</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Environmentally friendly</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Perfect for Texas climate</span>
+              </li>
+            </ul>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" hover={true}>
+          <div class="text-center space-y-4 p-6">
+            <div class="min-w-0 w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-2xl font-bold text-gray-900">Dual Fuel Systems</h3>
+            <p class="text-gray-800 mb-4">
+              Heat pump with gas backup for optimal efficiency
+            </p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Best of both systems</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Automatic switching</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Maximum efficiency</span>
+              </li>
+              <li class="min-w-0 flex items-start gap-2">
+                <span class="text-green-500 mt-1">•</span>
+                <span>Reliable backup heating</span>
+              </li>
+            </ul>
+          </div>
+        </PremiumCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- Installation Process Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Professional Installation Process</h2>
+        <p class="break-words text-xl text-gray-800">Expert installation for optimal performance and safety</p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-6">
+        <PremiumCard variant="elevated" padding="md">
+          <div class="min-w-0 flex gap-6">
+            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              1
+            </div>
+            <div>
+              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">In-Home Assessment</h3>
+              <p class="text-gray-800">Comprehensive evaluation of your home's heating needs, including Manual J load calculations and existing infrastructure assessment.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="min-w-0 flex gap-6">
+            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              2
+            </div>
+            <div>
+              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">System Design & Permits</h3>
+              <p class="text-gray-800">Custom system design with proper sizing, equipment selection, and permit acquisition for code-compliant installation.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="min-w-0 flex gap-6">
+            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              3
+            </div>
+            <div>
+              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Safe Equipment Removal</h3>
+              <p class="text-gray-800">Careful removal of old equipment with proper disposal and recovery of refrigerants according to EPA regulations.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="min-w-0 flex gap-6">
+            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              4
+            </div>
+            <div>
+              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Professional Installation</h3>
+              <p class="text-gray-800">Expert installation following manufacturer specifications, local codes, and safety standards with quality materials and craftsmanship.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="min-w-0 flex gap-6">
+            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              5
+            </div>
+            <div>
+              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Testing & Commissioning</h3>
+              <p class="text-gray-800">Thorough testing of all components, safety checks, performance verification, and system commissioning to ensure optimal operation.</p>
+            </div>
+          </div>
+        </PremiumCard>
+
+        <PremiumCard variant="elevated" padding="md">
+          <div class="min-w-0 flex gap-6">
+            <div class="break-words w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+              6
+            </div>
+            <div>
+              <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Final Inspection & Training</h3>
+              <p class="text-gray-800">Municipal inspection coordination, customer training on operation and maintenance, warranty registration, and ongoing support setup.</p>
+            </div>
+          </div>
+        </PremiumCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Benefits of New Heating Installation</h2>
+        <p class="break-words text-xl text-gray-800">Upgrade your comfort, efficiency, and safety</p>
+      </div>
+
+      <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <Card variant="bordered" padding="lg">
+          <div class="space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">Lower Energy Bills</h3>
+            <p class="text-gray-800">
+              Modern heating systems are 20-40% more efficient than older units, significantly reducing monthly costs.
+            </p>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg">
+          <div class="space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">Improved Comfort</h3>
+            <p class="text-gray-800">
+              Even temperatures throughout your home with precise control and consistent operation.
+            </p>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg">
+          <div class="space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">Enhanced Safety</h3>
+            <p class="text-gray-800">
+              Modern safety features and proper installation eliminate risks from older equipment.
+            </p>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg">
+          <div class="space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.142M6.343 6.343a9 9 0 000 12.728m2.829-9.9a5 5 0 000 7.072M13 5h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">Quiet Operation</h3>
+            <p class="text-gray-800">
+              Advanced technology provides powerful heating with minimal noise levels.
+            </p>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg">
+          <div class="space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">Better Air Quality</h3>
+            <p class="text-gray-800">
+              Advanced filtration and proper ventilation improve indoor air quality for your family.
+            </p>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg">
+          <div class="space-y-4">
+            <div class="min-w-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+              <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <h3 class="break-words text-xl font-bold text-gray-900">Increased Home Value</h3>
+            <p class="text-gray-800">
+              New heating systems add value to your home and appeal to potential buyers.
+            </p>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-4xl font-bold text-gray-900 mb-4">Heating Installation Investment</h2>
+        <p class="break-words text-xl text-gray-800">Professional installation with financing available</p>
+      </div>
+
+      <div class="min-w-0 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <Card variant="bordered" padding="lg">
+          <div class="text-center space-y-4">
+            <h3 class="break-words text-2xl font-bold text-gray-900">Gas Furnace</h3>
+            <div class="break-words text-4xl font-bold text-orange-600">$3,800</div>
+            <p class="text-gray-800">80% AFUE, Standard Efficiency</p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Single-stage operation</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>10-year manufacturer warranty</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Professional installation</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Permits and inspection</span>
+              </li>
+            </ul>
+            <Button href="/contact" variant="outline" size="lg" class="w-full">
+              Get Quote
+            </Button>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg" class="border-blue-500 relative">
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+            <Badge variant="primary">Best Value</Badge>
+          </div>
+          <div class="text-center space-y-4 pt-4">
+            <h3 class="break-words text-2xl font-bold text-gray-900">High-Efficiency Furnace</h3>
+            <div class="break-words text-4xl font-bold text-orange-600">$5,200</div>
+            <p class="text-gray-800">95% AFUE, Two-Stage</p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Two-stage operation</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Variable-speed blower</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Smart thermostat included</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Extended warranty available</span>
+              </li>
+            </ul>
+            <PremiumButton href="/contact" variant="primary" size="lg" class="w-full">
+              Get Quote
+            </PremiumButton>
+          </div>
+        </Card>
+
+        <Card variant="bordered" padding="lg">
+          <div class="text-center space-y-4">
+            <h3 class="break-words text-2xl font-bold text-gray-900">Heat Pump System</h3>
+            <div class="break-words text-4xl font-bold text-blue-600">$6,500</div>
+            <p class="text-gray-800">16 SEER, Heat Pump</p>
+            <ul class="text-left space-y-2 text-sm">
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Heating and cooling</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Energy Star certified</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Environmentally friendly</span>
+              </li>
+              <li class="min-w-0 flex items-center gap-2">
+                <span class="text-green-500">✓</span>
+                <span>Backup heat available</span>
+              </li>
+            </ul>
+            <Button href="/contact" variant="outline" size="lg" class="w-full">
+              Get Quote
+            </Button>
+          </div>
+        </Card>
+      </div>
+
+      <div class="mt-12 text-center">
+        <Card variant="bordered" padding="lg" class="max-w-2xl mx-auto bg-green-50 border-green-200">
+          <h3 class="break-words text-xl font-bold text-gray-900 mb-4">Financing Available</h3>
+          <p class="text-gray-800 mb-4">
+            0% interest for 18 months or low monthly payments with approved credit
+          </p>
+          <div class="text-sm text-green-700 font-medium">
+            Federal and local rebates may apply to qualifying high-efficiency systems
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact" class="py-16 bg-gray-50">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="break-words text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Get Your Heating Installation Quote
+        </h2>
+        <p class="break-words text-xl text-gray-800">
+          Professional consultation and installation • Free estimates available
+        </p>
+      </div>
+      <ContactForm formId="heating-installation-contact-form" />
+    </div>
+  </section>
+</BaseLayout>

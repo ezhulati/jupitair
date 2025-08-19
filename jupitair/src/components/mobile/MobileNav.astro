@@ -15,15 +15,15 @@ const navItems = [
 ---
 
 <!-- Premium Mobile Navigation with Gesture Support -->
-<nav class="mobile-nav lg:hidden fixed bottom-0 left-0 right-0 z-50">
+<nav class="mobile-nav lg:hidden fixed bottom-0 left-0 right-0 z-[55]">
   <!-- Gesture Handle -->
-  <div class="gesture-handle absolute -top-6 left-0 right-0 h-6 flex items-center justify-center">
+  <div class="min-w-0 gesture-handle absolute -top-6 left-0 right-0 h-6 flex items-center justify-center">
     <div class="w-12 h-1 bg-gray-400 rounded-full opacity-50"></div>
   </div>
 
   <!-- Navigation Bar -->
-  <div class="nav-container bg-white/95 backdrop-blur-xl border-t border-gray-200">
-    <div class="grid grid-cols-5 relative">
+  <div class="max-w-7xl overflow-x-hidden nav-container bg-white/95 backdrop-blur-xl border-t border-gray-200">
+    <div class="min-w-0 grid grid-cols-5 relative">
       {navItems.map((item, index) => (
         <a
           href={item.href}
@@ -81,9 +81,9 @@ const navItems = [
           
           <!-- Emergency Badge -->
           {item.highlight && (
-            <span class="absolute -top-1 -right-1 flex h-3 w-3">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+            <span class="min-w-0 absolute -top-1 -right-1 flex h-3 w-3">
+              <span class="min-w-0 animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span class="min-w-0 relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
             </span>
           )}
         </a>
@@ -96,7 +96,7 @@ const navItems = [
 </nav>
 
 <!-- Swipe-Up Menu -->
-<div id="mobile-menu" class="mobile-menu fixed inset-0 z-40 pointer-events-none">
+<div id="mobile-menu" class="mobile-menu fixed inset-0 z-[60] pointer-events-none">
   <div class="menu-backdrop absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"></div>
   <div class="menu-panel absolute bottom-0 left-0 right-0 bg-white dark:bg-gray-900 rounded-t-3xl transform translate-y-full transition-transform duration-300 max-h-[80vh] overflow-y-auto">
     <!-- Drag Handle -->
@@ -109,9 +109,9 @@ const navItems = [
       <!-- Quick Actions -->
       <div class="mb-8">
         <h3 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">Quick Actions</h3>
-        <div class="grid grid-cols-2 gap-3">
-          <a href="tel:9403905676" class="quick-action-card bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 rounded-xl p-4 flex items-center gap-3">
-            <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
+        <div class="min-w-0 grid grid-cols-2 gap-3">
+          <a href="tel:9403905676" class="min-w-0 quick-action-card bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 rounded-xl p-4 flex items-center gap-3">
+            <div class="min-w-0 w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
               <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
@@ -122,8 +122,8 @@ const navItems = [
             </div>
           </a>
           
-          <a href="#contact" class="quick-action-card bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 flex items-center gap-3">
-            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+          <a href="#contact" class="min-w-0 quick-action-card bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 flex items-center gap-3">
+            <div class="min-w-0 w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
               <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
@@ -148,7 +148,7 @@ const navItems = [
             'Maintenance Plans',
             'Indoor Air Quality'
           ].map((service) => (
-            <a href={`/services/${service.toLowerCase().replace(' ', '-')}`} class="menu-item flex items-center justify-between py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+            <a href={`/services/${service.toLowerCase().replace(' ', '-')}`} class="min-w-0 menu-item flex items-center justify-between py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
               <span class="font-medium">{service}</span>
               <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -161,7 +161,7 @@ const navItems = [
       <!-- Service Areas -->
       <div class="mb-8">
         <h3 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">Service Areas</h3>
-        <div class="grid grid-cols-2 gap-2">
+        <div class="min-w-0 grid grid-cols-2 gap-2">
           {[
             'Frisco',
             'Plano',
@@ -181,12 +181,12 @@ const navItems = [
       
       <!-- Contact Info -->
       <div class="border-t border-gray-200 dark:border-gray-800 pt-6">
-        <div class="flex items-center justify-between mb-4">
+        <div class="min-w-0 flex items-center justify-between mb-4">
           <div>
             <div class="text-sm text-gray-500 dark:text-gray-400">Available 24/7</div>
             <div class="text-lg font-bold">(940) 390-5676</div>
           </div>
-          <a href="tel:9403905676" class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+          <a href="tel:9403905676" class="min-w-0 w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
             <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
             </svg>

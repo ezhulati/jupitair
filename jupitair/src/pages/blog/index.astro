@@ -81,9 +81,9 @@ function formatDate(date: Date | string) {
 
   <!-- Blog Content -->
   <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
       <div class="max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-3 gap-8">
+        <div class="min-w-0 grid lg:grid-cols-3 gap-8">
           
           <!-- Main Content -->
           <div class="lg:col-span-2">
@@ -105,14 +105,14 @@ function formatDate(date: Date | string) {
                     <div class="w-full h-64 bg-gradient-to-br from-primary-100 to-primary-200"></div>
                   )}
                   <div class="p-8">
-                    <div class="flex items-center gap-4 text-sm text-gray-600 mb-4">
+                    <div class="min-w-0 flex items-center gap-4 text-sm text-gray-600 mb-4">
                       <span>{formatDate(featuredPost.data.publishDate)}</span>
                       <span>•</span>
                       <span>{featuredPost.data.readingTime || 5} min read</span>
                       <span>•</span>
                       <Badge variant="secondary" size="sm">{featuredPost.data.category}</Badge>
                     </div>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-3">
+                    <h2 class="break-words text-2xl font-bold text-gray-900 mb-3">
                       {featuredPost.data.title}
                     </h2>
                     <p class="text-gray-600 mb-6">
@@ -127,10 +127,10 @@ function formatDate(date: Date | string) {
             )}
 
             <!-- Recent Posts Grid -->
-            <div class="grid md:grid-cols-2 gap-6">
+            <div class="min-w-0 grid md:grid-cols-2 gap-6">
               {paginatedPosts.slice(1).map(post => (
                 <Card variant="elevated" padding="lg" class="hover:shadow-xl transition-shadow">
-                  <div class="flex items-start justify-between mb-3">
+                  <div class="min-w-0 flex items-start justify-between mb-3">
                     <Badge variant="secondary" size="sm">{post.data.category}</Badge>
                     <span class="text-xs text-gray-500">{post.data.readingTime || 5} min read</span>
                   </div>
@@ -140,7 +140,7 @@ function formatDate(date: Date | string) {
                     </a>
                   </h3>
                   <p class="text-sm text-gray-600 mb-4">{post.data.description}</p>
-                  <div class="flex items-center justify-between">
+                  <div class="min-w-0 flex items-center justify-between">
                     <span class="text-xs text-gray-500">{formatDate(post.data.publishDate)}</span>
                     <a href={`/blog/${post.slug}`} class="text-primary-600 hover:text-primary-700 font-medium text-sm">
                       Read →
@@ -151,7 +151,7 @@ function formatDate(date: Date | string) {
             </div>
 
             <!-- Pagination -->
-            <div class="mt-12 flex items-center justify-center gap-2">
+            <div class="min-w-0 mt-12 flex items-center justify-center gap-2">
               <Button variant="outline" size="sm" disabled={currentPage === 1}>Previous</Button>
               <span class="px-4 py-2 text-sm font-medium">Page {currentPage} of {totalPages}</span>
               <Button variant="outline" size="sm" disabled={currentPage === totalPages}>Next</Button>
@@ -184,7 +184,7 @@ function formatDate(date: Date | string) {
                 {categories.slice(0, 8).map(category => (
                   <li>
                     <a href={`/blog/category/${category.name.toLowerCase().replace(/\s+/g, '-')}`} 
-                       class="flex items-center justify-between text-gray-600 hover:text-primary-600 transition-colors">
+                       class="min-w-0 flex items-center justify-between text-gray-600 hover:text-primary-600 transition-colors">
                       <span>{category.name}</span>
                       <span class="text-sm text-gray-400">({category.count})</span>
                     </a>
@@ -198,8 +198,8 @@ function formatDate(date: Date | string) {
               <h3 class="font-bold text-gray-900 mb-4">Popular Posts</h3>
               <ul class="space-y-3">
                 {popularPosts.map((post, index) => (
-                  <li class="flex items-start gap-3">
-                    <span class="text-2xl font-bold text-primary-600">{index + 1}</span>
+                  <li class="min-w-0 flex items-start gap-3">
+                    <span class="break-words text-2xl font-bold text-primary-600">{index + 1}</span>
                     <a href={`/blog/${post.slug}`} class="text-sm text-gray-600 hover:text-primary-600 transition-colors">
                       {post.data.title}
                     </a>
@@ -211,7 +211,7 @@ function formatDate(date: Date | string) {
             <!-- Newsletter CTA -->
             <PremiumCard variant="gradient" padding="lg">
               <div class="text-center">
-                <div class="text-3xl mb-3">📧</div>
+                <div class="break-words text-3xl mb-3">📧</div>
                 <h3 class="font-bold text-gray-900 mb-2">HVAC Tips Newsletter</h3>
                 <p class="text-sm text-gray-600 mb-4">
                   Get monthly maintenance tips and exclusive offers
@@ -230,7 +230,7 @@ function formatDate(date: Date | string) {
             <!-- Need Help CTA -->
             <Card variant="elevated" padding="lg" class="mt-6 bg-emergency-50 border-2 border-emergency-200">
               <div class="text-center">
-                <div class="text-3xl mb-3">🚨</div>
+                <div class="break-words text-3xl mb-3">🚨</div>
                 <h3 class="font-bold text-gray-900 mb-2">HVAC Emergency?</h3>
                 <p class="text-sm text-gray-600 mb-4">
                   We're available 24/7 for emergency repairs
@@ -248,15 +248,15 @@ function formatDate(date: Date | string) {
 
   <!-- Related Services CTA -->
   <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+        <h2 class="break-words text-3xl font-bold text-gray-900 mb-4">
           Need Professional HVAC Service?
         </h2>
-        <p class="text-xl text-gray-600 mb-8">
+        <p class="break-words text-xl text-gray-600 mb-8">
           Our expert technicians are ready to help with all your heating and cooling needs
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <div class="min-w-0 flex flex-col sm:flex-row gap-4 justify-center">
           <Button href="/contact" variant="primary" size="lg">
             Get Quote
           </Button>

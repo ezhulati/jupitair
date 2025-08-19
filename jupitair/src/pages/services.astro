@@ -57,36 +57,36 @@ const commercialServices = services.filter(s => s.isCommercial);
 
   <!-- All Services Grid -->
   <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
       <div class="max-w-7xl mx-auto">
         
         <!-- Residential Services -->
         <div class="mb-16">
           <div class="text-center mb-8">
             <Badge variant="primary" class="mb-4">Residential Services</Badge>
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 class="break-words text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Home Comfort Solutions
             </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p class="break-words text-xl text-gray-800 max-w-3xl mx-auto">
               Complete HVAC services for North Texas homes. From emergency repairs to new installations.
             </p>
           </div>
           
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {residentialServices.map(service => (
               <Card variant="elevated" padding="lg" class="hover:shadow-xl transition-all">
-                <div class="flex justify-between items-start mb-3">
-                  <h3 class="text-xl font-bold text-gray-900">{service.name}</h3>
+                <div class="min-w-0 flex justify-between items-start mb-3">
+                  <h3 class="break-words text-xl font-bold text-gray-900">{service.name}</h3>
                   {service.isEmergency && (
                     <Badge variant="danger" size="sm">24/7</Badge>
                   )}
                 </div>
                 {service.pricing && (
-                  <div class="text-2xl font-bold text-primary-600 mb-3">
+                  <div class="break-words text-2xl font-bold text-primary-600 mb-3">
                     ${service.pricing.min.toLocaleString()} - ${service.pricing.max.toLocaleString()}
                   </div>
                 )}
-                <p class="text-gray-600 mb-4 line-clamp-2">
+                <p class="text-gray-800 mb-4 line-clamp-2">
                   {service.description.split('.')[0]}.
                 </p>
                 <Button 
@@ -107,27 +107,27 @@ const commercialServices = services.filter(s => s.isCommercial);
           <div>
             <div class="text-center mb-8">
               <Badge variant="secondary" class="mb-4">Commercial Services</Badge>
-              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 class="break-words text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 Business HVAC Solutions
               </h2>
-              <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p class="break-words text-xl text-gray-800 max-w-3xl mx-auto">
                 Professional commercial HVAC for restaurants, retail, and offices.
               </p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {commercialServices.map(service => (
                 <Card variant="elevated" padding="lg" class="hover:shadow-xl transition-all border-2 border-gray-200">
-                  <div class="flex justify-between items-start mb-3">
-                    <h3 class="text-xl font-bold text-gray-900">{service.name}</h3>
+                  <div class="min-w-0 flex justify-between items-start mb-3">
+                    <h3 class="break-words text-xl font-bold text-gray-900">{service.name}</h3>
                     <Badge variant="secondary" size="sm">Commercial</Badge>
                   </div>
                   {service.pricing && (
-                    <div class="text-2xl font-bold text-primary-600 mb-3">
+                    <div class="break-words text-2xl font-bold text-primary-600 mb-3">
                       ${service.pricing.min.toLocaleString()} - ${service.pricing.max.toLocaleString()}
                     </div>
                   )}
-                  <p class="text-gray-600 mb-4 line-clamp-2">
+                  <p class="text-gray-800 mb-4 line-clamp-2">
                     {service.description.split('.')[0]}.
                   </p>
                   <Button 
@@ -149,16 +149,16 @@ const commercialServices = services.filter(s => s.isCommercial);
 
   <!-- Quick Contact -->
   <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         <div class="text-center bg-white rounded-2xl p-8 shadow-lg">
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">
+          <h3 class="break-words text-2xl font-bold text-gray-900 mb-4">
             Need Immediate Service?
           </h3>
-          <p class="text-gray-600 mb-6">
+          <p class="text-gray-800 mb-6">
             Our team is ready to help with your HVAC needs, residential or commercial.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <div class="min-w-0 flex flex-col sm:flex-row gap-4 justify-center">
             <Button href="tel:(940) 390-5676" variant="primary" size="lg">
               <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
@@ -170,20 +170,20 @@ const commercialServices = services.filter(s => s.isCommercial);
             </Button>
           </div>
           
-          <div class="mt-6 flex flex-wrap justify-center gap-6 text-sm text-gray-600">
-            <div class="flex items-center gap-2">
+          <div class="min-w-0 mt-6 flex flex-wrap justify-center gap-6 text-sm text-gray-800">
+            <div class="min-w-0 flex items-center gap-2">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               Licensed & Insured
             </div>
-            <div class="flex items-center gap-2">
+            <div class="min-w-0 flex items-center gap-2">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               24/7 Emergency Service
             </div>
-            <div class="flex items-center gap-2">
+            <div class="min-w-0 flex items-center gap-2">
               <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>

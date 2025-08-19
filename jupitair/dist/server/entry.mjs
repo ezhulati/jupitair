@@ -1,6 +1,6 @@
 import { renderers } from './renderers.mjs';
 import { c as createExports, s as serverEntrypointModule } from './chunks/_@astrojs-ssr-adapter_BN1KvlbQ.mjs';
-import { manifest } from './manifest_CmnEoM_V.mjs';
+import { manifest } from './manifest_Di-yYZIB.mjs';
 
 const _page0 = () => import('./pages/_image.astro.mjs');
 const _page1 = () => import('./pages/404.astro.mjs');
@@ -35,19 +35,31 @@ const _page29 = () => import('./pages/oauth/simple-setup.astro.mjs');
 const _page30 = () => import('./pages/plano/ac-repair.astro.mjs');
 const _page31 = () => import('./pages/privacy.astro.mjs');
 const _page32 = () => import('./pages/robots.txt.astro.mjs');
-const _page33 = () => import('./pages/schedule.astro.mjs');
-const _page34 = () => import('./pages/services/residential.astro.mjs');
-const _page35 = () => import('./pages/services/_service_.astro.mjs');
-const _page36 = () => import('./pages/services.astro.mjs');
-const _page37 = () => import('./pages/services/_---slug_.astro.mjs');
-const _page38 = () => import('./pages/sitemap.astro.mjs');
-const _page39 = () => import('./pages/sitemap.xml.astro.mjs');
-const _page40 = () => import('./pages/style-guide.astro.mjs');
-const _page41 = () => import('./pages/success.astro.mjs');
-const _page42 = () => import('./pages/terms.astro.mjs');
-const _page43 = () => import('./pages/_city_/_service_.astro.mjs');
-const _page44 = () => import('./pages/_city_.astro.mjs');
-const _page45 = () => import('./pages/index.astro.mjs');
+const _page33 = () => import('./pages/services/ac-installation.astro.mjs');
+const _page34 = () => import('./pages/services/ac-repair.astro.mjs');
+const _page35 = () => import('./pages/services/commercial-hvac.astro.mjs');
+const _page36 = () => import('./pages/services/duct-cleaning.astro.mjs');
+const _page37 = () => import('./pages/services/duct-sealing.astro.mjs');
+const _page38 = () => import('./pages/services/heat-pump-systems.astro.mjs');
+const _page39 = () => import('./pages/services/heating-installation.astro.mjs');
+const _page40 = () => import('./pages/services/heating-repair.astro.mjs');
+const _page41 = () => import('./pages/services/hvac-installation.astro.mjs');
+const _page42 = () => import('./pages/services/indoor-air-quality.astro.mjs');
+const _page43 = () => import('./pages/services/maintenance.astro.mjs');
+const _page44 = () => import('./pages/services/maintenance-plans.astro.mjs');
+const _page45 = () => import('./pages/services/residential.astro.mjs');
+const _page46 = () => import('./pages/services/thermostat-installation.astro.mjs');
+const _page47 = () => import('./pages/services/_service_.astro.mjs');
+const _page48 = () => import('./pages/services.astro.mjs');
+const _page49 = () => import('./pages/services/_---slug_.astro.mjs');
+const _page50 = () => import('./pages/sitemap.astro.mjs');
+const _page51 = () => import('./pages/sitemap.xml.astro.mjs');
+const _page52 = () => import('./pages/style-guide.astro.mjs');
+const _page53 = () => import('./pages/success.astro.mjs');
+const _page54 = () => import('./pages/terms.astro.mjs');
+const _page55 = () => import('./pages/_city_/_service_.astro.mjs');
+const _page56 = () => import('./pages/_city_.astro.mjs');
+const _page57 = () => import('./pages/index.astro.mjs');
 
 const pageMap = new Map([
     ["node_modules/astro/dist/assets/endpoint/node.js", _page0],
@@ -83,19 +95,31 @@ const pageMap = new Map([
     ["src/pages/plano/ac-repair.astro", _page30],
     ["src/pages/privacy.astro", _page31],
     ["src/pages/robots.txt.ts", _page32],
-    ["src/pages/schedule.astro", _page33],
-    ["src/pages/services/residential.astro", _page34],
-    ["src/pages/services/[service].astro", _page35],
-    ["src/pages/services.astro", _page36],
-    ["src/pages/services/[...slug].astro", _page37],
-    ["src/pages/sitemap.astro", _page38],
-    ["src/pages/sitemap.xml.ts", _page39],
-    ["src/pages/style-guide.astro", _page40],
-    ["src/pages/success.astro", _page41],
-    ["src/pages/terms.astro", _page42],
-    ["src/pages/[city]/[service].astro", _page43],
-    ["src/pages/[city].astro", _page44],
-    ["src/pages/index.astro", _page45]
+    ["src/pages/services/ac-installation.astro", _page33],
+    ["src/pages/services/ac-repair.astro", _page34],
+    ["src/pages/services/commercial-hvac.astro", _page35],
+    ["src/pages/services/duct-cleaning.astro", _page36],
+    ["src/pages/services/duct-sealing.astro", _page37],
+    ["src/pages/services/heat-pump-systems.astro", _page38],
+    ["src/pages/services/heating-installation.astro", _page39],
+    ["src/pages/services/heating-repair.astro", _page40],
+    ["src/pages/services/hvac-installation.astro", _page41],
+    ["src/pages/services/indoor-air-quality.astro", _page42],
+    ["src/pages/services/maintenance.astro", _page43],
+    ["src/pages/services/maintenance-plans.astro", _page44],
+    ["src/pages/services/residential.astro", _page45],
+    ["src/pages/services/thermostat-installation.astro", _page46],
+    ["src/pages/services/[service].astro", _page47],
+    ["src/pages/services.astro", _page48],
+    ["src/pages/services/[...slug].astro", _page49],
+    ["src/pages/sitemap.astro", _page50],
+    ["src/pages/sitemap.xml.ts", _page51],
+    ["src/pages/style-guide.astro", _page52],
+    ["src/pages/success.astro", _page53],
+    ["src/pages/terms.astro", _page54],
+    ["src/pages/[city]/[service].astro", _page55],
+    ["src/pages/[city].astro", _page56],
+    ["src/pages/index.astro", _page57]
 ]);
 const serverIslandMap = new Map();
 const _manifest = Object.assign(manifest, {
@@ -106,8 +130,8 @@ const _manifest = Object.assign(manifest, {
 });
 const _args = {
     "mode": "standalone",
-    "client": "file:///Users/mbp-ez/Desktop/AI%20Library/Apps/jupitair/jupitair/dist/client/",
-    "server": "file:///Users/mbp-ez/Desktop/AI%20Library/Apps/jupitair/jupitair/dist/server/",
+    "client": "file:///Users/ez/Desktop/AI%20Library/Apps/jupitair/jupitair/jupitair/dist/client/",
+    "server": "file:///Users/ez/Desktop/AI%20Library/Apps/jupitair/jupitair/jupitair/dist/server/",
     "host": false,
     "port": 4321,
     "assets": "assets"

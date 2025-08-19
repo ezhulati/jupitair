@@ -169,27 +169,27 @@ const faqs = [
 
   <!-- Trust Bar -->
   <section class="bg-gradient-to-r from-gray-900 to-gray-800 py-4">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-wrap justify-center items-center gap-6 text-sm">
-        <div class="flex items-center gap-2 text-white">
+    <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
+      <div class="min-w-0 flex flex-wrap justify-center items-center gap-6 text-sm">
+        <div class="min-w-0 flex items-center gap-2 text-white">
           <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
           </svg>
           <span>500+ Businesses Served</span>
         </div>
-        <div class="flex items-center gap-2 text-white">
+        <div class="min-w-0 flex items-center gap-2 text-white">
           <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
           </svg>
           <span>5.0 Star Rating</span>
         </div>
-        <div class="flex items-center gap-2 text-white">
+        <div class="min-w-0 flex items-center gap-2 text-white">
           <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
           </svg>
           <span>No Contracts Required</span>
         </div>
-        <div class="flex items-center gap-2 text-white">
+        <div class="min-w-0 flex items-center gap-2 text-white">
           <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
           </svg>
@@ -199,25 +199,25 @@ const faqs = [
     </div>
   </section>
 
-  <div class="container mx-auto px-4 py-16">
+  <div class="max-w-7xl overflow-x-hidden container mx-auto px-4 py-16">
     
     <!-- Benefits Section -->
     <section class="mb-20">
       <div class="text-center mb-12">
         <Badge variant="primary" class="mb-4">Benefits</Badge>
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h2 class="break-words text-4xl md:text-5xl font-bold text-white mb-4">
           Why Preventive Maintenance Matters
         </h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p class="break-words text-xl text-gray-200 max-w-3xl mx-auto">
           Protect your investment and avoid costly emergency repairs with regular professional maintenance
         </p>
       </div>
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {benefits.map(benefit => (
           <PremiumCard variant="elevated" padding="lg" hover={true}>
             <div class="text-center">
-              <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div class="min-w-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   {benefit.icon === 'shield' ? (
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
@@ -230,8 +230,8 @@ const faqs = [
                   )}
                 </svg>
               </div>
-              <h3 class="text-xl font-bold text-gray-900 mb-2">{benefit.title}</h3>
-              <p class="text-gray-600">{benefit.description}</p>
+              <h3 class="break-words text-xl font-bold text-white mb-2">{benefit.title}</h3>
+              <p class="text-gray-200">{benefit.description}</p>
             </div>
           </PremiumCard>
         ))}
@@ -242,15 +242,15 @@ const faqs = [
     <section class="mb-20">
       <div class="text-center mb-12">
         <Badge variant="secondary" class="mb-4">Pricing Plans</Badge>
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h2 class="break-words text-4xl md:text-5xl font-bold text-white mb-4">
           Choose Your Maintenance Plan
         </h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p class="break-words text-xl text-gray-200 max-w-3xl mx-auto">
           Flexible month-to-month plans with no long-term contracts. Upgrade or downgrade anytime.
         </p>
       </div>
       
-      <div class="grid lg:grid-cols-3 gap-8">
+      <div class="min-w-0 grid lg:grid-cols-3 gap-8">
         {maintenancePlans.map(plan => (
           <PremiumCard 
             variant={plan.best ? "elevated" : "default"} 
@@ -265,19 +265,19 @@ const faqs = [
             )}
             
             <div class={`p-8 text-center border-b ${plan.best ? 'bg-gradient-to-br from-purple-50 to-white' : ''}`}>
-              <h3 class="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-              <p class="text-gray-600 mb-4">{plan.description}</p>
-              <div class="flex items-end justify-center gap-1 mb-2">
-                <span class="text-4xl font-bold text-gray-900">{plan.price}</span>
-                <span class="text-gray-600 text-lg mb-1">{plan.unit}</span>
+              <h3 class="break-words text-2xl font-bold text-white mb-2">{plan.name}</h3>
+              <p class="text-gray-200 mb-4">{plan.description}</p>
+              <div class="min-w-0 flex items-end justify-center gap-1 mb-2">
+                <span class="break-words text-4xl font-bold text-white">{plan.price}</span>
+                <span class="text-gray-200 text-lg mb-1">{plan.unit}</span>
               </div>
-              <p class="text-sm text-gray-600">{plan.frequency}</p>
+              <p class="text-sm text-gray-200">{plan.frequency}</p>
             </div>
             
             <div class="p-8">
               <ul class="space-y-3 mb-8">
                 {plan.features.map(feature => (
-                  <li class="flex items-start gap-3">
+                  <li class="min-w-0 flex items-start gap-3">
                     <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
@@ -305,18 +305,18 @@ const faqs = [
       <div class="px-8">
         <div class="text-center mb-12">
           <Badge variant="secondary" class="mb-4">What's Included</Badge>
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 class="break-words text-3xl md:text-4xl font-bold text-white mb-4">
             Comprehensive Maintenance Services
           </h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p class="break-words text-xl text-gray-200 max-w-3xl mx-auto">
             Every maintenance visit includes these essential services to keep your system running perfectly
           </p>
         </div>
         
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+        <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
           {includedServices.map(service => (
-            <div class="flex items-center gap-3 bg-white p-4 rounded-lg shadow-sm">
-              <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <div class="min-w-0 flex items-center gap-3 bg-white p-4 rounded-lg shadow-sm">
+              <svg class="w-5 h-5 text-white flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               <span class="text-gray-700">{service}</span>
@@ -330,39 +330,39 @@ const faqs = [
     <section class="mb-20">
       <div class="text-center mb-12">
         <Badge variant="primary" class="mb-4">How It Works</Badge>
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h2 class="break-words text-3xl md:text-4xl font-bold text-white mb-4">
           Getting Started is Easy
         </h2>
       </div>
       
-      <div class="grid md:grid-cols-4 gap-8">
+      <div class="min-w-0 grid md:grid-cols-4 gap-8">
         <div class="text-center">
-          <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+          <div class="break-words min-w-0 w-16 h-16 bg-blue-100 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
             1
           </div>
-          <h3 class="font-bold text-gray-900 mb-2">Choose Your Plan</h3>
-          <p class="text-gray-600">Select the maintenance plan that fits your business needs</p>
+          <h3 class="font-bold text-white mb-2">Choose Your Plan</h3>
+          <p class="text-gray-200">Select the maintenance plan that fits your business needs</p>
         </div>
         <div class="text-center">
-          <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+          <div class="break-words min-w-0 w-16 h-16 bg-blue-100 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
             2
           </div>
-          <h3 class="font-bold text-gray-900 mb-2">System Assessment</h3>
-          <p class="text-gray-600">We perform a complete evaluation of your HVAC equipment</p>
+          <h3 class="font-bold text-white mb-2">System Assessment</h3>
+          <p class="text-gray-200">We perform a complete evaluation of your HVAC equipment</p>
         </div>
         <div class="text-center">
-          <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+          <div class="break-words min-w-0 w-16 h-16 bg-blue-100 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
             3
           </div>
-          <h3 class="font-bold text-gray-900 mb-2">Get Quote</h3>
-          <p class="text-gray-600">Set up regular maintenance visits at convenient times</p>
+          <h3 class="font-bold text-white mb-2">Get Quote</h3>
+          <p class="text-gray-200">Set up regular maintenance visits at convenient times</p>
         </div>
         <div class="text-center">
-          <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+          <div class="break-words min-w-0 w-16 h-16 bg-blue-100 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
             4
           </div>
-          <h3 class="font-bold text-gray-900 mb-2">Enjoy Peace of Mind</h3>
-          <p class="text-gray-600">Relax knowing your HVAC system is professionally maintained</p>
+          <h3 class="font-bold text-white mb-2">Enjoy Peace of Mind</h3>
+          <p class="text-gray-200">Relax knowing your HVAC system is professionally maintained</p>
         </div>
       </div>
     </section>
@@ -373,7 +373,7 @@ const faqs = [
         <div class="max-w-3xl mx-auto">
           <div class="text-center mb-12">
             <Badge variant="secondary" class="mb-4">FAQs</Badge>
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+            <h2 class="break-words text-3xl md:text-4xl font-bold text-white">
               Frequently Asked Questions
             </h2>
           </div>
@@ -381,11 +381,11 @@ const faqs = [
           <div class="space-y-6">
             {faqs.map((faq, index) => (
               <div class="pb-6 border-b border-gray-200 last:border-0">
-                <h3 class="text-lg font-bold text-gray-900 mb-3 flex items-start gap-3">
-                  <span class="text-blue-600">Q{index + 1}.</span>
+                <h3 class="min-w-0 text-lg font-bold text-white mb-3 flex items-start gap-3">
+                  <span class="text-white">Q{index + 1}.</span>
                   {faq.question}
                 </h3>
-                <p class="text-gray-600 pl-8">{faq.answer}</p>
+                <p class="text-gray-200 pl-8">{faq.answer}</p>
               </div>
             ))}
           </div>
@@ -396,29 +396,29 @@ const faqs = [
     <!-- Customer Success Stats -->
     <section class="mb-20 py-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl text-white">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        <h2 class="break-words text-3xl md:text-4xl font-bold mb-4">
           Trusted by North Texas Businesses
         </h2>
-        <p class="text-xl text-blue-100">
+        <p class="break-words text-xl text-blue-100">
           Our maintenance plans deliver real results
         </p>
       </div>
       
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="min-w-0 grid grid-cols-2 md:grid-cols-4 gap-8">
         <div class="text-center">
-          <div class="text-4xl md:text-5xl font-bold mb-2">500+</div>
+          <div class="break-words text-4xl md:text-5xl font-bold mb-2">500+</div>
           <div class="text-blue-200">Active Contracts</div>
         </div>
         <div class="text-center">
-          <div class="text-4xl md:text-5xl font-bold mb-2">75%</div>
+          <div class="break-words text-4xl md:text-5xl font-bold mb-2">75%</div>
           <div class="text-blue-200">Fewer Breakdowns</div>
         </div>
         <div class="text-center">
-          <div class="text-4xl md:text-5xl font-bold mb-2">30%</div>
+          <div class="break-words text-4xl md:text-5xl font-bold mb-2">30%</div>
           <div class="text-blue-200">Energy Savings</div>
         </div>
         <div class="text-center">
-          <div class="text-4xl md:text-5xl font-bold mb-2">98%</div>
+          <div class="break-words text-4xl md:text-5xl font-bold mb-2">98%</div>
           <div class="text-blue-200">Customer Retention</div>
         </div>
       </div>
@@ -442,19 +442,19 @@ const faqs = [
         <Badge variant="light" class="mb-4 bg-white/20 text-white border-white/30">
           Get Started Today
         </Badge>
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+        <h2 class="break-words text-4xl md:text-5xl font-bold mb-4">
           Ready to Reduce Your HVAC Costs?
         </h2>
-        <p class="text-xl md:text-2xl text-gray-300 mb-8">
+        <p class="break-words text-xl md:text-2xl text-gray-300 mb-8">
           Join 500+ North Texas businesses that trust Jupitair for their preventive maintenance
         </p>
         
-        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+        <div class="min-w-0 flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <PremiumButton 
             href="tel:9403905676" 
             variant="premium"
             size="xl"
-            class="bg-white text-gray-900 hover:bg-gray-100 shadow-2xl min-w-[250px]"
+            class="bg-white text-white hover:bg-gray-100 shadow-2xl min-w-[250px]"
           >
             <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
@@ -463,9 +463,9 @@ const faqs = [
           </PremiumButton>
           <PremiumButton 
             href="/contact" 
-            variant="glass"
+            variant="elevated"
             size="xl"
-            class="border-2 border-white text-white hover:bg-white hover:text-gray-900 min-w-[250px]"
+            class="border-2 border-white text-white hover:bg-white hover:text-white min-w-[250px]"
           >
             Get Custom Quote
           </PremiumButton>

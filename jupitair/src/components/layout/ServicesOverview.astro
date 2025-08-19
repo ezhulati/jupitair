@@ -12,24 +12,24 @@ const featuredServices = (servicesData?.money_pages || []).slice(0, 6); // Show 
 ---
 
 <section class="py-16 lg:py-24 bg-white">
-  <div class="container mx-auto px-4">
+  <div class="max-w-7xl overflow-x-hidden container mx-auto px-4">
     
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+      <h2 class="break-words text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
         Complete HVAC Services
       </h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+      <p class="break-words text-xl text-gray-800 max-w-3xl mx-auto leading-relaxed">
         From emergency repairs to new installations, we provide comprehensive HVAC services 
         throughout North Texas with same-day service and upfront pricing.
       </p>
     </div>
     
     <!-- Services Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+    <div class="min-w-0 grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
       {featuredServices.map((service: any) => (
-        <Card variant="service" padding="lg" class="h-full group flex flex-col">
-          <div class="flex items-start space-x-4 mb-4">
+        <Card variant="service" padding="lg" class="min-w-0 h-full group flex flex-col">
+          <div class="min-w-0 flex items-start space-x-4 mb-4">
             <!-- Service Icon -->
             <div class={`w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 ${
               service.emergency 
@@ -87,8 +87,8 @@ const featuredServices = (servicesData?.money_pages || []).slice(0, 6); // Show 
             </div>
             
             <div class="flex-1 min-w-0">
-              <div class="flex items-start justify-between mb-2">
-                <h3 class="text-xl font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
+              <div class="min-w-0 flex items-start justify-between mb-2">
+                <h3 class="break-words text-xl font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
                   {service.name}
                 </h3>
                 {service.emergency && (
@@ -97,45 +97,45 @@ const featuredServices = (servicesData?.money_pages || []).slice(0, 6); // Show 
                   </Badge>
                 )}
               </div>
-              <p class="text-gray-600 leading-relaxed mb-4">
+              <p class="text-gray-800 leading-relaxed mb-4">
                 {service.shortDescription}
               </p>
             </div>
           </div>
           
           <!-- Flex-grow content section -->
-          <div class="flex-grow flex flex-col">
+          <div class="min-w-0 flex-grow flex flex-col">
             <!-- Service Details -->
             <div class="space-y-3 mb-4">
-              <div class="flex items-center justify-between text-sm">
-                <span class="text-gray-500">Starting at:</span>
+              <div class="min-w-0 flex items-center justify-between text-sm">
+                <span class="text-gray-700">Starting at:</span>
                 <span class="font-semibold text-primary-700">${service.pricing.starting}</span>
               </div>
-              <div class="flex items-center justify-between text-sm">
-                <span class="text-gray-500">Service time:</span>
+              <div class="min-w-0 flex items-center justify-between text-sm">
+                <span class="text-gray-700">Service time:</span>
                 <span class="text-gray-900">{service.service_time}</span>
               </div>
-              <div class="flex items-center justify-between text-sm">
-                <span class="text-gray-500">Warranty:</span>
+              <div class="min-w-0 flex items-center justify-between text-sm">
+                <span class="text-gray-700">Warranty:</span>
                 <span class="text-gray-900">{service.warranty}</span>
               </div>
             </div>
             
             <!-- Service Features -->
-            <ul class="space-y-2 mb-6 text-sm text-gray-600 flex-grow">
-              <li class="flex items-center">
+            <ul class="min-w-0 space-y-2 mb-6 text-sm text-gray-800 flex-grow">
+              <li class="min-w-0 flex items-center">
                 <svg class="w-4 h-4 text-primary-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Licensed & Insured Technicians
               </li>
-              <li class="flex items-center">
+              <li class="min-w-0 flex items-center">
                 <svg class="w-4 h-4 text-primary-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Upfront Pricing
               </li>
-              <li class="flex items-center">
+              <li class="min-w-0 flex items-center">
                 <svg class="w-4 h-4 text-primary-600 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
@@ -145,11 +145,11 @@ const featuredServices = (servicesData?.money_pages || []).slice(0, 6); // Show 
           </div>
           
           <!-- CTA buttons anchored to bottom -->
-          <div class="flex flex-col sm:flex-row gap-2 mt-auto pt-4 border-t border-gray-100">
-            <Button href={`/services/${service.slug}`} variant="primary" size="sm" class="flex-1 text-center justify-center">
+          <div class="min-w-0 flex flex-col sm:flex-row gap-2 mt-auto pt-4 border-t border-gray-100">
+            <Button href={`/services/${service.slug}`} variant="primary" size="sm" class="min-w-0 flex-1 text-center justify-center">
               Learn More
             </Button>
-            <Button href="/contact" variant="outline" size="sm" class="flex-1 text-center justify-center">
+            <Button href="/contact" variant="outline" size="sm" class="min-w-0 flex-1 text-center justify-center">
               Schedule
             </Button>
           </div>
@@ -159,34 +159,34 @@ const featuredServices = (servicesData?.money_pages || []).slice(0, 6); // Show 
     
     <!-- Emergency Service Callout -->
     <Card variant="elevated" padding="lg" class="bg-gradient-to-r from-emergency-600 to-emergency-700 text-white relative overflow-hidden">
-      <div class="grid md:grid-cols-2 gap-8 items-center relative z-10">
+      <div class="min-w-0 grid md:grid-cols-2 gap-8 items-center relative z-10">
         <div>
-          <div class="flex items-center space-x-3 mb-4">
-            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+          <div class="min-w-0 flex items-center space-x-3 mb-4">
+            <div class="min-w-0 w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
               </svg>
             </div>
-            <h3 class="text-2xl font-bold">24/7 Emergency Service</h3>
+            <h3 class="break-words text-2xl font-bold">24/7 Emergency Service</h3>
           </div>
           <p class="text-red-100 mb-6 text-lg leading-relaxed">
             HVAC emergency? Don't sweat it! Our certified technicians are available 
             around the clock for urgent heating and cooling issues.
           </p>
           <ul class="space-y-2 text-red-100">
-            <li class="flex items-center">
+            <li class="min-w-0 flex items-center">
               <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               Response within 2 hours
             </li>
-            <li class="flex items-center">
+            <li class="min-w-0 flex items-center">
               <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               All 8 North Texas cities covered
             </li>
-            <li class="flex items-center">
+            <li class="min-w-0 flex items-center">
               <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
@@ -197,7 +197,7 @@ const featuredServices = (servicesData?.money_pages || []).slice(0, 6); // Show 
         
         <div class="text-center">
           <div class="mb-6">
-            <p class="text-3xl font-bold mb-2">Call Right Now!</p>
+            <p class="break-words text-3xl font-bold mb-2">Call Right Now!</p>
             <p class="text-red-100">Available 24/7, 365 days a year</p>
           </div>
           <Button href="tel:(940) 390-5676" variant="secondary" size="xl" class="mb-4">
@@ -215,7 +215,7 @@ const featuredServices = (servicesData?.money_pages || []).slice(0, 6); // Show 
     
     <!-- View All Services CTA -->
     <div class="text-center mt-12">
-      <p class="text-gray-600 mb-6">
+      <p class="text-gray-800 mb-6">
         Need a different service? We offer comprehensive HVAC solutions.
       </p>
       <Button href="/services" variant="outline" size="lg">
