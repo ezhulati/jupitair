@@ -169,18 +169,18 @@ const schema = {
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projectTypes.map(project => (
-            <PremiumCard variant="elevated" padding="lg" class="hover:shadow-2xl transition-all">
+            <PremiumCard class="overflow-visible"  variant="elevated" padding="lg" class="hover:shadow-2xl transition-all">
               <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
               <div class="text-lg sm:text-xl sm:text-2xl font-bold text-primary-600 mb-4">{project.range}</div>
               <div class="space-y-2 text-sm">
                 <div class="flex items-start">
-                  <svg class="w-5 h-5 mr-2 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <span class="text-gray-600">{project.systems}</span>
                 </div>
                 <div class="flex items-start">
-                  <svg class="w-5 h-5 mr-2 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   <span class="text-gray-600">{project.sqft}</span>
@@ -208,7 +208,7 @@ const schema = {
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div class="space-y-6">
-            <Card variant="elevated" padding="lg">
+            <Card class="overflow-visible"  variant="elevated" padding="lg">
               <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3">Financial Strength</h3>
               <ul class="space-y-2 text-gray-600">
                 <li class="flex items-start">
@@ -226,7 +226,7 @@ const schema = {
               </ul>
             </Card>
 
-            <Card variant="elevated" padding="lg">
+            <Card class="overflow-visible"  variant="elevated" padding="lg">
               <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3">Project Management</h3>
               <ul class="space-y-2 text-gray-600">
                 <li class="flex items-start">
@@ -244,7 +244,7 @@ const schema = {
               </ul>
             </Card>
 
-            <Card variant="elevated" padding="lg">
+            <Card class="overflow-visible"  variant="elevated" padding="lg">
               <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3">Equipment Partners</h3>
               <ul class="space-y-2 text-gray-600">
                 <li class="flex items-start">
@@ -296,7 +296,7 @@ const schema = {
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {process.map(step => (
-            <Card variant="elevated" padding="lg">
+            <Card class="overflow-visible"  variant="elevated" padding="lg">
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center font-bold text-lg sm:text-xl flex-shrink-0">
                   {step.step}
@@ -368,7 +368,7 @@ const schema = {
             <div>
               <h3 class="font-bold text-lg mb-3">For Immediate Consultation:</h3>
               <Button href="tel:(940) 390-5676" variant="primary" size="lg" class="w-full">
-                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                 </svg>
                 (940) 390-5676

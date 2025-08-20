@@ -168,29 +168,29 @@ const faqs = [
   />
 
   <!-- Trust Bar -->
-  <section class="bg-gradient-to-r from-gray-900 to-gray-800 py-4">
+  <section class="bg-gradient-to-r from-gray-900 to-gray-800 py-6 sm:py-8">
     <div class="site-container section-padding">
       <div class="flex flex-wrap justify-center items-center gap-6 text-sm">
         <div class="flex items-center gap-2 text-white">
-          <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+          <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
           </svg>
           <span>500+ Businesses Served</span>
         </div>
         <div class="flex items-center gap-2 text-white">
-          <svg class="w-5 h-5 mr-2 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
           </svg>
           <span>5.0 Star Rating</span>
         </div>
         <div class="flex items-center gap-2 text-white">
-          <svg class="w-5 h-5 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+          <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
             <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
           </svg>
           <span>No Contracts Required</span>
         </div>
         <div class="flex items-center gap-2 text-white">
-          <svg class="w-5 h-5 mr-2 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+          <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
           </svg>
           <span>24/7 Priority Response</span>
@@ -199,7 +199,7 @@ const faqs = [
     </div>
   </section>
 
-  <div class="site-container section-padding py-16">
+  <div class="site-container section-padding pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28">
     
     <!-- Benefits Section -->
     <section class="mb-20">
@@ -215,10 +215,10 @@ const faqs = [
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {benefits.map(benefit => (
-          <PremiumCard variant="elevated" padding="lg" hover={true}>
+          <PremiumCard class="overflow-visible"  variant="elevated" padding="lg" hover={true}>
             <div class="text-center">
               <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 mr-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   {benefit.icon === 'shield' ? (
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                   ) : benefit.icon === 'money' ? (
@@ -252,7 +252,7 @@ const faqs = [
       
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {maintenancePlans.map(plan => (
-          <PremiumCard 
+          <PremiumCard class="overflow-visible"  
             variant={plan.best ? "elevated" : "default"} 
             padding="none" 
             hover={true}
@@ -278,7 +278,7 @@ const faqs = [
               <ul class="space-y-3 mb-8">
                 {plan.features.map(feature => (
                   <li class="flex items-start gap-3">
-                    <svg class="w-5 h-5 mr-2 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     <span class="text-gray-700">{feature}</span>
@@ -316,7 +316,7 @@ const faqs = [
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
           {includedServices.map(service => (
             <div class="flex items-center gap-3 bg-white p-4 rounded-lg shadow-sm">
-              <svg class="w-5 h-5 mr-2 text-white flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-5 h-5 text-white flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               <span class="text-gray-700">{service}</span>
@@ -369,7 +369,7 @@ const faqs = [
 
     <!-- FAQs -->
     <section class="mb-20">
-      <PremiumCard variant="elevated" padding="xl">
+      <PremiumCard class="overflow-visible"  variant="elevated" padding="xl">
         <div class="max-w-3xl mx-auto">
           <div class="text-center mb-12">
             <Badge variant="secondary" class="mb-4">FAQs</Badge>
@@ -456,7 +456,7 @@ const faqs = [
             size="xl"
             class="bg-white text-white hover:bg-gray-100 shadow-2xl min-w-[250px]"
           >
-            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
             </svg>
             Call (940) 390-5676

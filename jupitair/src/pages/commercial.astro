@@ -167,7 +167,7 @@ const commercialSchema = {
       <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-sm">
         {trustSignals.map(signal => (
           <div class="flex items-center gap-2 text-gray-300">
-            <svg class="w-5 h-5 mr-2 text-primary-500" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-5 h-5 text-primary-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
             <span><strong>{signal.label}:</strong> {signal.value}</span>
@@ -191,7 +191,7 @@ const commercialSchema = {
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Card variant="elevated" padding="lg">
+          <Card class="overflow-visible"  variant="elevated" padding="lg">
             <div class="mb-4 text-primary-600">
               <Icon name="lightning" size="xl" />
             </div>
@@ -201,19 +201,19 @@ const commercialSchema = {
             </p>
             <ul class="space-y-2 text-sm text-gray-700">
               <li class="flex items-start">
-                <svg class="w-5 h-5 mr-2 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Same-day service available
               </li>
               <li class="flex items-start">
-                <svg class="w-5 h-5 mr-2 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Weekend installations
               </li>
               <li class="flex items-start">
-                <svg class="w-5 h-5 mr-2 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Direct owner contact
@@ -221,7 +221,7 @@ const commercialSchema = {
             </ul>
           </Card>
           
-          <Card variant="elevated" padding="lg">
+          <Card class="overflow-visible"  variant="elevated" padding="lg">
             <div class="mb-4 text-primary-600">
               <Icon name="money" size="xl" />
             </div>
@@ -231,19 +231,19 @@ const commercialSchema = {
             </p>
             <ul class="space-y-2 text-sm text-gray-700">
               <li class="flex items-start">
-                <svg class="w-5 h-5 mr-2 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Flat-rate pricing options
               </li>
               <li class="flex items-start">
-                <svg class="w-5 h-5 mr-2 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Energy audits included
               </li>
               <li class="flex items-start">
-                <svg class="w-5 h-5 mr-2 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Warranty protection
@@ -251,7 +251,7 @@ const commercialSchema = {
             </ul>
           </Card>
           
-          <Card variant="elevated" padding="lg">
+          <Card class="overflow-visible"  variant="elevated" padding="lg">
             <div class="mb-4 text-primary-600">
               <Icon name="trophy" size="xl" />
             </div>
@@ -261,19 +261,19 @@ const commercialSchema = {
             </p>
             <ul class="space-y-2 text-sm text-gray-700">
               <li class="flex items-start">
-                <svg class="w-5 h-5 mr-2 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Owner on every job
               </li>
               <li class="flex items-start">
-                <svg class="w-5 h-5 mr-2 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Quality guaranteed
               </li>
               <li class="flex items-start">
-                <svg class="w-5 h-5 mr-2 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 Fair, honest pricing
@@ -302,7 +302,7 @@ const commercialSchema = {
         <!-- Featured Big-Dollar Services -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           {commercialServices.filter(s => s.featured).map(service => (
-            <PremiumCard variant="elevated" padding="lg" class="hover:shadow-2xl transition-all duration-300">
+            <PremiumCard class="overflow-visible"  variant="elevated" padding="lg" class="hover:shadow-2xl transition-all duration-300">
               <div class="mb-4 text-primary-600">
                 <Icon name={service.icon} size="2xl" />
               </div>
@@ -319,7 +319,7 @@ const commercialSchema = {
         <!-- Other Services Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {commercialServices.filter(s => !s.featured).map(service => (
-            <Card variant="elevated" padding="lg">
+            <Card class="overflow-visible"  variant="elevated" padding="lg">
               <div class="flex items-start justify-between mb-3">
                 <div class="text-primary-600">
                   <Icon name={service.icon} size="lg" />
@@ -427,7 +427,7 @@ const commercialSchema = {
             <div>
               <h3 class="font-bold text-lg mb-3">For Immediate Service:</h3>
               <Button href="tel:(940) 390-5676" variant="primary" size="lg" class="w-full">
-                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                 </svg>
                 (940) 390-5676
@@ -446,19 +446,19 @@ const commercialSchema = {
         
         <div class="flex flex-wrap justify-center gap-8 text-sm text-gray-400">
           <div class="flex items-center gap-2">
-            <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
             Licensed & Insured
           </div>
           <div class="flex items-center gap-2">
-            <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
             NATE Certified
           </div>
           <div class="flex items-center gap-2">
-            <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
             $2M General Liability

@@ -51,7 +51,7 @@ const pageDescription = "Complete sitemap of Jupitair HVAC website. Find all our
       <div class="grid lg:grid-cols-3 gap-8">
         
         <!-- Main Pages -->
-        <PremiumCard variant="elevated" padding="lg">
+        <PremiumCard class="overflow-visible"  variant="elevated" padding="lg">
           <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">Main Pages</h2>
           <ul class="space-y-3">
             <li>
@@ -93,7 +93,7 @@ const pageDescription = "Complete sitemap of Jupitair HVAC website. Find all our
         </PremiumCard>
 
         <!-- Service Pages -->
-        <PremiumCard variant="elevated" padding="lg" class="lg:col-span-2">
+        <PremiumCard class="overflow-visible"  variant="elevated" padding="lg" class="lg:col-span-2">
           <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">Service Pages</h2>
           <div class="grid md:grid-cols-2 gap-6">
             {Object.entries(servicesByCategory).map(([category, categoryServices]) => (
@@ -124,7 +124,7 @@ const pageDescription = "Complete sitemap of Jupitair HVAC website. Find all our
         </PremiumCard>
 
         <!-- City Pages -->
-        <PremiumCard variant="elevated" padding="lg">
+        <PremiumCard class="overflow-visible"  variant="elevated" padding="lg">
           <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">Service Areas</h2>
           <ul class="space-y-3">
             {cities.map((city: any) => (
@@ -144,7 +144,7 @@ const pageDescription = "Complete sitemap of Jupitair HVAC website. Find all our
         </PremiumCard>
 
         <!-- City + Service Combinations -->
-        <PremiumCard variant="elevated" padding="lg" class="lg:col-span-2">
+        <PremiumCard class="overflow-visible"  variant="elevated" padding="lg" class="lg:col-span-2">
           <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">Services by City</h2>
           <div class="text-sm text-gray-600 mb-4">
             We offer all our services in every city we serve. Here are quick links to our most popular service + city combinations:
@@ -176,7 +176,7 @@ const pageDescription = "Complete sitemap of Jupitair HVAC website. Find all our
 
       <!-- SEO Footer -->
       <div class="mt-12 text-center">
-        <PremiumCard variant="elevated" padding="md">
+        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
           <p class="text-gray-600 mb-4">
             This sitemap helps both users and search engines navigate our website efficiently.
           </p>

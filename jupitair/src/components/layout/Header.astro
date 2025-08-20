@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import Button from '../ui/Button.astro';
 import PhoneLink from '../ui/PhoneLink.astro';
 import { BUSINESS_CONFIG } from '../../config/business';
+import logoColor from '../../../public/images/logo-color.png';
 
 const cities = [
   { name: 'Frisco', slug: 'frisco' },
@@ -100,11 +102,14 @@ const cities = [
         <!-- Logo -->
         <div class="flex-shrink-0">
           <a href="/" class="block" aria-label="Jupitair HVAC - Home">
-            <img 
-              src="/images/logo-color.png" 
+            <Image 
+              src={logoColor} 
               alt="Jupitair HVAC Logo" 
               class="h-24 w-auto hover:scale-105 transition-transform duration-200"
               loading="eager"
+              width={300}
+              height={300}
+              format="webp"
             />
           </a>
         </div>
@@ -142,7 +147,7 @@ const cities = [
                     role="menuitem"
                   >
                     <span>View All Services</span>
-                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                       <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
                     </svg>
                   </a>
@@ -204,7 +209,7 @@ const cities = [
                     role="menuitem"
                   >
                     <span>Commercial HVAC Services</span>
-                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                       <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
                     </svg>
                   </a>
@@ -281,7 +286,7 @@ const cities = [
                   {cities.map(city => (
                     <a 
                       href={`/${city.slug}`} 
-                      class="block px-3 py-2 text-sm text-gray-700 hover:bg-primary-50 focus:bg-primary-50 hover:text-primary-600 focus:text-primary-600 rounded-lg transition-colors text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset" 
+                      class="block px-3 py-2 text-sm text-gray-700 hover:bg-primary-50 focus:bg-primary-50 hover:text-primary-600 focus:text-primary-600 rounded-lg transition-colors text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset" 
                       role="menuitem"
                     >
                       {city.name}
@@ -343,10 +348,10 @@ const cities = [
   <div class="flex flex-col h-full">
     <!-- Mobile Menu Header -->
     <div class="flex items-center justify-between p-4 border-b border-gray-200">
-      <img src="/images/logo-color.png" alt="Jupitair HVAC" class="h-12" />
+      <Image src={logoColor} alt="Jupitair HVAC" class="h-12 w-auto" width={120} height={120} format="webp" />
       <button type="button" class="p-2 rounded-md text-gray-700 hover:text-primary-600" id="mobile-close">
         <span class="sr-only">Close menu</span>
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>

@@ -117,7 +117,7 @@ function getCategorySlug(category: string) {
         <div class="lg:w-2/3">
           <!-- Category Info -->
           <div class="mb-8">
-            <Card variant="elevated" padding="md">
+            <Card class="overflow-visible"  variant="elevated" padding="md">
               <div class="flex items-center justify-between">
                 <div>
                   <h1 class="text-2xl font-bold text-gray-900 mb-2">{categoryName} Articles</h1>
@@ -131,7 +131,7 @@ function getCategorySlug(category: string) {
           <!-- Featured Post (if exists) -->
           {featuredPost && (
             <div class="mb-12">
-              <PremiumCard variant="elevated" padding="lg">
+              <PremiumCard class="overflow-visible"  variant="elevated" padding="lg">
                 <div class="min-w-0 flex flex-col md:flex-row gap-6">
                   <div class="md:w-1/2">
                     <img 
@@ -161,7 +161,7 @@ function getCategorySlug(category: string) {
           {posts.length > 0 ? (
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {posts.map((post) => (
-                <Card variant="elevated" padding="md">
+                <Card class="overflow-visible"  variant="elevated" padding="md">
                   <img 
                     src={post.data.heroImage || '/images/blog-placeholder.jpg'} 
                     alt={post.data.heroImageAlt || post.data.title}
@@ -189,7 +189,7 @@ function getCategorySlug(category: string) {
               ))}
             </div>
           ) : (
-            <Card variant="elevated" padding="lg">
+            <Card class="overflow-visible"  variant="elevated" padding="lg">
               <div class="text-center py-12">
                 <p class="text-gray-600 mb-4">No articles found in this category.</p>
                 <Button href="/blog" variant="primary" size="md">
@@ -204,7 +204,7 @@ function getCategorySlug(category: string) {
         <div class="lg:w-1/3">
           <div class="sticky top-24 space-y-6">
             <!-- Categories -->
-            <Card variant="elevated" padding="lg">
+            <Card class="overflow-visible"  variant="elevated" padding="lg">
               <h3 class="font-bold text-gray-900 mb-4">Categories</h3>
               <ul class="space-y-2">
                 {categories.map(category => {
@@ -230,7 +230,7 @@ function getCategorySlug(category: string) {
             </Card>
 
             <!-- Popular Posts -->
-            <Card variant="elevated" padding="lg">
+            <Card class="overflow-visible"  variant="elevated" padding="lg">
               <h3 class="font-bold text-gray-900 mb-4">Popular Posts</h3>
               <ul class="space-y-3">
                 {popularPosts.map((post, index) => (
@@ -245,7 +245,7 @@ function getCategorySlug(category: string) {
             </Card>
 
             <!-- Newsletter CTA -->
-            <PremiumCard variant="gradient" padding="lg">
+            <PremiumCard class="overflow-visible"  variant="gradient" padding="lg">
               <div class="text-center">
                 <div class="break-words text-3xl mb-3">📧</div>
                 <h3 class="font-bold text-gray-900 mb-2">HVAC Tips Newsletter</h3>
@@ -264,7 +264,7 @@ function getCategorySlug(category: string) {
             </PremiumCard>
 
             <!-- Need Help CTA -->
-            <Card variant="elevated" padding="lg" class="mt-6 bg-emergency-50 border-2 border-emergency-200">
+            <Card class="overflow-visible"  variant="elevated" padding="lg" class="mt-6 bg-emergency-50 border-2 border-emergency-200">
               <div class="text-center">
                 <div class="break-words text-3xl mb-3">🚨</div>
                 <h3 class="font-bold text-gray-900 mb-2">HVAC Emergency?</h3>

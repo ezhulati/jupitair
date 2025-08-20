@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PremiumHero from '../../components/layout/PremiumHero.astro';
+import PremiumCard from '../../components/ui/PremiumCard.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Icon from '../../components/ui/Icon.astro';
+import ReviewsSection from '../../components/reviews/ReviewsSection.astro';
+
+const services = [
+  { title: 'Kitchen Exhaust Systems', desc: 'Proper ventilation for cooking areas', price: '$5K-$15K' },
+  { title: 'Makeup Air Units', desc: 'Balance air pressure and temperature', price: '$8K-$20K' },
+  { title: 'Dining Area Comfort', desc: 'Zone control for customer areas', price: '$10K-$25K' },
+  { title: 'Walk-in Cooler HVAC', desc: 'Specialized refrigeration systems', price: '$5K-$12K' },
+  { title: 'Emergency Repair', desc: '24/7 service to minimize downtime', price: 'From $500' },
+  { title: 'Preventive Maintenance', desc: 'Keep equipment running efficiently', price: '$199/month' }
+];
+
+const benefits = [
+  { icon: 'money', title: 'Cost Effective', desc: 'Solutions sized for small restaurants' },
+  { icon: 'clock', title: 'Fast Service', desc: 'Same-day response available' },
+  { icon: 'shield', title: 'Code Compliant', desc: 'Meet health department requirements' },
+  { icon: 'trophy', title: 'Experienced', desc: '15+ years in restaurant HVAC' }
+];
+---
+
+<BaseLayout
+  title="Restaurant HVAC Services | Kitchen Ventilation | Jupitair HVAC"
+  description="Professional restaurant HVAC services in North Texas. Kitchen exhaust, makeup air, dining comfort. $15K-$40K projects. Call (940) 390-5676."
+>
+  <PremiumHero
+    title="Restaurant HVAC Services"
+    subtitle="$15K - $40K Projects"
+    description="Complete HVAC solutions for restaurants. Kitchen ventilation, dining comfort, and makeup air systems sized for your business."
+    ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
+    ctaSecondary={{ text: "Get Free Quote", href: "/contact?service=restaurant-hvac" }}
+    variant="gradient"
+    height="lg" class="hero-section"
+  />
+
+  <!-- Services Grid -->
+  <section class="section-full bg-white">
+    <div class="site-container section-padding">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <Badge variant="primary" class="mb-4">Our Services</Badge>
+          <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Restaurant HVAC Solutions
+          </h2>
+          <p class="text-lg sm:text-xl text-gray-600">
+            From kitchen exhaust to dining comfort, we handle it all
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map(service => (
+            <Card variant="elevated" padding="lg">
+              <h3 class="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
+              <p class="text-sm text-gray-600 mb-3">{service.desc}</p>
+              <div class="text-lg font-semibold text-primary-600">{service.price}</div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section-full bg-gray-50">
+    <div class="site-container section-padding">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Why Restaurants Choose Jupitair
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {benefits.map(benefit => (
+            <div class="text-center">
+              <div class="mb-4 text-primary-600 flex justify-center">
+                <Icon name={benefit.icon} size="xl" />
+              </div>
+              <h3 class="font-semibold text-gray-900 mb-2">{benefit.title}</h3>
+              <p class="text-sm text-gray-600">{benefit.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-full bg-primary-600 text-white">
+    <div class="site-container section-padding">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          Keep Your Restaurant Comfortable
+        </h2>
+        <p class="text-lg sm:text-xl mb-8 text-primary-100">
+          Professional HVAC service that understands restaurant needs
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="tel:9403905676" variant="secondary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            (940) 390-5676
+          </Button>
+          <Button href="/contact?service=restaurant-hvac" variant="outline" size="lg" class="border-white text-white hover:bg-white hover:text-primary-600">
+            Get Free Quote
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ReviewsSection limit={6} variant="grid" showCta={false} />
+</BaseLayout>

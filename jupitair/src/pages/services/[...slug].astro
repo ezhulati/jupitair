@@ -183,7 +183,7 @@ const serviceName = page.data.service
           <aside class="lg:col-span-4">
             <div class="sticky top-24 space-y-6">
               <!-- Quick Contact Card -->
-              <PremiumCard variant="elevated" padding="lg">
+              <PremiumCard class="overflow-visible"  variant="elevated" padding="lg">
                 <div class="text-center">
                   <Badge variant="primary" class="mb-4">Get Service Now</Badge>
                   <h3 class="break-words text-2xl font-bold text-white mb-3">Need {serviceName}?</h3>
@@ -196,7 +196,7 @@ const serviceName = page.data.service
                       size="lg"
                       class="w-full"
                     >
-                      <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                       </svg>
                       (940) 390-5676
@@ -214,32 +214,32 @@ const serviceName = page.data.service
               </PremiumCard>
               
               <!-- Service Features -->
-              <Card variant="elevated" padding="lg">
+              <Card class="overflow-visible"  variant="elevated" padding="lg">
                 <h4 class="min-w-0 font-bold text-white mb-4 flex items-center">
-                  <Icon name="shield" size="lg" class="mr-2 text-primary-600" />
+                  <Icon name="shield" size="lg" class="text-primary-600" />
                   Service Guarantees
                 </h4>
                 <ul class="space-y-3">
                   <li class="min-w-0 flex items-start">
-                    <svg class="w-5 h-5 mr-2 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     <span class="text-sm text-gray-700">100% Satisfaction Guarantee</span>
                   </li>
                   <li class="min-w-0 flex items-start">
-                    <svg class="w-5 h-5 mr-2 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     <span class="text-sm text-gray-700">Licensed & Insured</span>
                   </li>
                   <li class="min-w-0 flex items-start">
-                    <svg class="w-5 h-5 mr-2 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     <span class="text-sm text-gray-700">Upfront Pricing</span>
                   </li>
                   <li class="min-w-0 flex items-start">
-                    <svg class="w-5 h-5 mr-2 text-green-500 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                     <span class="text-sm text-gray-700">Same-Day Service</span>
@@ -248,7 +248,7 @@ const serviceName = page.data.service
               </Card>
 
               <!-- Trust Badges -->
-              <Card variant="elevated" padding="md">
+              <Card class="overflow-visible"  variant="elevated" padding="md">
                 <div class="min-w-0 grid grid-cols-2 gap-4">
                   <div class="text-center">
                     <div class="break-words text-3xl font-bold text-primary-600">15+</div>
@@ -328,7 +328,7 @@ const serviceName = page.data.service
             size="xl"
             class="min-w-[250px]"
           >
-            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
             </svg>
             Call (940) 390-5676
@@ -346,19 +346,19 @@ const serviceName = page.data.service
         <!-- Trust Signals -->
         <div class="min-w-0 mt-12 flex flex-wrap justify-center gap-8 text-white/80 text-sm">
           <div class="min-w-0 flex items-center gap-2">
-            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
             Licensed & Insured
           </div>
           <div class="min-w-0 flex items-center gap-2">
-            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
             Same-Day Service
           </div>
           <div class="min-w-0 flex items-center gap-2">
-            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
             Upfront Pricing
