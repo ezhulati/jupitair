@@ -1,6 +1,7 @@
 ---
 import Button from '../ui/Button.astro';
 import PhoneLink from '../ui/PhoneLink.astro';
+import EmergencyPhoneButton from '../ui/EmergencyPhoneButton.astro';
 import OptimizedLogo from '../ui/OptimizedLogo.astro';
 import { BUSINESS_CONFIG } from '../../config/business';
 ---
@@ -168,14 +169,7 @@ import { BUSINESS_CONFIG } from '../../config/business';
         <div class="hidden sm:block bg-emergency-900 border border-emergency-700 rounded-lg p-4">
           <div class="text-emergency-300 font-semibold mb-2">Emergency Service</div>
           <p class="text-emergency-400 text-sm mb-3">Available 24/7 for urgent HVAC issues</p>
-          <PhoneLink 
-            variant="button"
-            emergency={false}
-            size="sm"
-            context="cta"
-            class="w-full justify-center !bg-white !text-red-600 hover:!bg-red-50 !border-white font-bold !z-[99999] relative"
-            style="color: #dc2626 !important; z-index: 99999 !important; background-color: white !important;"
-          />
+          <EmergencyPhoneButton />
         </div>
       </div>
     </div>
