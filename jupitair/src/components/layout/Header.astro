@@ -1,10 +1,7 @@
 ---
-import { Image } from 'astro:assets';
 import Button from '../ui/Button.astro';
 import PhoneLink from '../ui/PhoneLink.astro';
 import { BUSINESS_CONFIG } from '../../config/business';
-import logoColor from '../../../public/images/logo-color.png';
-import logoWhite from '../../../public/images/logo-white.png';
 
 export interface Props {
   overlay?: boolean;
@@ -151,14 +148,16 @@ const cities = [
         <!-- Logo -->
         <div class="flex-shrink-0">
           <a href="/" class="block" aria-label="Jupitair HVAC - Home">
-            <Image 
-              src={overlay ? logoWhite : logoColor} 
+            <img 
+              src={overlay ? '/images/logo-white.png' : '/images/logo-color.png'} 
               alt="Jupitair HVAC Logo" 
               class="h-20 lg:h-24 w-auto hover:scale-105 transition-transform duration-200"
               loading="eager"
-              width={400}
-              height={400}
-              format="webp"
+              width="400"
+              height="400"
+              data-logo-color="/images/logo-color.png"
+              data-logo-white="/images/logo-white.png"
+              id="header-logo"
             />
           </a>
         </div>
@@ -397,7 +396,7 @@ const cities = [
   <div class="flex flex-col h-full">
     <!-- Mobile Menu Header -->
     <div class="flex items-center justify-between p-4 border-b border-gray-200">
-      <Image src={logoColor} alt="Jupitair HVAC" class="h-16 w-auto" loading="eager" width={160} height={160} format="webp" />
+      <img src="/images/logo-color.png" alt="Jupitair HVAC" class="h-16 w-auto" loading="eager" width="160" height="160" />
       <button type="button" class="p-2 rounded-md text-gray-700 hover:text-primary-600" id="mobile-close">
         <span class="sr-only">Close menu</span>
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -646,7 +645,7 @@ const cities = [
           // Force update ALL text elements to dark
           const navButtons = header.querySelectorAll('.nav-item button, .nav-item > span');
           const navLinks = header.querySelectorAll('a[role="menuitem"], .nav-item a');
-          const logo = header.querySelector('img[alt*="Jupitair"]');
+          const logo = document.getElementById('header-logo');
           
           navButtons.forEach(btn => {
             btn.classList.remove('text-white', 'hover:text-blue-200');
@@ -668,8 +667,8 @@ const cities = [
           });
           
           // Switch to colored logo
-          if (logo && logo.src.includes('logo-white')) {
-            logo.src = logo.src.replace('logo-white', 'logo-color');
+          if (logo) {
+            logo.src = logo.getAttribute('data-logo-color');
           }
           
           // Update top bar
@@ -717,7 +716,7 @@ const cities = [
           // Update text colors back to white
           const navButtons = header.querySelectorAll('.nav-item button');
           const navLinks = header.querySelectorAll('a[role="menuitem"]');
-          const logo = header.querySelector('img');
+          const logo = document.getElementById('header-logo');
           
           navButtons.forEach(btn => {
             btn.classList.add('text-white', 'hover:text-blue-200');
@@ -739,8 +738,8 @@ const cities = [
           });
           
           // Switch to white logo
-          if (logo && logo.src.includes('logo-color')) {
-            logo.src = logo.src.replace('logo-color', 'logo-white');
+          if (logo) {
+            logo.src = logo.getAttribute('data-logo-white');
           }
           
           // Update top bar back to transparent

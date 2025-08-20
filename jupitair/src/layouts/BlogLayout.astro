@@ -130,37 +130,35 @@ const blogSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
   
   <!-- Breadcrumbs Schema -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://jupitairhvac.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Blog",
-          "item": "https://jupitairhvac.com/blog"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "{frontmatter.category}",
-          "item": "https://jupitairhvac.com/blog/category/{frontmatter.category.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "{frontmatter.title}"
-        }
-      ]
-    }
-  </script>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://jupitairhvac.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://jupitairhvac.com/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": frontmatter.category,
+        "item": `https://jupitairhvac.com/blog/category/${frontmatter.category.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": frontmatter.title
+      }
+    ]
+  })} />
 
   <article class="max-w-7xl mx-auto px-4 pt-[170px] pb-12">
     <!-- Breadcrumbs -->
