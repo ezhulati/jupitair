@@ -7,6 +7,7 @@ import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
 import ContactForm from '../../components/forms/ContactForm.astro';
 import Badge from '../../components/ui/Badge.astro';
+import FAQAccordion from '../../components/ui/FAQAccordion.astro';
 
 const pageTitle = "Smart Thermostat Installation | Programmable Thermostats | Jupitair HVAC";
 const pageDescription = "Professional smart thermostat installation in North Texas. WiFi thermostats, programmable thermostats, and energy-saving controls. Expert installation and setup.";
@@ -403,40 +404,36 @@ const pageDescription = "Professional smart thermostat installation in North Tex
 
   <!-- FAQ Section -->
   <section class="section-full bg-white">
-    <div class="site-container section-padding">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
-        
-        <div class="space-y-6">
-          <Card class="overflow-visible"  variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Can I install a smart thermostat myself?</h3>
-            <p class="text-gray-700">
-              While some thermostats are marketed as DIY-friendly, professional installation ensures proper wiring, configuration, and prevents damage to your HVAC system. We also handle WiFi setup and full configuration.
-            </p>
-          </Card>
-
-          <Card class="overflow-visible"  variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Will a smart thermostat work with my old HVAC system?</h3>
-            <p class="text-gray-700">
-              Most modern thermostats are compatible with older systems, but compatibility depends on your specific wiring and equipment. We'll assess your system and recommend the best options during our consultation.
-            </p>
-          </Card>
-
-          <Card class="overflow-visible"  variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">How much money can I save with a smart thermostat?</h3>
-            <p class="text-gray-700">
-              EPA studies show smart thermostats can save 10-23% on heating and cooling costs. For an average North Texas home, this translates to $130-$180 in annual savings.
-            </p>
-          </Card>
-
-          <Card class="overflow-visible"  variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Do you provide warranty on thermostat installation?</h3>
-            <p class="text-gray-700">
-              Yes, we provide a 1-year warranty on installation labor, and all thermostats come with manufacturer warranties ranging from 1-5 years depending on the model.
-            </p>
-          </Card>
-        </div>
-      </div>
+    <div class="site-container py-16 sm:py-20 lg:py-24">
+      <FAQAccordion 
+        faqs={[
+          {
+            question: "Can I install a smart thermostat myself?",
+            answer: "While some thermostats are marketed as DIY-friendly, professional installation ensures proper wiring, configuration, and prevents damage to your HVAC system. We also handle WiFi setup and full configuration."
+          },
+          {
+            question: "Will a smart thermostat work with my old HVAC system?",
+            answer: "Most modern thermostats are compatible with older systems, but compatibility depends on your specific wiring and equipment. We'll assess your system and recommend the best options during our consultation."
+          },
+          {
+            question: "How much money can I save with a smart thermostat?",
+            answer: "EPA studies show smart thermostats can save 10-23% on heating and cooling costs. For an average North Texas home, this translates to <strong>$130-$180 in annual savings</strong>."
+          },
+          {
+            question: "Do you provide warranty on thermostat installation?",
+            answer: "Yes, we provide a <strong>1-year warranty</strong> on installation labor, and all thermostats come with manufacturer warranties ranging from 1-5 years depending on the model."
+          },
+          {
+            question: "Can smart thermostats be controlled remotely?",
+            answer: "Yes! Smart thermostats connect to your home WiFi, allowing you to control temperature, set schedules, and monitor energy usage from anywhere using your smartphone app."
+          },
+          {
+            question: "How long does thermostat installation take?",
+            answer: "Most thermostat installations take 1-2 hours, including setup, configuration, WiFi connection, and showing you how to use all the features."
+          }
+        ]}
+        title="Frequently Asked Questions About Thermostat Installation"
+      />
     </div>
   </section>
 

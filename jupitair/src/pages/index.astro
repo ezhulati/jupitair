@@ -13,6 +13,7 @@ import DynamicSchema from '../components/seo/DynamicSchema.astro';
 
 const pageTitle = "Jupitair HVAC - Premier HVAC Services in North Texas";
 const pageDescription = "Professional HVAC services throughout North Texas. AC repair, heating repair, HVAC installation, and emergency service in Frisco, Plano, McKinney, Allen, Prosper, The Colony, Little Elm, and Addison.";
+const ogImageUrl = "https://res.cloudinary.com/dwnmuolg8/image/upload/v1755659373/Jupitair_sh9qeb.jpg";
 
 // Enhanced homepage schema with rich snippets
 const homepageSchema = {
@@ -157,6 +158,7 @@ const homepageSchema = {
   description={pageDescription}
   canonical="https://jupitairhvac.com"
   keywords="HVAC North Texas, AC repair Frisco, heating repair Plano, HVAC installation McKinney, emergency HVAC Allen, Prosper HVAC, The Colony heating, Little Elm AC, Addison HVAC contractor"
+  ogImage={ogImageUrl}
 >
   <!-- Dynamic Schema with Reviews -->
   <DynamicSchema type="homepage" />

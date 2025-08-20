@@ -56,8 +56,8 @@ const formattedUpdateDate = frontmatter.updateDate ? new Date(frontmatter.update
 // Generate breadcrumb data
 const breadcrumbs = [
   { name: 'Home', url: '/' },
-  { name: 'HVAC Learning Center', url: '/blog' },
-  { name: frontmatter.category, url: `/blog/category/${frontmatter.category.toLowerCase().replace(/\s+/g, '-')}` },
+  { name: 'Resources', url: '/blog' },
+  { name: frontmatter.category, url: `/blog/category/${frontmatter.category.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}` },
   { name: frontmatter.title, url: '#' }
 ];
 
@@ -110,7 +110,7 @@ const blogSchema = {
   },
   "isPartOf": {
     "@type": "Blog",
-    "name": "Jupitair HVAC Learning Center",
+    "name": "Jupitair HVAC Resources",
     "url": "https://jupitairhvac.com/blog"
   }
 };

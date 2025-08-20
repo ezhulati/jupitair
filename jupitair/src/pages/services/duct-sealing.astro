@@ -7,9 +7,45 @@ import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
 import ContactForm from '../../components/forms/ContactForm.astro';
 import Badge from '../../components/ui/Badge.astro';
+import FAQAccordion from '../../components/ui/FAQAccordion.astro';
 
 const pageTitle = "Professional Duct Sealing Services | Air Duct Repair | Jupitair HVAC";
 const pageDescription = "Professional duct sealing in North Texas. Stop air leaks, improve efficiency, and reduce energy costs. Expert duct repair and sealing services.";
+
+const faqs = [
+  {
+    question: "How do I know if my ducts need sealing?",
+    answer: "Signs include high energy bills, uneven room temperatures, dusty home, poor air quality, and rooms that are hard to heat or cool. We provide free assessments to determine your needs."
+  },
+  {
+    question: "What materials do you use for sealing?",
+    answer: "We use professional-grade mastic sealant and UL-listed foil tape designed specifically for HVAC applications. These materials are durable, safe, and provide long-lasting seals."
+  },
+  {
+    question: "How long does duct sealing last?",
+    answer: "Professional duct sealing typically lasts 10-15 years or more when done correctly. We provide warranties on our work and use materials designed for the long term."
+  },
+  {
+    question: "Can you seal ducts in tight crawl spaces?",
+    answer: "Yes, our technicians are trained to work in all types of spaces including tight crawl spaces, attics, and basements. We have specialized equipment and techniques for accessing difficult areas."
+  },
+  {
+    question: "How much energy can I save with duct sealing?",
+    answer: "According to ENERGY STAR, homeowners can save up to 20% on heating and cooling costs with proper duct sealing. Some homes with significant leaks can see even greater savings."
+  },
+  {
+    question: "Is duct sealing worth the investment?",
+    answer: "Absolutely! Most homeowners see a return on investment within 2-3 years through energy savings alone, plus you get immediate benefits like improved comfort and air quality."
+  },
+  {
+    question: "Will duct sealing improve my indoor air quality?",
+    answer: "Yes! Sealing ducts prevents dust, allergens, and pollutants from being pulled into your duct system from attics, crawl spaces, and walls, resulting in cleaner, healthier indoor air."
+  },
+  {
+    question: "How long does the duct sealing process take?",
+    answer: "Most residential duct sealing projects take 4-8 hours depending on the size of your home and accessibility of the ductwork. We'll provide a time estimate during your assessment."
+  }
+];
 ---
 
 <BaseLayout
@@ -396,40 +432,8 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
 
   <!-- FAQ Section -->
   <section class="section-full bg-white">
-    <div class="site-container section-padding">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
-        
-        <div class="space-y-6">
-          <Card class="overflow-visible"  variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">How do I know if my ducts need sealing?</h3>
-            <p class="text-gray-700">
-              Signs include high energy bills, uneven room temperatures, dusty home, poor air quality, and rooms that are hard to heat or cool. We provide free assessments to determine your needs.
-            </p>
-          </Card>
-
-          <Card class="overflow-visible"  variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">What materials do you use for sealing?</h3>
-            <p class="text-gray-700">
-              We use professional-grade mastic sealant and UL-listed foil tape designed specifically for HVAC applications. These materials are durable, safe, and provide long-lasting seals.
-            </p>
-          </Card>
-
-          <Card class="overflow-visible"  variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">How long does duct sealing last?</h3>
-            <p class="text-gray-700">
-              Professional duct sealing typically lasts 10-15 years or more when done correctly. We provide warranties on our work and use materials designed for the long term.
-            </p>
-          </Card>
-
-          <Card class="overflow-visible"  variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Can you seal ducts in tight crawl spaces?</h3>
-            <p class="text-gray-700">
-              Yes, our technicians are trained to work in all types of spaces including tight crawl spaces, attics, and basements. We have specialized equipment and techniques for accessing difficult areas.
-            </p>
-          </Card>
-        </div>
-      </div>
+    <div class="site-container py-16 sm:py-20 lg:py-24">
+      <FAQAccordion faqs={faqs} title="Duct Sealing FAQs" />
     </div>
   </section>
 

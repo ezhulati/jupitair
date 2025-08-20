@@ -6,9 +6,45 @@ import PremiumCard from '../../components/ui/PremiumCard.astro';
 import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
 import ContactForm from '../../components/forms/ContactForm.astro';
+import FAQAccordion from '../../components/ui/FAQAccordion.astro';
 
 const pageTitle = "HVAC Maintenance Plans | Preventive Service Programs | Jupitair HVAC";
 const pageDescription = "Protect your HVAC investment with Jupitair's comprehensive maintenance plans. Bi-annual tune-ups, priority service, and extended warranties. Save up to 30% on energy costs.";
+
+const faqs = [
+  {
+    question: "What's included in a maintenance plan?",
+    answer: "Our maintenance plans include bi-annual tune-ups (spring AC and fall heating), priority scheduling, discounts on repairs, extended warranties, and 24/7 emergency service. We also provide filter reminders and system performance reports."
+  },
+  {
+    question: "How often should HVAC systems be serviced?",
+    answer: "HVAC systems should be serviced twice yearly - AC tune-ups in spring before cooling season and heating tune-ups in fall before winter. This schedule maximizes efficiency and prevents breakdowns during peak usage."
+  },
+  {
+    question: "Will maintenance really save me money?",
+    answer: "Yes! Regular maintenance can reduce energy bills by up to 30%, prevent costly emergency repairs, and extend equipment life by 5-10 years. Most customers save more than the plan cost in energy savings alone."
+  },
+  {
+    question: "What happens during a maintenance visit?",
+    answer: "Our 21-point inspection includes cleaning coils, checking refrigerant levels, testing electrical components, calibrating thermostats, lubricating moving parts, checking ductwork, and providing a detailed system report."
+  },
+  {
+    question: "Can I cancel my maintenance plan?",
+    answer: "Yes, our maintenance plans have no long-term contracts. You can cancel anytime with 30 days notice. However, most customers keep their plans because of the value and peace of mind they provide."
+  },
+  {
+    question: "Do maintenance plans cover repairs?",
+    answer: "Maintenance plans include preventive service and discounts on repairs (typically 15-20% off). Major repairs are not included but are less likely to occur with regular maintenance. Some plans include coverage for specific parts."
+  },
+  {
+    question: "What if I need service between maintenance visits?",
+    answer: "Maintenance plan members receive priority scheduling and discounted rates for any service calls between regular maintenance visits. You also get 24/7 emergency support with no overtime charges."
+  },
+  {
+    question: "Is maintenance worth it for new systems?",
+    answer: "Absolutely! In fact, most manufacturer warranties require regular maintenance to remain valid. Starting maintenance from day one ensures maximum efficiency, prevents warranty issues, and extends system life."
+  }
+];
 ---
 
 <BaseLayout
@@ -306,6 +342,13 @@ const pageDescription = "Protect your HVAC investment with Jupitair's comprehens
           </Card>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section-full bg-white">
+    <div class="site-container py-16 sm:py-20 lg:py-24">
+      <FAQAccordion faqs={faqs} title="Maintenance Plan FAQs" />
     </div>
   </section>
 

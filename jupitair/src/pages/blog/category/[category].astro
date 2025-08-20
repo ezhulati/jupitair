@@ -93,7 +93,7 @@ function getCategorySlug(category: string) {
 ---
 
 <BaseLayout
-  title={`${categoryName} Articles | HVAC Blog | Jupitair`}
+  title={`${categoryName} Articles | HVAC Resources | Jupitair`}
   description={`Expert ${categoryName.toLowerCase()} articles and guides for North Texas homeowners. Professional HVAC advice, tips, and troubleshooting.`}
   keywords={`${categoryName.toLowerCase()}, HVAC blog, North Texas HVAC, ${categoryName.toLowerCase()} tips`}
   canonical={`https://jupitairhvac.com/blog/category/${getCategorySlug(categoryName)}`}
@@ -283,23 +283,26 @@ function getCategorySlug(category: string) {
   </section>
 
   <!-- Related Services CTA -->
-  <section class="section-full bg-gray-50">
-    <div class="site-container">
+  <section class="section-full bg-gradient-to-r from-blue-600 to-blue-700">
+    <div class="site-container py-12 sm:py-16">
       <div class="max-w-4xl mx-auto text-center">
-        <h2 class="break-words text-3xl font-bold text-gray-900 mb-4">
+        <h2 class="break-words text-3xl font-bold text-white mb-4">
           Need Professional HVAC Service?
         </h2>
-        <p class="break-words text-xl text-gray-600 mb-8">
+        <p class="break-words text-xl text-blue-100 mb-8">
           Our expert technicians are ready to help with all your heating and cooling needs
         </p>
         <div class="min-w-0 flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href="/contact" variant="primary" size="lg">
-            Get Quote
+          <Button href="tel:9403905676" variant="secondary" size="lg">
+            Call (940) 390-5676
           </Button>
-          <Button href="/contact" variant="outline" size="lg">
-            Get Free Quote
+          <Button href="/contact" variant="outline" size="lg" class="!text-white !border-white hover:!bg-white hover:!text-blue-600">
+            Get Free Estimate
           </Button>
         </div>
+        <p class="text-sm text-blue-200 mt-6">
+          24/7 Emergency Service • Licensed & Insured • Satisfaction Guaranteed
+        </p>
       </div>
     </div>
   </section>

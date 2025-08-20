@@ -9,6 +9,7 @@ import Card from '../components/ui/Card.astro';
 // Page metadata
 const pageTitle = "About Jupitair HVAC | Trusted HVAC Contractors in North Texas";
 const pageDescription = "Learn about Jupitair HVAC, North Texas's trusted HVAC contractors. 15+ years of experience serving 8 cities with expert AC repair, heating services, and installations.";
+const ogImageUrl = "https://res.cloudinary.com/dwnmuolg8/image/upload/v1755659508/Jupitair_HVAC_kukpt9.jpg";
 
 
 // About page schema
@@ -39,6 +40,7 @@ const aboutSchema = {
   title={pageTitle}
   description={pageDescription}
   canonical="https://jupitairhvac.com/about"
+  ogImage={ogImageUrl}
 >
   <!-- Schema.org structured data -->
   <script type="application/ld+json" set:html={JSON.stringify(aboutSchema)} />

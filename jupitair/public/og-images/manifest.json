@@ -1,1 +1,468 @@
-{}
+{
+  "generated": "2025-08-20T03:40:48.537Z",
+  "total": 115,
+  "successful": 115,
+  "failed": 0,
+  "images": [
+    {
+      "file": "frisco.jpg",
+      "success": true
+    },
+    {
+      "file": "plano.jpg",
+      "success": true
+    },
+    {
+      "file": "mckinney.jpg",
+      "success": true
+    },
+    {
+      "file": "allen.jpg",
+      "success": true
+    },
+    {
+      "file": "prosper.jpg",
+      "success": true
+    },
+    {
+      "file": "the-colony.jpg",
+      "success": true
+    },
+    {
+      "file": "little-elm.jpg",
+      "success": true
+    },
+    {
+      "file": "addison.jpg",
+      "success": true
+    },
+    {
+      "file": "services-ac-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "services-heating-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "services-hvac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "services-ac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "services-heating-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "services-maintenance.jpg",
+      "success": true
+    },
+    {
+      "file": "services-duct-cleaning.jpg",
+      "success": true
+    },
+    {
+      "file": "services-duct-sealing.jpg",
+      "success": true
+    },
+    {
+      "file": "services-indoor-air-quality.jpg",
+      "success": true
+    },
+    {
+      "file": "services-thermostat-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "services-heat-pump-systems.jpg",
+      "success": true
+    },
+    {
+      "file": "services-air-purification.jpg",
+      "success": true
+    },
+    {
+      "file": "services-zoning-systems.jpg",
+      "success": true
+    },
+    {
+      "file": "services-commercial-hvac.jpg",
+      "success": true
+    },
+    {
+      "file": "services-residential.jpg",
+      "success": true
+    },
+    {
+      "file": "frisco-ac-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "frisco-heating-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "frisco-hvac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "frisco-ac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "frisco-heating-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "frisco-maintenance.jpg",
+      "success": true
+    },
+    {
+      "file": "frisco-duct-cleaning.jpg",
+      "success": true
+    },
+    {
+      "file": "frisco-duct-sealing.jpg",
+      "success": true
+    },
+    {
+      "file": "frisco-indoor-air-quality.jpg",
+      "success": true
+    },
+    {
+      "file": "plano-ac-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "plano-heating-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "plano-hvac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "plano-ac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "plano-heating-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "plano-maintenance.jpg",
+      "success": true
+    },
+    {
+      "file": "plano-duct-cleaning.jpg",
+      "success": true
+    },
+    {
+      "file": "plano-duct-sealing.jpg",
+      "success": true
+    },
+    {
+      "file": "plano-indoor-air-quality.jpg",
+      "success": true
+    },
+    {
+      "file": "mckinney-ac-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "mckinney-heating-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "mckinney-hvac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "mckinney-ac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "mckinney-heating-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "mckinney-maintenance.jpg",
+      "success": true
+    },
+    {
+      "file": "mckinney-duct-cleaning.jpg",
+      "success": true
+    },
+    {
+      "file": "mckinney-duct-sealing.jpg",
+      "success": true
+    },
+    {
+      "file": "mckinney-indoor-air-quality.jpg",
+      "success": true
+    },
+    {
+      "file": "allen-ac-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "allen-heating-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "allen-hvac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "allen-ac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "allen-heating-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "allen-maintenance.jpg",
+      "success": true
+    },
+    {
+      "file": "allen-duct-cleaning.jpg",
+      "success": true
+    },
+    {
+      "file": "allen-duct-sealing.jpg",
+      "success": true
+    },
+    {
+      "file": "allen-indoor-air-quality.jpg",
+      "success": true
+    },
+    {
+      "file": "prosper-ac-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "prosper-heating-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "prosper-hvac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "prosper-ac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "prosper-heating-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "prosper-maintenance.jpg",
+      "success": true
+    },
+    {
+      "file": "prosper-duct-cleaning.jpg",
+      "success": true
+    },
+    {
+      "file": "prosper-duct-sealing.jpg",
+      "success": true
+    },
+    {
+      "file": "prosper-indoor-air-quality.jpg",
+      "success": true
+    },
+    {
+      "file": "the-colony-ac-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "the-colony-heating-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "the-colony-hvac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "the-colony-ac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "the-colony-heating-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "the-colony-maintenance.jpg",
+      "success": true
+    },
+    {
+      "file": "the-colony-duct-cleaning.jpg",
+      "success": true
+    },
+    {
+      "file": "the-colony-duct-sealing.jpg",
+      "success": true
+    },
+    {
+      "file": "the-colony-indoor-air-quality.jpg",
+      "success": true
+    },
+    {
+      "file": "little-elm-ac-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "little-elm-heating-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "little-elm-hvac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "little-elm-ac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "little-elm-heating-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "little-elm-maintenance.jpg",
+      "success": true
+    },
+    {
+      "file": "little-elm-duct-cleaning.jpg",
+      "success": true
+    },
+    {
+      "file": "little-elm-duct-sealing.jpg",
+      "success": true
+    },
+    {
+      "file": "little-elm-indoor-air-quality.jpg",
+      "success": true
+    },
+    {
+      "file": "addison-ac-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "addison-heating-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "addison-hvac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "addison-ac-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "addison-heating-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "addison-maintenance.jpg",
+      "success": true
+    },
+    {
+      "file": "addison-duct-cleaning.jpg",
+      "success": true
+    },
+    {
+      "file": "addison-duct-sealing.jpg",
+      "success": true
+    },
+    {
+      "file": "addison-indoor-air-quality.jpg",
+      "success": true
+    },
+    {
+      "file": "commercial-chiller-systems.jpg",
+      "success": true
+    },
+    {
+      "file": "commercial-emergency-service.jpg",
+      "success": true
+    },
+    {
+      "file": "commercial-new-installation.jpg",
+      "success": true
+    },
+    {
+      "file": "commercial-office-hvac.jpg",
+      "success": true
+    },
+    {
+      "file": "commercial-preventive-maintenance.jpg",
+      "success": true
+    },
+    {
+      "file": "commercial-restaurant-hvac.jpg",
+      "success": true
+    },
+    {
+      "file": "commercial-retail-hvac.jpg",
+      "success": true
+    },
+    {
+      "file": "commercial-rtu-replacement.jpg",
+      "success": true
+    },
+    {
+      "file": "contact.jpg",
+      "success": true
+    },
+    {
+      "file": "services.jpg",
+      "success": true
+    },
+    {
+      "file": "privacy.jpg",
+      "success": true
+    },
+    {
+      "file": "terms.jpg",
+      "success": true
+    },
+    {
+      "file": "success.jpg",
+      "success": true
+    },
+    {
+      "file": "sitemap.jpg",
+      "success": true
+    },
+    {
+      "file": "style-guide.jpg",
+      "success": true
+    },
+    {
+      "file": "404.jpg",
+      "success": true
+    },
+    {
+      "file": "allen-ac-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "frisco-ac-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "mckinney-ac-repair.jpg",
+      "success": true
+    },
+    {
+      "file": "plano-ac-repair.jpg",
+      "success": true
+    }
+  ]
+}

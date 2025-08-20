@@ -7,9 +7,45 @@ import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
 import ContactForm from '../../components/forms/ContactForm.astro';
 import Badge from '../../components/ui/Badge.astro';
+import FAQAccordion from '../../components/ui/FAQAccordion.astro';
 
 const pageTitle = "Professional Duct Cleaning Services | Air Duct Cleaning | Jupitair HVAC";
 const pageDescription = "Professional air duct cleaning in North Texas. Remove dust, allergens, and contaminants from your HVAC system. Improve air quality and system efficiency.";
+
+const faqs = [
+  {
+    question: "How often should I have my ducts cleaned?",
+    answer: "The EPA recommends duct cleaning every 3-5 years for most homes. However, you may need more frequent cleaning if you have pets, allergies, recent construction, or smokers in the home."
+  },
+  {
+    question: "Will duct cleaning help with allergies?",
+    answer: "Yes, professional duct cleaning removes allergens like dust mites, pollen, pet dander, and other irritants that accumulate in your ductwork, which can significantly improve indoor air quality for allergy sufferers."
+  },
+  {
+    question: "How long does duct cleaning take?",
+    answer: "Most residential duct cleaning takes 3-5 hours depending on the size of your home and the extent of cleaning needed. We'll provide an accurate time estimate during our initial inspection."
+  },
+  {
+    question: "Is duct cleaning messy?",
+    answer: "No, professional duct cleaning should not be messy. We use protective covers, drop cloths, and sealed vacuum systems to contain all debris. Your home will be cleaner after we finish."
+  },
+  {
+    question: "What equipment do you use for duct cleaning?",
+    answer: "We use commercial-grade HEPA-filtered vacuum systems, rotary brushes, compressed air tools, and specialized cleaning equipment designed specifically for HVAC ductwork."
+  },
+  {
+    question: "Can duct cleaning damage my HVAC system?",
+    answer: "When performed by trained professionals, duct cleaning is completely safe. Our technicians are certified and use proper techniques to protect your system while thoroughly cleaning it."
+  },
+  {
+    question: "How do I know if my ducts need cleaning?",
+    answer: "Signs include visible dust or debris around vents, musty odors, increased dust in your home, recent renovations, or if you haven't had them cleaned in several years."
+  },
+  {
+    question: "Will duct cleaning reduce my energy bills?",
+    answer: "Yes! Clean ducts allow your HVAC system to operate more efficiently. The U.S. Department of Energy estimates that 25-40% of energy used for heating and cooling is wasted due to contaminants in the system."
+  }
+];
 ---
 
 <BaseLayout
@@ -364,40 +400,8 @@ const pageDescription = "Professional air duct cleaning in North Texas. Remove d
 
   <!-- FAQ Section -->
   <section class="section-full bg-white">
-    <div class="site-container section-padding">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
-        
-        <div class="space-y-6">
-          <Card class="overflow-visible"  variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">How often should I have my ducts cleaned?</h3>
-            <p class="text-gray-700">
-              The EPA recommends duct cleaning every 3-5 years for most homes. However, you may need more frequent cleaning if you have pets, allergies, recent construction, or smokers in the home.
-            </p>
-          </Card>
-
-          <Card class="overflow-visible"  variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Will duct cleaning help with allergies?</h3>
-            <p class="text-gray-700">
-              Yes, professional duct cleaning removes allergens like dust mites, pollen, pet dander, and other irritants that accumulate in your ductwork, which can significantly improve indoor air quality for allergy sufferers.
-            </p>
-          </Card>
-
-          <Card class="overflow-visible"  variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">How long does duct cleaning take?</h3>
-            <p class="text-gray-700">
-              Most residential duct cleaning takes 3-5 hours depending on the size of your home and the extent of cleaning needed. We'll provide an accurate time estimate during our initial inspection.
-            </p>
-          </Card>
-
-          <Card class="overflow-visible"  variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Is duct cleaning messy?</h3>
-            <p class="text-gray-700">
-              No, professional duct cleaning should not be messy. We use protective covers, drop cloths, and sealed vacuum systems to contain all debris. Your home will be cleaner after we finish.
-            </p>
-          </Card>
-        </div>
-      </div>
+    <div class="site-container py-16 sm:py-20 lg:py-24">
+      <FAQAccordion faqs={faqs} title="Duct Cleaning FAQs" />
     </div>
   </section>
 

@@ -6,9 +6,45 @@ import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
 import ContactForm from '../../components/forms/ContactForm.astro';
 import Badge from '../../components/ui/Badge.astro';
+import FAQAccordion from '../../components/ui/FAQAccordion.astro';
 
 const pageTitle = "AC Repair Services | Fast Air Conditioning Repair | Jupitair HVAC";
 const pageDescription = "Emergency AC repair in North Texas. Same-day service, certified technicians, all brands. 2-hour response time. Call (940) 390-5676 for immediate AC repair.";
+
+const faqs = [
+  {
+    question: "How quickly can you respond to an AC emergency?",
+    answer: "We offer 24/7 emergency service with a typical response time of 2 hours or less in the North Texas area. Our dispatchers prioritize emergency calls and will have a technician to you as quickly as possible."
+  },
+  {
+    question: "What brands of air conditioners do you repair?",
+    answer: "We're certified to repair all major AC brands including Trane, Carrier, Lennox, Rheem, Goodman, Bryant, American Standard, York, Amana, and more. Our technicians carry parts for most common repairs."
+  },
+  {
+    question: "How much does AC repair typically cost?",
+    answer: "AC repair costs vary based on the issue. Simple repairs like capacitor replacements start around $200-400, while compressor replacements can range from $1,500-3,000. We always provide upfront pricing before any work begins."
+  },
+  {
+    question: "Should I repair or replace my AC unit?",
+    answer: "Generally, if your AC is less than 10 years old and the repair cost is less than 50% of a new unit's cost, repair is recommended. For units over 15 years old or requiring major repairs, replacement may be more cost-effective."
+  },
+  {
+    question: "What are signs my AC needs repair?",
+    answer: "Common signs include: warm air blowing, weak airflow, unusual noises, frequent cycling, high humidity, water leaks, bad odors, or increased energy bills. If you notice any of these, call for service immediately."
+  },
+  {
+    question: "Do you offer warranties on AC repairs?",
+    answer: "Yes! We provide a 1-year warranty on all labor and manufacturer warranties on parts. Our work is guaranteed, and we stand behind every repair we perform."
+  },
+  {
+    question: "Can I prevent AC breakdowns?",
+    answer: "Absolutely! Regular maintenance is key. Change filters monthly, keep outdoor units clear of debris, schedule annual tune-ups, and address small issues before they become major problems."
+  },
+  {
+    question: "Why is my AC freezing up?",
+    answer: "AC freezing is usually caused by restricted airflow (dirty filter), low refrigerant, dirty coils, or thermostat issues. Turn off your AC immediately and call for service to prevent compressor damage."
+  }
+];
 ---
 
 <BaseLayout
@@ -277,6 +313,13 @@ const pageDescription = "Emergency AC repair in North Texas. Same-day service, c
           </div>
         </Card>
       </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section-full bg-white">
+    <div class="site-container py-16 sm:py-20 lg:py-24">
+      <FAQAccordion faqs={faqs} title="AC Repair FAQs" />
     </div>
   </section>
 
