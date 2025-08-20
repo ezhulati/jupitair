@@ -115,7 +115,7 @@ const formElements = [
         <section>
           <h2 class="break-words text-3xl font-bold text-gray-900 dark:text-white mb-8">Design Principles</h2>
           <div class="min-w-0 grid md:grid-cols-4 gap-6">
-            <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+            <Card variant="outline"  class="border-gray-200 bg-white">
               <div class="text-center">
                 <div class="min-w-0 w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -125,9 +125,9 @@ const formElements = [
                 <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Trust & Reliability</h3>
                 <p class="text-sm text-gray-600 dark:text-gray-400">Every element builds confidence through professional design and clear communication.</p>
               </div>
-            </PremiumCard>
+            </Card>
             
-            <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+            <Card variant="outline"  class="border-gray-200 bg-white">
               <div class="text-center">
                 <div class="min-w-0 w-16 h-16 bg-green-100 dark:bg-green-900/20 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <svg class="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -137,9 +137,9 @@ const formElements = [
                 <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Performance First</h3>
                 <p class="text-sm text-gray-600 dark:text-gray-400">Optimized for instant loading with sub-second interactions and smooth animations.</p>
               </div>
-            </PremiumCard>
+            </Card>
             
-            <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+            <Card variant="outline"  class="border-gray-200 bg-white">
               <div class="text-center">
                 <div class="min-w-0 w-16 h-16 bg-purple-100 dark:bg-purple-900/20 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -149,9 +149,9 @@ const formElements = [
                 <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Pixel Perfect</h3>
                 <p class="text-sm text-gray-600 dark:text-gray-400">Meticulous attention to spacing, alignment, and visual hierarchy in every component.</p>
               </div>
-            </PremiumCard>
+            </Card>
             
-            <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+            <Card variant="outline"  class="border-gray-200 bg-white">
               <div class="text-center">
                 <div class="min-w-0 w-16 h-16 bg-orange-100 dark:bg-orange-900/20 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <svg class="w-8 h-8 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -161,7 +161,7 @@ const formElements = [
                 <h3 class="font-semibold text-gray-900 dark:text-white mb-2">Always Available</h3>
                 <p class="text-sm text-gray-600 dark:text-gray-400">24/7 emergency service reflected in accessible, responsive design patterns.</p>
               </div>
-            </PremiumCard>
+            </Card>
           </div>
         </section>
 
@@ -214,7 +214,7 @@ const formElements = [
         <!-- Typography -->
         <section>
           <h2 class="break-words text-3xl font-bold text-gray-900 dark:text-white mb-8">Typography</h2>
-          <PremiumCard class="overflow-visible"  variant="elevated" padding="lg">
+          <Card variant="outline"  class="border-gray-200 bg-white">
             <div class="space-y-6">
               {typography.map((type) => (
                 <div class="min-w-0 flex items-baseline justify-between border-b border-gray-200 dark:border-gray-700 pb-4">
@@ -228,7 +228,7 @@ const formElements = [
                 </div>
               ))}
             </div>
-          </PremiumCard>
+          </Card>
         </section>
 
         <!-- Spacing System -->
@@ -236,13 +236,13 @@ const formElements = [
           <h2 class="break-words text-3xl font-bold text-gray-900 dark:text-white mb-8">Spacing System</h2>
           <div class="min-w-0 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4">
             {spacing.map((space) => (
-              <PremiumCard class="overflow-visible"  variant="elevated" padding="sm">
+              <Card variant="outline"  class="border-gray-200 bg-white">
                 <div class="text-center">
                   <div class={`bg-blue-500 ${space.class} mb-2`}></div>
                   <p class="text-sm font-medium text-gray-900 dark:text-white">{space.name}</p>
                   <p class="text-xs text-gray-500 dark:text-gray-400">{space.value}</p>
                 </div>
-              </PremiumCard>
+              </Card>
             ))}
           </div>
         </section>
@@ -295,20 +295,20 @@ const formElements = [
         <section>
           <h2 class="break-words text-3xl font-bold text-gray-900 dark:text-white mb-8">Cards</h2>
           <div class="min-w-0 grid md:grid-cols-3 gap-6">
-            <PremiumCard class="overflow-visible"  variant="default" padding="lg">
+            <Card variant="outline"  class="border-gray-200 bg-white">
               <h3 class="break-words text-xl font-semibold text-gray-900 dark:text-white mb-2">Default Card</h3>
               <p class="text-gray-600 dark:text-gray-400">Standard card with subtle shadow and border. Perfect for content sections.</p>
-            </PremiumCard>
+            </Card>
             
-            <PremiumCard class="overflow-visible"  variant="elevated" padding="lg">
+            <Card variant="outline"  class="border-gray-200 bg-white">
               <h3 class="break-words text-xl font-semibold text-gray-900 dark:text-white mb-2">Glass Card</h3>
               <p class="text-gray-600 dark:text-gray-400">Glassmorphism effect with backdrop blur for modern, premium feel.</p>
-            </PremiumCard>
+            </Card>
             
-            <PremiumCard class="overflow-visible"  variant="gradient" padding="lg">
+            <Card variant="outline"  class="border-gray-200 bg-white">
               <h3 class="break-words text-xl font-semibold text-white mb-2">Gradient Card</h3>
               <p class="text-gray-100">Eye-catching gradient background for important CTAs and features.</p>
-            </PremiumCard>
+            </Card>
           </div>
         </section>
 
@@ -328,7 +328,7 @@ const formElements = [
         <!-- Forms -->
         <section>
           <h2 class="break-words text-3xl font-bold text-gray-900 dark:text-white mb-8">Form Elements</h2>
-          <PremiumCard class="overflow-visible"  variant="elevated" padding="lg">
+          <Card variant="outline"  class="border-gray-200 bg-white">
             <form class="overflow-x-hidden space-y-6 max-w-xl">
               {formElements.map((element) => (
                 <div>
@@ -358,7 +358,7 @@ const formElements = [
                 </div>
               ))}
             </form>
-          </PremiumCard>
+          </Card>
         </section>
 
         <!-- Shadows -->
@@ -381,12 +381,12 @@ const formElements = [
           <h2 class="break-words text-3xl font-bold text-gray-900 dark:text-white mb-8">Animations</h2>
           <div class="min-w-0 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
             {animations.map((animation) => (
-              <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+              <Card variant="outline"  class="border-gray-200 bg-white">
                 <div class="text-center">
                   <div class={`w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg mx-auto mb-3 ${animation.class}`}></div>
                   <p class="text-sm font-medium text-gray-900 dark:text-white">{animation.name}</p>
                 </div>
-              </PremiumCard>
+              </Card>
             ))}
           </div>
         </section>
@@ -394,7 +394,7 @@ const formElements = [
         <!-- Icons -->
         <section>
           <h2 class="break-words text-3xl font-bold text-gray-900 dark:text-white mb-8">Icon System</h2>
-          <PremiumCard class="overflow-visible"  variant="elevated" padding="lg">
+          <Card variant="outline"  class="border-gray-200 bg-white">
             <div class="min-w-0 grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12 gap-4">
               {['phone', 'email', 'location', 'clock', 'shield', 'star', 'tool', 'thermometer', 'snowflake', 'fire', 'warning', 'check'].map((icon) => (
                 <div class="text-center p-4 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">
@@ -416,13 +416,13 @@ const formElements = [
                 </div>
               ))}
             </div>
-          </PremiumCard>
+          </Card>
         </section>
 
         <!-- Responsive Grid -->
         <section>
           <h2 class="break-words text-3xl font-bold text-gray-900 dark:text-white mb-8">Responsive Grid System</h2>
-          <PremiumCard class="overflow-visible"  variant="elevated" padding="lg">
+          <Card variant="outline"  class="border-gray-200 bg-white">
             <div class="space-y-4">
               <div class="min-w-0 grid grid-cols-12 gap-2">
                 {[...Array(12)].map((_, i) => (
@@ -444,13 +444,13 @@ const formElements = [
                 <div class="col-span-3 bg-orange-500 text-white p-2 rounded text-center">3</div>
               </div>
             </div>
-          </PremiumCard>
+          </Card>
         </section>
 
         <!-- Code Standards -->
         <section>
           <h2 class="break-words text-3xl font-bold text-gray-900 dark:text-white mb-8">Code Standards</h2>
-          <PremiumCard class="overflow-visible"  variant="elevated" padding="lg">
+          <Card variant="outline"  class="border-gray-200 bg-white">
             <div class="overflow-x-hidden prose prose-lg dark:prose-invert max-w-none">
               <h3>Component Structure</h3>
               <pre class="bg-gray-900 text-gray-100 p-4 rounded-xl overflow-x-auto"><code>{`---
@@ -504,7 +504,7 @@ const { variant = 'default', title } = Astro.props;
                 <li>Color contrast ratios met</li>
               </ul>
             </div>
-          </PremiumCard>
+          </Card>
         </section>
 
         <!-- Footer -->

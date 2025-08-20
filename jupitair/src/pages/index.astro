@@ -5,13 +5,13 @@ import ServicesOverview from '../components/layout/ServicesOverview.astro';
 import ServiceAreas from '../components/layout/ServiceAreas.astro';
 import WhyChooseUs from '../components/layout/WhyChooseUs.astro';
 import ContactForm from '../components/forms/ContactForm.astro';
-import ReviewsSection from '../components/reviews/ReviewsSection.astro';
+import RealReviews from '../components/reviews/RealReviews.astro';
 import PremiumCard from '../components/ui/PremiumCard.astro';
 import Button from '../components/ui/Button.astro';
 import PhoneLink from '../components/ui/PhoneLink.astro';
 import DynamicSchema from '../components/seo/DynamicSchema.astro';
 
-const pageTitle = "Jupitair HVAC - Premier HVAC Services in North Texas";
+const pageTitle = "Jupitair HVAC - HVAC Services in North Texas";
 const pageDescription = "Professional HVAC services throughout North Texas. AC repair, heating repair, HVAC installation, and emergency service in Frisco, Plano, McKinney, Allen, Prosper, The Colony, Little Elm, and Addison.";
 const ogImageUrl = "https://res.cloudinary.com/dwnmuolg8/image/upload/v1755659373/Jupitair_sh9qeb.jpg";
 
@@ -62,7 +62,7 @@ const homepageSchema = {
       "foundingDate": "2008",
       "slogan": "Your Comfort is Our Priority",
       "priceRange": "$$",
-      "paymentAccepted": ["Cash", "Check", "Credit Card", "Financing Available"],
+      "paymentAccepted": ["Cash", "Check", "Credit Card", "Licensed & Insured"],
       "areaServed": [
         {
           "@type": "City",
@@ -159,13 +159,14 @@ const homepageSchema = {
   canonical="https://jupitairhvac.com"
   keywords="HVAC North Texas, AC repair Frisco, heating repair Plano, HVAC installation McKinney, emergency HVAC Allen, Prosper HVAC, The Colony heating, Little Elm AC, Addison HVAC contractor"
   ogImage={ogImageUrl}
+  overlayHeader={true}
 >
   <!-- Dynamic Schema with Reviews -->
   <DynamicSchema type="homepage" />
   
   <!-- Premium Hero Section -->
   <PremiumHero 
-    title="North Texas Premier HVAC Solutions"
+    title="North Texas HVAC Solutions"
     description="Professional heating and cooling services with same-day response. Serving Frisco, Plano, McKinney, and surrounding areas since 2008."
     ctaPrimary={{ text: "Get Free Quote", href: "#contact" }}
     ctaSecondary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
@@ -299,7 +300,7 @@ const homepageSchema = {
             </div>
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">HVAC Installation</h3>
             <p class="text-gray-700">
-              Energy-efficient system installations with financing options available.
+              Energy-efficient system installations with professional service.
             </p>
             <ul class="space-y-2 text-sm text-gray-600">
               <li class="flex items-center gap-2">
@@ -318,7 +319,7 @@ const homepageSchema = {
                 <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
-                Financing available
+                Licensed & insured
               </li>
             </ul>
             <Button href="/services/hvac-installation" variant="primary" class="w-full">
@@ -444,11 +445,11 @@ const homepageSchema = {
   </section>
 
   <!-- Reviews Section -->
-  <section class="section-full bg-gray-50">
-    <div class="site-container section-padding">
-      <ReviewsSection limit={6} variant="carousel" />
-    </div>
-  </section>
+  <!-- Customer Reviews - SOCIAL PROOF FOR CONVERSION -->
+  <RealReviews 
+    title="What North Texas Says About Us"
+    maxReviews={9}
+  />
 
   <!-- Service Areas - FIXED COLOR CONTRAST -->
   <section class="section-full bg-primary-900">
@@ -497,7 +498,7 @@ const homepageSchema = {
           <p class="text-primary-100 mb-6">Our certified technicians provide free consultations and same-day service throughout North Texas.</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <PhoneLink variant="secondary" size="lg" context="service-areas" />
-            <Button href="/contact" variant="outline" size="lg" class="!text-white !border-white hover:!bg-white/10">
+            <Button href="/contact" variant="outline" size="lg" class="!text-white !border-white hover:!bg-white hover:!text-blue-600">
               Get Free Quote
             </Button>
           </div>

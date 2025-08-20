@@ -16,13 +16,14 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
   title={pageTitle}
   description={pageDescription}
   keywords="heating repair, furnace repair, heat pump repair, North Texas heating service, emergency heating repair, heating system diagnostics"
->
+
+  overlayHeader={true}>
   <PremiumHero 
     title="Professional Heating Repair Services"
     subtitle="Emergency Service Available"
     description="When your heating fails, we're here to help. Expert technicians, fast response times, and guaranteed repairs to keep your family warm."
     ctaPrimary={{ text: "Get Emergency Service", href: "tel:9403905676" }}
-    ctaSecondary={{ text: "Schedule Repair", href: "#contact" }}
+    ctaSecondary={{ text: "Schedule Repair", href: "/contact" }}
     variant="gradient"
     height="lg" class="hero-section"
   />
@@ -47,83 +48,65 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
-          <div class="p-6 space-y-4">
+        <Card variant="outline"  class="border-gray-200 bg-white">
+          <div class="space-y-4">
             <div class="w-12 h-12 bg-emergency-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 text-emergency-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
             </div>
             <h3 class="text-lg sm:text-xl font-bold text-gray-900">No Heat</h3>
             <p class="text-gray-700">System not producing heat or turning on</p>
             <Badge variant="emergency" size="sm">Emergency Service</Badge>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="p-6 space-y-4">
             <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-              </svg>
             </div>
             <h3 class="text-lg sm:text-xl font-bold text-gray-900">Insufficient Heat</h3>
             <p class="text-gray-700">System runs but doesn't heat adequately</p>
             <Badge variant="warning" size="sm">Same Day Fix</Badge>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="p-6 space-y-4">
             <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.142M6.343 6.343a9 9 0 000 12.728m2.829-9.9a5 5 0 000 7.072M13 5h8m0 0v8m0-8l-8 8-4-4-6 6" />
-              </svg>
             </div>
             <h3 class="text-lg sm:text-xl font-bold text-gray-900">Strange Noises</h3>
             <p class="text-gray-700">Banging, rattling, or grinding sounds</p>
             <Badge variant="warning" size="sm">Diagnostic Available</Badge>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="p-6 space-y-4">
             <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
             </div>
             <h3 class="text-lg sm:text-xl font-bold text-gray-900">High Energy Bills</h3>
             <p class="text-gray-700">Increasing costs from inefficient operation</p>
             <Badge variant="primary" size="sm">Efficiency Check</Badge>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="p-6 space-y-4">
             <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
             </div>
             <h3 class="text-lg sm:text-xl font-bold text-gray-900">Frequent Cycling</h3>
             <p class="text-gray-700">System turning on and off repeatedly</p>
             <Badge variant="warning" size="sm">System Analysis</Badge>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="p-6 space-y-4">
             <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
             </div>
             <h3 class="text-lg sm:text-xl font-bold text-gray-900">Pilot Light Issues</h3>
             <p class="text-gray-700">Pilot won't stay lit or won't ignite</p>
             <Badge variant="emergency" size="sm">Safety Priority</Badge>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -137,7 +120,7 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        <Card class="overflow-visible"  variant="bordered" padding="md" class="border-red-200 bg-white">
+        <Card class="overflow-visible"  variant="outline"  class="border-red-200 bg-white">
           <div class="flex items-start gap-3">
             <div class="w-8 h-8 bg-emergency-100 rounded-full flex items-center justify-center flex-shrink-0">
               <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -151,7 +134,7 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="md" class="border-red-200 bg-white">
+        <Card class="overflow-visible"  variant="outline"  class="border-red-200 bg-white">
           <div class="flex items-start gap-3">
             <div class="w-8 h-8 bg-emergency-100 rounded-full flex items-center justify-center flex-shrink-0">
               <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -165,7 +148,7 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="md" class="border-red-200 bg-white">
+        <Card class="overflow-visible"  variant="outline"  class="border-red-200 bg-white">
           <div class="flex items-start gap-3">
             <div class="w-8 h-8 bg-emergency-100 rounded-full flex items-center justify-center flex-shrink-0">
               <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -179,7 +162,7 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="md" class="border-red-200 bg-white">
+        <Card class="overflow-visible"  variant="outline"  class="border-red-200 bg-white">
           <div class="flex items-start gap-3">
             <div class="w-8 h-8 bg-emergency-100 rounded-full flex items-center justify-center flex-shrink-0">
               <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -193,7 +176,7 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="md" class="border-red-200 bg-white">
+        <Card class="overflow-visible"  variant="outline"  class="border-red-200 bg-white">
           <div class="flex items-start gap-3">
             <div class="w-8 h-8 bg-emergency-100 rounded-full flex items-center justify-center flex-shrink-0">
               <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -207,7 +190,7 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="md" class="border-red-200 bg-white">
+        <Card class="overflow-visible"  variant="outline"  class="border-red-200 bg-white">
           <div class="flex items-start gap-3">
             <div class="w-8 h-8 bg-emergency-100 rounded-full flex items-center justify-center flex-shrink-0">
               <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -225,7 +208,7 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
       <div class="text-center mt-8">
         <Button href="tel:9403905676" variant="emergency" size="xl">
           Call Emergency Line: (940) 390-5676
-        </PremiumButton>
+        </Button>
       </div>
     </div>
   </section>
@@ -239,7 +222,7 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
       </div>
 
       <div class="max-w-4xl mx-auto space-y-6">
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               1
@@ -249,9 +232,9 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
               <p class="text-gray-700">Emergency calls dispatched within 1 hour. Standard repairs scheduled same-day or next-day.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               2
@@ -261,9 +244,9 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
               <p class="text-gray-700">Thorough system inspection using advanced diagnostic tools to identify the root cause of the problem.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               3
@@ -273,9 +256,9 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
               <p class="text-gray-700">Clear, detailed estimate before any work begins. No surprises or hidden fees.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               4
@@ -285,9 +268,9 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
               <p class="text-gray-700">Professional repair using quality parts and proven techniques. Fix it right the first time.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               5
@@ -297,7 +280,7 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
               <p class="text-gray-700">Complete system testing and performance verification with warranty on parts and labor.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -311,10 +294,10 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <Card class="overflow-visible"  variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-4">
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Diagnostic</h3>
-            <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary-700">$89</div>
+            <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary-700">$89</div>
             <p class="text-gray-700">Complete system diagnosis</p>
             <ul class="text-left space-y-2 text-sm">
               <li class="flex items-center gap-2">
@@ -333,13 +316,13 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="lg" class="border-orange-500 relative">
-          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-            <Badge variant="primary">Most Common</Badge>
-          </div>
-          <div class="text-center space-y-4 pt-4">
+        <Card variant="outline"  class="border-orange-500 relative">
+          <div class="text-center space-y-4">
+            <div class="mb-4">
+              <Badge variant="primary">Most Common</Badge>
+            </div>
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Standard Repairs</h3>
-            <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary-700">$150-$450</div>
+            <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary-700">$150-$450</div>
             <p class="text-gray-700">Thermostats, ignitors, motors</p>
             <ul class="text-left space-y-2 text-sm">
               <li class="flex items-center gap-2">
@@ -358,10 +341,10 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-4">
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Major Repairs</h3>
-            <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary-700">$500-$1,800</div>
+            <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-secondary-700">$500-$1,800</div>
             <p class="text-gray-700">Heat exchangers, control boards</p>
             <ul class="text-left space-y-2 text-sm">
               <li class="flex items-center gap-2">
@@ -370,7 +353,7 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
               </li>
               <li class="flex items-center gap-2">
                 <span class="text-success-600">✓</span>
-                <span>Financing available</span>
+                <span>Licensed & insured</span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="text-success-600">✓</span>
@@ -392,48 +375,36 @@ const pageDescription = "Professional heating repair in North Texas. Fast furnac
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card class="overflow-visible"  variant="bordered" padding="md">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-3">
             <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
             </div>
             <h3 class="font-bold text-gray-900">Fast Response</h3>
             <p class="text-sm text-gray-700">Emergency calls dispatched within 1 hour</p>
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="md">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-3">
             <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
             </div>
             <h3 class="font-bold text-gray-900">Licensed & Insured</h3>
             <p class="text-sm text-gray-700">Fully licensed and insured technicians</p>
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="md">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-3">
             <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
             </div>
             <h3 class="font-bold text-gray-900">Upfront Pricing</h3>
             <p class="text-sm text-gray-700">No surprises or hidden fees</p>
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="md">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-3">
             <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-6 h-6 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
             </div>
             <h3 class="font-bold text-gray-900">Satisfaction Guaranteed</h3>
             <p class="text-sm text-gray-700">100% satisfaction guarantee on all work</p>

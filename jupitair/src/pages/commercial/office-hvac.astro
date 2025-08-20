@@ -28,7 +28,8 @@ const benefits = [
 <BaseLayout
   title="Restaurant HVAC Services | Kitchen Ventilation | Jupitair HVAC"
   description="Professional restaurant HVAC services in North Texas. Kitchen exhaust, makeup air, dining comfort. $15K-$40K projects. Call (940) 390-5676."
->
+
+  overlayHeader={true}>
   <PremiumHero
     title="Restaurant HVAC Services"
     subtitle="$15K - $40K Projects"
@@ -55,7 +56,7 @@ const benefits = [
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map(service => (
-            <Card class="overflow-visible"  variant="elevated" padding="lg">
+            <Card class="overflow-visible"  variant="elevated" >
               <h3 class="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
               <p class="text-sm text-gray-600 mb-3">{service.desc}</p>
               <div class="text-lg font-semibold text-primary-600">{service.price}</div>

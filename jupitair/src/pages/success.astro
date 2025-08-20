@@ -78,7 +78,7 @@ const popularResources = [
  </h2>
  <div class="grid md:grid-cols-3 gap-6">
  {nextSteps.map((step, index) => (
- <PremiumCard class="overflow-visible"  variant="elevated" padding="md" hover={true} class="animate-scale-in" style={`animation-delay: ${index * 100}ms`}>
+ <Card variant="outline"  class="border-gray-200 bg-white">
  <div class="text-center">
  <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded-xl flex items-center justify-center mx-auto mb-4">
  {step.icon === 'phone' && (
@@ -100,7 +100,7 @@ const popularResources = [
  <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{step.title}</h3>
  <p class="text-gray-600 dark:text-gray-400 text-sm">{step.description}</p>
  </div>
- </PremiumCard>
+ </Card>
  ))}
  </div>
  </div>

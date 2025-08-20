@@ -51,7 +51,8 @@ const faqs = [
   title={pageTitle}
   description={pageDescription}
   keywords="HVAC maintenance plans, AC tune-up, furnace maintenance, preventive HVAC service, North Texas HVAC maintenance, bi-annual service, priority repairs"
->
+
+  overlayHeader={true}>
   <!-- Hero Section -->
   <PremiumHero 
     title="Professional HVAC Maintenance Plans"
@@ -75,7 +76,7 @@ const faqs = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -87,9 +88,9 @@ const faqs = [
               Well-maintained systems use significantly less energy, saving you hundreds annually on utility bills.
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -101,9 +102,9 @@ const faqs = [
               Regular maintenance can add 5-10 years to your HVAC system's lifespan, delaying costly replacement.
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -115,7 +116,7 @@ const faqs = [
               Catch small issues before they become major problems. Avoid emergency repairs and inconvenient failures.
             </p>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -130,7 +131,7 @@ const faqs = [
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <!-- Basic Plan -->
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="lg">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-6">
             <div class="space-y-2">
               <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Essential</h3>
@@ -166,10 +167,10 @@ const faqs = [
               Get Started
             </Button>
           </div>
-        </PremiumCard>
+        </Card>
 
         <!-- Premium Plan -->
-        <PremiumCard class="overflow-visible"  variant="premium" padding="lg" class="relative">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
             <span class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-bold">
               MOST POPULAR
@@ -216,10 +217,10 @@ const faqs = [
               Get Started
             </PremiumButton>
           </div>
-        </PremiumCard>
+        </Card>
 
         <!-- Elite Plan -->
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="lg">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-6">
             <div class="space-y-2">
               <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Elite</h3>
@@ -261,7 +262,7 @@ const faqs = [
               Get Started
             </Button>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -273,7 +274,7 @@ const faqs = [
         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">What's Included in Every Tune-Up</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card class="overflow-visible"  variant="default" padding="md">
+          <Card class="overflow-visible"  variant="default" >
             <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4">Spring AC Tune-Up</h3>
             <ul class="space-y-2">
               <li class="flex items-start gap-2">
@@ -307,7 +308,7 @@ const faqs = [
             </ul>
           </Card>
 
-          <Card class="overflow-visible"  variant="default" padding="md">
+          <Card class="overflow-visible"  variant="default" >
             <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4">Fall Heating Tune-Up</h3>
             <ul class="space-y-2">
               <li class="flex items-start gap-2">

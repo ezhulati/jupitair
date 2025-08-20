@@ -52,17 +52,18 @@ const citySchema = {
   description={pageDescription}
   canonical={`https://jupitairhvac.com/${city.slug}`}
   keywords={`${(city.keywords || []).join(', ')}, ${city.name} HVAC`}
->
+
+  overlayHeader={true}>
   <!-- Dynamic Schema with Reviews -->
   <DynamicSchema type="city" city={city.name} />
   
   <!-- Premium Hero Section with Emergency Banner -->
   <PremiumHero 
-    title={`Premier HVAC Services in ${city.name}, TX`}
+    title={`HVAC Services<br>${city.name}, Texas`}
     subtitle="Your Trusted Local HVAC Experts"
     description={`Professional heating and cooling services for ${city.name} residents. Same-day service, 24/7 emergency response, and satisfaction guaranteed.`}
     ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
-    ctaSecondary={{ text: "Schedule Online", href: "/schedule" }}
+    ctaSecondary={{ text: "Schedule Online", href: "/contact" }}
     variant="gradient"
     height="lg" class="hero-section"
     emergency={true}
@@ -100,7 +101,7 @@ const citySchema = {
     </div>
   </section>
 
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 max-w-7xl section-padding">
+  <div class="site-container section-padding">
 
     <!-- Services Section with Enterprise Design -->
     <section class="mb-16">
@@ -116,7 +117,7 @@ const citySchema = {
       
       <div class="min-w-0 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.slice(0, 9).map((service: any) => (
-          <PremiumCard class="overflow-visible"  variant="elevated" padding="lg" hover={true} class="min-w-0 group h-full flex flex-col">
+          <Card variant="outline"  class="border-gray-200 bg-white">
             <div class="mb-4">
               <div class="min-w-0 w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -170,7 +171,7 @@ const citySchema = {
                 </Button>
               </div>
             </div>
-          </PremiumCard>
+          </Card>
         ))}
       </div>
       
@@ -195,7 +196,7 @@ const citySchema = {
         </div>
         
         <div class="min-w-0 grid md:grid-cols-3 gap-8">
-          <PremiumCard class="overflow-visible"  variant="elevated" padding="lg">
+          <Card variant="outline"  class="border-gray-200 bg-white">
             <div class="text-center">
               <div class="min-w-0 w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -205,9 +206,9 @@ const citySchema = {
               <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Licensed & Insured</h3>
               <p class="text-gray-800">Fully licensed HVAC contractors with $2M liability insurance</p>
             </div>
-          </PremiumCard>
+          </Card>
           
-          <PremiumCard class="overflow-visible"  variant="elevated" padding="lg">
+          <Card variant="outline"  class="border-gray-200 bg-white">
             <div class="text-center">
               <div class="min-w-0 w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -217,9 +218,9 @@ const citySchema = {
               <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Fast Response</h3>
               <p class="text-gray-800">Same-day service and 24/7 emergency response in {city.name}</p>
             </div>
-          </PremiumCard>
+          </Card>
           
-          <PremiumCard class="overflow-visible"  variant="elevated" padding="lg">
+          <Card variant="outline"  class="border-gray-200 bg-white">
             <div class="text-center">
               <div class="min-w-0 w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -229,7 +230,7 @@ const citySchema = {
               <h3 class="break-words text-xl font-bold text-gray-900 mb-2">Satisfaction Guarantee</h3>
               <p class="text-gray-800">100% satisfaction guarantee with 90-day warranty on all repairs</p>
             </div>
-          </PremiumCard>
+          </Card>
         </div>
         
         <!-- Stats Bar - Updated for proper contrast -->
@@ -304,7 +305,7 @@ const citySchema = {
     
     <!-- Service Area Info -->
     <section class="py-16">
-      <PremiumCard class="overflow-visible"  variant="elevated" padding="xl">
+      <Card variant="outline"  class="border-gray-200 bg-white">
         <div class="min-w-0 grid md:grid-cols-2 gap-12">
           <div>
             <h3 class="break-words text-2xl font-bold text-gray-900 mb-6">
@@ -372,7 +373,7 @@ const citySchema = {
             </p>
           </div>
         </div>
-      </PremiumCard>
+      </Card>
     </section>
 
     <!-- Final CTA -->

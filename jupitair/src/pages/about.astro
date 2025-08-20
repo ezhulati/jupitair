@@ -41,7 +41,8 @@ const aboutSchema = {
   description={pageDescription}
   canonical="https://jupitairhvac.com/about"
   ogImage={ogImageUrl}
->
+
+  overlayHeader={true}>
   <!-- Schema.org structured data -->
   <script type="application/ld+json" set:html={JSON.stringify(aboutSchema)} />
 
@@ -51,7 +52,7 @@ const aboutSchema = {
     subtitle="Your Trusted HVAC Partner Since 2008"
     description="15+ years of providing reliable heating and cooling solutions to North Texas families and businesses. Owner-operated for personalized service you can trust."
     ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
-    ctaSecondary={{ text: "Get Quote", href: "/schedule" }}
+    ctaSecondary={{ text: "Get Quote", href: "/contact" }}
     variant="gradient"
     height="md"
   />
@@ -80,7 +81,7 @@ const aboutSchema = {
             </p>
           </div>
           <div>
-            <Card class="overflow-visible"  variant="elevated" padding="lg" class="bg-primary-50">
+            <Card class="overflow-visible"  variant="elevated"  class="bg-primary-50">
               <h4 class="text-xl font-bold text-gray-900 mb-4">Why Choose Jupitair?</h4>
               <ul class="space-y-3 text-gray-700">
                 <li class="flex items-center">
@@ -280,10 +281,10 @@ const aboutSchema = {
           Ready to experience the comfort and peace of mind that comes with professional HVAC service? Contact us today for your free estimate.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
-          <Button href="/contact" variant="primary" size="lg" class="flex-1">
+          <Button href="/contact" variant="primary" size="lg" class="w-full sm:flex-1">
             Get Free Estimate
           </Button>
-          <Button href="tel:(940) 390-5676" variant="outline" size="lg" class="flex-1">
+          <Button href="tel:(940) 390-5676" variant="outline" size="lg" class="w-full sm:flex-1">
             Call (940) 390-5676
           </Button>
         </div>

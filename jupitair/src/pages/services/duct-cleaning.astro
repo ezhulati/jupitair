@@ -52,9 +52,10 @@ const faqs = [
   title={pageTitle}
   description={pageDescription}
   keywords="duct cleaning, air duct cleaning, HVAC cleaning, indoor air quality, North Texas duct cleaning, allergen removal, air quality improvement"
->
+
+  overlayHeader={true}>
   <PremiumHero 
-    title="Professional Air Duct Cleaning Services"
+    title="Professional Air Duct<br>Cleaning Services"
     subtitle="Breathe Cleaner Air"
     description="Remove years of dust, allergens, and contaminants from your HVAC system. Professional duct cleaning improves air quality and system efficiency."
     ctaPrimary={{ text: "Schedule Cleaning", href: "#contact" }}
@@ -74,7 +75,7 @@ const faqs = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -86,9 +87,9 @@ const faqs = [
               Remove allergens, dust, and pollutants for healthier indoor air
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -100,9 +101,9 @@ const faqs = [
               Clean ducts allow your HVAC system to operate more efficiently
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -114,9 +115,9 @@ const faqs = [
               Reduce energy consumption and monthly utility bills
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-8 h-8 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -128,9 +129,9 @@ const faqs = [
               Eliminate musty smells and stale air from your home
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-emergency-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-8 h-8 text-emergency-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -142,9 +143,9 @@ const faqs = [
               Protect HVAC components from dust and debris damage
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -156,7 +157,7 @@ const faqs = [
               Reduce symptoms for family members with allergies or asthma
             </p>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -170,7 +171,7 @@ const faqs = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        <Card class="overflow-visible"  variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4">Visible Signs</h3>
           <ul class="space-y-3">
             <li class="flex items-start gap-2">
@@ -196,7 +197,7 @@ const faqs = [
           </ul>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4">Performance Issues</h3>
           <ul class="space-y-3">
             <li class="flex items-start gap-2">
@@ -234,7 +235,7 @@ const faqs = [
       </div>
 
       <div class="max-w-4xl mx-auto space-y-6">
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               1
@@ -244,9 +245,9 @@ const faqs = [
               <p class="text-gray-700">Comprehensive assessment of your ductwork and HVAC system to identify problem areas and determine cleaning needs.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               2
@@ -256,9 +257,9 @@ const faqs = [
               <p class="text-gray-700">Protect your home with drop cloths and covers. Set up professional-grade vacuum equipment and access points.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               3
@@ -268,9 +269,9 @@ const faqs = [
               <p class="text-gray-700">Use specialized brushes, compressed air, and HEPA-filtered vacuums to remove debris from all ductwork components.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               4
@@ -280,9 +281,9 @@ const faqs = [
               <p class="text-gray-700">Clean supply and return vents, registers, grilles, and accessible HVAC components including coils and blower.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               5
@@ -292,7 +293,7 @@ const faqs = [
               <p class="text-gray-700">Verify all debris removal, seal access points, and test system operation. Provide before/after photos and documentation.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -306,7 +307,7 @@ const faqs = [
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <Card class="overflow-visible"  variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-4">
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Basic Cleaning</h3>
             <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-600">$399</div>
@@ -332,8 +333,8 @@ const faqs = [
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="lg" class="border-primary-500 relative">
-          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+        <Card class="overflow-visible"  variant="outline"  class="border-primary-500 relative">
+          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
             <Badge variant="primary">Most Popular</Badge>
           </div>
           <div class="text-center space-y-4 pt-4">
@@ -365,7 +366,7 @@ const faqs = [
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-4">
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Premium Service</h3>
             <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-600">$799</div>

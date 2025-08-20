@@ -16,13 +16,14 @@ const pageDescription = "Professional air purification and indoor air quality sy
   title={pageTitle}
   description={pageDescription}
   keywords="air purification, indoor air quality, air purifiers, UV lights, HEPA filters, whole home air purification, North Texas air quality"
->
+
+  overlayHeader={true}>
   <PremiumHero 
-    title="Advanced Air Purification Systems"
+    title="Advanced Air<br>Purification Systems"
     subtitle="Breathe Cleaner, Healthier Air"
     description="Protect your family with professional-grade air purification systems. From UV lights to whole-home HEPA filtration, we provide complete indoor air quality solutions."
     ctaPrimary={{ text: "Get Air Quality Assessment", href: "tel:9403905676" }}
-    ctaSecondary={{ text: "Get Quote", href: "#contact" }}
+    ctaSecondary={{ text: "Get Quote", href: "/contact" }}
     variant="gradient"
     height="lg" class="hero-section"
   />
@@ -47,7 +48,7 @@ const pageDescription = "Professional air purification and indoor air quality sy
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
@@ -61,9 +62,9 @@ const pageDescription = "Professional air purification and indoor air quality sy
             <li>• Low maintenance operation</li>
             <li>• Energy efficient</li>
           </ul>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
@@ -77,9 +78,9 @@ const pageDescription = "Professional air purification and indoor air quality sy
             <li>• Filters smoke and odors</li>
             <li>• Hospital-grade filtration</li>
           </ul>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
@@ -93,9 +94,9 @@ const pageDescription = "Professional air purification and indoor air quality sy
             <li>• Smart monitoring features</li>
             <li>• Seamless HVAC integration</li>
           </ul>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
@@ -109,9 +110,9 @@ const pageDescription = "Professional air purification and indoor air quality sy
             <li>• Protects wood furniture</li>
             <li>• Improves comfort</li>
           </ul>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="w-14 h-14 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
@@ -125,9 +126,9 @@ const pageDescription = "Professional air purification and indoor air quality sy
             <li>• Custom recommendations</li>
             <li>• Before/after measurements</li>
           </ul>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="w-14 h-14 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mb-4">
             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -141,7 +142,7 @@ const pageDescription = "Professional air purification and indoor air quality sy
             <li>• Priority service calls</li>
             <li>• Extended warranties</li>
           </ul>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>

@@ -85,7 +85,8 @@ const schema = {
   description="Commercial chiller installation and service in Dallas-Fort Worth. Air-cooled, water-cooled, and magnetic bearing chillers. 50-2000+ tons. Call (940) 390-5676."
   keywords="commercial chiller systems, chiller installation DFW, chiller replacement, industrial chillers"
   canonical="https://jupitairhvac.com/commercial/chiller-systems"
->
+
+  overlayHeader={true}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <PremiumHero
@@ -128,7 +129,7 @@ const schema = {
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {chillerTypes.map(chiller => (
-            <PremiumCard class="overflow-visible"  variant="elevated" padding="lg" class="hover:shadow-2xl transition-all">
+            <Card variant="outline"  class="border-gray-200 bg-white">
               <h3 class="text-lg sm:text-xl sm:text-2xl font-bold text-gray-900 mb-3">{chiller.type}</h3>
               <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-600 mb-4">{chiller.range}</div>
               
@@ -159,10 +160,10 @@ const schema = {
                 </div>
               </div>
               
-              <Button href="/commercial/quote" variant="primary" size="md" class="w-full">
+              <Button href="/contact" variant="primary" size="md" class="w-full">
                 Get Quote →
               </Button>
-            </PremiumCard>
+            </Card>
           ))}
         </div>
       </div>
@@ -184,7 +185,7 @@ const schema = {
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map(service => (
-            <Card class="overflow-visible"  variant="elevated" padding="lg" class="text-center hover:shadow-xl transition-shadow">
+            <Card class="overflow-visible"  variant="elevated"  class="text-center hover:shadow-xl transition-shadow">
               <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl mb-3">{service.icon}</div>
               <h3 class="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
               <p class="text-sm text-gray-600">{service.desc}</p>
@@ -210,22 +211,22 @@ const schema = {
             </p>
 
             <div class="space-y-4">
-              <Card class="overflow-visible"  variant="default" padding="md">
+              <Card class="overflow-visible"  variant="default" >
                 <h3 class="font-bold text-gray-900 mb-2">Factory-Certified Technicians</h3>
                 <p class="text-sm text-gray-600">Trained and certified by Carrier, Trane, York, and Daikin for chiller service</p>
               </Card>
               
-              <Card class="overflow-visible"  variant="default" padding="md">
+              <Card class="overflow-visible"  variant="default" >
                 <h3 class="font-bold text-gray-900 mb-2">24/7 Emergency Response</h3>
                 <p class="text-sm text-gray-600">Critical cooling failures can't wait - we're available around the clock</p>
               </Card>
               
-              <Card class="overflow-visible"  variant="default" padding="md">
+              <Card class="overflow-visible"  variant="default" >
                 <h3 class="font-bold text-gray-900 mb-2">Performance Guarantees</h3>
                 <p class="text-sm text-gray-600">We guarantee capacity and efficiency ratings on all new installations</p>
               </Card>
               
-              <Card class="overflow-visible"  variant="default" padding="md">
+              <Card class="overflow-visible"  variant="default" >
                 <h3 class="font-bold text-gray-900 mb-2">Preventive Maintenance Programs</h3>
                 <p class="text-sm text-gray-600">Keep your chillers running at peak efficiency with regular maintenance</p>
               </Card>
@@ -295,7 +296,7 @@ const schema = {
         </div>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href="/commercial/energy-audit" variant="secondary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
+          <Button href="/commercial/preventive-maintenance" variant="secondary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
             Schedule Energy Audit
           </Button>
           <Button href="tel:(940) 390-5676" variant="outline" size="lg" class="border-white text-white hover:bg-white hover:text-primary-600">
@@ -318,21 +319,21 @@ const schema = {
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card class="overflow-visible"  variant="elevated" padding="lg">
+          <Card class="overflow-visible"  variant="elevated" >
             <div class="text-lg sm:text-xl sm:text-2xl font-bold text-primary-600 mb-2">$1.2M</div>
             <h3 class="font-bold text-gray-900 mb-2">Medical Center</h3>
             <p class="text-sm text-gray-600 mb-3">800-ton water-cooled chiller replacement with zero downtime during operation</p>
             <div class="text-xs text-gray-500">Dallas, TX</div>
           </Card>
           
-          <Card class="overflow-visible"  variant="elevated" padding="lg">
+          <Card class="overflow-visible"  variant="elevated" >
             <div class="text-lg sm:text-xl sm:text-2xl font-bold text-primary-600 mb-2">$850K</div>
             <h3 class="font-bold text-gray-900 mb-2">Data Center</h3>
             <p class="text-sm text-gray-600 mb-3">Redundant 500-ton air-cooled chillers with N+1 configuration</p>
             <div class="text-xs text-gray-500">Plano, TX</div>
           </Card>
           
-          <Card class="overflow-visible"  variant="elevated" padding="lg">
+          <Card class="overflow-visible"  variant="elevated" >
             <div class="text-lg sm:text-xl sm:text-2xl font-bold text-primary-600 mb-2">$650K</div>
             <h3 class="font-bold text-gray-900 mb-2">Office Tower</h3>
             <p class="text-sm text-gray-600 mb-3">400-ton magnetic bearing chiller for LEED Gold certification</p>
@@ -375,7 +376,7 @@ const schema = {
             </div>
             <div>
               <h3 class="font-bold text-lg mb-3">New Project Quote:</h3>
-              <Button href="/commercial/quote" variant="secondary" size="lg" class="w-full">
+              <Button href="/contact" variant="secondary" size="lg" class="w-full">
                 Get Free Consultation
               </Button>
               <p class="text-sm text-gray-400 mt-2">Detailed proposal within 48 hours</p>

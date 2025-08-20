@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
 import PremiumCard from '../components/ui/PremiumCard.astro';
+import Card from '../components/ui/Card.astro';
 
 const suggestedPages = [
  { title: 'AC Repair', href: '/services/ac-repair', icon: 'cooling' },
@@ -57,7 +58,7 @@ const popularCities = [
  </p>
 
  <!-- Search Bar -->
- <PremiumCard class="overflow-visible"  variant="elevated" padding="none" class="max-w-xl mx-auto mb-12 animate-slide-up">
+ <Card variant="outline"  class="border-gray-200 bg-white">
  <form action="/search" method="get" class="overflow-x-hidden flex items-center p-2">
  <input
  type="search"
@@ -75,7 +76,7 @@ const popularCities = [
  Search
  </button>
  </form>
- </PremiumCard>
+ </Card>
 
  <!-- Quick Actions -->
  <div class="mb-12">
@@ -84,7 +85,7 @@ const popularCities = [
  </h2>
  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-3xl mx-auto">
  {suggestedPages.map((page) => (
- <PremiumCard class="overflow-visible"  variant="interactive" padding="none" hover={true} class="animate-scale-in">
+ <Card variant="outline"  class="border-gray-200 bg-white">
  <a href={page.href} class="block p-6 text-center">
  <div class={`w-16 h-16 mx-auto mb-3 rounded-xl flex items-center justify-center
  ${page.icon === 'cooling' ? 'bg-cyan-100 text-cyan-600' : ''}
@@ -115,7 +116,7 @@ const popularCities = [
  </div>
  <h3 class="font-semibold text-gray-900 dark:text-white">{page.title}</h3>
  </a>
- </PremiumCard>
+ </Card>
  ))}
  </div>
  </div>

@@ -210,7 +210,7 @@ const faqSchema = faqData ? {
 
         <!-- What We Do / Symptoms (dynamic based on service type) -->
         {service.category === 'cooling' && (
-          <Card class="overflow-visible"  variant="elevated" padding="lg" class="mb-12">
+          <Card class="overflow-visible"  variant="elevated"  class="mb-12">
             <h2 class="break-words text-2xl font-bold text-gray-900 mb-6">Common AC Problems We Fix</h2>
             <div class="min-w-0 grid md:grid-cols-2 gap-6">
               <div>
@@ -276,7 +276,7 @@ const faqSchema = faqData ? {
         )}
 
         <!-- Pricing Section -->
-        <Card class="overflow-visible"  variant="elevated" padding="lg" class="mb-12">
+        <Card class="overflow-visible"  variant="elevated"  class="mb-12">
           <h2 class="break-words text-2xl font-bold text-gray-900 mb-6">Pricing & Value</h2>
           <div class="min-w-0 grid md:grid-cols-2 gap-8">
             <div>
@@ -336,7 +336,7 @@ const faqSchema = faqData ? {
         </Card>
 
         <!-- Why Choose Us -->
-        <Card class="overflow-visible"  variant="elevated" padding="lg" class="mb-12">
+        <Card class="overflow-visible"  variant="elevated"  class="mb-12">
           <h2 class="break-words text-2xl font-bold text-gray-900 mb-6">Why Choose Jupitair HVAC</h2>
           <div class="min-w-0 grid md:grid-cols-3 gap-6">
             <div class="text-center">
@@ -403,7 +403,7 @@ const faqSchema = faqData ? {
           </h2>
           <div class="space-y-6">
             {faqData.map((faq, index) => (
-              <Card class="overflow-visible"  variant="elevated" padding="lg">
+              <Card class="overflow-visible"  variant="elevated" >
                 <h3 class="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
                 <p class="text-gray-700 leading-relaxed">{faq.answer}</p>
               </Card>
@@ -423,7 +423,7 @@ const faqSchema = faqData ? {
   />
 
   <!-- Sticky Mobile CTA -->
-  <div class="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-emergency-600 text-white p-4 shadow-lg">
+  <div class="fixed bottom-0 left-0 right-0 z-[99999] lg:hidden bg-emergency-600 text-white p-4 shadow-lg">
     <Button 
       href="tel:(940) 390-5676" 
       variant="secondary" 

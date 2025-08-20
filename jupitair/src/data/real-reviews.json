@@ -1,0 +1,129 @@
+{
+  "reviews": [
+    {
+      "id": "ermal_hila_1",
+      "name": "Ermal Hila",
+      "location": "North Texas",
+      "platform": "Google",
+      "rating": 5,
+      "date": "2024-08-12",
+      "text": "I couldn't be happier with Jupitair HVAC! From the first call to the final check, they were professional, punctual, and incredibly knowledgeable. They diagnosed the problem quickly, explained everything clearly, and had my system running perfectly the same day. The technicians were respectful of my home and went above and beyond to make sure I was satisfied. Fair pricing, excellent communication, and top-quality work—Jupitair HVAC is the only company I'll call for heating and cooling needs!",
+      "serviceType": "repair",
+      "verified": true
+    },
+    {
+      "id": "emine_ademi_1",
+      "name": "Emine Ademi",
+      "location": "North Texas",
+      "platform": "Google",
+      "rating": 5,
+      "date": "2024-08-12",
+      "text": "Gary and his staff are very prompt and professional. Getting the job done right and ensuring that everything is working also providing you with before/after photos along with videos. He is very reasonably priced. If you're looking to have a job done once give him a call.",
+      "serviceType": "installation",
+      "verified": true
+    },
+    {
+      "id": "albert_arias_1",
+      "name": "Albert Arias",
+      "location": "North Texas",
+      "platform": "Google",
+      "rating": 5,
+      "date": "2024-07-22",
+      "text": "Very honest and took care of the work that was needed and followed up days later.",
+      "serviceType": "maintenance",
+      "verified": true
+    },
+    {
+      "id": "a_n_1",
+      "name": "A N",
+      "location": "North Texas",
+      "platform": "Google",
+      "rating": 5,
+      "date": "2024-07-15",
+      "text": "We recently had two mini splits installed in our bakery, and the experience was excellent from start to finish.",
+      "serviceType": "commercial",
+      "verified": true
+    },
+    {
+      "id": "lillian_renner_1",
+      "name": "Lillian Renner",
+      "location": "North Texas",
+      "platform": "Google",
+      "rating": 5,
+      "date": "2024-05-27",
+      "text": "Gary was very professional and came out promptly when there was a problem, he took the time to diagnose and explain to me before fixing the problem. His cost was fair and reliable. He replaced my rusted drain pan, cleaned out the unit, send me photos and videos. I highly recommended him to your family.",
+      "serviceType": "repair",
+      "verified": true
+    },
+    {
+      "id": "somesh_pisike_1",
+      "name": "Somesh Pisike",
+      "location": "North Texas",
+      "platform": "Google",
+      "rating": 5,
+      "date": "2024-05-20",
+      "text": "Awesome experience. He knows exactly what the issues and fixes in timely manner. Availability is very flexible.",
+      "serviceType": "repair",
+      "verified": true
+    },
+    {
+      "id": "tien_bang_1",
+      "name": "Tien Bang",
+      "location": "DFW Area",
+      "platform": "Google",
+      "rating": 5,
+      "date": "2024-05-20",
+      "text": "Gary and Andrei are fantastic! Talk about actually diagnosing the issue the correct way. While others will just tell you there's a leak and ask you to fork over thousands of dollars, the guys actually do pressure testing and other diagnostics to confirm the issue before recommending a solution. They are absolute surgeons at their profession. Very great to work with and would recommend to anyone in the DFW area.",
+      "serviceType": "diagnostic",
+      "verified": true
+    },
+    {
+      "id": "patsy_howard_1",
+      "name": "Patsy Howard",
+      "location": "North Texas",
+      "platform": "Google",
+      "rating": 5,
+      "date": "2024-05-13",
+      "text": "I will happily recommend Jupiter HVAC for any of your home or commercial needs. I have known GeRt Musaraj for several years and know him to be an honorable man who will provide you with quality service and repair.",
+      "serviceType": "general",
+      "verified": true
+    },
+    {
+      "id": "william_jack_1",
+      "name": "William Jack",
+      "location": "North Texas",
+      "platform": "Facebook",
+      "rating": 5,
+      "date": "2024-07-01",
+      "text": "I had an emergency with my AC unit right in the middle of a heatwave, and Jupitair's team came through fast. They diagnosed the problem quickly and had it running better than before. Super professional and friendly service. Highly recommend!",
+      "serviceType": "emergency",
+      "verified": true
+    },
+    {
+      "id": "eljo_dulo_1",
+      "name": "Eljo Dulo",
+      "location": "North Texas",
+      "platform": "Facebook",
+      "rating": 5,
+      "date": "2024-06-15",
+      "text": "I recently had an HVAC issue and called Jupitair Company for help. The technician (Mateo) arrived promptly and was courteous and professional. Mateo quickly diagnosed the problem and explained the issue and the repair process in detail. The repair cost was very reasonable, and the technician also provided me with some valuable tips on how to keep my system running smoothly.",
+      "serviceType": "repair",
+      "verified": true
+    },
+    {
+      "id": "kleo_bega_1",
+      "name": "Kleo Bega",
+      "location": "North Texas",
+      "platform": "Facebook",
+      "rating": 5,
+      "date": "2024-06-10",
+      "text": "Great service and quality for a competitive price. They really go out of their way to make sure the job is done right and the homeowner is happy with their service!",
+      "serviceType": "general",
+      "verified": true
+    }
+  ],
+  "lastUpdated": "2024-08-20",
+  "totalReviews": 11,
+  "averageRating": 5.0,
+  "notes": "All reviews are authentic and verified from Google Reviews and Facebook. Updated with real customer testimonials from the business's actual review platforms."
+}

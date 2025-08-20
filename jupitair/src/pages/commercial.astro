@@ -6,7 +6,7 @@ import Card from '../components/ui/Card.astro';
 import PremiumCard from '../components/ui/PremiumCard.astro';
 import Badge from '../components/ui/Badge.astro';
 import Icon from '../components/ui/Icon.astro';
-import ReviewsSection from '../components/reviews/ReviewsSection.astro';
+import RealReviews from '../components/reviews/RealReviews.astro';
 
 const commercialServices = [
   {
@@ -147,12 +147,13 @@ const commercialSchema = {
   description="Professional commercial HVAC services in North Texas. RTU repair, preventive maintenance, emergency service. Licensed, insured, and bonded. Call (940) 390-5676."
   keywords="commercial HVAC, commercial air conditioning, RTU repair, commercial heating, preventive maintenance, North Texas commercial HVAC"
   canonical="https://jupitairhvac.com/commercial"
->
+  ogImage="/og-images/commercial-office-hvac.jpg"
+  overlayHeader={true}>
   <script type="application/ld+json" set:html={JSON.stringify(commercialSchema)} />
 
   <!-- Premium Hero Section -->
   <PremiumHero 
-    title="Commercial HVAC for North Texas Businesses"
+    title="Commercial HVAC<br>North Texas Businesses"
     subtitle="Restaurants • Retail • Offices"
     description="Professional commercial HVAC service for small to medium businesses. Fast installation, reliable service, fair pricing. Owner-operated with 15+ years experience."
     ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
@@ -191,7 +192,7 @@ const commercialSchema = {
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Card class="overflow-visible"  variant="elevated" padding="lg">
+          <Card class="overflow-visible"  variant="elevated" >
             <div class="mb-4 text-primary-600">
               <Icon name="lightning" size="xl" />
             </div>
@@ -221,7 +222,7 @@ const commercialSchema = {
             </ul>
           </Card>
           
-          <Card class="overflow-visible"  variant="elevated" padding="lg">
+          <Card class="overflow-visible"  variant="elevated" >
             <div class="mb-4 text-primary-600">
               <Icon name="money" size="xl" />
             </div>
@@ -251,7 +252,7 @@ const commercialSchema = {
             </ul>
           </Card>
           
-          <Card class="overflow-visible"  variant="elevated" padding="lg">
+          <Card class="overflow-visible"  variant="elevated" >
             <div class="mb-4 text-primary-600">
               <Icon name="trophy" size="xl" />
             </div>
@@ -302,7 +303,7 @@ const commercialSchema = {
         <!-- Featured Big-Dollar Services -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           {commercialServices.filter(s => s.featured).map(service => (
-            <PremiumCard class="overflow-visible"  variant="elevated" padding="lg" class="hover:shadow-2xl transition-all duration-300">
+            <Card variant="outline"  class="border-gray-200 bg-white">
               <div class="mb-4 text-primary-600">
                 <Icon name={service.icon} size="2xl" />
               </div>
@@ -312,14 +313,14 @@ const commercialSchema = {
               <Button href={service.link} variant="primary" size="md" class="w-full">
                 Learn More →
               </Button>
-            </PremiumCard>
+            </Card>
           ))}
         </div>
         
         <!-- Other Services Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {commercialServices.filter(s => !s.featured).map(service => (
-            <Card class="overflow-visible"  variant="elevated" padding="lg">
+            <Card class="overflow-visible"  variant="elevated" >
               <div class="flex items-start justify-between mb-3">
                 <div class="text-primary-600">
                   <Icon name={service.icon} size="lg" />
@@ -396,19 +397,20 @@ const commercialSchema = {
           <Button href="/commercial/preventive-maintenance" variant="secondary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
             View Maintenance Plans
           </Button>
-          <Button href="tel:(940) 390-5676" variant="outline" size="lg" class="border-white text-white hover:bg-white hover:text-primary-600">
-            Call (940) 390-5676
+          <Button href="tel:9403905676" variant="outline" size="lg" class="border-white text-white hover:bg-white hover:text-primary-600">
+            <span class="sm:hidden">Call Now</span>
+            <span class="hidden sm:inline"Call (940) 390-5676
           </Button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Commercial Reviews -->
-  <ReviewsSection 
-    limit={6}
-    variant="grid"
-    showCta={true}
+  <!-- Commercial Reviews - BUILD TRUST -->
+  <RealReviews 
+    title="What Our Commercial Clients Say"
+    serviceFilter="commercial"
+    maxReviews={6}
   />
 
   <!-- Final CTA -->
@@ -436,7 +438,7 @@ const commercialSchema = {
             </div>
             <div>
               <h3 class="font-bold text-lg mb-3">Schedule a Consultation:</h3>
-              <Button href="/commercial/quote" variant="secondary" size="lg" class="w-full">
+              <Button href="/contact" variant="secondary" size="lg" class="w-full">
                 Get Free Quote
               </Button>
               <p class="text-sm text-gray-400 mt-2">Response within 2 hours</p>

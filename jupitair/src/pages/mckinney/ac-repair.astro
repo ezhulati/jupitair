@@ -20,12 +20,12 @@ const cityData = {
 // Service data for AC Repair
 const service = {
   name: "AC Repair",
-  title: "AC Repair in McKinney, TX",
+  title: "AC Repair<br>McKinney, Texas",
   meta_title: "AC Repair McKinney TX | Same-Day Service | Jupitair HVAC",
   meta_description: "Fast AC repair in McKinney, TX with same-day service. Expert technicians serving all McKinney neighborhoods. Call (940) 390-5676 for immediate service.",
   description: "Professional air conditioning repair services throughout McKinney, Texas. Our certified technicians provide same-day service for AC problems in Stonebridge Ranch, Craig Ranch, and all McKinney neighborhoods.",
   shortDescription: "Fast AC repair with same-day service throughout McKinney",
-  h1: "AC Repair in McKinney, TX",
+  h1: "AC Repair<br>McKinney, Texas",
   emergency: true,
   pricing: {
     starting: 89,
@@ -127,7 +127,8 @@ const faqSchema = {
   title={service.meta_title}
   description={service.meta_description}
   canonical={`https://jupitairhvac.com/mckinney/ac-repair`}
->
+
+  overlayHeader={true}>
   <!-- Schema.org structured data -->
   <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
@@ -151,7 +152,7 @@ const faqSchema = {
         
         <!-- H1 Title -->
         <h1 class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-          AC Repair in McKinney, TX
+          AC Repair<br>McKinney, Texas
         </h1>
         
         <!-- Short Description -->
@@ -160,7 +161,7 @@ const faqSchema = {
         </p>
         
         <!-- The Short Version -->
-        <Card class="overflow-visible"  variant="elevated" padding="lg" class="bg-white/10 backdrop-blur-sm border-white/20 mb-8 text-left max-w-2xl mx-auto">
+        <Card class="overflow-visible"  variant="elevated"  class="bg-white/10 backdrop-blur-sm border-white/20 mb-8 text-left max-w-2xl mx-auto">
           <h2 class="text-lg sm:text-xl font-bold mb-4 text-white">McKinney AC Repair - The Short Version</h2>
           <ul class="space-y-2 text-blue-100">
             <li class="flex items-center">
@@ -192,11 +193,11 @@ const faqSchema = {
         
         <!-- Primary CTAs -->
         <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-          <Button href="tel:(940) 390-5676" variant="emergency" size="xl" class="flex items-center justify-center space-x-3">
+          <Button href="tel:(940) 390-5676" variant="emergency" size="xl" >
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
             </svg>
-            <span>Call (940) 390-5676</span>
+            <span><span class="sm:hidden">Call Now</span><span class="hidden sm:inline">Call (940) 390-5676</span></span>
           </Button>
           
           <Button href="/contact" size="xl" variant="secondary">
@@ -220,7 +221,7 @@ const faqSchema = {
         </div>
 
         <!-- McKinney Neighborhoods We Serve -->
-        <Card class="overflow-visible"  variant="elevated" padding="lg" class="mb-12">
+        <Card class="overflow-visible"  variant="elevated"  class="mb-12">
           <h2 class="text-lg sm:text-xl sm:text-2xl font-bold text-gray-900 mb-6">McKinney Neighborhoods We Serve</h2>
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {cityData.neighborhoods.map(neighborhood => (
@@ -238,7 +239,7 @@ const faqSchema = {
         </Card>
 
         <!-- Common AC Problems in McKinney -->
-        <Card class="overflow-visible"  variant="elevated" padding="lg" class="mb-12">
+        <Card class="overflow-visible"  variant="elevated"  class="mb-12">
           <h2 class="text-lg sm:text-xl sm:text-2xl font-bold text-gray-900 mb-6">Common AC Problems in McKinney</h2>
           <div class="grid md:grid-cols-2 gap-6">
             <div>
@@ -303,7 +304,7 @@ const faqSchema = {
         </Card>
 
         <!-- Pricing Section -->
-        <Card class="overflow-visible"  variant="elevated" padding="lg" class="mb-12">
+        <Card class="overflow-visible"  variant="elevated"  class="mb-12">
           <h2 class="text-lg sm:text-xl sm:text-2xl font-bold text-gray-900 mb-6">McKinney AC Repair Pricing</h2>
           <div class="grid md:grid-cols-2 gap-8">
             <div>
@@ -357,7 +358,7 @@ const faqSchema = {
         </Card>
 
         <!-- Why Choose Us for McKinney -->
-        <Card class="overflow-visible"  variant="elevated" padding="lg" class="mb-12">
+        <Card class="overflow-visible"  variant="elevated"  class="mb-12">
           <h2 class="text-lg sm:text-xl sm:text-2xl font-bold text-gray-900 mb-6">Why McKinney Residents Choose Jupitair</h2>
           <div class="grid md:grid-cols-3 gap-6">
             <div class="text-center">
@@ -399,10 +400,10 @@ const faqSchema = {
             Don't let AC problems ruin your comfort. Our McKinney technicians are ready to help with same-day service throughout Stonebridge Ranch, Craig Ranch, and all surrounding areas.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
-            <Button href="/contact" variant="primary" size="lg" class="flex-1">
+            <Button href="/contact" variant="primary" size="lg" class="w-full sm:flex-1">
               Get Quote
             </Button>
-            <Button href="tel:(940) 390-5676" variant="outline" size="lg" class="flex-1">
+            <Button href="tel:(940) 390-5676" variant="outline" size="lg" class="w-full sm:flex-1">
               Call (940) 390-5676
             </Button>
           </div>
@@ -420,7 +421,7 @@ const faqSchema = {
         </h2>
         <div class="space-y-6">
           {faqData.map((faq, index) => (
-            <Card class="overflow-visible"  variant="elevated" padding="lg">
+            <Card class="overflow-visible"  variant="elevated" >
               <h3 class="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
               <p class="text-gray-700 leading-relaxed">{faq.answer}</p>
             </Card>
@@ -469,7 +470,7 @@ const faqSchema = {
   </section>
 
   <!-- Sticky Mobile CTA -->
-  <div class="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-emergency-600 text-white p-4 shadow-lg">
+  <div class="fixed bottom-0 left-0 right-0 z-[99999] lg:hidden bg-emergency-600 text-white p-4 shadow-lg">
     <Button 
       href="tel:(940) 390-5676" 
       variant="secondary" 

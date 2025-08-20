@@ -43,14 +43,15 @@ const commercialServices = services.filter(s => s.isCommercial);
   description="Complete HVAC services for homes and businesses in North Texas. Residential AC repair, commercial HVAC maintenance, 24/7 emergency service. Call (940) 390-5676."
   keywords="HVAC services, AC repair, heating repair, commercial HVAC, residential HVAC"
   canonical="https://jupitairhvac.com/services"
->
+  ogImage="/og-images/services.jpg"
+  overlayHeader={true}>
   <!-- Hero Section -->
   <PremiumHero
     title="Professional HVAC Services"
     subtitle="Residential & Commercial Solutions"
     description="Complete heating, cooling, and air quality services for North Texas homes and businesses. Same-day service, 24/7 emergency response."
     ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
-    ctaSecondary={{ text: "Get Quote", href: "/schedule" }}
+    ctaSecondary={{ text: "Get Quote", href: "/contact" }}
     variant="gradient"
     height="md"
   />
@@ -74,7 +75,7 @@ const commercialServices = services.filter(s => s.isCommercial);
           
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {residentialServices.map(service => (
-              <Card class="overflow-visible"  variant="elevated" padding="lg" class="hover:shadow-xl transition-all">
+              <Card class="overflow-visible"  variant="elevated"  class="hover:shadow-xl transition-all">
                 <div class="flex justify-between items-start mb-3">
                   <h3 class="text-xl font-bold text-gray-900">{service.name}</h3>
                   {service.isEmergency && (
@@ -117,7 +118,7 @@ const commercialServices = services.filter(s => s.isCommercial);
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {commercialServices.map(service => (
-                <Card class="overflow-visible"  variant="elevated" padding="lg" class="hover:shadow-xl transition-all border-2 border-gray-200">
+                <Card class="overflow-visible"  variant="elevated"  class="hover:shadow-xl transition-all border-2 border-gray-200">
                   <div class="flex justify-between items-start mb-3">
                     <h3 class="text-xl font-bold text-gray-900">{service.name}</h3>
                     <Badge variant="secondary" size="sm">Commercial</Badge>

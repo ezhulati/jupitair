@@ -190,7 +190,8 @@ const faqs = [
   title="Retail HVAC Services | Store Climate Control | Jupitair HVAC"
   description="Professional retail HVAC services in North Texas. Rooftop units, zone control, and energy management for stores. 24/7 service. Call (940) 390-5676."
   keywords="retail HVAC, store air conditioning, retail climate control, rooftop units, commercial HVAC retail, North Texas"
->
+
+  overlayHeader={true}>
   <!-- Schema Markup -->
   <DynamicSchema 
     type="Service"
@@ -265,7 +266,7 @@ const faqs = [
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {retailServices.map(service => (
-          <PremiumCard class="overflow-visible"  variant="elevated" padding="lg" hover={true}>
+          <Card variant="outline"  class="border-gray-200 bg-white">
             <div class="mb-4">
               <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4">
                 <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -311,7 +312,7 @@ const faqs = [
             >
               Get Quote
             </PremiumButton>
-          </PremiumCard>
+          </Card>
         ))}
       </div>
     </section>
@@ -331,7 +332,7 @@ const faqs = [
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {retailTypes.map(item => (
-            <PremiumCard class="overflow-visible"  variant="elevated" padding="lg">
+            <Card variant="outline"  class="border-gray-200 bg-white">
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -344,7 +345,7 @@ const faqs = [
                   <p class="text-sm text-gray-700"><strong>Our Solution:</strong> {item.solution}</p>
                 </div>
               </div>
-            </PremiumCard>
+            </Card>
           ))}
         </div>
       </div>
@@ -361,7 +362,7 @@ const faqs = [
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {benefits.map(benefit => (
-          <PremiumCard class="overflow-visible"  variant="elevated" padding="lg" hover={true}>
+          <Card variant="outline"  class="border-gray-200 bg-white">
             <div class="text-center">
               <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -379,7 +380,7 @@ const faqs = [
               <h3 class="text-lg sm:text-xl font-bold text-white mb-2">{benefit.title}</h3>
               <p class="text-gray-200">{benefit.description}</p>
             </div>
-          </PremiumCard>
+          </Card>
         ))}
       </div>
     </section>
@@ -415,7 +416,7 @@ const faqs = [
 
     <!-- FAQs -->
     <section class="mb-20">
-      <PremiumCard class="overflow-visible"  variant="elevated" padding="xl">
+      <Card variant="outline"  class="border-gray-200 bg-white">
         <div class="max-w-3xl mx-auto">
           <div class="text-center mb-12">
             <Badge variant="secondary" class="mb-4">FAQs</Badge>
@@ -436,7 +437,7 @@ const faqs = [
             ))}
           </div>
         </div>
-      </PremiumCard>
+      </Card>
     </section>
 
     <!-- Statistics -->
@@ -518,7 +519,7 @@ const faqs = [
         </div>
         
         <p class="text-sm text-gray-400">
-          Free energy assessment • Flexible financing • 100% satisfaction guarantee
+          Free energy assessment • Licensed professionals • 100% satisfaction guarantee
         </p>
       </div>
     </section>

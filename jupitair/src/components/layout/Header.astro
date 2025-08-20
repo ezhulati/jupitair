@@ -4,6 +4,13 @@ import Button from '../ui/Button.astro';
 import PhoneLink from '../ui/PhoneLink.astro';
 import { BUSINESS_CONFIG } from '../../config/business';
 import logoColor from '../../../public/images/logo-color.png';
+import logoWhite from '../../../public/images/logo-white.png';
+
+export interface Props {
+  overlay?: boolean;
+}
+
+const { overlay = false } = Astro.props;
 
 const cities = [
   { name: 'Frisco', slug: 'frisco' },
@@ -18,13 +25,44 @@ const cities = [
 ---
 
 <style>
+  /* Mobile header offset for emergency banner */
+  @media (max-width: 767px) {
+    #main-header {
+      top: 36px !important;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    #main-header {
+      top: 0 !important;
+    }
+  }
+  
   .nav-dropdown {
-    position: fixed !important;
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    left: 0 !important;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 2147483647 !important;
+    transition: all 0.15s ease-out;
+    z-index: 9999 !important;
+    background: white !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+    min-width: 280px !important;
+    max-width: 320px !important;
+  }
+  
+  /* Ensure dropdown links are always dark for proper contrast */
+  .nav-dropdown a {
+    color: #374151 !important; /* gray-700 */
+  }
+  
+  .nav-dropdown a:hover {
+    color: #2563eb !important; /* primary-600 */
+    background-color: #f9fafb !important; /* gray-50 */
   }
   
   .nav-item:hover .nav-dropdown,
@@ -64,25 +102,36 @@ const cities = [
   Skip to main content
 </a>
 
+<!-- Emergency Banner - Mobile Only -->
+<div class="md:hidden fixed top-0 left-0 right-0 bg-red-500 text-white py-2 text-center z-[60] animate-pulse">
+  <div class="flex items-center justify-center gap-2">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+      <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+    </svg>
+    <span class="font-semibold text-sm">24/7 Emergency Service Available Call Now</span>
+  </div>
+</div>
+
 <!-- Header -->
 <header 
-  class="bg-white shadow-lg fixed top-0 left-0 right-0 z-[99998] transition-transform duration-300" 
+  class={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${overlay ? 'bg-transparent' : 'bg-white shadow-sm'}`}
   id="main-header"
   role="banner"
+  data-overlay={overlay ? 'true' : 'false'}
 >
-  <!-- Top Bar - Full width background, contained content -->
-  <div class="bg-primary-600 text-white py-2 hidden md:block">
+  <!-- Top Bar - Desktop -->
+  <div class={`${overlay ? 'bg-black/5 backdrop-blur-sm border-b border-white/10' : 'bg-gray-50 border-b border-gray-200'} py-3 hidden md:block transition-all duration-300`}>
     <div class="header-container">
       <div class="flex justify-between items-center text-sm">
-        <span class="font-medium">Licensed & Insured • Serving North Texas Since 2008</span>
+        <span class={`${overlay ? 'text-white/80' : 'text-gray-600'} transition-colors`}>Licensed & Insured • Serving North Texas Since 2008</span>
         <div class="flex items-center gap-4">
           <PhoneLink 
             variant="text" 
             context="header"
-            class="hover:text-blue-200 transition-colors font-semibold"
+            class={`${overlay ? 'text-white hover:text-blue-200' : 'text-gray-700 hover:text-primary-600'} transition-colors font-semibold`}
           />
           <span 
-            class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold animate-pulse" 
+            class="bg-red-500 text-white px-4 py-1.5 rounded-full text-xs font-bold animate-pulse shadow-md hover:shadow-lg transition-shadow" 
             data-emergency-cta
             role="status"
             aria-label="24/7 Emergency service available"
@@ -95,7 +144,7 @@ const cities = [
   </div>
 
   <!-- Main Navigation - Contained -->
-  <nav class="py-0.5" role="navigation" aria-label="Main navigation">
+  <nav class={`${overlay ? 'py-0 bg-transparent' : 'py-0.5 bg-white'} transition-all duration-300`} role="navigation" aria-label="Main navigation">
     <div class="header-container">
       <div class="flex items-center justify-between">
         
@@ -103,12 +152,12 @@ const cities = [
         <div class="flex-shrink-0">
           <a href="/" class="block" aria-label="Jupitair HVAC - Home">
             <Image 
-              src={logoColor} 
+              src={overlay ? logoWhite : logoColor} 
               alt="Jupitair HVAC Logo" 
-              class="h-24 w-auto hover:scale-105 transition-transform duration-200"
+              class="h-20 lg:h-24 w-auto hover:scale-105 transition-transform duration-200"
               loading="eager"
-              width={300}
-              height={300}
+              width={400}
+              height={400}
               format="webp"
             />
           </a>
@@ -120,7 +169,7 @@ const cities = [
           <!-- Residential Services -->
           <div class="relative nav-item group" role="none">
             <button 
-              class="flex items-center px-3 py-2 text-gray-700 hover:text-primary-600 focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded"
+              class={`flex items-center px-3 py-2 ${overlay ? 'text-white hover:text-blue-200' : 'text-gray-700 hover:text-primary-600'} focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded`}
               role="menuitem"
               aria-expanded="false"
               aria-haspopup="true"
@@ -134,7 +183,7 @@ const cities = [
             </button>
             
             <div 
-              class="w-80 bg-white rounded-lg shadow-2xl border border-gray-100 nav-dropdown"
+              class="w-80 bg-white rounded-xl shadow-2xl border border-gray-200 nav-dropdown backdrop-blur-xl"
               role="menu"
               aria-labelledby="residential-trigger"
               id="residential-dropdown"
@@ -164,7 +213,7 @@ const cities = [
                 
                 <div class="mt-4 pt-3 border-t border-gray-100">
                   <a 
-                    href="/services/emergency-hvac" 
+                    href="/commercial/emergency-service" 
                     class="flex items-center px-3 py-2 text-sm text-red-600 font-bold hover:bg-red-50 focus:bg-red-50 rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-inset"
                     role="menuitem"
                   >
@@ -182,7 +231,7 @@ const cities = [
           <!-- Commercial -->
           <div class="relative nav-item group" role="none">
             <button 
-              class="flex items-center px-3 py-2 text-gray-700 hover:text-primary-600 focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded"
+              class={`flex items-center px-3 py-2 ${overlay ? 'text-white hover:text-blue-200' : 'text-gray-700 hover:text-primary-600'} focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded`}
               role="menuitem"
               aria-expanded="false"
               aria-haspopup="true"
@@ -196,7 +245,7 @@ const cities = [
             </button>
             
             <div 
-              class="w-96 bg-white rounded-lg shadow-2xl border border-gray-100 nav-dropdown"
+              class="w-96 bg-white rounded-xl shadow-2xl border border-gray-200 nav-dropdown backdrop-blur-xl"
               role="menu"
               aria-labelledby="commercial-trigger"
               id="commercial-dropdown"
@@ -259,7 +308,7 @@ const cities = [
           <!-- Service Areas -->
           <div class="relative nav-item group" role="none">
             <button 
-              class="flex items-center px-3 py-2 text-gray-700 hover:text-primary-600 focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded"
+              class={`flex items-center px-3 py-2 ${overlay ? 'text-white hover:text-blue-200' : 'text-gray-700 hover:text-primary-600'} focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded`}
               role="menuitem"
               aria-expanded="false"
               aria-haspopup="true"
@@ -273,7 +322,7 @@ const cities = [
             </button>
             
             <div 
-              class="w-64 bg-white rounded-lg shadow-2xl border border-gray-100 nav-dropdown"
+              class="w-64 bg-white rounded-xl shadow-2xl border border-gray-200 nav-dropdown backdrop-blur-xl"
               role="menu"
               aria-labelledby="areas-trigger"
               id="areas-dropdown"
@@ -298,18 +347,18 @@ const cities = [
           </div>
 
           <!-- Regular Links -->
-          <a href="/about" class="px-3 py-2 text-gray-700 hover:text-primary-600 focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded" role="menuitem">About</a>
-          <a href="/blog" class="px-3 py-2 text-gray-700 hover:text-primary-600 focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded" role="menuitem">Resources</a>
-          <a href="/contact" class="px-3 py-2 text-gray-700 hover:text-primary-600 focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded" role="menuitem">Contact</a>
+          <a href="/about" class={`px-3 py-2 ${overlay ? 'text-white hover:text-blue-200' : 'text-gray-700 hover:text-primary-600'} focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded`} role="menuitem">About</a>
+          <a href="/blog" class={`px-3 py-2 ${overlay ? 'text-white hover:text-blue-200' : 'text-gray-700 hover:text-primary-600'} focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded`} role="menuitem">Resources</a>
+          <a href="/contact" class={`px-3 py-2 ${overlay ? 'text-white hover:text-blue-200' : 'text-gray-700 hover:text-primary-600'} focus:text-primary-600 font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded`} role="menuitem">Contact</a>
         </div>
 
         <!-- CTA Button -->
         <div class="hidden lg:flex items-center ml-6">
           <Button 
             href="/contact" 
-            variant="primary" 
+            variant={overlay ? 'outline' : 'primary'}
             size="lg"
-            class="bg-primary-600 hover:bg-primary-700 text-white font-bold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+            class={overlay ? 'border-white text-white hover:bg-white hover:text-blue-600 font-bold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200' : 'bg-primary-600 hover:bg-primary-700 text-white font-bold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200'}
             ariaLabel="Get free HVAC quote"
           >
             Get Free Quote
@@ -320,7 +369,7 @@ const cities = [
         <div class="lg:hidden">
           <button 
             type="button" 
-            class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+            class={`inline-flex items-center justify-center p-2 rounded-md ${overlay ? 'text-white hover:text-blue-200 hover:bg-white/10' : 'text-gray-700 hover:text-primary-600 hover:bg-gray-100'} focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500`}
             aria-controls="mobile-menu"
             aria-expanded="false"
             id="mobile-menu-btn"
@@ -348,7 +397,7 @@ const cities = [
   <div class="flex flex-col h-full">
     <!-- Mobile Menu Header -->
     <div class="flex items-center justify-between p-4 border-b border-gray-200">
-      <Image src={logoColor} alt="Jupitair HVAC" class="h-12 w-auto" width={120} height={120} format="webp" />
+      <Image src={logoColor} alt="Jupitair HVAC" class="h-16 w-auto" loading="eager" width={160} height={160} format="webp" />
       <button type="button" class="p-2 rounded-md text-gray-700 hover:text-primary-600" id="mobile-close">
         <span class="sr-only">Close menu</span>
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -370,7 +419,7 @@ const cities = [
           <a href="/services/heating-installation" class="block px-3 py-2 text-base text-gray-700 hover:bg-gray-50 rounded-md">Heating Installation</a>
           <a href="/services/maintenance-plans" class="block px-3 py-2 text-base text-gray-700 hover:bg-gray-50 rounded-md">Maintenance</a>
           <a href="/services/indoor-air-quality" class="block px-3 py-2 text-base text-gray-700 hover:bg-gray-50 rounded-md">Air Quality</a>
-          <a href="/services/emergency-hvac" class="block px-3 py-2 text-base text-red-600 font-medium hover:bg-red-50 rounded-md">24/7 Emergency</a>
+          <a href="/commercial/emergency-service" class="block px-3 py-2 text-base text-red-600 font-medium hover:bg-red-50 rounded-md">24/7 Emergency</a>
         </div>
 
         <!-- Commercial -->
@@ -408,9 +457,10 @@ const cities = [
         Get Free Quote
       </a>
       <PhoneLink 
-        variant="text" 
-        context="header"
-        class="flex items-center justify-center gap-2 text-primary-600 font-bold"
+        variant="button" 
+        context="cta"
+        size="lg"
+        class="w-full bg-emergency-600 hover:bg-emergency-700 text-white font-bold text-center rounded-md"
       />
     </div>
   </div>
@@ -576,14 +626,162 @@ const cities = [
     // Reposition on window resize
     window.addEventListener('resize', positionDropdowns);
 
-    // Hide/show header on scroll
+    // Hide/show header on scroll and handle overlay transition
     let lastScrollY = window.scrollY;
     let ticking = false;
 
     function updateHeader() {
       const header = document.getElementById('main-header');
       const currentScrollY = window.scrollY;
+      const isOverlay = header.getAttribute('data-overlay') === 'true';
       
+      // Handle overlay background transition
+      if (isOverlay) {
+        if (currentScrollY > 50) {
+          // Add background when scrolled
+          header.classList.remove('bg-transparent');
+          header.classList.add('bg-white', 'shadow-sm');
+          header.setAttribute('data-scrolled', 'true');
+          
+          // Force update ALL text elements to dark
+          const navButtons = header.querySelectorAll('.nav-item button, .nav-item > span');
+          const navLinks = header.querySelectorAll('a[role="menuitem"], .nav-item a');
+          const logo = header.querySelector('img[alt*="Jupitair"]');
+          
+          navButtons.forEach(btn => {
+            btn.classList.remove('text-white', 'hover:text-blue-200');
+            btn.classList.add('text-gray-700', 'hover:text-primary-600');
+            // Force color change
+            btn.style.color = '#374151';
+          });
+          
+          navLinks.forEach(link => {
+            // Skip dropdown links - they should always be dark
+            if (link.closest('.nav-dropdown')) {
+              link.style.color = '#374151'; // Ensure dropdown links stay dark
+              return;
+            }
+            link.classList.remove('text-white', 'hover:text-blue-200');
+            link.classList.add('text-gray-700', 'hover:text-primary-600');
+            // Force color change
+            link.style.color = '#374151';
+          });
+          
+          // Switch to colored logo
+          if (logo && logo.src.includes('logo-white')) {
+            logo.src = logo.src.replace('logo-white', 'logo-color');
+          }
+          
+          // Update top bar
+          const topBar = header.querySelector('[class*="bg-black/5"], [class*="bg-black/10"]');
+          if (topBar) {
+            topBar.className = topBar.className.replace(/bg-black\/\d+/, 'bg-gray-50');
+            topBar.className = topBar.className.replace('border-white/10', 'border-gray-200');
+            topBar.className = topBar.className.replace('border-white/20', 'border-gray-200');
+            
+            // Update all text in top bar
+            topBar.querySelectorAll('span, a').forEach(el => {
+              el.style.color = '#4B5563'; // gray-600
+            });
+          }
+          
+          // Update nav background
+          const nav = header.querySelector('nav');
+          if (nav) {
+            nav.classList.remove('bg-transparent');
+            nav.classList.add('bg-white');
+          }
+          
+          // Update CTA button
+          const ctaButton = header.querySelector('a[href="/contact"].border-2');
+          if (ctaButton) {
+            ctaButton.classList.remove('border-white', 'text-white', 'bg-transparent', 'hover:bg-white', 'hover:text-blue-600');
+            ctaButton.classList.add('bg-primary-600', 'hover:bg-primary-700', 'text-white', 'border-primary-600');
+            ctaButton.style.backgroundColor = '#2563eb';
+            ctaButton.style.color = 'white';
+            ctaButton.style.borderColor = '#2563eb';
+          }
+          
+          // Update mobile menu button
+          const mobileBtn = document.getElementById('mobile-menu-btn');
+          if (mobileBtn) {
+            mobileBtn.classList.remove('text-white', 'hover:text-blue-200', 'hover:bg-white/10');
+            mobileBtn.classList.add('text-gray-700', 'hover:text-primary-600', 'hover:bg-gray-100');
+          }
+        } else {
+          // Remove background when at top
+          header.classList.add('bg-transparent');
+          header.classList.remove('bg-white', 'shadow-sm');
+          header.removeAttribute('data-scrolled');
+          
+          // Update text colors back to white
+          const navButtons = header.querySelectorAll('.nav-item button');
+          const navLinks = header.querySelectorAll('a[role="menuitem"]');
+          const logo = header.querySelector('img');
+          
+          navButtons.forEach(btn => {
+            btn.classList.add('text-white', 'hover:text-blue-200');
+            btn.classList.remove('text-gray-700', 'hover:text-primary-600');
+            // Reset inline style
+            btn.style.color = '';
+          });
+          
+          navLinks.forEach(link => {
+            // Skip dropdown links - they should always be dark
+            if (link.closest('.nav-dropdown')) {
+              link.style.color = '#374151'; // Keep dropdown links dark
+              return;
+            }
+            link.classList.add('text-white', 'hover:text-blue-200');
+            link.classList.remove('text-gray-700', 'hover:text-primary-600');
+            // Reset inline style
+            link.style.color = '';
+          });
+          
+          // Switch to white logo
+          if (logo && logo.src.includes('logo-color')) {
+            logo.src = logo.src.replace('logo-color', 'logo-white');
+          }
+          
+          // Update top bar back to transparent
+          const topBar = header.querySelector('[class*="bg-gray-50"]');
+          if (topBar) {
+            topBar.className = topBar.className.replace('bg-gray-50', 'bg-black/10');
+            topBar.className = topBar.className.replace('border-gray-200', 'border-white/20');
+            
+            // Reset text colors in top bar
+            topBar.querySelectorAll('span, a').forEach(el => {
+              el.style.color = ''; // Reset to original
+            });
+          }
+          
+          // Update nav background
+          const nav = header.querySelector('nav');
+          if (nav) {
+            nav.classList.add('bg-transparent');
+            nav.classList.remove('bg-white');
+          }
+          
+          // Update CTA button back to transparent
+          const ctaButton = header.querySelector('a[href="/contact"].border-2');
+          if (ctaButton) {
+            ctaButton.classList.add('border-white', 'text-white', 'bg-transparent', 'hover:bg-white', 'hover:text-blue-600');
+            ctaButton.classList.remove('bg-primary-600', 'hover:bg-primary-700', 'border-primary-600');
+            ctaButton.style.backgroundColor = '';
+            ctaButton.style.color = '';
+            ctaButton.style.borderColor = '';
+          }
+          
+          // Update mobile menu button
+          const mobileBtn = document.getElementById('mobile-menu-btn');
+          if (mobileBtn) {
+            mobileBtn.classList.add('text-white', 'hover:text-blue-200', 'hover:bg-white/10');
+            mobileBtn.classList.remove('text-gray-700', 'hover:text-primary-600', 'hover:bg-gray-100');
+          }
+        }
+      }
+      
+      // Handle header hide/show on scroll
       if (currentScrollY > 100) { // Only start hiding after scrolling 100px
         if (currentScrollY > lastScrollY) {
           // Scrolling down - hide header

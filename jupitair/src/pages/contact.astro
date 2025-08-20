@@ -5,6 +5,7 @@ import ContactForm from '../components/forms/ContactForm.astro';
 import Card from '../components/ui/Card.astro';
 import PremiumCard from '../components/ui/PremiumCard.astro';
 import Button from '../components/ui/Button.astro';
+import RealReviews from '../components/reviews/RealReviews.astro';
 
 const pageTitle = 'Contact Us | Jupitair HVAC - Get Your Free Estimate';
 const pageDescription = 'Contact Jupitair HVAC for all your heating and cooling needs in North Texas. Available 24/7 for emergency service. Call (940) 390-5676 or fill out our form for a free estimate.';
@@ -56,7 +57,8 @@ const contactSchema = {
  canonical="https://jupitairhvac.com/contact"
  keywords="contact HVAC North Texas, HVAC estimate Frisco, emergency AC repair, heating service Plano"
  schema={contactSchema}
->
+ ogImage="/og-images/contact.jpg"
+ overlayHeader={true}>
  <!-- Premium Hero Section -->
  <PremiumHero 
  title="Get Your Free HVAC Estimate"
@@ -74,8 +76,8 @@ const contactSchema = {
  <div class="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-8 sm:mb-12">
  
  <!-- Contact Form -->
- <div>
- <Card class="overflow-visible"  variant="elevated" padding="lg" class="h-full">
+ <div id="contact-form">
+ <Card class="overflow-visible"  variant="elevated"  class="h-full">
  <div class="text-center mb-8">
  <h2 class="text-xl sm:text-2xl sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Request Service</h2>
  <p class="text-gray-600">Professional HVAC service starts here</p>
@@ -106,7 +108,7 @@ const contactSchema = {
  </Card>
  
  <!-- Business Hours -->
- <Card class="overflow-visible"  variant="default" padding="md">
+ <Card class="overflow-visible"  variant="default" >
  <h3 class="text-xl font-bold text-gray-900 mb-4">Business Hours</h3>
  <div class="space-y-2">
  <div class="flex justify-between">
@@ -130,7 +132,7 @@ const contactSchema = {
  </Card>
  
  <!-- Contact Methods -->
- <Card class="overflow-visible"  variant="default" padding="md">
+ <Card class="overflow-visible"  variant="default" >
  <h3 class="text-xl font-bold text-gray-900 mb-4">Contact Information</h3>
  <div class="space-y-4">
  <a href="tel:(940) 390-5676" class="flex items-start space-x-3 text-gray-700 hover:text-primary-600 transition-colors">
@@ -170,7 +172,7 @@ const contactSchema = {
  </Card>
  
  <!-- Service Areas -->
- <Card class="overflow-visible"  variant="default" padding="md">
+ <Card class="overflow-visible"  variant="default" >
  <h3 class="text-xl font-bold text-gray-900 mb-4">Service Areas</h3>
  <div class="grid grid-cols-2 gap-2 sm:gap-3">
  <a href="/frisco" class="text-primary-600 hover:text-primary-800 hover:underline font-medium">Frisco</a>
@@ -236,4 +238,10 @@ const contactSchema = {
  </div>
  </div>
  
+<!-- Customer Reviews - BUILD TRUST BEFORE DECISION -->
+<RealReviews 
+  title="Why North Texas Chooses Jupitair"
+  maxReviews={9}
+/>
+
 </BaseLayout>

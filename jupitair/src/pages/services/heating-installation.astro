@@ -16,11 +16,12 @@ const pageDescription = "Professional heating system installation in North Texas
   title={pageTitle}
   description={pageDescription}
   keywords="heating installation, furnace installation, heat pump installation, North Texas heating, gas furnace install, electric heating systems"
->
+
+  overlayHeader={true}>
   <PremiumHero 
     title="Professional Heating System Installation"
     subtitle="Stay Warm All Winter"
-    description="Expert installation of gas furnaces, electric heat pumps, and dual fuel systems. Professional service with warranties and financing available."
+    description="Expert installation of gas furnaces, electric heat pumps, and dual fuel systems. Professional service with warranties and licensed & insured."
     ctaPrimary={{ text: "Get Free Quote", href: "#contact" }}
     ctaSecondary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
     variant="gradient"
@@ -38,7 +39,7 @@ const pageDescription = "Professional heating system installation in North Texas
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card class="overflow-visible"  variant="bordered" padding="md">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-3">
             <div class="w-12 h-12 bg-emergency-100 rounded-full flex items-center justify-center mx-auto">
               <span class="text-xl sm:text-2xl font-bold text-emergency-600">15+</span>
@@ -48,7 +49,7 @@ const pageDescription = "Professional heating system installation in North Texas
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="md">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-3">
             <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
               <span class="text-xl sm:text-2xl font-bold text-secondary-700">$$$</span>
@@ -58,7 +59,7 @@ const pageDescription = "Professional heating system installation in North Texas
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="md">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-3">
             <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -70,7 +71,7 @@ const pageDescription = "Professional heating system installation in North Texas
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="md">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-3">
             <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -94,7 +95,7 @@ const pageDescription = "Professional heating system installation in North Texas
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-8 h-8 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -124,9 +125,9 @@ const pageDescription = "Professional heating system installation in North Texas
               </li>
             </ul>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -156,9 +157,9 @@ const pageDescription = "Professional heating system installation in North Texas
               </li>
             </ul>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
               <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -188,7 +189,7 @@ const pageDescription = "Professional heating system installation in North Texas
               </li>
             </ul>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -202,7 +203,7 @@ const pageDescription = "Professional heating system installation in North Texas
       </div>
 
       <div class="max-w-4xl mx-auto space-y-6">
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               1
@@ -212,9 +213,9 @@ const pageDescription = "Professional heating system installation in North Texas
               <p class="text-gray-700">Comprehensive evaluation of your home's heating needs, including Manual J load calculations and existing infrastructure assessment.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               2
@@ -224,9 +225,9 @@ const pageDescription = "Professional heating system installation in North Texas
               <p class="text-gray-700">Custom system design with proper sizing, equipment selection, and permit acquisition for code-compliant installation.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               3
@@ -236,9 +237,9 @@ const pageDescription = "Professional heating system installation in North Texas
               <p class="text-gray-700">Careful removal of old equipment with proper disposal and recovery of refrigerants according to EPA regulations.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               4
@@ -248,9 +249,9 @@ const pageDescription = "Professional heating system installation in North Texas
               <p class="text-gray-700">Expert installation following manufacturer specifications, local codes, and safety standards with quality materials and craftsmanship.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               5
@@ -260,9 +261,9 @@ const pageDescription = "Professional heating system installation in North Texas
               <p class="text-gray-700">Thorough testing of all components, safety checks, performance verification, and system commissioning to ensure optimal operation.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard class="overflow-visible"  variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               6
@@ -272,7 +273,7 @@ const pageDescription = "Professional heating system installation in North Texas
               <p class="text-gray-700">Municipal inspection coordination, customer training on operation and maintenance, warranty registration, and ongoing support setup.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -286,7 +287,7 @@ const pageDescription = "Professional heating system installation in North Texas
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <Card class="overflow-visible"  variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="space-y-4">
             <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center">
               <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -300,7 +301,7 @@ const pageDescription = "Professional heating system installation in North Texas
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="space-y-4">
             <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
               <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -314,7 +315,7 @@ const pageDescription = "Professional heating system installation in North Texas
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="space-y-4">
             <div class="w-12 h-12 bg-emergency-100 rounded-full flex items-center justify-center">
               <svg class="w-6 h-6 text-emergency-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -328,7 +329,7 @@ const pageDescription = "Professional heating system installation in North Texas
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="space-y-4">
             <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
               <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -342,7 +343,7 @@ const pageDescription = "Professional heating system installation in North Texas
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="space-y-4">
             <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center">
               <svg class="w-6 h-6 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -356,7 +357,7 @@ const pageDescription = "Professional heating system installation in North Texas
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="space-y-4">
             <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center">
               <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -378,11 +379,11 @@ const pageDescription = "Professional heating system installation in North Texas
     <div class="site-container section-padding">
       <div class="text-center mb-12">
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Heating Installation Investment</h2>
-        <p class="text-lg sm:text-xl text-gray-700">Professional installation with financing available</p>
+        <p class="text-lg sm:text-xl text-gray-700">Professional installation with licensed & insured</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <Card class="overflow-visible"  variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-4">
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Gas Furnace</h3>
             <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary-700">$3,800</div>
@@ -411,7 +412,7 @@ const pageDescription = "Professional heating system installation in North Texas
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="lg" class="border-primary-500 relative">
+        <Card class="overflow-visible"  variant="outline"  class="border-primary-500 relative">
           <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
             <Badge variant="primary">Best Value</Badge>
           </div>
@@ -443,7 +444,7 @@ const pageDescription = "Professional heating system installation in North Texas
           </div>
         </Card>
 
-        <Card class="overflow-visible"  variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-4">
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Heat Pump System</h3>
             <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-600">$6,500</div>
@@ -474,10 +475,10 @@ const pageDescription = "Professional heating system installation in North Texas
       </div>
 
       <div class="mt-12 text-center">
-        <Card class="overflow-visible"  variant="bordered" padding="lg" class="max-w-2xl mx-auto bg-green-50 border-green-200">
-          <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4">Financing Available</h3>
+        <Card class="overflow-visible"  variant="outline"  class="max-w-2xl mx-auto bg-green-50 border-green-200">
+          <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4">Licensed & Insured Professionals</h3>
           <p class="text-gray-700 mb-4">
-            0% interest for 18 months or low monthly payments with approved credit
+            Professional installation with manufacturer warranties and ongoing support
           </p>
           <div class="text-sm text-green-700 font-medium">
             Federal and local rebates may apply to qualifying high-efficiency systems

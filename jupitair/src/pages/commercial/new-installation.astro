@@ -116,7 +116,8 @@ const schema = {
   description="New commercial HVAC installation in Dallas-Fort Worth. Complete system design and installation from $50K to $2M+. Office buildings, medical facilities, warehouses. Call (940) 390-5676."
   keywords="commercial HVAC installation, commercial air conditioning installation, DFW commercial HVAC, large HVAC projects"
   canonical="https://jupitairhvac.com/commercial/new-installation"
->
+
+  overlayHeader={true}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <PremiumHero
@@ -169,7 +170,7 @@ const schema = {
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projectTypes.map(project => (
-            <PremiumCard class="overflow-visible"  variant="elevated" padding="lg" class="hover:shadow-2xl transition-all">
+            <Card variant="outline"  class="border-gray-200 bg-white">
               <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
               <div class="text-lg sm:text-xl sm:text-2xl font-bold text-primary-600 mb-4">{project.range}</div>
               <div class="space-y-2 text-sm">
@@ -186,7 +187,7 @@ const schema = {
                   <span class="text-gray-600">{project.sqft}</span>
                 </div>
               </div>
-            </PremiumCard>
+            </Card>
           ))}
         </div>
       </div>
@@ -208,7 +209,7 @@ const schema = {
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div class="space-y-6">
-            <Card class="overflow-visible"  variant="elevated" padding="lg">
+            <Card class="overflow-visible"  variant="elevated" >
               <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3">Financial Strength</h3>
               <ul class="space-y-2 text-gray-600">
                 <li class="flex items-start">
@@ -226,7 +227,7 @@ const schema = {
               </ul>
             </Card>
 
-            <Card class="overflow-visible"  variant="elevated" padding="lg">
+            <Card class="overflow-visible"  variant="elevated" >
               <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3">Project Management</h3>
               <ul class="space-y-2 text-gray-600">
                 <li class="flex items-start">
@@ -244,7 +245,7 @@ const schema = {
               </ul>
             </Card>
 
-            <Card class="overflow-visible"  variant="elevated" padding="lg">
+            <Card class="overflow-visible"  variant="elevated" >
               <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3">Equipment Partners</h3>
               <ul class="space-y-2 text-gray-600">
                 <li class="flex items-start">
@@ -296,7 +297,7 @@ const schema = {
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {process.map(step => (
-            <Card class="overflow-visible"  variant="elevated" padding="lg">
+            <Card class="overflow-visible"  variant="elevated" >
               <div class="flex items-start gap-4">
                 <div class="w-12 h-12 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center font-bold text-lg sm:text-xl flex-shrink-0">
                   {step.step}
@@ -338,7 +339,7 @@ const schema = {
             <div class="text-xs mt-2 text-primary-200">Frisco, TX - 45,000 sq ft</div>
           </div>
         </div>
-        <Button href="/commercial/portfolio" variant="secondary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
+        <Button href="/commercial" variant="secondary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
           View Project Portfolio
         </Button>
       </div>
@@ -377,7 +378,7 @@ const schema = {
             </div>
             <div>
               <h3 class="font-bold text-lg mb-3">Request Detailed Quote:</h3>
-              <Button href="/commercial/quote" variant="secondary" size="lg" class="w-full">
+              <Button href="/contact" variant="secondary" size="lg" class="w-full">
                 Get Free Project Quote
               </Button>
               <p class="text-sm text-gray-400 mt-2">Response within 24 hours</p>

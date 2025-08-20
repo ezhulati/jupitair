@@ -140,7 +140,8 @@ const faqs = [
   title="Commercial HVAC Preventive Maintenance Plans | Jupitair HVAC"
   description="Reduce breakdowns by 75% with professional commercial HVAC maintenance plans. Monthly service starting at $149. No contracts required. North Texas businesses trust Jupitair."
   keywords="commercial HVAC maintenance, preventive maintenance plans, commercial AC service, RTU maintenance, North Texas"
->
+
+  overlayHeader={true}>
   <!-- Schema Markup -->
   <DynamicSchema 
     type="Service"
@@ -158,7 +159,7 @@ const faqs = [
 
   <!-- Premium Hero Section -->
   <PremiumHero 
-    title="Commercial HVAC Preventive Maintenance"
+    title="Commercial HVAC<br>Preventive Maintenance"
     subtitle="Reduce Breakdowns by 75% • Save 30% on Energy"
     description="Keep your business comfortable and your HVAC costs predictable with our comprehensive maintenance plans. No contracts, month-to-month service."
     ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
@@ -215,7 +216,7 @@ const faqs = [
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {benefits.map(benefit => (
-          <PremiumCard class="overflow-visible"  variant="elevated" padding="lg" hover={true}>
+          <Card variant="outline"  class="border-gray-200 bg-white">
             <div class="text-center">
               <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -233,7 +234,7 @@ const faqs = [
               <h3 class="text-lg sm:text-xl font-bold text-white mb-2">{benefit.title}</h3>
               <p class="text-gray-200">{benefit.description}</p>
             </div>
-          </PremiumCard>
+          </Card>
         ))}
       </div>
     </section>
@@ -259,7 +260,7 @@ const faqs = [
             class={plan.best ? "ring-2 ring-purple-500 relative" : ""}
           >
             {plan.best && (
-              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
                 <Badge variant="primary" class="bg-purple-600">Most Popular</Badge>
               </div>
             )}
@@ -295,7 +296,7 @@ const faqs = [
                 Get Started
               </PremiumButton>
             </div>
-          </PremiumCard>
+          </Card>
         ))}
       </div>
     </section>
@@ -369,7 +370,7 @@ const faqs = [
 
     <!-- FAQs -->
     <section class="mb-20">
-      <PremiumCard class="overflow-visible"  variant="elevated" padding="xl">
+      <Card variant="outline"  class="border-gray-200 bg-white">
         <div class="max-w-3xl mx-auto">
           <div class="text-center mb-12">
             <Badge variant="secondary" class="mb-4">FAQs</Badge>
@@ -390,7 +391,7 @@ const faqs = [
             ))}
           </div>
         </div>
-      </PremiumCard>
+      </Card>
     </section>
 
     <!-- Customer Success Stats -->
