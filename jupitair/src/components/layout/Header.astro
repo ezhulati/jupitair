@@ -1,6 +1,7 @@
 ---
 import Button from '../ui/Button.astro';
 import PhoneLink from '../ui/PhoneLink.astro';
+import OptimizedLogo from '../ui/OptimizedLogo.astro';
 import { BUSINESS_CONFIG } from '../../config/business';
 
 export interface Props {
@@ -148,17 +149,15 @@ const cities = [
         <!-- Logo -->
         <div class="flex-shrink-0">
           <a href="/" class="block" aria-label="Jupitair HVAC - Home">
-            <img 
-              src={overlay ? '/images/logo-white.png' : '/images/logo-color.png'} 
-              alt="Jupitair HVAC Logo" 
-              class="h-20 lg:h-24 w-auto hover:scale-105 transition-transform duration-200"
-              loading="eager"
-              width="400"
-              height="400"
-              data-logo-color="/images/logo-color.png"
-              data-logo-white="/images/logo-white.png"
-              id="header-logo"
-            />
+            <div id="header-logo-wrapper" data-overlay={overlay ? 'true' : 'false'}>
+              <OptimizedLogo 
+                variant={overlay ? 'white' : 'color'} 
+                class="h-20 lg:h-24 w-auto hover:scale-105 transition-transform duration-200"
+                width={96}
+                height={96}
+                loading="eager"
+              />
+            </div>
           </a>
         </div>
 
@@ -396,7 +395,13 @@ const cities = [
   <div class="flex flex-col h-full">
     <!-- Mobile Menu Header -->
     <div class="flex items-center justify-between p-4 border-b border-gray-200">
-      <img src="/images/logo-color.png" alt="Jupitair HVAC" class="h-16 w-auto" loading="eager" width="160" height="160" />
+      <OptimizedLogo 
+        variant="color" 
+        class="h-16 w-auto"
+        width={64}
+        height={64}
+        loading="eager"
+      />
       <button type="button" class="p-2 rounded-md text-gray-700 hover:text-primary-600" id="mobile-close">
         <span class="sr-only">Close menu</span>
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -645,7 +650,8 @@ const cities = [
           // Force update ALL text elements to dark
           const navButtons = header.querySelectorAll('.nav-item button, .nav-item > span');
           const navLinks = header.querySelectorAll('a[role="menuitem"], .nav-item a');
-          const logo = document.getElementById('header-logo');
+          const logoWrapper = document.getElementById('header-logo-wrapper');
+          const logoImg = logoWrapper ? logoWrapper.querySelector('img') : null;
           
           navButtons.forEach(btn => {
             btn.classList.remove('text-white', 'hover:text-blue-200');
@@ -667,8 +673,14 @@ const cities = [
           });
           
           // Switch to colored logo
-          if (logo) {
-            logo.src = logo.getAttribute('data-logo-color');
+          if (logoImg) {
+            const picture = logoImg.closest('picture');
+            if (picture) {
+              const sources = picture.querySelectorAll('source');
+              sources[0].srcset = '/images/logo-color.webp';
+              sources[1].srcset = '/images/logo-color.png';
+              logoImg.src = '/images/logo-color.png';
+            }
           }
           
           // Update top bar
@@ -716,7 +728,8 @@ const cities = [
           // Update text colors back to white
           const navButtons = header.querySelectorAll('.nav-item button');
           const navLinks = header.querySelectorAll('a[role="menuitem"]');
-          const logo = document.getElementById('header-logo');
+          const logoWrapper = document.getElementById('header-logo-wrapper');
+          const logoImg = logoWrapper ? logoWrapper.querySelector('img') : null;
           
           navButtons.forEach(btn => {
             btn.classList.add('text-white', 'hover:text-blue-200');
@@ -738,8 +751,14 @@ const cities = [
           });
           
           // Switch to white logo
-          if (logo) {
-            logo.src = logo.getAttribute('data-logo-white');
+          if (logoImg) {
+            const picture = logoImg.closest('picture');
+            if (picture) {
+              const sources = picture.querySelectorAll('source');
+              sources[0].srcset = '/images/logo-white.webp';
+              sources[1].srcset = '/images/logo-white.png';
+              logoImg.src = '/images/logo-white.png';
+            }
           }
           
           // Update top bar back to transparent

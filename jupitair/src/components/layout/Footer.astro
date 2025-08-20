@@ -1,6 +1,7 @@
 ---
 import Button from '../ui/Button.astro';
 import PhoneLink from '../ui/PhoneLink.astro';
+import OptimizedLogo from '../ui/OptimizedLogo.astro';
 import { BUSINESS_CONFIG } from '../../config/business';
 ---
 
@@ -12,14 +13,15 @@ import { BUSINESS_CONFIG } from '../../config/business';
       <div class="bg-red-600 rounded-xl p-4 text-white">
         <div class="min-w-0 flex items-center justify-between">
           <div>
-            <h5 class="font-bold text-lg">Emergency Service</h5>
-            <p class="text-sm text-red-100">Available 24/7</p>
+            <div class="font-bold text-lg">Emergency Service</div>
+            <p class="text-sm text-white/90">Available 24/7</p>
           </div>
           <PhoneLink 
             variant="button"
             emergency={false}
             context="cta"
-            class="!bg-white !text-red-600 px-6 py-3 rounded-lg font-bold text-lg hover:!bg-red-50 !border-white transition-colors text-center justify-center"
+            class="!bg-white !text-red-600 px-6 py-3 rounded-lg font-bold text-lg hover:!bg-red-50 !border-white transition-colors text-center justify-center !z-[99999] relative"
+            style="color: #dc2626 !important; z-index: 99999 !important;"
           />
         </div>
       </div>
@@ -30,10 +32,12 @@ import { BUSINESS_CONFIG } from '../../config/business';
       <!-- Company Info -->
       <div class="col-span-2 sm:col-span-1 lg:col-span-1">
         <div class="mb-6">
-          <img loading="lazy" 
-            src="/images/logo-white.png" 
-            alt="Jupitair HVAC Logo"
+          <OptimizedLogo 
+            variant="white"
             class="h-24 sm:h-28 lg:h-32 w-auto mb-4"
+            width={128}
+            height={128}
+            loading="lazy"
           />
           <p class="text-sm text-gray-400">North Texas HVAC Experts</p>
         </div>
@@ -162,14 +166,15 @@ import { BUSINESS_CONFIG } from '../../config/business';
         
         <!-- Emergency CTA - Hidden on mobile since we show it at top -->
         <div class="hidden sm:block bg-emergency-900 border border-emergency-700 rounded-lg p-4">
-          <h5 class="text-emergency-300 font-semibold mb-2">Emergency Service</h5>
+          <div class="text-emergency-300 font-semibold mb-2">Emergency Service</div>
           <p class="text-emergency-400 text-sm mb-3">Available 24/7 for urgent HVAC issues</p>
           <PhoneLink 
             variant="button"
-            emergency={true}
+            emergency={false}
             size="sm"
             context="cta"
-            class="w-full justify-center !bg-white !text-emergency-700 hover:!bg-emergency-50 !border-white font-bold"
+            class="w-full justify-center !bg-white !text-red-600 hover:!bg-red-50 !border-white font-bold !z-[99999] relative"
+            style="color: #dc2626 !important; z-index: 99999 !important; background-color: white !important;"
           />
         </div>
       </div>
@@ -183,7 +188,7 @@ import { BUSINESS_CONFIG } from '../../config/business';
         
         <!-- Business Hours -->
         <div>
-          <h5 class="font-semibold text-white mb-2">Business Hours</h5>
+          <div class="font-semibold text-white mb-2">Business Hours</div>
           <div class="text-sm text-gray-400 space-y-1">
             <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
             <p>Saturday: 8:00 AM - 4:00 PM</p>
@@ -194,7 +199,7 @@ import { BUSINESS_CONFIG } from '../../config/business';
         
         <!-- Credentials -->
         <div>
-          <h5 class="font-semibold text-white mb-2">Licensed & Certified</h5>
+          <div class="font-semibold text-white mb-2">Licensed & Certified</div>
           <div class="text-sm text-gray-400 space-y-1">
             <p>TACLA Licensed & Insured</p>
             <p>EPA Certified Technicians</p>

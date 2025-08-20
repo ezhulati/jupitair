@@ -9,16 +9,28 @@ const isDevelopment = import.meta.env.DEV;
 
 {!isDevelopment && (
   <>
-    <!-- Google Analytics -->
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`}></script>
+    <!-- Google Analytics - Deferred Loading -->
     <script define:vars={{ trackingId }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', trackingId, {
-        page_path: window.location.pathname,
-        anonymize_ip: true,
-        cookie_flags: 'SameSite=None;Secure'
+      // Defer GA loading until after page load
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          // Load GA script
+          var script = document.createElement('script');
+          script.async = true;
+          script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
+          document.head.appendChild(script);
+          
+          // Initialize GA
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', trackingId, {
+            page_path: window.location.pathname,
+            anonymize_ip: true,
+            cookie_flags: 'SameSite=None;Secure'
+          });
+        }, 1000); // Delay by 1 second after load
       });
     </script>
   </>

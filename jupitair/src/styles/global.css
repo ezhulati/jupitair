@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import emergency button fix - CRITICAL */
+@import './emergency-button-fix.css';
+
 /* Base styling for better defaults and accessibility */
 @layer base {
   html {
