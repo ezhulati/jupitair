@@ -7,20 +7,22 @@ import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
 import ContactForm from '../../components/forms/ContactForm.astro';
 import Badge from '../../components/ui/Badge.astro';
+import RealReviews from '../../components/reviews/RealReviews.astro';
 
 const pageTitle = "AC Installation Services | New Air Conditioning Systems | Jupitair HVAC";
-const pageDescription = "Professional AC installation in North Texas. Energy-efficient air conditioning systems with expert installation, warranties, and financing. Same-day quotes available.";
+const pageDescription = "Professional AC installation in North Texas. Energy-efficient air conditioning systems with expert installation, warranties, and same-day quotes available.";
 ---
 
 <BaseLayout
   title={pageTitle}
   description={pageDescription}
   keywords="AC installation, air conditioning installation, new AC system, central air installation, North Texas AC install, energy efficient AC"
->
+
+  overlayHeader={true}>
   <PremiumHero 
-    title="Professional AC Installation Services"
+    title="Professional AC<br>Installation Services"
     subtitle="Beat the Texas Heat"
-    description="Install a new, energy-efficient air conditioning system and stay cool all summer. Expert installation with warranties, financing, and same-day quotes available."
+    description="Install a new, energy-efficient air conditioning system and stay cool all summer. Expert installation with warranties and same-day quotes available."
     ctaPrimary={{ text: "Get Free Quote", href: "#contact" }}
     ctaSecondary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
     variant="gradient"
@@ -38,7 +40,7 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card variant="bordered" padding="md">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-3">
             <div class="w-12 h-12 bg-emergency-100 rounded-full flex items-center justify-center mx-auto">
               <span class="text-xl sm:text-2xl font-bold text-emergency-600">10+</span>
@@ -48,7 +50,7 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
           </div>
         </Card>
 
-        <Card variant="bordered" padding="md">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-3">
             <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
               <span class="text-xl sm:text-2xl font-bold text-secondary-700">$$$</span>
@@ -58,10 +60,10 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
           </div>
         </Card>
 
-        <Card variant="bordered" padding="md">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-3">
             <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-6 h-6 mr-2 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
@@ -70,10 +72,10 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
           </div>
         </Card>
 
-        <Card variant="bordered" padding="md">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-3">
             <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-6 h-6 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
             </div>
@@ -94,10 +96,10 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
             </div>
@@ -124,12 +126,12 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
               </li>
             </ul>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
@@ -156,12 +158,12 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
               </li>
             </ul>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
             </div>
@@ -188,7 +190,7 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
               </li>
             </ul>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -202,7 +204,7 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
       </div>
 
       <div class="max-w-4xl mx-auto space-y-6">
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               1
@@ -212,9 +214,9 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
               <p class="text-gray-700">Comprehensive evaluation including Manual J load calculation to determine the right size and type of system for your home.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               2
@@ -224,9 +226,9 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
               <p class="text-gray-700">Design the perfect cooling solution with proper equipment selection, ductwork evaluation, and efficiency optimization.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               3
@@ -236,9 +238,9 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
               <p class="text-gray-700">Obtain necessary permits, schedule delivery, and prepare your home for professional installation.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               4
@@ -248,9 +250,9 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
               <p class="text-gray-700">Professional installation following manufacturer specifications, local codes, and industry best practices for optimal performance.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               5
@@ -260,7 +262,7 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
               <p class="text-gray-700">Complete system testing, performance verification, customer training, and warranty registration for your new AC system.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -274,7 +276,7 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <PremiumCard variant="elevated" padding="lg">
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="text-center space-y-4">
             <Badge variant="default" size="lg">Good</Badge>
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Standard Efficiency</h3>
@@ -282,86 +284,86 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
             <p class="text-sm text-gray-600 mb-4">Budget-friendly cooling</p>
             <ul class="text-left space-y-2">
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">Single-stage cooling</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">10-year manufacturer warranty</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">Reliable performance</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">Energy Star qualified</span>
               </li>
             </ul>
-            <div class="pt-4">
+            <div class="pt-6">
               <p class="text-sm text-gray-600 mb-2">Starting at</p>
               <p class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">$4,200</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="premium" padding="lg" class="relative">
-          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+        <Card variant="outline" class="border-gray-200 bg-white relative">
+          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
             <Badge variant="primary" size="lg">Most Popular</Badge>
           </div>
-          <div class="text-center space-y-4 pt-4">
+          <div class="text-center space-y-4 pt-6">
             <Badge variant="primary" size="lg">Better</Badge>
-            <h3 class="text-xl sm:text-2xl font-bold text-white">High Efficiency</h3>
-            <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">17-20 SEER</div>
-            <p class="text-sm text-gray-200 mb-4">Balanced efficiency and comfort</p>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900">High Efficiency</h3>
+            <div class="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-600">17-20 SEER</div>
+            <p class="text-sm text-gray-600 mb-4">Balanced efficiency and comfort</p>
             <ul class="text-left space-y-2">
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-white">Two-stage cooling</span>
+                <span class="text-gray-700">Two-stage cooling</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-white">Enhanced comfort control</span>
+                <span class="text-gray-700">Enhanced comfort control</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-white">Quieter operation</span>
+                <span class="text-gray-700">Quieter operation</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-white">Better humidity control</span>
+                <span class="text-gray-700">Better humidity control</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
-                <span class="text-white">Smart thermostat compatible</span>
+                <span class="text-gray-700">Smart thermostat compatible</span>
               </li>
             </ul>
-            <div class="pt-4">
-              <p class="text-sm text-gray-200 mb-2">Starting at</p>
-              <p class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">$5,800</p>
+            <div class="pt-6">
+              <p class="text-sm text-gray-600 mb-2">Starting at</p>
+              <p class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">$5,800</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="lg">
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="text-center space-y-4">
             <Badge variant="success" size="lg">Best</Badge>
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Ultra Efficiency</h3>
@@ -369,42 +371,42 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
             <p class="text-sm text-gray-600 mb-4">Maximum efficiency and comfort</p>
             <ul class="text-left space-y-2">
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">Variable-speed technology</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">Whisper-quiet operation</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">Smart thermostat included</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">Extended warranty available</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">Maximum energy savings</span>
               </li>
             </ul>
-            <div class="pt-4">
+            <div class="pt-6">
               <p class="text-sm text-gray-600 mb-2">Starting at</p>
               <p class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">$7,500</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -418,10 +420,10 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <Card variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="space-y-4">
             <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
@@ -432,10 +434,10 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
           </div>
         </Card>
 
-        <Card variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="space-y-4">
             <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
             </div>
@@ -446,10 +448,10 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
           </div>
         </Card>
 
-        <Card variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="space-y-4">
             <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.142M6.343 6.343a9 9 0 000 12.728m2.829-9.9a5 5 0 000 7.072M13 5h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
@@ -460,10 +462,10 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
           </div>
         </Card>
 
-        <Card variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="space-y-4">
             <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 mr-2 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
@@ -474,10 +476,10 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
           </div>
         </Card>
 
-        <Card variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="space-y-4">
             <div class="w-12 h-12 bg-emergency-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 mr-2 text-emergency-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-emergency-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
             </div>
@@ -488,10 +490,10 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
           </div>
         </Card>
 
-        <Card variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="space-y-4">
             <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center">
-              <svg class="w-6 h-6 mr-2 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
@@ -505,34 +507,13 @@ const pageDescription = "Professional AC installation in North Texas. Energy-eff
     </div>
   </section>
 
-  <!-- Financing Section -->
-  <section class="section-full bg-gradient-to-r from-blue-600 to-purple-600">
-    <div class="site-container section-padding">
-      <div class="max-w-4xl mx-auto text-center text-white">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl md:text-4xl font-bold mb-4">Flexible AC Installation Financing</h2>
-        <p class="text-lg sm:text-xl text-blue-100 mb-8">
-          Get the cooling you need today with affordable monthly payments
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-            <p class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2">0%</p>
-            <p class="text-blue-100">Interest for 18 months</p>
-          </div>
-          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-            <p class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2">$0</p>
-            <p class="text-blue-100">Down payment required</p>
-          </div>
-          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-            <p class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2">5 Min</p>
-            <p class="text-blue-100">Quick approval process</p>
-          </div>
-        </div>
-        <Button href="/contact" variant="emergency" size="xl">
-          Apply for Financing
-        </Button>
-      </div>
-    </div>
-  </section>
+
+  <!-- Customer Reviews - BUILD TRUST -->
+  <RealReviews 
+    title="What Our AC Installation Customers Say"
+    serviceFilter="installation"
+    maxReviews={6}
+  />
 
   <!-- Contact Form Section -->
   <section id="contact" class="w-full bg-gray-50">

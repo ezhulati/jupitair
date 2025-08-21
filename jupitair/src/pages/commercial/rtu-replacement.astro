@@ -78,7 +78,8 @@ const schema = {
   description="Professional rooftop unit replacement in Dallas-Fort Worth. 3-50+ ton RTU installation with crane service. Energy-efficient upgrades save 40%. Call (940) 390-5676."
   keywords="RTU replacement, rooftop unit replacement, commercial rooftop AC, RTU installation DFW"
   canonical="https://jupitairhvac.com/commercial/rtu-replacement"
->
+
+  overlayHeader={true}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <PremiumHero
@@ -95,11 +96,11 @@ const schema = {
   <section class="bg-emergency-600 text-white py-4">
     <div class="site-container section-padding">
       <div class="flex items-center justify-center gap-4 text-center">
-        <svg class="w-6 h-6 mr-2 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+        <svg class="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
           <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
         </svg>
         <span class="font-bold">Failed RTU? Emergency replacement available with same-day crane service</span>
-        <svg class="w-6 h-6 mr-2 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+        <svg class="w-6 h-6 animate-pulse" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
           <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
         </svg>
       </div>
@@ -122,29 +123,29 @@ const schema = {
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {rtuSizes.map((size, index) => (
-            <PremiumCard 
+            <PremiumCard class="overflow-visible"  
               variant={index < 3 ? "elevated" : "default"} 
-              padding="lg" 
+               
               class={index < 3 ? "border-2 border-primary-200 hover:shadow-2xl" : "hover:shadow-xl"}
             >
               <div class="text-center">
                 <div class="text-lg sm:text-xl sm:text-2xl font-bold text-gray-900 mb-2">{size.tons} Ton</div>
                 <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-600 mb-3">{size.price}</div>
                 <p class="text-sm text-gray-600 mb-4">{size.ideal}</p>
-                <Button href="/commercial/quote" variant="outline" size="sm" class="w-full">
+                <Button href="/contact" variant="outline" size="sm" class="w-full">
                   Get Quote →
                 </Button>
               </div>
-            </PremiumCard>
+            </Card>
           ))}
         </div>
 
         <div class="bg-gray-50 rounded-2xl p-8 text-center">
           <p class="text-lg font-semibold text-gray-900 mb-2">
-            💡 Financing Available
+            💡 Licensed & Insured Professionals 💡
           </p>
           <p class="text-gray-600">
-            Flexible payment options for qualified businesses. Utility rebates may apply for high-efficiency units.
+            Professional installation with manufacturer warranties. Utility rebates may apply for high-efficiency units.
           </p>
         </div>
       </div>
@@ -166,7 +167,7 @@ const schema = {
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map(benefit => (
-            <Card variant="elevated" padding="lg" class="text-center">
+            <Card class="overflow-visible"  variant="elevated"  class="text-center">
               <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl mb-3">{benefit.icon}</div>
               <div class="text-lg sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold text-primary-600 mb-2">{benefit.value}</div>
               <h3 class="font-bold text-gray-900 mb-1">{benefit.title}</h3>
@@ -211,49 +212,49 @@ const schema = {
             <h3 class="text-lg sm:text-xl sm:text-2xl font-bold mb-6">What's Included</h3>
             <ul class="space-y-3">
               <li class="flex items-start">
-                <svg class="w-6 h-6 mr-2 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>Complete removal of old unit</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 mr-2 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>Crane service & rigging</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 mr-2 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>Curb adapter if needed</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 mr-2 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>Electrical & gas connections</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 mr-2 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>Control system integration</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 mr-2 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>Startup & commissioning</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 mr-2 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>10-year parts warranty</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-6 h-6 mr-2 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
                 <span>2-year labor warranty</span>
@@ -306,7 +307,7 @@ const schema = {
           </p>
         </div>
 
-        <Button href="/commercial/portfolio" variant="secondary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
+        <Button href="/commercial" variant="secondary" size="lg" class="bg-white text-primary-600 hover:bg-gray-100">
           View More Projects
         </Button>
       </div>
@@ -336,16 +337,13 @@ const schema = {
             <div>
               <h3 class="font-bold text-lg mb-3">Emergency RTU Failure?</h3>
               <Button href="tel:(940) 390-5676" variant="emergency" size="lg" class="w-full bg-emergency-600 hover:bg-emergency-700">
-                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                </svg>
                 Emergency: (940) 390-5676
               </Button>
               <p class="text-sm text-gray-400 mt-2">Same-day crane service available</p>
             </div>
             <div>
               <h3 class="font-bold text-lg mb-3">Plan Your Replacement:</h3>
-              <Button href="/commercial/quote" variant="secondary" size="lg" class="w-full">
+              <Button href="/contact" variant="secondary" size="lg" class="w-full">
                 Get Free Assessment
               </Button>
               <p class="text-sm text-gray-400 mt-2">Schedule at your convenience</p>

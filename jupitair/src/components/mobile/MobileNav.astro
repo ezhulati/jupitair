@@ -42,28 +42,28 @@ const navItems = [
           <!-- Icon -->
           <div class={`nav-icon relative z-10 w-6 h-6 mb-1 ${item.highlight ? 'animate-pulse' : ''}`}>
             {item.icon === 'services' && (
-              <svg fill="currentColor" viewBox="0 0 24 24">
+              <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
               </svg>
             )}
             {item.icon === 'location' && (
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             )}
             {item.icon === 'emergency' && (
-              <svg fill="currentColor" viewBox="0 0 24 24" class="text-red-600">
+              <svg fill="currentColor" viewBox="0 0 24 24" class="text-red-600" aria-hidden="true">
                 <path d="M20.79 9.23l-2-3.46-1.5.87V2h-4v3.36l-1.29-.75-1.29.75V2h-4v4.64l-1.5-.87-2 3.46L5.21 10 3 13h6v8h6v-8h6l-2.21-3-.79-.77zM11 19H9v-6H5.5l1.29-1.92L5.5 9.65l.66-1.15.84.49V4h2v5.48l1.29-.74L12 9.87l1.71-1.13L15 9.48V4h2v5l.84-.49.66 1.15-1.29 1.43L18.5 13H15v6h-2v-6h-2v6z"/>
               </svg>
             )}
             {item.icon === 'quote' && (
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             )}
             {item.icon === 'menu' && (
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
@@ -112,19 +112,19 @@ const navItems = [
         <div class="min-w-0 grid grid-cols-2 gap-3">
           <a href="tel:9403905676" class="min-w-0 quick-action-card bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 rounded-xl p-4 flex items-center gap-3">
             <div class="min-w-0 w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
-              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
             </div>
             <div>
-              <div class="font-semibold text-red-900 dark:text-red-100">Emergency</div>
+              <div class="font-semibold text-red-900 dark:text-white/90">Emergency</div>
               <div class="text-xs text-red-700 dark:text-red-300">24/7 Service</div>
             </div>
           </a>
           
           <a href="#contact" class="min-w-0 quick-action-card bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 flex items-center gap-3">
             <div class="min-w-0 w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
             </div>
@@ -150,7 +150,7 @@ const navItems = [
           ].map((service) => (
             <a href={`/services/${service.toLowerCase().replace(' ', '-')}`} class="min-w-0 menu-item flex items-center justify-between py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
               <span class="font-medium">{service}</span>
-              <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
             </a>
@@ -184,10 +184,10 @@ const navItems = [
         <div class="min-w-0 flex items-center justify-between mb-4">
           <div>
             <div class="text-sm text-gray-500 dark:text-gray-400">Available 24/7</div>
-            <div class="text-lg font-bold">(940) 390-5676</div>
+            <div class="text-lg font-bold">Call Now</div>
           </div>
           <a href="tel:9403905676" class="min-w-0 w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
-            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
             </svg>
           </a>

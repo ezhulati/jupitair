@@ -1,0 +1,40 @@
+---
+export interface Props {
+  variant?: 'color' | 'white';
+  class?: string;
+  width?: number;
+  height?: number;
+  loading?: 'eager' | 'lazy';
+}
+
+const { 
+  variant = 'color', 
+  class: className = '',
+  width = 400,
+  height = 400,
+  loading = 'lazy'
+} = Astro.props;
+
+const webpSrc = variant === 'color' ? '/images/logo-color.webp' : '/images/logo-white.webp';
+const pngSrc = variant === 'color' ? '/images/logo-color.png' : '/images/logo-white.png';
+---
+
+<picture>
+  <source 
+    srcset={webpSrc} 
+    type="image/webp"
+  />
+  <source 
+    srcset={pngSrc} 
+    type="image/png"
+  />
+  <img 
+    src={pngSrc} 
+    alt="Jupitair HVAC Logo"
+    width={width}
+    height={height}
+    loading={loading}
+    decoding="async"
+    class={className}
+  />
+</picture>

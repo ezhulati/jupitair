@@ -43,14 +43,15 @@ const commercialServices = services.filter(s => s.isCommercial);
   description="Complete HVAC services for homes and businesses in North Texas. Residential AC repair, commercial HVAC maintenance, 24/7 emergency service. Call (940) 390-5676."
   keywords="HVAC services, AC repair, heating repair, commercial HVAC, residential HVAC"
   canonical="https://jupitairhvac.com/services"
->
+  ogImage="/og-images/services.jpg"
+  overlayHeader={true}>
   <!-- Hero Section -->
   <PremiumHero
     title="Professional HVAC Services"
     subtitle="Residential & Commercial Solutions"
     description="Complete heating, cooling, and air quality services for North Texas homes and businesses. Same-day service, 24/7 emergency response."
     ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
-    ctaSecondary={{ text: "Get Quote", href: "/schedule" }}
+    ctaSecondary={{ text: "Get Quote", href: "/contact" }}
     variant="gradient"
     height="md"
   />
@@ -64,9 +65,9 @@ const commercialServices = services.filter(s => s.isCommercial);
         <div class="mb-16">
           <div class="text-center mb-8">
             <Badge variant="primary" class="mb-4">Residential Services</Badge>
-            <h2 class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <h1 class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Home Comfort Solutions
-            </h2>
+            </h1>
             <p class="text-xl text-gray-700 max-w-3xl mx-auto">
               Complete HVAC services for North Texas homes. From emergency repairs to new installations.
             </p>
@@ -74,7 +75,7 @@ const commercialServices = services.filter(s => s.isCommercial);
           
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {residentialServices.map(service => (
-              <Card variant="elevated" padding="lg" class="hover:shadow-xl transition-all">
+              <Card class="overflow-visible"  variant="elevated"  class="hover:shadow-xl transition-all">
                 <div class="flex justify-between items-start mb-3">
                   <h3 class="text-xl font-bold text-gray-900">{service.name}</h3>
                   {service.isEmergency && (
@@ -109,7 +110,7 @@ const commercialServices = services.filter(s => s.isCommercial);
               <Badge variant="secondary" class="mb-4">Commercial Services</Badge>
               <h2 class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                 Business HVAC Solutions
-              </h2>
+              </h1>
               <p class="text-xl text-gray-700 max-w-3xl mx-auto">
                 Professional commercial HVAC for restaurants, retail, and offices.
               </p>
@@ -117,7 +118,7 @@ const commercialServices = services.filter(s => s.isCommercial);
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {commercialServices.map(service => (
-                <Card variant="elevated" padding="lg" class="hover:shadow-xl transition-all border-2 border-gray-200">
+                <Card class="overflow-visible"  variant="elevated"  class="hover:shadow-xl transition-all border-2 border-gray-200">
                   <div class="flex justify-between items-start mb-3">
                     <h3 class="text-xl font-bold text-gray-900">{service.name}</h3>
                     <Badge variant="secondary" size="sm">Commercial</Badge>
@@ -160,7 +161,7 @@ const commercialServices = services.filter(s => s.isCommercial);
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <Button href="tel:(940) 390-5676" variant="primary" size="lg">
-              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
               </svg>
               Call (940) 390-5676
@@ -172,19 +173,19 @@ const commercialServices = services.filter(s => s.isCommercial);
           
           <div class="mt-6 flex flex-wrap justify-center gap-6 text-sm text-gray-700">
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               Licensed & Insured
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               24/7 Emergency Service
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               Same-Day Service

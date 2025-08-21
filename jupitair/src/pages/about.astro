@@ -9,6 +9,7 @@ import Card from '../components/ui/Card.astro';
 // Page metadata
 const pageTitle = "About Jupitair HVAC | Trusted HVAC Contractors in North Texas";
 const pageDescription = "Learn about Jupitair HVAC, North Texas's trusted HVAC contractors. 15+ years of experience serving 8 cities with expert AC repair, heating services, and installations.";
+const ogImageUrl = "https://res.cloudinary.com/dwnmuolg8/image/upload/v1755659508/Jupitair_HVAC_kukpt9.jpg";
 
 
 // About page schema
@@ -39,7 +40,9 @@ const aboutSchema = {
   title={pageTitle}
   description={pageDescription}
   canonical="https://jupitairhvac.com/about"
->
+  ogImage={ogImageUrl}
+
+  overlayHeader={true}>
   <!-- Schema.org structured data -->
   <script type="application/ld+json" set:html={JSON.stringify(aboutSchema)} />
 
@@ -49,7 +52,7 @@ const aboutSchema = {
     subtitle="Your Trusted HVAC Partner Since 2008"
     description="15+ years of providing reliable heating and cooling solutions to North Texas families and businesses. Owner-operated for personalized service you can trust."
     ctaPrimary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
-    ctaSecondary={{ text: "Get Quote", href: "/schedule" }}
+    ctaSecondary={{ text: "Get Quote", href: "/contact" }}
     variant="gradient"
     height="md"
   />
@@ -59,9 +62,9 @@ const aboutSchema = {
     <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h1 class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Built on Trust, Driven by Comfort
-          </h2>
+          </h1>
           <p class="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
             At Jupitair HVAC, we believe true comfort starts with trust. With years of HVAC expertise, we deliver innovative, reliable, and personalized solutions tailored to your needs.
           </p>
@@ -78,35 +81,35 @@ const aboutSchema = {
             </p>
           </div>
           <div>
-            <Card variant="elevated" padding="lg" class="bg-primary-50">
+            <Card class="overflow-visible"  variant="elevated"  class="bg-primary-50">
               <h4 class="text-xl font-bold text-gray-900 mb-4">Why Choose Jupitair?</h4>
               <ul class="space-y-3 text-gray-700">
                 <li class="flex items-center">
-                  <svg class="w-5 h-5 mr-2 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   15+ years of HVAC experience
                 </li>
                 <li class="flex items-center">
-                  <svg class="w-5 h-5 mr-2 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Licensed & insured technicians
                 </li>
                 <li class="flex items-center">
-                  <svg class="w-5 h-5 mr-2 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   24/7 emergency service
                 </li>
                 <li class="flex items-center">
-                  <svg class="w-5 h-5 mr-2 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Upfront, transparent pricing
                 </li>
                 <li class="flex items-center">
-                  <svg class="w-5 h-5 mr-2 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <svg class="w-5 h-5 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                   </svg>
                   Comprehensive warranties
@@ -120,13 +123,13 @@ const aboutSchema = {
   </section>
 
   <!-- Our Values -->
-  <section class="py-16 lg:py-24 bg-gray-50">
+  <section class="pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28 bg-gray-50">
     <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
           <h2 class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Our Core Values
-          </h2>
+          </h1>
           <p class="text-xl text-gray-700 max-w-3xl mx-auto">
             These principles guide everything we do, from our first phone call to years of ongoing service.
           </p>
@@ -135,7 +138,7 @@ const aboutSchema = {
         <div class="grid md:grid-cols-3 gap-8">
           <div class="text-center">
             <div class="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-10 h-10 mr-2 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-10 h-10 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
             </div>
@@ -147,7 +150,7 @@ const aboutSchema = {
 
           <div class="text-center">
             <div class="w-20 h-20 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-10 h-10 mr-2 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-10 h-10 text-secondary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
               </svg>
             </div>
@@ -159,7 +162,7 @@ const aboutSchema = {
 
           <div class="text-center">
             <div class="w-20 h-20 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-10 h-10 mr-2 text-success-600" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-10 h-10 text-success-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
               </svg>
             </div>
@@ -174,13 +177,13 @@ const aboutSchema = {
   </section>
 
   <!-- Service Areas -->
-  <section class="py-16 lg:py-24 bg-white">
+  <section class="pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28 bg-white">
     <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
           <h2 class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Serving North Texas Communities
-          </h2>
+          </h1>
           <p class="text-xl text-gray-700 max-w-3xl mx-auto">
             We're proud to serve 8 cities across North Texas, bringing reliable HVAC services to your neighborhood.
           </p>
@@ -233,13 +236,13 @@ const aboutSchema = {
   </section>
 
   <!-- Stats -->
-  <section class="py-16 lg:py-24 bg-primary-600 text-white">
+  <section class="pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28 bg-primary-600 text-white">
     <div class="site-container section-padding">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
           <h2 class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold mb-6">
             Trusted by North Texas
-          </h2>
+          </h1>
           <p class="text-xl text-blue-100 max-w-3xl mx-auto">
             Our numbers tell the story of quality service and customer satisfaction across North Texas.
           </p>
@@ -268,20 +271,20 @@ const aboutSchema = {
   </section>
 
   <!-- Contact CTA -->
-  <section class="py-16 lg:py-24 bg-gray-50">
+  <section class="pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28 bg-gray-50">
     <div class="site-container section-padding">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl md:text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
           Experience the Jupitair Difference
-        </h2>
+        </h1>
         <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
           Ready to experience the comfort and peace of mind that comes with professional HVAC service? Contact us today for your free estimate.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
-          <Button href="/contact" variant="primary" size="lg" class="flex-1">
+          <Button href="/contact" variant="primary" size="lg" class="w-full sm:flex-1">
             Get Free Estimate
           </Button>
-          <Button href="tel:(940) 390-5676" variant="outline" size="lg" class="flex-1">
+          <Button href="tel:(940) 390-5676" variant="outline" size="lg" class="w-full sm:flex-1">
             Call (940) 390-5676
           </Button>
         </div>

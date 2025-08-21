@@ -1,0 +1,210 @@
+---
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
+export interface Props {
+  faqs: FAQ[];
+  title?: string;
+  class?: string;
+}
+
+const { faqs, title = "Frequently Asked Questions", class: className = "" } = Astro.props;
+
+// Generate FAQ schema for SEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<style>
+  .faq-accordion {
+    @apply space-y-3;
+  }
+  
+  .faq-item {
+    @apply bg-white border border-gray-200 rounded-lg overflow-hidden transition-all duration-200;
+    @apply hover:border-primary-300 hover:shadow-md;
+  }
+  
+  .faq-item[open] {
+    @apply border-primary-400 shadow-lg;
+  }
+  
+  .faq-question {
+    @apply w-full px-6 py-4 text-left flex items-center justify-between cursor-pointer;
+    @apply text-gray-900 font-semibold text-base sm:text-lg;
+    @apply hover:text-primary-600 transition-colors duration-200;
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
+  }
+  
+  .faq-question::marker,
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+  
+  .faq-icon {
+    @apply flex-shrink-0 w-6 h-6 text-primary-600 transition-transform duration-300;
+  }
+  
+  .faq-item[open] .faq-icon {
+    @apply rotate-45;
+  }
+  
+  .faq-answer {
+    @apply px-6 pb-4 text-gray-700 leading-relaxed;
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Question numbering */
+  .faq-number {
+    @apply inline-flex items-center justify-center w-8 h-8 mr-3;
+    @apply bg-primary-100 text-primary-700 rounded-full;
+    @apply text-sm font-bold flex-shrink-0;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 640px) {
+    .faq-question {
+      @apply px-4 py-3 text-sm;
+    }
+    
+    .faq-answer {
+      @apply px-4 pb-3 text-sm;
+    }
+    
+    .faq-icon {
+      @apply w-5 h-5;
+    }
+    
+    .faq-number {
+      @apply w-6 h-6 text-xs mr-2;
+    }
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .faq-item {
+      @apply border-2;
+    }
+    
+    .faq-item[open] {
+      @apply border-primary-600;
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .faq-answer,
+    .faq-icon {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<!-- FAQ Accordion Component -->
+<section class={`faq-section ${className}`}>
+  <div class="max-w-4xl mx-auto">
+    {title && (
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">
+        {title}
+      </h2>
+    )}
+    
+    <div class="faq-accordion" role="region" aria-label="Frequently asked questions">
+      {faqs.map((faq, index) => (
+        <details class="faq-item group">
+          <summary class="faq-question" role="button" aria-expanded="false">
+            <span class="flex items-center flex-1">
+              <span class="faq-number" aria-hidden="true">
+                {index + 1}
+              </span>
+              <span class="flex-1 pr-4">
+                {faq.question}
+              </span>
+            </span>
+            <svg 
+              class="faq-icon" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                stroke-width="2" 
+                d="M12 6v12M6 12h12"
+              />
+            </svg>
+          </summary>
+          <div class="faq-answer">
+            <p set:html={faq.answer}></p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Schema Markup -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<!-- Enhance keyboard navigation -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const summary = item.querySelector('summary');
+      
+      // Update aria-expanded attribute
+      item.addEventListener('toggle', () => {
+        summary?.setAttribute('aria-expanded', item.hasAttribute('open') ? 'true' : 'false');
+      });
+      
+      // Add keyboard support for Enter and Space
+      summary?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          summary.click();
+        }
+      });
+    });
+    
+    // Optional: Close other accordions when one is opened (uncomment if desired)
+    // faqItems.forEach(item => {
+    //   item.addEventListener('toggle', () => {
+    //     if (item.hasAttribute('open')) {
+    //       faqItems.forEach(otherItem => {
+    //         if (otherItem !== item && otherItem.hasAttribute('open')) {
+    //           otherItem.removeAttribute('open');
+    //         }
+    //       });
+    //     }
+    //   });
+    // });
+  });
+</script>

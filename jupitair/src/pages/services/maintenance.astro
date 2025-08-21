@@ -6,16 +6,53 @@ import PremiumCard from '../../components/ui/PremiumCard.astro';
 import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
 import ContactForm from '../../components/forms/ContactForm.astro';
+import FAQAccordion from '../../components/ui/FAQAccordion.astro';
 
 const pageTitle = "HVAC Maintenance Plans | Preventive Service Programs | Jupitair HVAC";
 const pageDescription = "Protect your HVAC investment with Jupitair's comprehensive maintenance plans. Bi-annual tune-ups, priority service, and extended warranties. Save up to 30% on energy costs.";
+
+const faqs = [
+  {
+    question: "What's included in a maintenance plan?",
+    answer: "Our maintenance plans include bi-annual tune-ups (spring AC and fall heating), priority scheduling, discounts on repairs, extended warranties, and 24/7 emergency service. We also provide filter reminders and system performance reports."
+  },
+  {
+    question: "How often should HVAC systems be serviced?",
+    answer: "HVAC systems should be serviced twice yearly - AC tune-ups in spring before cooling season and heating tune-ups in fall before winter. This schedule maximizes efficiency and prevents breakdowns during peak usage."
+  },
+  {
+    question: "Will maintenance really save me money?",
+    answer: "Yes! Regular maintenance can reduce energy bills by up to 30%, prevent costly emergency repairs, and extend equipment life by 5-10 years. Most customers save more than the plan cost in energy savings alone."
+  },
+  {
+    question: "What happens during a maintenance visit?",
+    answer: "Our 21-point inspection includes cleaning coils, checking refrigerant levels, testing electrical components, calibrating thermostats, lubricating moving parts, checking ductwork, and providing a detailed system report."
+  },
+  {
+    question: "Can I cancel my maintenance plan?",
+    answer: "Yes, our maintenance plans have no long-term contracts. You can cancel anytime with 30 days notice. However, most customers keep their plans because of the value and peace of mind they provide."
+  },
+  {
+    question: "Do maintenance plans cover repairs?",
+    answer: "Maintenance plans include preventive service and discounts on repairs (typically 15-20% off). Major repairs are not included but are less likely to occur with regular maintenance. Some plans include coverage for specific parts."
+  },
+  {
+    question: "What if I need service between maintenance visits?",
+    answer: "Maintenance plan members receive priority scheduling and discounted rates for any service calls between regular maintenance visits. You also get 24/7 emergency support with no overtime charges."
+  },
+  {
+    question: "Is maintenance worth it for new systems?",
+    answer: "Absolutely! In fact, most manufacturer warranties require regular maintenance to remain valid. Starting maintenance from day one ensures maximum efficiency, prevents warranty issues, and extends system life."
+  }
+];
 ---
 
 <BaseLayout
   title={pageTitle}
   description={pageDescription}
   keywords="HVAC maintenance plans, AC tune-up, furnace maintenance, preventive HVAC service, North Texas HVAC maintenance, bi-annual service, priority repairs"
->
+
+  overlayHeader={true}>
   <!-- Hero Section -->
   <PremiumHero 
     title="Professional HVAC Maintenance Plans"
@@ -39,10 +76,10 @@ const pageDescription = "Protect your HVAC investment with Jupitair's comprehens
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
@@ -51,12 +88,12 @@ const pageDescription = "Protect your HVAC investment with Jupitair's comprehens
               Well-maintained systems use significantly less energy, saving you hundreds annually on utility bills.
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
@@ -65,12 +102,12 @@ const pageDescription = "Protect your HVAC investment with Jupitair's comprehens
               Regular maintenance can add 5-10 years to your HVAC system's lifespan, delaying costly replacement.
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
@@ -79,7 +116,7 @@ const pageDescription = "Protect your HVAC investment with Jupitair's comprehens
               Catch small issues before they become major problems. Avoid emergency repairs and inconvenient failures.
             </p>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -94,7 +131,7 @@ const pageDescription = "Protect your HVAC investment with Jupitair's comprehens
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <!-- Basic Plan -->
-        <PremiumCard variant="elevated" padding="lg">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-6">
             <div class="space-y-2">
               <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Essential</h3>
@@ -102,25 +139,25 @@ const pageDescription = "Protect your HVAC investment with Jupitair's comprehens
             </div>
             <ul class="space-y-3 text-left">
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">2 tune-ups per year (Spring & Fall)</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">15% discount on repairs</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">Filter replacement included</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">Priority scheduling</span>
@@ -130,10 +167,10 @@ const pageDescription = "Protect your HVAC investment with Jupitair's comprehens
               Get Started
             </Button>
           </div>
-        </PremiumCard>
+        </Card>
 
         <!-- Premium Plan -->
-        <PremiumCard variant="premium" padding="lg" class="relative">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
             <span class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-bold">
               MOST POPULAR
@@ -146,31 +183,31 @@ const pageDescription = "Protect your HVAC investment with Jupitair's comprehens
             </div>
             <ul class="space-y-3 text-left">
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-white">Everything in Essential, plus:</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-white">20% discount on repairs</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-white">No overtime charges</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-white">Extended parts warranty</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-white">Indoor air quality check</span>
@@ -180,10 +217,10 @@ const pageDescription = "Protect your HVAC investment with Jupitair's comprehens
               Get Started
             </PremiumButton>
           </div>
-        </PremiumCard>
+        </Card>
 
         <!-- Elite Plan -->
-        <PremiumCard variant="elevated" padding="lg">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-6">
             <div class="space-y-2">
               <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Elite</h3>
@@ -191,31 +228,31 @@ const pageDescription = "Protect your HVAC investment with Jupitair's comprehens
             </div>
             <ul class="space-y-3 text-left">
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">Everything in Premium, plus:</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">30% discount on repairs</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">Same-day service guarantee</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">Annual duct cleaning</span>
               </li>
               <li class="flex items-start gap-2">
-                <svg class="w-5 h-5 mr-2 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-5 h-5 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                 </svg>
                 <span class="text-gray-700">Transferable to new owner</span>
@@ -225,7 +262,7 @@ const pageDescription = "Protect your HVAC investment with Jupitair's comprehens
               Get Started
             </Button>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -237,7 +274,7 @@ const pageDescription = "Protect your HVAC investment with Jupitair's comprehens
         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">What's Included in Every Tune-Up</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card variant="default" padding="md">
+          <Card class="overflow-visible"  variant="default" >
             <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4">Spring AC Tune-Up</h3>
             <ul class="space-y-2">
               <li class="flex items-start gap-2">
@@ -271,7 +308,7 @@ const pageDescription = "Protect your HVAC investment with Jupitair's comprehens
             </ul>
           </Card>
 
-          <Card variant="default" padding="md">
+          <Card class="overflow-visible"  variant="default" >
             <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4">Fall Heating Tune-Up</h3>
             <ul class="space-y-2">
               <li class="flex items-start gap-2">
@@ -309,6 +346,13 @@ const pageDescription = "Protect your HVAC investment with Jupitair's comprehens
     </div>
   </section>
 
+  <!-- FAQ Section -->
+  <section class="section-full bg-white">
+    <div class="site-container py-16 sm:py-20 lg:py-24">
+      <FAQAccordion faqs={faqs} title="Maintenance Plan FAQs" />
+    </div>
+  </section>
+
   <!-- CTA Section -->
   <section class="section-full bg-gradient-to-r from-blue-600 to-blue-700">
     <div class="site-container section-padding text-center">
@@ -323,7 +367,7 @@ const pageDescription = "Protect your HVAC investment with Jupitair's comprehens
           Get Your Plan Today
         </PremiumButton>
         <Button href="tel:9403905676" variant="elevated" size="xl">
-          <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
           </svg>
           Call (940) 390-5676

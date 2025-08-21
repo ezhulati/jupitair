@@ -5,14 +5,15 @@ import ServicesOverview from '../components/layout/ServicesOverview.astro';
 import ServiceAreas from '../components/layout/ServiceAreas.astro';
 import WhyChooseUs from '../components/layout/WhyChooseUs.astro';
 import ContactForm from '../components/forms/ContactForm.astro';
-import ReviewsSection from '../components/reviews/ReviewsSection.astro';
+import RealReviews from '../components/reviews/RealReviews.astro';
 import PremiumCard from '../components/ui/PremiumCard.astro';
 import Button from '../components/ui/Button.astro';
 import PhoneLink from '../components/ui/PhoneLink.astro';
 import DynamicSchema from '../components/seo/DynamicSchema.astro';
 
-const pageTitle = "Jupitair HVAC - Premier HVAC Services in North Texas";
+const pageTitle = "Jupitair HVAC - HVAC Services in North Texas";
 const pageDescription = "Professional HVAC services throughout North Texas. AC repair, heating repair, HVAC installation, and emergency service in Frisco, Plano, McKinney, Allen, Prosper, The Colony, Little Elm, and Addison.";
+const ogImageUrl = "https://res.cloudinary.com/dwnmuolg8/image/upload/v1755659373/Jupitair_sh9qeb.jpg";
 
 // Enhanced homepage schema with rich snippets
 const homepageSchema = {
@@ -61,7 +62,7 @@ const homepageSchema = {
       "foundingDate": "2008",
       "slogan": "Your Comfort is Our Priority",
       "priceRange": "$$",
-      "paymentAccepted": ["Cash", "Check", "Credit Card", "Financing Available"],
+      "paymentAccepted": ["Cash", "Check", "Credit Card", "Licensed & Insured"],
       "areaServed": [
         {
           "@type": "City",
@@ -157,13 +158,15 @@ const homepageSchema = {
   description={pageDescription}
   canonical="https://jupitairhvac.com"
   keywords="HVAC North Texas, AC repair Frisco, heating repair Plano, HVAC installation McKinney, emergency HVAC Allen, Prosper HVAC, The Colony heating, Little Elm AC, Addison HVAC contractor"
+  ogImage={ogImageUrl}
+  overlayHeader={true}
 >
   <!-- Dynamic Schema with Reviews -->
   <DynamicSchema type="homepage" />
   
   <!-- Premium Hero Section -->
   <PremiumHero 
-    title="North Texas Premier HVAC Solutions"
+    title="North Texas HVAC Solutions"
     description="Professional heating and cooling services with same-day response. Serving Frisco, Plano, McKinney, and surrounding areas since 2008."
     ctaPrimary={{ text: "Get Free Quote", href: "#contact" }}
     ctaSecondary={{ text: "Call (940) 390-5676", href: "tel:9403905676" }}
@@ -201,9 +204,9 @@ const homepageSchema = {
   <section class="section-full bg-white">
     <div class="site-container section-padding">
       <div class="text-center mb-8 sm:mb-12 animate-on-scroll">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
           Comprehensive HVAC Services
-        </h2>
+        </h1>
         <p class="text-base sm:text-lg lg:text-xl text-gray-700 max-w-3xl mx-auto">
           From emergency repairs to complete system installations, we deliver excellence in every service
         </p>
@@ -214,7 +217,7 @@ const homepageSchema = {
         <div class="bg-white rounded-lg shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow animate-on-scroll">
           <div class="space-y-4">
             <div class="w-14 h-14 bg-primary-100 rounded-lg flex items-center justify-center">
-              <svg class="w-8 h-8 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
               </svg>
             </div>
@@ -224,19 +227,19 @@ const homepageSchema = {
             </p>
             <ul class="space-y-2 text-sm text-gray-600">
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 Same-day service
               </li>
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 All brands serviced
               </li>
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 90-day warranty
@@ -252,7 +255,7 @@ const homepageSchema = {
         <div class="bg-white rounded-lg shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow animate-on-scroll animation-delay-100">
           <div class="space-y-4">
             <div class="w-14 h-14 bg-orange-100 rounded-lg flex items-center justify-center">
-              <svg class="w-8 h-8 mr-2 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
               </svg>
@@ -263,19 +266,19 @@ const homepageSchema = {
             </p>
             <ul class="space-y-2 text-sm text-gray-600">
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 Emergency service
               </li>
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 Gas & electric systems
               </li>
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 Safety inspections
@@ -291,32 +294,32 @@ const homepageSchema = {
         <div class="bg-white rounded-lg shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow animate-on-scroll animation-delay-200">
           <div class="space-y-4">
             <div class="w-14 h-14 bg-success-100 rounded-lg flex items-center justify-center">
-              <svg class="w-8 h-8 mr-2 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">HVAC Installation</h3>
             <p class="text-gray-700">
-              Energy-efficient system installations with financing options available.
+              Energy-efficient system installations with professional service.
             </p>
             <ul class="space-y-2 text-sm text-gray-600">
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 Free estimates
               </li>
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 10-year warranty
               </li>
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
-                Financing available
+                Licensed & insured
               </li>
             </ul>
             <Button href="/services/hvac-installation" variant="primary" class="w-full">
@@ -329,7 +332,7 @@ const homepageSchema = {
         <div class="bg-emergency-50 border-2 border-emergency-200 rounded-lg p-6 hover:shadow-lg transition-shadow animate-on-scroll animation-delay-300">
           <div class="space-y-4">
             <div class="w-14 h-14 bg-emergency-600 rounded-lg flex items-center justify-center animate-pulse">
-              <svg class="w-8 h-8 mr-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
             </div>
@@ -339,19 +342,19 @@ const homepageSchema = {
             </p>
             <ul class="space-y-2 text-sm text-gray-600">
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-emergency-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-emergency-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 2-hour response
               </li>
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-emergency-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-emergency-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 Nights & weekends
               </li>
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-emergency-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-emergency-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 All holidays
@@ -366,7 +369,7 @@ const homepageSchema = {
         <div class="bg-white rounded-lg shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow animate-on-scroll animation-delay-400">
           <div class="space-y-4">
             <div class="w-14 h-14 bg-purple-100 rounded-lg flex items-center justify-center">
-              <svg class="w-8 h-8 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
@@ -376,19 +379,19 @@ const homepageSchema = {
             </p>
             <ul class="space-y-2 text-sm text-gray-600">
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 Bi-annual service
               </li>
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 Priority service
               </li>
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 15% repair discount
@@ -404,7 +407,7 @@ const homepageSchema = {
         <div class="bg-white rounded-lg shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow animate-on-scroll animation-delay-500">
           <div class="space-y-4">
             <div class="w-14 h-14 bg-teal-100 rounded-lg flex items-center justify-center">
-              <svg class="w-8 h-8 mr-2 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
               </svg>
             </div>
@@ -414,19 +417,19 @@ const homepageSchema = {
             </p>
             <ul class="space-y-2 text-sm text-gray-600">
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 Air purification
               </li>
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 Dehumidifiers
               </li>
               <li class="flex items-center gap-2">
-                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-success-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                 </svg>
                 HEPA filtration
@@ -442,11 +445,11 @@ const homepageSchema = {
   </section>
 
   <!-- Reviews Section -->
-  <section class="section-full bg-gray-50">
-    <div class="site-container section-padding">
-      <ReviewsSection limit={6} variant="carousel" />
-    </div>
-  </section>
+  <!-- Customer Reviews - SOCIAL PROOF FOR CONVERSION -->
+  <RealReviews 
+    title="What North Texas Says About Us"
+    maxReviews={9}
+  />
 
   <!-- Service Areas - FIXED COLOR CONTRAST -->
   <section class="section-full bg-primary-900">
@@ -454,8 +457,8 @@ const homepageSchema = {
       <div class="text-center mb-8 sm:mb-12 animate-on-scroll">
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
           Serving North Texas
-        </h2>
-        <p class="text-base sm:text-lg lg:text-xl text-primary-100 max-w-3xl mx-auto">
+        </h1>
+        <p class="text-base sm:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto">
           Professional HVAC services across the Dallas-Fort Worth metroplex with same-day response
         </p>
       </div>
@@ -463,10 +466,11 @@ const homepageSchema = {
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 animate-on-scroll">
         {['Frisco', 'Plano', 'McKinney', 'Allen', 'Prosper', 'The Colony', 'Little Elm', 'Addison'].map((city) => (
           <a href={`/${city.toLowerCase().replace(' ', '-')}`} 
-             class="group bg-white/10 backdrop-blur border border-white/20 rounded-lg p-6 hover:bg-white/20 transition-all duration-200">
+             class="group bg-white/10 backdrop-blur border border-white/20 rounded-lg p-6 hover:bg-white/20 transition-all duration-200"
+             aria-label={`HVAC services in ${city}, Texas`}>
             <div class="text-center">
               <div class="w-12 h-12 mx-auto mb-3 bg-primary-500 rounded-lg flex items-center justify-center">
-                <svg class="w-6 h-6 mr-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
@@ -475,9 +479,9 @@ const homepageSchema = {
               <p class="text-sm text-primary-200">Complete HVAC Services</p>
               
               <div class="mt-3 pt-3 border-t border-white/20">
-                <div class="flex items-center justify-center gap-2 text-primary-100 group-hover:text-white transition-colors">
+                <div class="flex items-center justify-center gap-2 text-white/90 group-hover:text-white transition-colors">
                   <span class="text-sm">View Services</span>
-                  <svg class="w-3 h-3 mr-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
@@ -491,10 +495,10 @@ const homepageSchema = {
       <div class="text-center mt-8 sm:mt-12 animate-on-scroll">
         <div class="bg-white/10 backdrop-blur border border-white/20 rounded-xl p-6 sm:p-8 max-w-2xl mx-auto">
           <h3 class="text-xl sm:text-2xl font-bold text-white mb-3">Not Sure Which Service You Need?</h3>
-          <p class="text-primary-100 mb-6">Our certified technicians provide free consultations and same-day service throughout North Texas.</p>
+          <p class="text-white/90 mb-6">Our certified technicians provide free consultations and same-day service throughout North Texas.</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <PhoneLink variant="secondary" size="lg" context="service-areas" />
-            <Button href="/contact" variant="outline" size="lg" class="!text-white !border-white hover:!bg-white/10">
+            <Button href="/contact" variant="outline" size="lg" class="!text-white !border-white hover:!bg-white hover:!text-blue-600">
               Get Free Quote
             </Button>
           </div>
@@ -516,7 +520,7 @@ const homepageSchema = {
       <div class="text-center mb-8 sm:mb-12 animate-on-scroll">
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
           Get Your Free Quote Today
-        </h2>
+        </h1>
         <p class="text-base sm:text-lg lg:text-xl text-gray-700">
           Professional service starts with a conversation
         </p>
@@ -532,8 +536,8 @@ const homepageSchema = {
       <div class="text-center">
         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
           Ready for Reliable HVAC Service?
-        </h2>
-        <p class="text-base sm:text-lg lg:text-xl text-primary-100 mb-8">
+        </h1>
+        <p class="text-base sm:text-lg lg:text-xl text-white/90 mb-8">
           Join thousands of satisfied customers across North Texas
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">

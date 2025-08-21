@@ -1,0 +1,157 @@
+---
+export interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  priority?: boolean;
+}
+
+const { 
+  src, 
+  alt, 
+  class: className = '',
+  loading = 'lazy',
+  priority = false
+} = Astro.props;
+
+// Cloudinary fetch URL for automatic optimization
+const cloudName = 'dwnmuolg8';
+
+// In dev, we'll just use the local images since Cloudinary can't fetch from localhost
+// In production, Cloudinary will optimize everything
+const isDev = import.meta.env.DEV;
+
+// Build the Cloudinary fetch URL (production) or local URL (dev)
+function getCloudinaryFetchUrl(originalSrc: string, width: number, format: string = 'auto') {
+  // In development, just return the original source
+  if (isDev) {
+    return originalSrc;
+  }
+  
+  // In production, use Cloudinary
+  const baseUrl = 'https://jupitairhvac.com';
+  
+  // Handle both absolute and relative paths
+  const fullUrl = originalSrc.startsWith('http') 
+    ? originalSrc 
+    : `${baseUrl}${originalSrc}`;
+  
+  // Encode the URL for Cloudinary
+  const encodedUrl = encodeURIComponent(fullUrl);
+  
+  // Cloudinary fetch transformation
+  const transformations = [
+    'f_auto', // Auto format (WebP/AVIF)
+    'q_auto:good', // Auto quality
+    `w_${width}`, // Width
+    'c_limit', // Limit to width, maintain aspect ratio
+    'dpr_auto' // Auto DPR for retina displays
+  ].join(',');
+  
+  return `https://res.cloudinary.com/${cloudName}/image/fetch/${transformations}/${encodedUrl}`;
+}
+
+// Generate responsive URLs
+const srcset = isDev 
+  ? undefined // No srcset in dev
+  : [
+      { width: 400, descriptor: '400w' },
+      { width: 800, descriptor: '800w' },
+      { width: 1200, descriptor: '1200w' },
+      { width: 1600, descriptor: '1600w' }
+    ].map(({ width, descriptor }) => 
+      `${getCloudinaryFetchUrl(src, width)} ${descriptor}`
+    ).join(', ');
+
+// Default image URL (1200px wide for blog posts)
+const defaultSrc = getCloudinaryFetchUrl(src, 1200);
+
+// Low quality placeholder for lazy loading
+const placeholderSrc = getCloudinaryFetchUrl(src, 50, 'jpg');
+---
+
+<picture class={`optimized-blog-image-container ${className}`}>
+  <!-- WebP format for modern browsers -->
+  {!isDev && srcset && (
+    <source
+      type="image/webp"
+      srcset={srcset}
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
+    />
+  )}
+  
+  <!-- AVIF format for newest browsers (even better compression) -->
+  {!isDev && (
+    <source
+      type="image/avif"
+      srcset={srcset?.replace(/f_auto/g, 'f_avif')}
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
+    />
+  )}
+  
+  <!-- Fallback image -->
+  <img
+    src={defaultSrc}
+    srcset={srcset}
+    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
+    alt={alt}
+    loading={priority ? 'eager' : loading}
+    decoding={priority ? 'sync' : 'async'}
+    fetchpriority={priority ? 'high' : 'auto'}
+    class={`optimized-blog-image ${className}`}
+    style={`background-image: url(${placeholderSrc}); background-size: cover; background-position: center;`}
+  />
+</picture>
+
+<style>
+  .optimized-blog-image-container {
+    display: block;
+    width: 100%;
+  }
+  
+  .optimized-blog-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Smooth transition when lazy loaded image appears */
+  .optimized-blog-image {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .optimized-blog-image[loading="lazy"] {
+    opacity: 0.99; /* Trigger repaint */
+  }
+  
+  /* Aspect ratio container to prevent layout shift */
+  @supports (aspect-ratio: 1200 / 630) {
+    .optimized-blog-image {
+      aspect-ratio: 1200 / 630;
+      object-fit: cover;
+    }
+  }
+</style>
+
+<script>
+  // Progressive enhancement: Remove background once image loads
+  document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.optimized-blog-image');
+    
+    images.forEach(img => {
+      if (img instanceof HTMLImageElement) {
+        // Check if already loaded
+        if (img.complete && img.naturalHeight !== 0) {
+          img.style.backgroundImage = 'none';
+        } else {
+          // Wait for load
+          img.addEventListener('load', () => {
+            img.style.backgroundImage = 'none';
+          });
+        }
+      }
+    });
+  });
+</script>

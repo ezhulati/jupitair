@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PremiumHero from '../components/layout/PremiumHero.astro';
+import Card from '../components/ui/Card.astro';
 import PremiumCard from '../components/ui/PremiumCard.astro';
+import Button from '../components/ui/Button.astro';
+import Icon from '../components/ui/Icon.astro';
 import { readFileSync } from 'fs';
 import { parse } from 'yaml';
 
@@ -37,164 +41,222 @@ const pageDescription = "Complete sitemap of Jupitair HVAC website. Find all our
   title={pageTitle}
   description={pageDescription}
   canonical="https://jupitairhvac.com/sitemap"
+  overlayHeader={true}
 >
-  <div class="min-h-screen bg-gradient-to-br from-white via-gray-50 to-blue-50">
-    <!-- Header -->
-    <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
-      <div class="site-container section-padding">
-        <h1 class="text-xl sm:text-2xl sm:text-3xl lg:text-4xl sm:text-4xl lg:text-5xl font-bold mb-4">Sitemap</h1>
-        <p class="text-xl text-blue-100">Complete directory of all pages on Jupitair HVAC</p>
-      </div>
-    </div>
+  <!-- Premium Hero Section -->
+  <PremiumHero 
+    title="Sitemap"
+    subtitle="Complete Directory of All Pages"
+    description="Find all our HVAC services, city pages, and resources for North Texas residents."
+    ctaPrimary={{ text: "Back to Home", href: "/" }}
+    ctaSecondary={{ text: "Contact Us", href: "/contact" }}
+    variant="gradient"
+    height="sm"
+  />
 
-    <div class="site-container section-padding py-12">
+  <!-- Sitemap Content -->
+  <section class="pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-24 lg:pb-28 bg-gray-50">
+    <div class="site-container">
       <div class="grid lg:grid-cols-3 gap-8">
         
         <!-- Main Pages -->
-        <PremiumCard variant="elevated" padding="lg">
-          <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">Main Pages</h2>
+        <Card variant="elevated" >
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
+              <Icon name="home" class="w-5 h-5 text-primary-600" />
+            </div>
+            <h2 class="text-xl font-bold text-gray-900">Main Pages</h2>
+          </div>
+          
           <ul class="space-y-3">
             <li>
-              <a href="/" class="text-blue-600 hover:text-blue-800 hover:underline font-medium">
-                Homepage
+              <a href="/" class="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+                <span class="font-medium">Homepage</span>
               </a>
             </li>
             <li>
-              <a href="/about" class="text-blue-600 hover:text-blue-800 hover:underline">
+              <a href="/about" class="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
                 About Us
               </a>
             </li>
             <li>
-              <a href="/services" class="text-blue-600 hover:text-blue-800 hover:underline">
+              <a href="/services" class="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
                 All Services
               </a>
             </li>
             <li>
-              <a href="/contact" class="text-blue-600 hover:text-blue-800 hover:underline">
+              <a href="/commercial" class="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+                Commercial HVAC
+              </a>
+            </li>
+            <li>
+              <a href="/contact" class="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
                 Contact Us
               </a>
             </li>
             <li>
-              <a href="/contact" class="text-blue-600 hover:text-blue-800 hover:underline">
-                Get Quote
-              </a>
-            </li>
-            <li>
-              <a href="/privacy" class="text-blue-600 hover:text-blue-800 hover:underline text-sm">
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a href="/terms" class="text-blue-600 hover:text-blue-800 hover:underline text-sm">
-                Terms of Service
+              <a href="/blog" class="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+                Blog
               </a>
             </li>
           </ul>
-        </PremiumCard>
-
-        <!-- Service Pages -->
-        <PremiumCard variant="elevated" padding="lg" class="lg:col-span-2">
-          <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">Service Pages</h2>
-          <div class="grid md:grid-cols-2 gap-6">
-            {Object.entries(servicesByCategory).map(([category, categoryServices]) => (
-              <div>
-                <h3 class="font-semibold text-gray-700 mb-3 text-sm uppercase tracking-wide">
-                  {categoryNames[category]}
-                </h3>
-                <ul class="space-y-2">
-                  {(categoryServices as any[]).map((service) => (
-                    <li>
-                      <a 
-                        href={`/services/${service.slug}`}
-                        class="text-blue-600 hover:text-blue-800 hover:underline text-sm"
-                      >
-                        {service.name}
-                        {service.emergency && (
-                          <span class="ml-2 text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded-full">
-                            24/7
-                          </span>
-                        )}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          
+          <div class="mt-8 pt-6 border-t border-gray-200">
+            <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Legal</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="/privacy" class="text-sm text-gray-600 hover:text-primary-600">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="/terms" class="text-sm text-gray-600 hover:text-primary-600">Terms of Service</a>
+              </li>
+            </ul>
           </div>
-        </PremiumCard>
-
-        <!-- City Pages -->
-        <PremiumCard variant="elevated" padding="lg">
-          <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">Service Areas</h2>
+        </Card>
+        
+        <!-- Service Areas -->
+        <Card variant="elevated" >
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+              <Icon name="location" class="w-5 h-5 text-green-600" />
+            </div>
+            <h2 class="text-xl font-bold text-gray-900">Service Areas</h2>
+          </div>
+          
           <ul class="space-y-3">
             {cities.map((city: any) => (
               <li>
-                <a 
-                  href={`/${city.slug}`}
-                  class="text-blue-600 hover:text-blue-800 hover:underline"
-                >
-                  {city.name}, TX
+                <a href={`/${city.slug}`} class="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                  <span>{city.name}, TX</span>
                 </a>
-                <span class="text-gray-500 text-sm ml-2">
-                  Pop. {city.population.toLocaleString()}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </PremiumCard>
-
-        <!-- City + Service Combinations -->
-        <PremiumCard variant="elevated" padding="lg" class="lg:col-span-2">
-          <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-3">Services by City</h2>
-          <div class="text-sm text-gray-600 mb-4">
-            We offer all our services in every city we serve. Here are quick links to our most popular service + city combinations:
-          </div>
-          <div class="grid md:grid-cols-2 gap-6">
-            {cities.slice(0, 4).map((city: any) => (
-              <div>
-                <h3 class="font-semibold text-gray-700 mb-3">
-                  {city.name}
-                </h3>
-                <ul class="space-y-1">
-                  {services.slice(0, 6).map((service: any) => (
+                
+                <!-- City Service Pages -->
+                <ul class="ml-6 mt-2 space-y-1">
+                  {services.slice(0, 3).map((service: any) => (
                     <li>
-                      <a 
-                        href={`/${city.slug}/${service.slug}`}
-                        class="text-blue-600 hover:text-blue-800 hover:underline text-sm"
-                      >
-                        {service.name}
+                      <a href={`/${city.slug}/${service.slug}`} class="text-sm text-gray-500 hover:text-primary-600">
+                        {service.title} in {city.name}
                       </a>
                     </li>
                   ))}
+                  <li>
+                    <a href={`/${city.slug}`} class="text-sm text-primary-600 hover:underline">
+                      View all services →
+                    </a>
+                  </li>
                 </ul>
-              </div>
+              </li>
             ))}
+          </ul>
+        </Card>
+        
+        <!-- Services by Category -->
+        <Card variant="elevated" >
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+              <Icon name="tools" class="w-5 h-5 text-blue-600" />
+            </div>
+            <h2 class="text-xl font-bold text-gray-900">All Services</h2>
           </div>
-        </PremiumCard>
-
+          
+          {Object.entries(servicesByCategory).map(([category, categoryServices]: [string, any]) => (
+            <div class="mb-6">
+              <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                {categoryNames[category]}
+              </h3>
+              <ul class="space-y-2">
+                {categoryServices.map((service: any) => (
+                  <li>
+                    <a href={`/services/${service.slug}`} class="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors">
+                      <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 1.414L10.586 9.5H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd"/>
+                      </svg>
+                      <span class="text-sm">{service.title}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </Card>
       </div>
-
-      <!-- SEO Footer -->
-      <div class="mt-12 text-center">
-        <PremiumCard variant="elevated" padding="md">
-          <p class="text-gray-600 mb-4">
-            This sitemap helps both users and search engines navigate our website efficiently.
-          </p>
-          <div class="flex flex-wrap justify-center gap-4 text-sm">
-            <a href="/sitemap.xml" class="text-blue-600 hover:text-blue-800 hover:underline">
-              XML Sitemap (for search engines)
-            </a>
-            <span class="text-gray-400">•</span>
-            <a href="/robots.txt" class="text-blue-600 hover:text-blue-800 hover:underline">
-              Robots.txt
-            </a>
-            <span class="text-gray-400">•</span>
-            <span class="text-gray-600">
-              Last Updated: {new Date().toLocaleDateString()}
-            </span>
+      
+      <!-- Commercial Services -->
+      <div class="mt-8">
+        <Card variant="outline"  class="border-gray-200 bg-white">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
+              <Icon name="building" class="w-5 h-5 text-orange-600" />
+            </div>
+            <h2 class="text-xl font-bold text-gray-900">Commercial Services</h2>
           </div>
-        </PremiumCard>
+          
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <a href="/commercial/office-hvac" class="group">
+              <Card variant="outline"  class="h-full hover:shadow-lg transition-shadow">
+                <h3 class="font-semibold text-gray-900 group-hover:text-primary-600 mb-2">Office HVAC</h3>
+                <p class="text-sm text-gray-600">Climate control for office buildings</p>
+              </Card>
+            </a>
+            <a href="/commercial/retail-hvac" class="group">
+              <Card variant="outline"  class="h-full hover:shadow-lg transition-shadow">
+                <h3 class="font-semibold text-gray-900 group-hover:text-primary-600 mb-2">Retail HVAC</h3>
+                <p class="text-sm text-gray-600">Comfort solutions for retail spaces</p>
+              </Card>
+            </a>
+            <a href="/commercial/restaurant-hvac" class="group">
+              <Card variant="outline"  class="h-full hover:shadow-lg transition-shadow">
+                <h3 class="font-semibold text-gray-900 group-hover:text-primary-600 mb-2">Restaurant HVAC</h3>
+                <p class="text-sm text-gray-600">Kitchen ventilation & dining comfort</p>
+              </Card>
+            </a>
+            <a href="/commercial/preventive-maintenance" class="group">
+              <Card variant="outline"  class="h-full hover:shadow-lg transition-shadow">
+                <h3 class="font-semibold text-gray-900 group-hover:text-primary-600 mb-2">Maintenance Plans</h3>
+                <p class="text-sm text-gray-600">Preventive care for businesses</p>
+              </Card>
+            </a>
+          </div>
+        </Card>
+      </div>
+      
+      <!-- Quick Actions -->
+      <div class="mt-12 text-center">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Need Help Finding Something?</h2>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button href="/contact" variant="primary" size="lg">
+            Contact Support
+          </Button>
+          <Button href="tel:9403905676" variant="outline" size="lg">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            Call (940) 390-5676
+          </Button>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>

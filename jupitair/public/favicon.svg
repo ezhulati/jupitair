@@ -1,69 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <defs>
-    <!-- Light mode gradient -->
-    <linearGradient id="light-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0066CC;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#004499;stop-opacity:1" />
-    </linearGradient>
-    
-    <!-- Dark mode gradient -->
-    <linearGradient id="dark-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#66B2FF;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3399FF;stop-opacity:1" />
-    </linearGradient>
-    
-    <!-- Drop shadow filter -->
-    <filter id="drop-shadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="rgba(0,0,0,0.3)"/>
-    </filter>
-  </defs>
+
+    <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background Circle (subtle, transparent) -->
+      <circle cx="256" cy="256" r="240" fill="rgba(37, 99, 235, 0.05)" stroke="none"/>
+      
+      <!-- Main "J" Letter with gradient -->
+      <defs>
+        <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#2563EB;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#D97706;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      
+      <!-- Bold "J" shape -->
+      <path d="M 320 120 L 320 300 Q 320 380 256 380 Q 192 380 192 300 L 192 280 L 240 280 L 240 300 Q 240 340 256 340 Q 272 340 272 300 L 272 120 Z" 
+            fill="url(#blueGradient)" />
+      
+      <!-- HVAC element - stylized airflow lines -->
+      <path d="M 140 180 Q 160 170 180 180" stroke="#3B82F6" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.6"/>
+      <path d="M 140 200 Q 160 190 180 200" stroke="#3B82F6" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.5"/>
+      <path d="M 140 220 Q 160 210 180 220" stroke="#3B82F6" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.4"/>
+      
+      <path d="M 332 180 Q 352 170 372 180" stroke="#3B82F6" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.6"/>
+      <path d="M 332 200 Q 352 190 372 200" stroke="#3B82F6" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.5"/>
+      <path d="M 332 220 Q 352 210 372 220" stroke="#3B82F6" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.4"/>
+      
+      <!-- Accent dot (represents excellence/premium) -->
+      <circle cx="296" cy="120" r="20" fill="url(#accentGradient)"/>
+      
+      <!-- Subtle shadow for depth -->
+      <ellipse cx="256" cy="450" rx="80" ry="20" fill="rgba(0,0,0,0.1)"/>
+    </svg>
   
-  <!-- Background circle -->
-  <circle cx="50" cy="50" r="48" fill="url(#light-gradient)" stroke="none" />
-  
-  <!-- HVAC unit representation -->
-  <!-- Main unit body -->
-  <rect x="25" y="30" width="50" height="40" rx="4" fill="white" opacity="0.95" />
-  
-  <!-- Ventilation grilles -->
-  <rect x="30" y="35" width="40" height="2" fill="url(#light-gradient)" opacity="0.8" />
-  <rect x="30" y="40" width="40" height="2" fill="url(#light-gradient)" opacity="0.8" />
-  <rect x="30" y="45" width="40" height="2" fill="url(#light-gradient)" opacity="0.8" />
-  
-  <!-- Fan representation -->
-  <circle cx="50" cy="57" r="8" fill="none" stroke="url(#light-gradient)" stroke-width="2" opacity="0.9" />
-  <circle cx="50" cy="57" r="3" fill="url(#light-gradient)" opacity="0.9" />
-  
-  <!-- Temperature control indicator -->
-  <circle cx="60" cy="40" r="4" fill="#FF6B35" opacity="0.9" />
-  <circle cx="60" cy="40" r="2" fill="white" />
-  
-  <!-- Cooling waves -->
-  <path d="M 15 20 Q 20 15 25 20" stroke="#00C9FF" stroke-width="2" fill="none" opacity="0.7" />
-  <path d="M 75 20 Q 80 15 85 20" stroke="#00C9FF" stroke-width="2" fill="none" opacity="0.7" />
-  
-  <!-- Heating waves -->
-  <path d="M 15 80 Q 20 85 25 80" stroke="#FF6B35" stroke-width="2" fill="none" opacity="0.7" />
-  <path d="M 75 80 Q 80 85 85 80" stroke="#FF6B35" stroke-width="2" fill="none" opacity="0.7" />
-  
-  <!-- Dark mode styles -->
-  <style>
-    @media (prefers-color-scheme: dark) {
-      circle:first-of-type {
-        fill: url(#dark-gradient);
-      }
-      rect {
-        fill: rgba(255,255,255,0.9);
-      }
-      rect:nth-of-type(2), rect:nth-of-type(3), rect:nth-of-type(4) {
-        fill: url(#dark-gradient);
-      }
-      circle:nth-of-type(2) {
-        stroke: url(#dark-gradient);
-      }
-      circle:nth-of-type(3) {
-        fill: url(#dark-gradient);
-      }
-    }
-  </style>
-</svg>

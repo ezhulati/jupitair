@@ -1,0 +1,11 @@
+# 301 Permanent Redirects
+/calendar           /contact            301
+/contact-us         /contact            301
+/why-choose-us      /                  301
+/the-team           /about              301
+
+# Handle trailing slashes
+/calendar/          /contact            301
+/contact-us/        /contact            301
+/why-choose-us/     /                  301
+/the-team/          /about              301

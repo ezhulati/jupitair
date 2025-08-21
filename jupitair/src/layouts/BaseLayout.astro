@@ -9,6 +9,7 @@ export interface Props {
   ogImage?: string;
   city?: string;
   service?: string;
+  overlayHeader?: boolean;
 }
 
 const {
@@ -20,13 +21,15 @@ const {
   schema,
   ogImage,
   city,
-  service
+  service,
+  overlayHeader = false
 } = Astro.props;
 
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import MicrosoftClarity from '../components/MicrosoftClarity.astro';
+import criticalCSS from '../styles/critical.css?raw';
 import '../styles/global.css';
 import '../styles/tokens.css';
 import '../styles/design-system.css';
@@ -159,9 +162,18 @@ const finalSchema = schema ? { ...baseSchema, ...schema } : baseSchema;
     <meta name="keywords" content={keywords} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
     <meta name="theme-color" content="#2563eb" />
+    <!-- Favicons for all platforms -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="128x128" href="/favicon-128x128.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#2563eb" />
     <meta name="generator" content={Astro.generator} />
     
     <!-- SEO Meta Tags -->
@@ -177,7 +189,7 @@ const finalSchema = schema ? { ...baseSchema, ...schema } : baseSchema;
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Jupitair HVAC" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:image" content={ogImage ? `https://jupitairhvac.com${ogImage}` : `https://jupitairhvac.com/og-images/${city ? city.toLowerCase().replace(' ', '-') : service ? `services-${service}` : 'default'}.jpg`} />
+    <meta property="og:image" content={ogImage ? (ogImage.startsWith('http') ? ogImage : `https://jupitairhvac.com${ogImage}`) : `https://jupitairhvac.com/og-images/${city && service ? `${city.toLowerCase().replace(' ', '-')}-${service}` : city ? city.toLowerCase().replace(' ', '-') : service ? `services-${service}` : canonical ? canonical.replace('https://jupitairhvac.com/', '').replace(/\//g, '-') || 'default' : 'default'}.jpg`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={title} />
@@ -187,16 +199,23 @@ const finalSchema = schema ? { ...baseSchema, ...schema } : baseSchema;
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage ? `https://jupitairhvac.com${ogImage}` : `https://jupitairhvac.com/og-images/${city ? city.toLowerCase().replace(' ', '-') : service ? `services-${service}` : 'default'}.jpg`} />
+    <meta name="twitter:image" content={ogImage ? (ogImage.startsWith('http') ? ogImage : `https://jupitairhvac.com${ogImage}`) : `https://jupitairhvac.com/og-images/${city && service ? `${city.toLowerCase().replace(' ', '-')}-${service}` : city ? city.toLowerCase().replace(' ', '-') : service ? `services-${service}` : canonical ? canonical.replace('https://jupitairhvac.com/', '').replace(/\//g, '-') || 'default' : 'default'}.jpg`} />
     <meta name="twitter:image:alt" content={title} />
     
     <!-- Structured Data Schema -->
     <script type="application/ld+json" set:html={JSON.stringify(finalSchema)} />
     
-    <!-- Fonts -->
+    <!-- Critical CSS inline for instant render -->
+    <style set:html={criticalCSS} />
+    
+    <!-- Fonts - Optimized loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    </noscript>
     
     <!-- Analytics -->
     <!-- Google Analytics -->
@@ -210,7 +229,7 @@ const finalSchema = schema ? { ...baseSchema, ...schema } : baseSchema;
       Skip to main content
     </a>
     
-    <Header />
+    <Header overlay={overlayHeader} />
     
     <!-- Main content - padding handled by contained-design.css -->
     <main id="main-content" class="header-offset">

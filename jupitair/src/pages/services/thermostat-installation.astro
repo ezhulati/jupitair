@@ -7,6 +7,7 @@ import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
 import ContactForm from '../../components/forms/ContactForm.astro';
 import Badge from '../../components/ui/Badge.astro';
+import FAQAccordion from '../../components/ui/FAQAccordion.astro';
 
 const pageTitle = "Smart Thermostat Installation | Programmable Thermostats | Jupitair HVAC";
 const pageDescription = "Professional smart thermostat installation in North Texas. WiFi thermostats, programmable thermostats, and energy-saving controls. Expert installation and setup.";
@@ -16,7 +17,8 @@ const pageDescription = "Professional smart thermostat installation in North Tex
   title={pageTitle}
   description={pageDescription}
   keywords="smart thermostat installation, programmable thermostat, WiFi thermostat, North Texas thermostat install, energy saving thermostat, thermostat upgrade"
->
+
+  overlayHeader={true}>
   <PremiumHero 
     title="Smart Thermostat Installation"
     subtitle="Upgrade Your Comfort Control"
@@ -38,10 +40,10 @@ const pageDescription = "Professional smart thermostat installation in North Tex
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
@@ -50,12 +52,12 @@ const pageDescription = "Professional smart thermostat installation in North Tex
               Save 10-23% on heating and cooling costs with smart scheduling
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
               </svg>
             </div>
@@ -64,12 +66,12 @@ const pageDescription = "Professional smart thermostat installation in North Tex
               Control your home's temperature from anywhere using your smartphone
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
             </div>
@@ -78,12 +80,12 @@ const pageDescription = "Professional smart thermostat installation in North Tex
               Advanced models learn your schedule and preferences automatically
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
             </div>
@@ -92,12 +94,12 @@ const pageDescription = "Professional smart thermostat installation in North Tex
               Track energy usage and receive tips for optimizing efficiency
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-emergency-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-emergency-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-emergency-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
@@ -106,12 +108,12 @@ const pageDescription = "Professional smart thermostat installation in North Tex
               Receive notifications about filter changes and system maintenance
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
             </div>
@@ -120,7 +122,7 @@ const pageDescription = "Professional smart thermostat installation in North Tex
               Compatible with Alexa, Google Home, and other smart home systems
             </p>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -134,10 +136,10 @@ const pageDescription = "Professional smart thermostat installation in North Tex
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <PremiumCard variant="elevated" padding="lg">
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="space-y-4">
             <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
               </svg>
             </div>
@@ -165,25 +167,25 @@ const pageDescription = "Professional smart thermostat installation in North Tex
                 <span>Energy usage tracking</span>
               </li>
             </ul>
-            <div class="text-center pt-4">
+            <div class="text-center pt-6">
               <p class="text-xl sm:text-2xl font-bold text-primary-600">$80-150</p>
               <p class="text-sm text-gray-600">+ Installation</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="premium" padding="lg" class="relative">
-          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+        <Card variant="outline" class="border-gray-200 bg-white relative">
+          <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
             <Badge variant="primary" size="lg">Most Popular</Badge>
           </div>
-          <div class="space-y-4 pt-4">
+          <div class="space-y-4 pt-6">
             <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
               </svg>
             </div>
-            <h3 class="text-xl sm:text-2xl font-bold text-white text-center">Smart WiFi Thermostats</h3>
-            <p class="text-white text-center mb-4">Connected thermostats with smartphone control</p>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 text-center">Smart WiFi Thermostats</h3>
+            <p class="text-gray-700 text-center mb-4">Connected thermostats with smartphone control</p>
             <ul class="space-y-2 text-sm">
               <li class="flex items-start gap-2">
                 <span class="text-success-600 mt-1">•</span>
@@ -206,17 +208,17 @@ const pageDescription = "Professional smart thermostat installation in North Tex
                 <span>Voice control compatible</span>
               </li>
             </ul>
-            <div class="text-center pt-4">
+            <div class="text-center pt-6">
               <p class="text-xl sm:text-2xl font-bold text-green-600">$150-300</p>
               <p class="text-sm text-gray-200">+ Installation</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="lg">
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="space-y-4">
             <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
             </div>
@@ -244,12 +246,12 @@ const pageDescription = "Professional smart thermostat installation in North Tex
                 <span>Premium app features</span>
               </li>
             </ul>
-            <div class="text-center pt-4">
+            <div class="text-center pt-6">
               <p class="text-xl sm:text-2xl font-bold text-purple-600">$250-400</p>
               <p class="text-sm text-gray-600">+ Installation</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -263,7 +265,7 @@ const pageDescription = "Professional smart thermostat installation in North Tex
       </div>
 
       <div class="max-w-4xl mx-auto space-y-6">
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               1
@@ -273,9 +275,9 @@ const pageDescription = "Professional smart thermostat installation in North Tex
               <p class="text-gray-700">Assess your current HVAC system and wiring to ensure proper thermostat compatibility and operation.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               2
@@ -285,9 +287,9 @@ const pageDescription = "Professional smart thermostat installation in North Tex
               <p class="text-gray-700">Carefully remove old thermostat, update wiring if needed, and prepare for new thermostat installation.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               3
@@ -297,9 +299,9 @@ const pageDescription = "Professional smart thermostat installation in North Tex
               <p class="text-gray-700">Mount and connect new thermostat following manufacturer specifications and safety protocols.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               4
@@ -309,9 +311,9 @@ const pageDescription = "Professional smart thermostat installation in North Tex
               <p class="text-gray-700">Configure thermostat settings, test all functions, and ensure proper communication with HVAC system.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline" class="border-gray-200 bg-white relative">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               5
@@ -321,7 +323,7 @@ const pageDescription = "Professional smart thermostat installation in North Tex
               <p class="text-gray-700">Complete WiFi setup, app installation, schedule programming, and provide comprehensive operation training.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -335,7 +337,7 @@ const pageDescription = "Professional smart thermostat installation in North Tex
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-        <Card variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-4">
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Nest</h3>
             <p class="text-gray-700">Google's learning thermostat with advanced AI and sleek design</p>
@@ -356,7 +358,7 @@ const pageDescription = "Professional smart thermostat installation in North Tex
           </div>
         </Card>
 
-        <Card variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-4">
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Ecobee</h3>
             <p class="text-gray-700">Smart thermostats with room sensors and voice control</p>
@@ -377,7 +379,7 @@ const pageDescription = "Professional smart thermostat installation in North Tex
           </div>
         </Card>
 
-        <Card variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-4">
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Honeywell</h3>
             <p class="text-gray-700">Reliable programmable and smart thermostats for every budget</p>
@@ -403,40 +405,36 @@ const pageDescription = "Professional smart thermostat installation in North Tex
 
   <!-- FAQ Section -->
   <section class="section-full bg-white">
-    <div class="site-container section-padding">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
-        
-        <div class="space-y-6">
-          <Card variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Can I install a smart thermostat myself?</h3>
-            <p class="text-gray-700">
-              While some thermostats are marketed as DIY-friendly, professional installation ensures proper wiring, configuration, and prevents damage to your HVAC system. We also handle WiFi setup and full configuration.
-            </p>
-          </Card>
-
-          <Card variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Will a smart thermostat work with my old HVAC system?</h3>
-            <p class="text-gray-700">
-              Most modern thermostats are compatible with older systems, but compatibility depends on your specific wiring and equipment. We'll assess your system and recommend the best options during our consultation.
-            </p>
-          </Card>
-
-          <Card variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">How much money can I save with a smart thermostat?</h3>
-            <p class="text-gray-700">
-              EPA studies show smart thermostats can save 10-23% on heating and cooling costs. For an average North Texas home, this translates to $130-$180 in annual savings.
-            </p>
-          </Card>
-
-          <Card variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Do you provide warranty on thermostat installation?</h3>
-            <p class="text-gray-700">
-              Yes, we provide a 1-year warranty on installation labor, and all thermostats come with manufacturer warranties ranging from 1-5 years depending on the model.
-            </p>
-          </Card>
-        </div>
-      </div>
+    <div class="site-container py-16 sm:py-20 lg:py-24">
+      <FAQAccordion 
+        faqs={[
+          {
+            question: "Can I install a smart thermostat myself?",
+            answer: "While some thermostats are marketed as DIY-friendly, professional installation ensures proper wiring, configuration, and prevents damage to your HVAC system. We also handle WiFi setup and full configuration."
+          },
+          {
+            question: "Will a smart thermostat work with my old HVAC system?",
+            answer: "Most modern thermostats are compatible with older systems, but compatibility depends on your specific wiring and equipment. We'll assess your system and recommend the best options during our consultation."
+          },
+          {
+            question: "How much money can I save with a smart thermostat?",
+            answer: "EPA studies show smart thermostats can save 10-23% on heating and cooling costs. For an average North Texas home, this translates to <strong>$130-$180 in annual savings</strong>."
+          },
+          {
+            question: "Do you provide warranty on thermostat installation?",
+            answer: "Yes, we provide a <strong>1-year warranty</strong> on installation labor, and all thermostats come with manufacturer warranties ranging from 1-5 years depending on the model."
+          },
+          {
+            question: "Can smart thermostats be controlled remotely?",
+            answer: "Yes! Smart thermostats connect to your home WiFi, allowing you to control temperature, set schedules, and monitor energy usage from anywhere using your smartphone app."
+          },
+          {
+            question: "How long does thermostat installation take?",
+            answer: "Most thermostat installations take 1-2 hours, including setup, configuration, WiFi connection, and showing you how to use all the features."
+          }
+        ]}
+        title="Frequently Asked Questions About Thermostat Installation"
+      />
     </div>
   </section>
 

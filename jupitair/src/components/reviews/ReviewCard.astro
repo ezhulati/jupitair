@@ -42,7 +42,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
           <h4 class="font-semibold text-gray-900">{author}</h4>
           {verified && (
             <span class="min-w-0 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
-              <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+              <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               Verified
@@ -76,7 +76,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
       <div class="min-w-0 flex items-center gap-4 mt-4 pt-4 border-t border-gray-100">
         {service && (
           <div class="min-w-0 flex items-center text-sm text-gray-500">
-            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
             </svg>
             {service}
@@ -84,7 +84,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
         )}
         {city && (
           <div class="min-w-0 flex items-center text-sm text-gray-500">
-            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
             </svg>
             {city}, TX
@@ -105,7 +105,7 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
         source === 'yelp' ? 'text-red-700' : 
         'text-primary-700'
       }`}>
-        <svg class="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 20 20">
+        <svg class="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
         </svg>
         {source === 'facebook' ? 'Facebook' : source === 'yelp' ? 'Yelp' : 'Google'} Verified Review
@@ -121,11 +121,11 @@ const formattedDate = new Date(date).toLocaleDateString('en-US', {
         'bg-red-100 text-red-800'
       }`}>
         {source === 'facebook' ? (
-          <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+          <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
           </svg>
         ) : (
-          <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+          <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/>
           </svg>
         )}

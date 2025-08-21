@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import emergency button fix - CRITICAL */
+@import './emergency-button-fix.css';
+
 /* Base styling for better defaults and accessibility */
 @layer base {
   html {
@@ -93,6 +96,27 @@
   *:focus-visible {
     outline: 2px solid theme('colors.primary.500');
     outline-offset: 2px;
+  }
+  
+  /* CRITICAL: ABSOLUTELY NO SCROLLBARS ON ANY CARDS - EVER! */
+  .premium-card,
+  [class*="card"],
+  [class*="Card"],
+  .overflow-visible {
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    max-height: none !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+  
+  /* Force all card children to also never scroll */
+  .premium-card *,
+  [class*="card"] *,
+  [class*="Card"] * {
+    max-height: none !important;
+    overflow: visible !important;
   }
 
   /* Ensure proper link styling */

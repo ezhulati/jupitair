@@ -31,6 +31,9 @@ const {
   emergency = false
 } = Astro.props;
 
+// Force no icon for emergency buttons
+const displayIcon = emergency ? false : showIcon;
+
 const phoneNumber = getPhoneNumber(source);
 const displayNumber = BUSINESS_CONFIG.phone.display;
 
@@ -48,8 +51,8 @@ const phoneIcon = `<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 
     class={`inline-flex items-center gap-2 text-current hover:underline ${className}`}
     aria-label={`Call ${displayNumber}`}
   >
-    {showIcon && (
-      <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+    {displayIcon && (
+      <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
         <Fragment set:html={phoneIcon} />
       </svg>
     )}
@@ -64,7 +67,7 @@ const phoneIcon = `<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 
       class="sm:hidden w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-emergency-600 hover:bg-emergency-700 text-white font-bold text-lg rounded-lg shadow-lg transition-all hover:scale-105"
       aria-label="Call now"
     >
-      <svg class="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+      <svg class="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
         <Fragment set:html={phoneIcon} />
       </svg>
       <span>Call Now</span>
@@ -73,7 +76,7 @@ const phoneIcon = `<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 
     <!-- Desktop: Show number with icon -->
     <div class="hidden sm:flex items-center gap-3 text-current">
       <div class="p-3 bg-white/10 rounded-full">
-        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
           <Fragment set:html={phoneIcon} />
         </svg>
       </div>
@@ -98,9 +101,9 @@ const phoneIcon = `<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 
     aria-label={`Call ${displayNumber}`}
   >
     <span class="whitespace-nowrap hidden sm:inline">Call {displayNumber}</span>
-    <span class="whitespace-nowrap sm:hidden flex items-center gap-2">
-      {showIcon && (
-        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+    <span class="whitespace-nowrap sm:hidden flex items-center justify-center gap-2">
+      {displayIcon && (
+        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
           <Fragment set:html={phoneIcon} />
         </svg>
       )}
@@ -118,16 +121,21 @@ const phoneIcon = `<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 
   >
     {alwaysShowNumber ? (
       <span class="whitespace-nowrap">{displayNumber}</span>
+    ) : emergency ? (
+      <>
+        <span class="whitespace-nowrap hidden sm:inline">Emergency: {displayNumber}</span>
+        <span class="whitespace-nowrap sm:hidden">Emergency</span>
+      </>
     ) : (
       <>
         <span class="whitespace-nowrap hidden sm:inline">Call {displayNumber}</span>
-        <span class="whitespace-nowrap sm:hidden flex items-center gap-2">
-          {showIcon && (
-            <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <span class="whitespace-nowrap sm:hidden flex items-center justify-center gap-2">
+          {displayIcon && (
+            <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
               <Fragment set:html={phoneIcon} />
             </svg>
           )}
-          Call Now
+          <span>Call Now</span>
         </span>
       </>
     )}

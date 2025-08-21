@@ -5,6 +5,7 @@ import ContactForm from '../components/forms/ContactForm.astro';
 import Card from '../components/ui/Card.astro';
 import PremiumCard from '../components/ui/PremiumCard.astro';
 import Button from '../components/ui/Button.astro';
+import RealReviews from '../components/reviews/RealReviews.astro';
 
 const pageTitle = 'Contact Us | Jupitair HVAC - Get Your Free Estimate';
 const pageDescription = 'Contact Jupitair HVAC for all your heating and cooling needs in North Texas. Available 24/7 for emergency service. Call (940) 390-5676 or fill out our form for a free estimate.';
@@ -56,7 +57,8 @@ const contactSchema = {
  canonical="https://jupitairhvac.com/contact"
  keywords="contact HVAC North Texas, HVAC estimate Frisco, emergency AC repair, heating service Plano"
  schema={contactSchema}
->
+ ogImage="/og-images/contact.jpg"
+ overlayHeader={true}>
  <!-- Premium Hero Section -->
  <PremiumHero 
  title="Get Your Free HVAC Estimate"
@@ -69,15 +71,15 @@ const contactSchema = {
  />
  
  <div class="min-h-screen bg-gray-50 overflow-x-hidden">
- <div class="site-container px-4 sm:px-6 lg:px-8 max-w-6xl py-8 sm:py-12 lg:py-16">
+ <div class="site-container px-4 sm:px-6 lg:px-8 max-w-6xl py-16 sm:py-20 lg:py-24">
 
  <div class="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-8 sm:mb-12">
  
  <!-- Contact Form -->
- <div>
- <Card variant="elevated" padding="lg" class="h-full">
+ <div id="contact-form">
+ <Card class="overflow-visible"  variant="elevated"  class="h-full">
  <div class="text-center mb-8">
- <h2 class="text-xl sm:text-2xl sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Request Service</h2>
+ <h1 class="text-xl sm:text-2xl sm:text-xl sm:text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Request Service</h1>
  <p class="text-gray-600">Professional HVAC service starts here</p>
  </div>
  <ContactForm formId="contact-page-form" />
@@ -88,7 +90,7 @@ const contactSchema = {
  <div class="space-y-4 sm:space-y-6">
  
  <!-- Emergency CTA -->
- <Card variant="elevated" class="bg-gradient-to-br from-emergency-50 to-emergency-100 border-2 border-emergency-200">
+ <Card class="overflow-visible"  variant="elevated" class="bg-gradient-to-br from-emergency-50 to-emergency-100 border-2 border-emergency-200">
  <div class="text-center py-2">
  <h3 class="text-xl font-bold text-emergency-700 mb-2">
  Need Emergency Service?
@@ -97,7 +99,7 @@ const contactSchema = {
  Available 24/7 for urgent HVAC repairs
  </p>
  <Button href="tel:(940) 390-5676" variant="emergency" size="lg" class="w-full justify-center">
- <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+ <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
  </svg>
  Call Now: (940) 390-5676
@@ -106,7 +108,7 @@ const contactSchema = {
  </Card>
  
  <!-- Business Hours -->
- <Card variant="default" padding="md">
+ <Card class="overflow-visible"  variant="default" >
  <h3 class="text-xl font-bold text-gray-900 mb-4">Business Hours</h3>
  <div class="space-y-2">
  <div class="flex justify-between">
@@ -130,11 +132,11 @@ const contactSchema = {
  </Card>
  
  <!-- Contact Methods -->
- <Card variant="default" padding="md">
+ <Card class="overflow-visible"  variant="default" >
  <h3 class="text-xl font-bold text-gray-900 mb-4">Contact Information</h3>
  <div class="space-y-4">
  <a href="tel:(940) 390-5676" class="flex items-start space-x-3 text-gray-700 hover:text-primary-600 transition-colors">
- <svg class="w-6 h-6 mr-2 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+ <svg class="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
  </svg>
  <div>
@@ -144,7 +146,7 @@ const contactSchema = {
  </a>
  
  <a href="mailto:contact@jupitairhvac.com" class="flex items-start space-x-3 text-gray-700 hover:text-primary-600 transition-colors">
- <svg class="w-6 h-6 mr-2 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+ <svg class="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
  </svg>
@@ -155,7 +157,7 @@ const contactSchema = {
  </a>
  
  <div class="flex items-start space-x-3 text-gray-700">
- <svg class="w-6 h-6 mr-2 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+ <svg class="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
  </svg>
  <div>
@@ -170,7 +172,7 @@ const contactSchema = {
  </Card>
  
  <!-- Service Areas -->
- <Card variant="default" padding="md">
+ <Card class="overflow-visible"  variant="default" >
  <h3 class="text-xl font-bold text-gray-900 mb-4">Service Areas</h3>
  <div class="grid grid-cols-2 gap-2 sm:gap-3">
  <a href="/frisco" class="text-primary-600 hover:text-primary-800 hover:underline font-medium">Frisco</a>
@@ -188,12 +190,12 @@ const contactSchema = {
  </div>
  
  <!-- Trust Indicators -->
- class="bg-white py-8 sm:py-12 lg:py-16 rounded-2xl shadow-sm border border-gray-100">
- <div class="site-container section-padding">
+ <section class="bg-white py-16 sm:py-20 lg:py-24 rounded-2xl shadow-sm border border-gray-100">
+ <div class="site-container">
  <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 text-center">
  <div class="flex flex-col items-center">
  <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-3">
- <svg class="w-8 h-8 mr-2 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+ <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
  <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
  </svg>
  </div>
@@ -203,7 +205,7 @@ const contactSchema = {
  
  <div class="flex flex-col items-center">
  <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mb-3">
- <svg class="w-8 h-8 mr-2 text-success-600" fill="currentColor" viewBox="0 0 20 20">
+ <svg class="w-8 h-8 text-success-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
  </svg>
  </div>
@@ -213,7 +215,7 @@ const contactSchema = {
  
  <div class="flex flex-col items-center">
  <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mb-3">
- <svg class="w-8 h-8 mr-2 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
+ <svg class="w-8 h-8 text-secondary-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
  </svg>
  </div>
@@ -223,7 +225,7 @@ const contactSchema = {
  
  <div class="flex flex-col items-center">
  <div class="w-16 h-16 bg-emergency-100 rounded-full flex items-center justify-center mb-3">
- <svg class="w-8 h-8 mr-2 text-emergency-600" fill="currentColor" viewBox="0 0 20 20">
+ <svg class="w-8 h-8 text-emergency-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
  <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
  </svg>
  </div>
@@ -236,4 +238,10 @@ const contactSchema = {
  </div>
  </div>
  
+<!-- Customer Reviews - BUILD TRUST BEFORE DECISION -->
+<RealReviews 
+  title="Why North Texas Chooses Jupitair"
+  maxReviews={9}
+/>
+
 </BaseLayout>

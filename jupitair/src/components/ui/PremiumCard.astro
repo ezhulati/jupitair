@@ -25,7 +25,7 @@ const baseClasses = `
   rounded-2xl
   transition-all duration-300 ease-out
   transform-gpu will-change-transform
-  overflow-hidden
+  overflow-visible
 `;
 
 const variantClasses = {
@@ -119,12 +119,12 @@ const classes = [
   {variant === 'premium' && (
     <>
       <div class="absolute top-0 left-0 w-20 h-20">
-        <svg class="w-full h-full text-blue-500/20" viewBox="0 0 80 80">
+        <svg class="w-full h-full text-blue-500/20" viewBox="0 0 80 80" aria-hidden="true">
           <path d="M0,0 L80,0 L0,80 Z" fill="currentColor" />
         </svg>
       </div>
       <div class="absolute bottom-0 right-0 w-20 h-20 rotate-180">
-        <svg class="w-full h-full text-purple-500/20" viewBox="0 0 80 80">
+        <svg class="w-full h-full text-purple-500/20" viewBox="0 0 80 80" aria-hidden="true">
           <path d="M0,0 L80,0 L0,80 Z" fill="currentColor" />
         </svg>
       </div>
@@ -213,6 +213,15 @@ const classes = [
   /* Performance optimizations */
   .premium-card {
     contain: layout style;
+    /* Prevent any scrollbars */
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
+  }
+  
+  /* Ensure content doesn't cause overflow */
+  .premium-card > * {
+    overflow: visible !important;
   }
 
   /* Smooth rendering on Safari */
@@ -245,9 +254,9 @@ const classes = [
 
         card.style.transform = `
           perspective(1000px)
-          rotateX(${center.y / 20}deg)
-          rotateY(${-center.x / 20}deg)
-          scale3d(1.02, 1.02, 1.02)
+          rotateX(${center.y / 50}deg)
+          rotateY(${-center.x / 50}deg)
+          scale3d(1.01, 1.01, 1.01)
         `;
         
         card.querySelector('.shine-effect').style.background = `
@@ -272,7 +281,7 @@ const classes = [
     });
   });
 
-  // Intersection Observer for animation on scroll
+  // Intersection Observer for subtle fade-in only (no vertical movement)
   const observerOptions = {
     threshold: 0.1,
     rootMargin: '50px'
@@ -282,15 +291,13 @@ const classes = [
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
       }
     });
   }, observerOptions);
 
   document.querySelectorAll('.premium-card').forEach((card) => {
     card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    card.style.transition = 'opacity 0.6s ease';
     cardObserver.observe(card);
   });
 </script>

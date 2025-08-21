@@ -1,0 +1,39 @@
+/* CRITICAL FIX: Emergency button visibility */
+.bg-red-600 a[href^="tel"],
+.bg-emergency-600 a[href^="tel"],
+.bg-emergency-700 a[href^="tel"],
+.bg-emergency-800 a[href^="tel"],
+.bg-emergency-900 a[href^="tel"],
+[class*="emergency"] a[role="button"] {
+  color: #dc2626 !important; /* red-600 */
+  background-color: white !important;
+  z-index: 99999 !important;
+  position: relative !important;
+  font-weight: bold !important;
+}
+
+.bg-red-600 a[href^="tel"]:hover,
+.bg-emergency-600 a[href^="tel"]:hover,
+.bg-emergency-700 a[href^="tel"]:hover,
+.bg-emergency-800 a[href^="tel"]:hover,
+.bg-emergency-900 a[href^="tel"]:hover,
+[class*="emergency"] a[role="button"]:hover {
+  color: #b91c1c !important; /* red-700 */
+  background-color: #fef2f2 !important; /* red-50 */
+}
+
+/* Ensure text inside emergency buttons is always visible */
+.bg-red-600 span,
+.bg-emergency-600 span,
+.bg-emergency-700 span,
+.bg-emergency-800 span,
+.bg-emergency-900 span {
+  color: inherit !important;
+}
+
+/* Force visibility for emergency button text */
+a[href^="tel"] span {
+  color: inherit !important;
+  z-index: 99999 !important;
+  position: relative !important;
+}

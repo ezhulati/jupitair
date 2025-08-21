@@ -56,8 +56,8 @@ const formattedUpdateDate = frontmatter.updateDate ? new Date(frontmatter.update
 // Generate breadcrumb data
 const breadcrumbs = [
   { name: 'Home', url: '/' },
-  { name: 'HVAC Learning Center', url: '/blog' },
-  { name: frontmatter.category, url: `/blog/category/${frontmatter.category.toLowerCase().replace(/\s+/g, '-')}` },
+  { name: 'Resources', url: '/blog' },
+  { name: frontmatter.category, url: `/blog/category/${frontmatter.category.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}` },
   { name: frontmatter.title, url: '#' }
 ];
 
@@ -110,7 +110,7 @@ const blogSchema = {
   },
   "isPartOf": {
     "@type": "Blog",
-    "name": "Jupitair HVAC Learning Center",
+    "name": "Jupitair HVAC Resources",
     "url": "https://jupitairhvac.com/blog"
   }
 };
@@ -340,7 +340,7 @@ const difficultyColor = {
           {frontmatter.tools && frontmatter.tools.length > 0 && (
             <Card variant="outline" size="lg" class="mt-6 sm:mt-8">
               <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
-                <svg class="w-5 h-5 mr-2 sm:w-6 sm:h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                 </svg>
@@ -370,7 +370,7 @@ const difficultyColor = {
                     class="inline-flex items-center px-2 sm:px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm hover:bg-gray-200 transition-colors"
                     aria-label={`View articles tagged with ${tag}`}
                   >
-                    <svg class="w-3 h-3 mr-2 sm:w-3.5 sm:h-3.5 mr-0.5 sm:mr-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-0.5 sm:mr-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                       <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
                     </svg>
                     {tag}
@@ -388,7 +388,7 @@ const difficultyColor = {
             <Card variant="elevated" size="lg" class="bg-gradient-to-br from-emergency-50 to-white border-emergency-200">
               <div class="text-center">
                 <div class="inline-flex items-center justify-center w-16 h-16 bg-emergency-100 rounded-full mb-4">
-                  <svg class="w-8 h-8 mr-2 text-emergency-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <svg class="w-8 h-8 text-emergency-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
                   </svg>
                 </div>
@@ -411,7 +411,7 @@ const difficultyColor = {
               <p class="text-gray-700 mb-4">Get professional HVAC service from certified technicians</p>
               <div class="space-y-3">
                 <Button 
-                  href="/schedule" 
+                  href="/contact" 
                   variant="primary" 
                   size="md" 
                   class="w-full justify-center"
@@ -442,7 +442,7 @@ const difficultyColor = {
                         href={`/blog/${post}`}
                         class="group flex items-start gap-2 text-primary-600 hover:text-primary-700"
                       >
-                        <svg class="w-4 h-4 mr-2 mt-0.5 flex-shrink-0 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <svg class="w-4 h-4 mt-0.5 flex-shrink-0 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                           <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
                         </svg>
                         <span class="hover:underline">
@@ -466,7 +466,7 @@ const difficultyColor = {
           <p class="text-sm text-gray-700 mb-4">Professional HVAC service from certified technicians</p>
           <div class="space-y-3">
             <Button 
-              href="/schedule" 
+              href="/contact" 
               variant="primary" 
               size="md" 
               class="w-full justify-center"

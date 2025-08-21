@@ -1,50 +1,21 @@
 {
-  "name": "Jupitair HVAC - Professional AC & Heating Services",
-  "short_name": "Jupitair HVAC",
-  "description": "North Texas' premier HVAC service provider offering 24/7 emergency AC repair, heating services, and maintenance with same-day service guarantee.",
+  "name": "Jupitair HVAC",
+  "short_name": "Jupitair",
+  "description": "Professional HVAC Services in North Texas",
   "start_url": "/",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#ffffff",
   "theme_color": "#2563eb",
-  "dir": "ltr",
-  "lang": "en-US",
-  "categories": ["business", "utilities"],
+  "background_color": "#ffffff",
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
-      "src": "/icon-512.png",
+      "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
-  ],
-  "shortcuts": [
-    {
-      "name": "Emergency Service",
-      "short_name": "Emergency",
-      "description": "24/7 Emergency HVAC Service",
-      "url": "/services/emergency-hvac"
-    },
-    {
-      "name": "Schedule Service",
-      "short_name": "Schedule",
-      "description": "Book an appointment",
-      "url": "/schedule"
-    },
-    {
-      "name": "Get Quote",
-      "short_name": "Quote",
-      "description": "Get a free quote",
-      "url": "/contact"
-    }
-  ],
-  "related_applications": [],
-  "prefer_related_applications": false,
-  "display_override": ["window-controls-overlay", "standalone", "browser"]
+  ]
 }

@@ -6,22 +6,60 @@ import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
 import ContactForm from '../../components/forms/ContactForm.astro';
 import Badge from '../../components/ui/Badge.astro';
+import FAQAccordion from '../../components/ui/FAQAccordion.astro';
+import RealReviews from '../../components/reviews/RealReviews.astro';
 
 const pageTitle = "AC Repair Services | Fast Air Conditioning Repair | Jupitair HVAC";
 const pageDescription = "Emergency AC repair in North Texas. Same-day service, certified technicians, all brands. 2-hour response time. Call (940) 390-5676 for immediate AC repair.";
+
+const faqs = [
+  {
+    question: "How quickly can you respond to an AC emergency?",
+    answer: "We offer 24/7 emergency service with a typical response time of 2 hours or less in the North Texas area. Our dispatchers prioritize emergency calls and will have a technician to you as quickly as possible."
+  },
+  {
+    question: "What brands of air conditioners do you repair?",
+    answer: "We're certified to repair all major AC brands including Trane, Carrier, Lennox, Rheem, Goodman, Bryant, American Standard, York, Amana, and more. Our technicians carry parts for most common repairs."
+  },
+  {
+    question: "How much does AC repair typically cost?",
+    answer: "AC repair costs vary based on the issue. Simple repairs like capacitor replacements start around $200-400, while compressor replacements can range from $1,500-3,000. We always provide upfront pricing before any work begins."
+  },
+  {
+    question: "Should I repair or replace my AC unit?",
+    answer: "Generally, if your AC is less than 10 years old and the repair cost is less than 50% of a new unit's cost, repair is recommended. For units over 15 years old or requiring major repairs, replacement may be more cost-effective."
+  },
+  {
+    question: "What are signs my AC needs repair?",
+    answer: "Common signs include: warm air blowing, weak airflow, unusual noises, frequent cycling, high humidity, water leaks, bad odors, or increased energy bills. If you notice any of these, call for service immediately."
+  },
+  {
+    question: "Do you offer warranties on AC repairs?",
+    answer: "Yes! We provide a 1-year warranty on all labor and manufacturer warranties on parts. Our work is guaranteed, and we stand behind every repair we perform."
+  },
+  {
+    question: "Can I prevent AC breakdowns?",
+    answer: "Absolutely! Regular maintenance is key. Change filters monthly, keep outdoor units clear of debris, schedule annual tune-ups, and address small issues before they become major problems."
+  },
+  {
+    question: "Why is my AC freezing up?",
+    answer: "AC freezing is usually caused by restricted airflow (dirty filter), low refrigerant, dirty coils, or thermostat issues. Turn off your AC immediately and call for service to prevent compressor damage."
+  }
+];
 ---
 
 <BaseLayout
   title={pageTitle}
   description={pageDescription}
   keywords="AC repair, air conditioning repair, emergency AC repair, North Texas AC repair, same-day AC service, cooling system repair"
->
+
+  overlayHeader={true}>
   <PremiumHero 
-    title="Professional AC Repair Services"
+    title="Professional AC<br>Repair Services"
     subtitle="Same-Day Emergency Service"
     description="When your AC breaks down, we're here 24/7. Expert technicians, guaranteed repairs, and transparent pricing. Most repairs completed the same day."
     ctaPrimary={{ text: "Get Emergency Service", href: "tel:9403905676" }}
-    ctaSecondary={{ text: "Get Quote", href: "#contact" }}
+    ctaSecondary={{ text: "Get Quote", href: "/contact" }}
     variant="gradient"
     height="lg" class="hero-section"
   />
@@ -46,83 +84,65 @@ const pageDescription = "Emergency AC repair in North Texas. Same-day service, c
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="p-6 space-y-4">
             <div class="w-12 h-12 bg-emergency-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg class="w-6 h-6 text-emergency-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
             </div>
             <h3 class="text-lg sm:text-xl font-bold text-gray-900">AC Won't Turn On</h3>
             <p class="text-sm sm:text-base text-gray-700">Electrical issues, thermostat problems, or circuit breaker trips</p>
             <Badge variant="emergency" size="sm">Emergency Service</Badge>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="p-6 space-y-4">
             <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
-              </svg>
             </div>
             <h3 class="text-lg sm:text-xl font-bold text-gray-900">Blowing Warm Air</h3>
             <p class="text-sm sm:text-base text-gray-700">Low refrigerant, dirty coils, or compressor failure</p>
             <Badge variant="warning" size="sm">Same Day Fix</Badge>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="p-6 space-y-4">
             <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg class="w-6 h-6 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
             </div>
             <h3 class="text-lg sm:text-xl font-bold text-gray-900">Frozen Evaporator Coil</h3>
             <p class="text-sm sm:text-base text-gray-700">Restricted airflow, low refrigerant, or dirty filter</p>
             <Badge variant="warning" size="sm">2-Hour Response</Badge>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="p-6 space-y-4">
             <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 14.142M6.343 6.343a9 9 0 000 12.728m2.829-9.9a5 5 0 000 7.072M13 5h8m0 0v8m0-8l-8 8-4-4-6 6" />
-              </svg>
             </div>
             <h3 class="text-lg sm:text-xl font-bold text-gray-900">Strange Noises</h3>
             <p class="text-sm sm:text-base text-gray-700">Grinding, squealing, or banging sounds from unit</p>
             <Badge variant="primary" size="sm">Diagnostic Available</Badge>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="p-6 space-y-4">
             <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg class="w-6 h-6 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-              </svg>
             </div>
             <h3 class="text-lg sm:text-xl font-bold text-gray-900">Poor Air Quality</h3>
             <p class="text-sm sm:text-base text-gray-700">Dirty filters, duct issues, or humidity problems</p>
             <Badge variant="success" size="sm">Air Quality Test</Badge>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="p-6 space-y-4">
             <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
             </div>
             <h3 class="text-lg sm:text-xl font-bold text-gray-900">High Energy Bills</h3>
             <p class="text-sm sm:text-base text-gray-700">Inefficient operation due to maintenance issues</p>
             <Badge variant="primary" size="sm">Efficiency Check</Badge>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -136,7 +156,7 @@ const pageDescription = "Emergency AC repair in North Texas. Same-day service, c
       </div>
 
       <div class="max-w-4xl mx-auto space-y-6">
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-4 sm:gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-lg sm:text-xl flex-shrink-0">
               1
@@ -146,9 +166,9 @@ const pageDescription = "Emergency AC repair in North Texas. Same-day service, c
               <p class="text-sm sm:text-base text-gray-700">Call us and we'll dispatch a certified technician within 2 hours for emergency repairs.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-4 sm:gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-lg sm:text-xl flex-shrink-0">
               2
@@ -158,9 +178,9 @@ const pageDescription = "Emergency AC repair in North Texas. Same-day service, c
               <p class="text-sm sm:text-base text-gray-700">Our technician performs a thorough diagnostic to identify the root cause of the problem.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-4 sm:gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-lg sm:text-xl flex-shrink-0">
               3
@@ -170,9 +190,9 @@ const pageDescription = "Emergency AC repair in North Texas. Same-day service, c
               <p class="text-sm sm:text-base text-gray-700">You'll receive a detailed quote before any work begins. No surprises or hidden fees.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-4 sm:gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-lg sm:text-xl flex-shrink-0">
               4
@@ -182,9 +202,9 @@ const pageDescription = "Emergency AC repair in North Texas. Same-day service, c
               <p class="text-sm sm:text-base text-gray-700">Using quality parts and proven techniques, we fix your AC right the first time.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-4 sm:gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-lg sm:text-xl flex-shrink-0">
               5
@@ -194,10 +214,17 @@ const pageDescription = "Emergency AC repair in North Texas. Same-day service, c
               <p class="text-sm sm:text-base text-gray-700">All repairs come with our satisfaction guarantee and warranty on parts and labor.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
+
+  <!-- Customer Reviews - BUILD TRUST -->
+  <RealReviews 
+    title="What Our AC Repair Customers Say"
+    serviceFilter="repair"
+    maxReviews={6}
+  />
 
   <!-- Pricing - CONSISTENT DESIGN SYSTEM -->
   <section class="section-full bg-white">
@@ -208,7 +235,7 @@ const pageDescription = "Emergency AC repair in North Texas. Same-day service, c
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
-        <Card variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-4">
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Diagnostic</h3>
             <div class="text-3xl sm:text-4xl font-bold text-primary-600">$89</div>
@@ -230,13 +257,13 @@ const pageDescription = "Emergency AC repair in North Texas. Same-day service, c
           </div>
         </Card>
 
-        <Card variant="bordered" padding="lg" class="border-primary-500 relative">
-          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-            <Badge variant="primary">Most Common</Badge>
-          </div>
-          <div class="text-center space-y-4 pt-4">
+        <Card variant="outline"  class="border-primary-500 relative">
+          <div class="text-center space-y-4">
+            <div class="mb-4">
+              <Badge variant="primary">Most Common</Badge>
+            </div>
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Minor Repairs</h3>
-            <div class="text-3xl sm:text-4xl font-bold text-primary-600">$150-$400</div>
+            <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-primary-600">$150-$400</div>
             <p class="text-gray-800">Capacitors, contactors, thermostats</p>
             <ul class="text-left space-y-2 text-sm">
               <li class="flex items-center gap-2">
@@ -255,10 +282,10 @@ const pageDescription = "Emergency AC repair in North Texas. Same-day service, c
           </div>
         </Card>
 
-        <Card variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-4">
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Major Repairs</h3>
-            <div class="text-3xl sm:text-4xl font-bold text-primary-600">$500-$1,500</div>
+            <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-primary-600">$500-$1,500</div>
             <p class="text-gray-800">Compressors, coils, major components</p>
             <ul class="text-left space-y-2 text-sm">
               <li class="flex items-center gap-2">
@@ -267,7 +294,7 @@ const pageDescription = "Emergency AC repair in North Texas. Same-day service, c
               </li>
               <li class="flex items-center gap-2">
                 <span class="text-success-600">✓</span>
-                <span>Financing available</span>
+                <span>Licensed & insured</span>
               </li>
               <li class="flex items-center gap-2">
                 <span class="text-success-600">✓</span>
@@ -277,6 +304,13 @@ const pageDescription = "Emergency AC repair in North Texas. Same-day service, c
           </div>
         </Card>
       </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section-full bg-white">
+    <div class="site-container py-16 sm:py-20 lg:py-24">
+      <FAQAccordion faqs={faqs} title="AC Repair FAQs" />
     </div>
   </section>
 

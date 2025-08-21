@@ -7,16 +7,53 @@ import Button from '../../components/ui/Button.astro';
 import Card from '../../components/ui/Card.astro';
 import ContactForm from '../../components/forms/ContactForm.astro';
 import Badge from '../../components/ui/Badge.astro';
+import FAQAccordion from '../../components/ui/FAQAccordion.astro';
 
 const pageTitle = "Professional Duct Sealing Services | Air Duct Repair | Jupitair HVAC";
 const pageDescription = "Professional duct sealing in North Texas. Stop air leaks, improve efficiency, and reduce energy costs. Expert duct repair and sealing services.";
+
+const faqs = [
+  {
+    question: "How do I know if my ducts need sealing?",
+    answer: "Signs include high energy bills, uneven room temperatures, dusty home, poor air quality, and rooms that are hard to heat or cool. We provide free assessments to determine your needs."
+  },
+  {
+    question: "What materials do you use for sealing?",
+    answer: "We use professional-grade mastic sealant and UL-listed foil tape designed specifically for HVAC applications. These materials are durable, safe, and provide long-lasting seals."
+  },
+  {
+    question: "How long does duct sealing last?",
+    answer: "Professional duct sealing typically lasts 10-15 years or more when done correctly. We provide warranties on our work and use materials designed for the long term."
+  },
+  {
+    question: "Can you seal ducts in tight crawl spaces?",
+    answer: "Yes, our technicians are trained to work in all types of spaces including tight crawl spaces, attics, and basements. We have specialized equipment and techniques for accessing difficult areas."
+  },
+  {
+    question: "How much energy can I save with duct sealing?",
+    answer: "According to ENERGY STAR, homeowners can save up to 20% on heating and cooling costs with proper duct sealing. Some homes with significant leaks can see even greater savings."
+  },
+  {
+    question: "Is duct sealing worth the investment?",
+    answer: "Absolutely! Most homeowners see a return on investment within 2-3 years through energy savings alone, plus you get immediate benefits like improved comfort and air quality."
+  },
+  {
+    question: "Will duct sealing improve my indoor air quality?",
+    answer: "Yes! Sealing ducts prevents dust, allergens, and pollutants from being pulled into your duct system from attics, crawl spaces, and walls, resulting in cleaner, healthier indoor air."
+  },
+  {
+    question: "How long does the duct sealing process take?",
+    answer: "Most residential duct sealing projects take 4-8 hours depending on the size of your home and accessibility of the ductwork. We'll provide a time estimate during your assessment."
+  }
+];
 ---
 
 <BaseLayout
   title={pageTitle}
   description={pageDescription}
   keywords="duct sealing, air duct repair, duct leaks, energy efficiency, North Texas duct sealing, HVAC efficiency, air leakage repair"
->
+
+  overlayHeader={true}>
   <PremiumHero 
     title="Professional Duct Sealing Services"
     subtitle="Stop Energy Loss"
@@ -43,7 +80,7 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
           <div class="space-y-4">
             <div class="flex items-start gap-3">
               <div class="w-8 h-8 bg-emergency-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
                 </svg>
               </div>
@@ -54,7 +91,7 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
             </div>
             <div class="flex items-start gap-3">
               <div class="w-8 h-8 bg-emergency-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
                 </svg>
               </div>
@@ -65,7 +102,7 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
             </div>
             <div class="flex items-start gap-3">
               <div class="w-8 h-8 bg-emergency-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
                 </svg>
               </div>
@@ -76,7 +113,7 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
             </div>
             <div class="flex items-start gap-3">
               <div class="w-8 h-8 bg-emergency-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-emergency-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
                 </svg>
               </div>
@@ -122,10 +159,10 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
@@ -134,12 +171,12 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
               Reduce monthly energy costs by 20-30% with proper duct sealing
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
             </div>
@@ -148,12 +185,12 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
               Eliminate hot and cold spots for consistent temperatures
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
             </div>
@@ -162,12 +199,12 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
               Prevent outside air and contaminants from entering your system
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-secondary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
@@ -176,12 +213,12 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
               Reduce strain on your HVAC system for longer equipment life
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
@@ -190,12 +227,12 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
               Reduce carbon footprint with improved energy efficiency
             </p>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" hover={true}>
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="text-center space-y-4 p-6">
             <div class="w-16 h-16 bg-emergency-100 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-8 h-8 text-emergency-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-8 h-8 text-emergency-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
             </div>
@@ -204,7 +241,7 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
               Typical payback period of 2-3 years through energy savings
             </p>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -218,7 +255,7 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
       </div>
 
       <div class="max-w-4xl mx-auto space-y-6">
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               1
@@ -228,9 +265,9 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
               <p class="text-gray-700">Detailed inspection using diagnostic equipment to identify all leaks and measure current system performance baseline.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               2
@@ -240,9 +277,9 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
               <p class="text-gray-700">Use specialized equipment including pressure testing and thermal imaging to locate all air leakage points throughout the system.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               3
@@ -252,9 +289,9 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
               <p class="text-gray-700">Apply industry-leading mastic sealant and UL-listed tapes to permanently seal all identified leaks and connections.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               4
@@ -264,9 +301,9 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
               <p class="text-gray-700">Conduct post-sealing pressure tests to verify leak reduction and measure improvement in system performance.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
 
-        <PremiumCard variant="elevated" padding="md">
+        <Card variant="outline"  class="border-gray-200 bg-white">
           <div class="flex gap-6">
             <div class="w-12 h-12 bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
               5
@@ -276,7 +313,7 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
               <p class="text-gray-700">Provide detailed before/after documentation showing percentage improvement and projected energy savings.</p>
             </div>
           </div>
-        </PremiumCard>
+        </Card>
       </div>
     </div>
   </section>
@@ -290,7 +327,7 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <Card variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-4">
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Basic Sealing</h3>
             <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-600">$1,200</div>
@@ -316,7 +353,7 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
           </div>
         </Card>
 
-        <Card variant="bordered" padding="lg" class="border-primary-500 relative">
+        <Card class="overflow-visible"  variant="outline"  class="border-primary-500 relative">
           <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
             <Badge variant="primary">Best Value</Badge>
           </div>
@@ -349,7 +386,7 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
           </div>
         </Card>
 
-        <Card variant="bordered" padding="lg">
+        <Card class="overflow-visible"  variant="outline" >
           <div class="text-center space-y-4">
             <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Premium Service</h3>
             <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-600">$2,400</div>
@@ -381,7 +418,7 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
       </div>
 
       <div class="mt-12 text-center">
-        <Card variant="bordered" padding="lg" class="max-w-2xl mx-auto bg-green-50 border-green-200">
+        <Card class="overflow-visible"  variant="outline"  class="max-w-2xl mx-auto bg-green-50 border-green-200">
           <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4">Energy Savings Guarantee</h3>
           <p class="text-gray-700 mb-4">
             We guarantee a minimum 15% reduction in energy usage or we'll return to re-seal at no charge.
@@ -396,40 +433,8 @@ const pageDescription = "Professional duct sealing in North Texas. Stop air leak
 
   <!-- FAQ Section -->
   <section class="section-full bg-white">
-    <div class="site-container section-padding">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
-        
-        <div class="space-y-6">
-          <Card variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">How do I know if my ducts need sealing?</h3>
-            <p class="text-gray-700">
-              Signs include high energy bills, uneven room temperatures, dusty home, poor air quality, and rooms that are hard to heat or cool. We provide free assessments to determine your needs.
-            </p>
-          </Card>
-
-          <Card variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">What materials do you use for sealing?</h3>
-            <p class="text-gray-700">
-              We use professional-grade mastic sealant and UL-listed foil tape designed specifically for HVAC applications. These materials are durable, safe, and provide long-lasting seals.
-            </p>
-          </Card>
-
-          <Card variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">How long does duct sealing last?</h3>
-            <p class="text-gray-700">
-              Professional duct sealing typically lasts 10-15 years or more when done correctly. We provide warranties on our work and use materials designed for the long term.
-            </p>
-          </Card>
-
-          <Card variant="bordered" padding="lg">
-            <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Can you seal ducts in tight crawl spaces?</h3>
-            <p class="text-gray-700">
-              Yes, our technicians are trained to work in all types of spaces including tight crawl spaces, attics, and basements. We have specialized equipment and techniques for accessing difficult areas.
-            </p>
-          </Card>
-        </div>
-      </div>
+    <div class="site-container py-16 sm:py-20 lg:py-24">
+      <FAQAccordion faqs={faqs} title="Duct Sealing FAQs" />
     </div>
   </section>
 
