@@ -1,0 +1,62 @@
+---
+export interface Props {
+  title: string;
+  value: string | number;
+  subtitle?: string;
+  icon?: 'clock' | 'dollar' | 'tool' | 'chart' | 'check' | 'alert';
+  trend?: 'up' | 'down' | 'neutral';
+  class?: string;
+}
+
+const { title, value, subtitle, icon = 'chart', trend, class: className = '' } = Astro.props;
+
+const icons = {
+  clock: 'M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z',
+  dollar: 'M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z',
+  tool: 'M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z',
+  chart: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+  check: 'M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z',
+  alert: 'M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z'
+};
+
+const iconColors = {
+  clock: 'text-purple-600',
+  dollar: 'text-green-600',
+  tool: 'text-amber-600',
+  chart: 'text-blue-600',
+  check: 'text-emerald-600',
+  alert: 'text-red-600'
+};
+---
+
+<div class={`bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300 ${className}`}>
+  <div class="flex items-start justify-between mb-4">
+    <div class="flex items-center gap-3">
+      <div class={`p-2 rounded-lg bg-gray-50`}>
+        <svg class={`w-6 h-6 ${iconColors[icon]}`} fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d={icons[icon]} clip-rule="evenodd"/>
+        </svg>
+      </div>
+      <div>
+        <p class="text-sm font-medium text-gray-600">{title}</p>
+      </div>
+    </div>
+    {trend && (
+      <div class={`flex items-center gap-1 text-sm font-medium ${
+        trend === 'up' ? 'text-green-600' : 
+        trend === 'down' ? 'text-red-600' : 
+        'text-gray-600'
+      }`}>
+        {trend === 'up' && '↑'}
+        {trend === 'down' && '↓'}
+        {trend === 'neutral' && '→'}
+      </div>
+    )}
+  </div>
+  <div>
+    <p class="text-2xl font-bold text-gray-900">{value}</p>
+    {subtitle && (
+      <p class="text-sm text-gray-500 mt-1">{subtitle}</p>
+    )}
+  </div>
+</div>

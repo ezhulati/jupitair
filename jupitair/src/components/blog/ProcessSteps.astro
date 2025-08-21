@@ -1,0 +1,104 @@
+---
+export interface Step {
+  number?: number;
+  title: string;
+  description: string;
+  icon?: string;
+  warning?: string;
+  tip?: string;
+  time?: string;
+}
+
+export interface Props {
+  title?: string;
+  steps: Step[];
+  variant?: 'numbered' | 'timeline' | 'cards';
+  class?: string;
+}
+
+const { title, steps, variant = 'numbered', class: className = '' } = Astro.props;
+---
+
+<div class={`my-12 ${className}`}>
+  {title && (
+    <h3 class="text-2xl font-bold text-gray-900 mb-8">{title}</h3>
+  )}
+  
+  {variant === 'numbered' && (
+    <div class="space-y-6">
+      {steps.map((step, index) => (
+        <div class="flex gap-4">
+          <div class="flex-shrink-0">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 text-white flex items-center justify-center font-bold">
+              {step.number || index + 1}
+            </div>
+          </div>
+          <div class="flex-1">
+            <h4 class="text-lg font-semibold text-gray-900 mb-2">{step.title}</h4>
+            <p class="text-gray-700 mb-3">{step.description}</p>
+            {step.warning && (
+              <div class="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-3">
+                <p class="text-sm text-amber-800">
+                  <span class="font-semibold">⚠️ Warning:</span> {step.warning}
+                </p>
+              </div>
+            )}
+            {step.tip && (
+              <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-3">
+                <p class="text-sm text-blue-800">
+                  <span class="font-semibold">💡 Tip:</span> {step.tip}
+                </p>
+              </div>
+            )}
+            {step.time && (
+              <p class="text-sm text-gray-500">⏱ Estimated time: {step.time}</p>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+  
+  {variant === 'timeline' && (
+    <div class="relative">
+      <div class="absolute left-5 top-8 bottom-8 w-0.5 bg-gray-300"></div>
+      <div class="space-y-8">
+        {steps.map((step, index) => (
+          <div class="relative flex gap-4">
+            <div class="flex-shrink-0 z-10">
+              <div class="w-10 h-10 rounded-full bg-white border-4 border-blue-500 flex items-center justify-center">
+                <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+              </div>
+            </div>
+            <div class="flex-1 pb-8">
+              <h4 class="text-lg font-semibold text-gray-900 mb-2">{step.title}</h4>
+              <p class="text-gray-700 mb-3">{step.description}</p>
+              {step.time && (
+                <p class="text-sm text-gray-500">⏱ {step.time}</p>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+  
+  {variant === 'cards' && (
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {steps.map((step, index) => (
+        <div class="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 text-white flex items-center justify-center font-bold">
+              {step.number || index + 1}
+            </div>
+            <h4 class="text-lg font-semibold text-gray-900">{step.title}</h4>
+          </div>
+          <p class="text-gray-700 mb-3">{step.description}</p>
+          {step.time && (
+            <p class="text-sm text-gray-500">⏱ {step.time}</p>
+          )}
+        </div>
+      ))}
+    </div>
+  )}
+</div>

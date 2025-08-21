@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogLayout from '../../layouts/BlogLayout.astro';
+import ModernBlogLayout from '../../layouts/ModernBlogLayout.astro';
 
 export const prerender = true;
 
@@ -14,8 +15,12 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+// Use ModernBlogLayout for visual articles
+const useModernLayout = entry.slug === 'frozen-evaporator-coil-visual';
+const Layout = useModernLayout ? ModernBlogLayout : BlogLayout;
 ---
 
-<BlogLayout frontmatter={entry.data}>
+<Layout frontmatter={entry.data}>
   <Content />
-</BlogLayout>
+</Layout>
