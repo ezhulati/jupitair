@@ -1,4 +1,4 @@
-The Ultimate 2025 Blog Article Prompt Template
+# The Ultimate 2025 Blog Article Prompt Template
 ## For AI Search Optimization & Human Engagement
 
 ### 🎯 Master Prompt Template
