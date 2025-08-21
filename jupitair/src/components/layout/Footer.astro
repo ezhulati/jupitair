@@ -2,6 +2,7 @@
 import Button from '../ui/Button.astro';
 import PhoneLink from '../ui/PhoneLink.astro';
 import EmergencyPhoneButton from '../ui/EmergencyPhoneButton.astro';
+import EmergencyPhoneButtonSimple from '../ui/EmergencyPhoneButtonSimple.astro';
 import OptimizedLogo from '../ui/OptimizedLogo.astro';
 import { BUSINESS_CONFIG } from '../../config/business';
 ---
@@ -17,7 +18,7 @@ import { BUSINESS_CONFIG } from '../../config/business';
             <div class="font-bold text-lg">Emergency Service</div>
             <p class="text-sm text-white/90">Available 24/7</p>
           </div>
-          <EmergencyPhoneButton class="!w-auto !px-4 !py-2" />
+          <EmergencyPhoneButtonSimple class="!w-auto !px-4 !py-2" />
         </div>
       </div>
     </div>
@@ -163,7 +164,7 @@ import { BUSINESS_CONFIG } from '../../config/business';
         <div class="hidden sm:block bg-emergency-900 border border-emergency-700 rounded-lg p-4">
           <div class="text-emergency-300 font-semibold mb-2">Emergency Service</div>
           <p class="text-emergency-400 text-sm mb-3">Available 24/7 for urgent HVAC issues</p>
-          <EmergencyPhoneButton />
+          <EmergencyPhoneButtonSimple />
         </div>
       </div>
     </div>

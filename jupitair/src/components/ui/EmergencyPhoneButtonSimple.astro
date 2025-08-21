@@ -1,0 +1,75 @@
+---
+/**
+ * SIMPLE EMERGENCY PHONE BUTTON - Mobile shows "Call Now" ONLY
+ */
+
+import { BUSINESS_CONFIG } from '../../config/business';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+
+const phoneNumber = BUSINESS_CONFIG.phone.main;
+const displayNumber = BUSINESS_CONFIG.phone.display;
+---
+
+<a 
+  href={`tel:${phoneNumber}`}
+  class={`emergency-simple-button ${className}`}
+  aria-label={`Call ${displayNumber}`}
+>
+  <span class="emergency-simple-mobile">Call Now</span>
+  <span class="emergency-simple-desktop">Call {displayNumber}</span>
+</a>
+
+<style>
+  /* Button styles */
+  .emergency-simple-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0.75rem 1.5rem !important;
+    background-color: #ffffff !important;
+    border: 2px solid #dc2626 !important;
+    border-radius: 0.5rem !important;
+    font-weight: bold !important;
+    font-size: 1rem !important;
+    text-decoration: none !important;
+    color: #dc2626 !important;
+    transition: all 0.2s !important;
+    position: relative !important;
+    z-index: 10 !important;
+    width: 100% !important;
+  }
+  
+  .emergency-simple-button:hover {
+    background-color: #fef2f2 !important;
+  }
+  
+  /* Mobile text - ONLY show on mobile */
+  .emergency-simple-mobile {
+    display: inline !important;
+    color: #dc2626 !important;
+    font-weight: bold !important;
+  }
+  
+  /* Desktop text - HIDE on mobile */
+  .emergency-simple-desktop {
+    display: none !important;
+  }
+  
+  /* Desktop styles */
+  @media (min-width: 641px) {
+    .emergency-simple-mobile {
+      display: none !important;
+    }
+    
+    .emergency-simple-desktop {
+      display: inline !important;
+      color: #dc2626 !important;
+      font-weight: bold !important;
+    }
+  }
+</style>

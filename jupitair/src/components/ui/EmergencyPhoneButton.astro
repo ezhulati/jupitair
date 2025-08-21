@@ -29,15 +29,8 @@ const phoneIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-w
   class={`emergency-phone-button ${className}`}
   aria-label={`Call ${displayNumber}`}
 >
-  <!-- Mobile: Show "Call Now" -->
-  <span class="emergency-phone-text sm:hidden flex items-center justify-center gap-2">
-    {showIcon && (
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <Fragment set:html={phoneIcon} />
-      </svg>
-    )}
-    Call Now
-  </span>
+  <!-- Mobile: Show "Call Now" ONLY -->
+  <span class="emergency-phone-text sm:hidden">Call Now</span>
   <!-- Desktop: Show full number -->
   <span class="emergency-phone-text hidden sm:inline-block">Call {displayNumber}</span>
 </a>
@@ -72,8 +65,26 @@ const phoneIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-w
     font-weight: bold !important;
     position: relative !important;
     z-index: 100000 !important;
-    display: inline-block !important;
     pointer-events: none !important;
+  }
+  
+  /* ENSURE PROPER DISPLAY OF RESPONSIVE TEXT */
+  .emergency-phone-text.sm\:hidden {
+    display: inline-block !important;
+  }
+  
+  .emergency-phone-text.hidden {
+    display: none !important;
+  }
+  
+  @media (min-width: 640px) {
+    .emergency-phone-text.sm\:hidden {
+      display: none !important;
+    }
+    
+    .emergency-phone-text.hidden.sm\:inline-block {
+      display: inline-block !important;
+    }
   }
   
   /* OVERRIDE ANY PARENT STYLES */
