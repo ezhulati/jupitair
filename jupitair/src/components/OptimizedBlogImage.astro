@@ -99,9 +99,7 @@ const placeholderSrc = getCloudinaryFetchUrl(src, 50, 'jpg');
     loading={priority ? 'eager' : loading}
     decoding={priority ? 'sync' : 'async'}
     fetchpriority={priority ? 'high' : 'auto'}
-    class="optimized-blog-image"
-    width="1200"
-    height="630"
+    class={`optimized-blog-image ${className}`}
     style={`background-image: url(${placeholderSrc}); background-size: cover; background-position: center;`}
   />
 </picture>
@@ -110,17 +108,12 @@ const placeholderSrc = getCloudinaryFetchUrl(src, 50, 'jpg');
   .optimized-blog-image-container {
     display: block;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
   }
   
   .optimized-blog-image {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 0.75rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    background-color: #f3f4f6;
   }
   
   /* Smooth transition when lazy loaded image appears */

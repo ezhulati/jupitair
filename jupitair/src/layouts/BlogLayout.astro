@@ -7,7 +7,6 @@ import Button from '../components/ui/Button.astro';
 import PremiumButton from '../components/ui/PremiumButton.astro';
 import PhoneLink from '../components/ui/PhoneLink.astro';
 import DynamicSchema from '../components/seo/DynamicSchema.astro';
-import OptimizedBlogImage from '../components/OptimizedBlogImage.astro';
 import { Image } from 'astro:assets';
 
 export interface Props {
@@ -218,11 +217,11 @@ const blogSchema = {
     {frontmatter.heroImage && (
       <div class="lg:hidden mb-8">
         <div class="rounded-2xl overflow-hidden shadow-xl mx-auto">
-          <OptimizedBlogImage
-            src={frontmatter.heroImage}
+          <img 
+            src={frontmatter.heroImage} 
             alt={frontmatter.heroImageAlt || frontmatter.title}
             class="w-full h-auto aspect-[16/10] object-cover"
-            priority={true}
+            loading="eager"
           />
         </div>
       </div>
@@ -323,11 +322,11 @@ const blogSchema = {
             <!-- Desktop Hero Image -->
             {frontmatter.heroImage && (
               <div class="hidden lg:block rounded-lg overflow-hidden border border-gray-200">
-                <OptimizedBlogImage
-                  src={frontmatter.heroImage}
+                <img 
+                  src={frontmatter.heroImage} 
                   alt={frontmatter.heroImageAlt || frontmatter.title}
                   class="w-full h-auto aspect-[16/10] object-cover"
-                  loading="lazy"
+                  loading="eager"
                 />
               </div>
             )}
