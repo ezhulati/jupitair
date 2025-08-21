@@ -13,7 +13,7 @@ export default defineConfig({
     react()
   ],
   output: 'static',
-  adapter: netlify(),
+  // adapter: netlify(), // Disabled for local development
   site: 'https://jupitairhvac.com',
   build: {
     assets: 'assets'
