@@ -219,11 +219,11 @@ const finalSchema = schema ? { ...baseSchema, ...schema } : baseSchema;
     
     <!-- Analytics -->
     <!-- Google Analytics -->
-    <GoogleAnalytics trackingId="G-2X9H3CR9V3" />
+    <GoogleAnalytics trackingId={import.meta.env.PUBLIC_GA4_ID || "G-2X9H3CR9V3"} />
     <!-- Microsoft Clarity -->
-    <MicrosoftClarity clarityId="sxdxl6n9iu" />
+    <MicrosoftClarity clarityId={import.meta.env.PUBLIC_CLARITY_ID || "sxdxl6n9iu"} />
   </head>
-  <body class="font-sans bg-gray-50 text-gray-900">
+  <body class="font-sans bg-gray-50 text-gray-900" data-city={city} data-service={service}>
     <!-- Skip to main content -->
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-600 text-white px-4 py-2 rounded-md z-[999999]">
       Skip to main content
@@ -282,6 +282,112 @@ const finalSchema = schema ? { ...baseSchema, ...schema } : baseSchema;
 
       // Initialize when page loads
       document.addEventListener('DOMContentLoaded', initAfterHoursDetection);
+    </script>
+
+    <!-- Enhanced Analytics Tracking -->
+    <script>
+      // Initialize enhanced analytics tracking after page load
+      document.addEventListener('DOMContentLoaded', function() {
+        // Track page view with context
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'page_view', {
+            page_title: document.title,
+            page_location: window.location.href,
+            city: document.body.dataset.city || undefined,
+            service: document.body.dataset.service || undefined
+          });
+        }
+
+        // Track phone number clicks
+        document.addEventListener('click', function(event) {
+          const target = event.target.closest('a[href^="tel:"]');
+          if (target) {
+            const phoneNumber = target.href.replace('tel:', '');
+            const context = target.closest('header') ? 'header' : 
+                          target.closest('footer') ? 'footer' : 
+                          target.closest('.btn-emergency, .emergency') ? 'emergency' : 'content';
+            
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'phone_call', {
+                event_category: 'engagement',
+                event_label: context,
+                phone_number: phoneNumber,
+                page_location: window.location.href
+              });
+            }
+          }
+        });
+
+        // Track form submissions
+        document.addEventListener('submit', function(event) {
+          const form = event.target;
+          if (form.tagName === 'FORM') {
+            const formType = form.dataset.formType || 'contact';
+            const emergency = form.querySelector('input[name="emergency"]')?.checked || false;
+            
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'form_submission', {
+                event_category: 'conversion',
+                form_type: formType,
+                emergency: emergency,
+                page_location: window.location.href
+              });
+            }
+          }
+        });
+
+        // Track CTA button clicks
+        document.addEventListener('click', function(event) {
+          const button = event.target.closest('.btn-primary, .btn-emergency, .btn-secondary, button[data-track]');
+          if (button) {
+            const buttonText = button.textContent?.trim() || 'Unknown';
+            const buttonType = button.className.includes('emergency') ? 'emergency' : 
+                              button.className.includes('primary') ? 'primary' : 'secondary';
+            
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'cta_click', {
+                event_category: 'conversion',
+                event_label: buttonText,
+                button_type: buttonType,
+                page_location: window.location.href
+              });
+            }
+          }
+        });
+
+        // Track scroll depth
+        let scrollDepths = [25, 50, 75, 90];
+        let trackedDepths = [];
+        
+        function trackScrollDepth() {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const documentHeight = document.documentElement.scrollHeight;
+          const windowHeight = window.innerHeight;
+          const scrollPercent = Math.round((scrollTop / (documentHeight - windowHeight)) * 100);
+          
+          scrollDepths.forEach(depth => {
+            if (scrollPercent >= depth && !trackedDepths.includes(depth)) {
+              trackedDepths.push(depth);
+              if (typeof gtag !== 'undefined') {
+                gtag('event', 'scroll', {
+                  event_category: 'engagement',
+                  event_label: depth + '%',
+                  value: depth
+                });
+              }
+            }
+          });
+        }
+
+        let throttleTimer = null;
+        window.addEventListener('scroll', function() {
+          if (throttleTimer) return;
+          throttleTimer = setTimeout(function() {
+            trackScrollDepth();
+            throttleTimer = null;
+          }, 500);
+        });
+      });
     </script>
   </body>
 </html>

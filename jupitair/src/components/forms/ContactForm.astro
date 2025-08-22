@@ -24,12 +24,14 @@ const isEmergency = variant === 'emergency';
     method="POST" 
     data-netlify="true"
     netlify-honeypot="bot-field"
+    data-form-type={isEmergency ? 'emergency' : 'contact'}
     id={formId}
     aria-label="Contact Form"
     novalidate
   >
     <!-- Honeypot field for spam protection -->
     <input type="hidden" name="form-name" value="contact" />
+    <input type="hidden" name="emergency" value={isEmergency ? 'true' : 'false'} />
     <div class="sr-only" aria-hidden="true">
       <label>
         Don't fill this out if you're human: 

@@ -201,6 +201,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({
               <button
                 key={platform.name}
                 onClick={() => handleShare(platform)}
+                data-track="social-share"
                 className="group relative inline-flex items-center justify-center w-10 h-10 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 style={{ 
                   '--hover-color': platform.color,
@@ -224,6 +225,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({
             {/* Copy link button */}
             <button
               onClick={copyLink}
+              data-track="copy-link"
               className="group relative inline-flex items-center justify-center w-10 h-10 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               aria-label={copied ? 'Link copied!' : 'Copy link'}
               title={copied ? 'Link copied!' : 'Copy link'}
