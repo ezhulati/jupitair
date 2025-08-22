@@ -182,7 +182,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({
         {/* Share buttons */}
         <div className="flex items-center gap-2">
           {/* Native share button (mobile) */}
-          {typeof navigator !== 'undefined' && navigator.share && (
+          {typeof navigator !== 'undefined' && navigator.share && typeof navigator.share === 'function' && (
             <button
               onClick={handleNativeShare}
               className="inline-flex items-center gap-2 px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm font-medium sm:hidden"

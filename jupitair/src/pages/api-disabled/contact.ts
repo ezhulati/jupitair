@@ -153,7 +153,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
     
     // Create Zoho SMTP transporter with security settings
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       host: 'smtp.zoho.com',
       port: 465,
       secure: true, // SSL

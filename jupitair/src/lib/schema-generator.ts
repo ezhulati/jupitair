@@ -1,4 +1,4 @@
-import type { ReviewData } from '../pages/api/reviews-aggregator';
+import type { ReviewData } from '../pages/api-disabled/reviews-aggregator';
 
 export interface SchemaConfig {
   type: 'homepage' | 'city' | 'service' | 'city-service';

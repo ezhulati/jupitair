@@ -1,7 +1,7 @@
 import { Cloudinary } from '@cloudinary/url-gen';
 import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
 import { fill, scale, fit } from '@cloudinary/url-gen/actions/resize';
-import { blur } from '@cloudinary/url-gen/actions/effect';
+import { blur as blurEffect } from '@cloudinary/url-gen/actions/effect';
 
 // Initialize Cloudinary instance
 export const cld = new Cloudinary({
@@ -244,7 +244,7 @@ export function getOptimizedImageUrl(
   
   // Add blur for lazy loading placeholder
   if (blur) {
-    image = image.effect(blur(1000));
+    image = image.effect(blurEffect(1000));
   }
   
   return image.toURL();
