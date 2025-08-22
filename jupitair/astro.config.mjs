@@ -17,7 +17,10 @@ export default defineConfig({
     react()
   ],
   output: 'static',
-  adapter: netlify(),
+  adapter: netlify({
+    edgeMiddleware: false,
+    functionPerRoute: false
+  }),
   site: 'https://jupitairhvac.com',
   build: {
     assets: 'assets',
@@ -44,6 +47,9 @@ export default defineConfig({
     },
     esbuild: {
       drop: ['console', 'debugger']
+    },
+    define: {
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
     }
   }
 });
