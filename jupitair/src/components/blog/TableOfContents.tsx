@@ -1,5 +1,5 @@
 /**
- * Interactive Table of Contents Component for Jupiter Air HVAC Blog
+ * Interactive Table of Contents Component for Jupitair HVAC Blog
  * Features: Auto-generation, smooth scroll, active section highlighting
  */
 import React, { useState, useEffect, useCallback } from 'react';

@@ -1,5 +1,5 @@
 /**
- * Social Share Buttons Component for Jupiter Air HVAC Blog
+ * Social Share Buttons Component for Jupitair HVAC Blog
  * Features: Multiple platforms, copy link, accessibility, analytics tracking
  */
 import React, { useState, useCallback } from 'react';

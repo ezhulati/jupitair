@@ -1,5 +1,5 @@
 /**
- * Enterprise Blog Hero Component for Jupiter Air HVAC
+ * Enterprise Blog Hero Component for Jupitair HVAC
  * Features: Responsive design, emergency indicators, performance optimized
  */
 import React, { useState, useEffect } from 'react';

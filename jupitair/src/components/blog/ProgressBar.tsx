@@ -1,5 +1,5 @@
 /**
- * Reading Progress Bar Component for Jupiter Air HVAC Blog
+ * Reading Progress Bar Component for Jupitair HVAC Blog
  * Features: Smooth animations, performance optimized, accessible
  */
 import React, { useState, useEffect, useCallback } from 'react';

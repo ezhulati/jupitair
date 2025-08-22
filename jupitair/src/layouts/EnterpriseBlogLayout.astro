@@ -1,6 +1,6 @@
 ---
 /**
- * Enterprise Blog Layout for Jupiter Air HVAC
+ * Enterprise Blog Layout for Jupitair HVAC
  * Production-ready template with performance optimization and accessibility
  */
 import BaseLayout from './BaseLayout.astro';
@@ -66,7 +66,7 @@ const articleSchema = {
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Jupiter Air HVAC",
+    "name": "Jupitair HVAC",
     "logo": {
       "@type": "ImageObject",
       "url": "https://jupitairhvac.com/images/logo-color.png",
@@ -455,7 +455,7 @@ const ogImage = frontmatter.heroImage || '/images/blog/default-og-image.jpg';
 </style>
 
 <BaseLayout
-  title={frontmatter.metaTitle || `${frontmatter.title} | Jupiter Air HVAC Blog`}
+  title={frontmatter.metaTitle || `${frontmatter.title} | Jupitair HVAC Blog`}
   description={frontmatter.metaDescription || frontmatter.description}
   keywords={[frontmatter.primaryKeyword, ...frontmatter.secondaryKeywords].join(', ')}
   canonical={frontmatter.canonicalURL}
@@ -655,7 +655,7 @@ const ogImage = frontmatter.heroImage || '/images/blog/default-og-image.jpg';
               <a 
                 href="tel:9403905676"
                 class="block w-full px-4 py-3 bg-blue-600 text-white text-center font-semibold rounded-lg hover:bg-blue-700 transition-colors"
-                aria-label="Call Jupiter Air HVAC"
+                aria-label="Call Jupitair HVAC"
               >
                 📞 Call Now
               </a>
