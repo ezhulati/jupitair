@@ -30,12 +30,12 @@ const displayNumber = BUSINESS_CONFIG.phone.display;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 0.75rem 1.5rem !important;
+    padding: 0.75rem 1rem !important;
     background-color: #ffffff !important;
     border: 2px solid #dc2626 !important;
     border-radius: 0.5rem !important;
     font-weight: bold !important;
-    font-size: 1rem !important;
+    font-size: 0.9rem !important;
     text-decoration: none !important;
     color: #dc2626 !important;
     transition: all 0.2s !important;
@@ -43,6 +43,8 @@ const displayNumber = BUSINESS_CONFIG.phone.display;
     z-index: 10 !important;
     width: 100% !important;
     white-space: nowrap !important;
+    min-width: fit-content !important;
+    box-sizing: border-box !important;
   }
   
   .emergency-simple-button:hover {
