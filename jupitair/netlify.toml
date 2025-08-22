@@ -1,9 +1,10 @@
 [build]
-  command = "npm install && npm run build"
+  command = "pnpm install && pnpm run build"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "20"
+  NPM_FLAGS = "--prefix=/dev/null"
 
 # 301 Redirects for old URLs
 [[redirects]]
