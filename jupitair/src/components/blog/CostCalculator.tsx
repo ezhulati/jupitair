@@ -1,5 +1,5 @@
 /**
- * Interactive Cost Calculator Component for Jupiter Air HVAC Blog
+ * Interactive Cost Calculator Component for Jupitair HVAC Blog
  * Features: Real-time calculations, form validation, accessibility
  */
 import React, { useState, useEffect, useCallback } from 'react';
