@@ -23,10 +23,14 @@ const cities = [
 ---
 
 <style>
-  /* Mobile header offset for emergency banner */
+  /* Mobile header offset for emergency banner (only on non-blog pages) */
   @media (max-width: 767px) {
-    #main-header {
+    #main-header:not([data-blog-page]) {
       top: 36px !important;
+    }
+    
+    #main-header[data-blog-page] {
+      top: 0 !important;
     }
   }
   
@@ -100,46 +104,52 @@ const cities = [
   Skip to main content
 </a>
 
-<!-- Emergency Banner - Mobile Only -->
-<div class="md:hidden fixed top-0 left-0 right-0 bg-red-500 text-white py-2 text-center z-[60] animate-pulse">
-  <div class="flex items-center justify-center gap-2">
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-      <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-    </svg>
-    <span class="font-semibold text-sm">24/7 Emergency Service Available Call Now</span>
+<!-- Emergency Banner - Mobile Only (Hidden on blog pages) -->
+{!Astro.url.pathname.startsWith('/blog') && (
+  <div class="md:hidden fixed top-0 left-0 right-0 bg-red-500 text-white py-2 text-center z-[60] animate-pulse">
+    <div class="flex items-center justify-center gap-2">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+      </svg>
+      <span class="font-semibold text-sm">24/7 Emergency Service Available Call Now</span>
+    </div>
   </div>
-</div>
+)}
 
 <!-- Header -->
 <header 
-  class={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${overlay ? 'bg-transparent' : 'bg-white shadow-sm'}`}
+  class={`fixed left-0 right-0 z-50 transition-all duration-300 ${overlay ? 'bg-transparent' : 'bg-white shadow-sm'}`}
   id="main-header"
   role="banner"
   data-overlay={overlay ? 'true' : 'false'}
+  data-blog-page={Astro.url.pathname.startsWith('/blog') ? 'true' : undefined}
+  style="top: var(--emergency-bar-offset, 0px);"
 >
-  <!-- Top Bar - Desktop -->
-  <div class={`${overlay ? 'bg-black/5 backdrop-blur-sm border-b border-white/10' : 'bg-gray-50 border-b border-gray-200'} py-3 hidden md:block transition-all duration-300`}>
-    <div class="header-container">
-      <div class="flex justify-between items-center text-sm">
-        <span class={`${overlay ? 'text-white/80' : 'text-gray-600'} transition-colors`}>Licensed & Insured • Serving North Texas Since 2008</span>
-        <div class="flex items-center gap-4">
-          <PhoneLink 
-            variant="text" 
-            context="header"
-            class={`${overlay ? 'text-white hover:text-blue-200' : 'text-gray-700 hover:text-primary-600'} transition-colors font-semibold`}
-          />
-          <span 
-            class="bg-red-500 text-white px-4 py-1.5 rounded-full text-xs font-bold animate-pulse shadow-md hover:shadow-lg transition-shadow" 
-            data-emergency-cta
-            role="status"
-            aria-label="24/7 Emergency service available"
-          >
-            24/7 EMERGENCY
-          </span>
+  <!-- Top Bar - Desktop (Hidden on blog pages) -->
+  {!Astro.url.pathname.startsWith('/blog') && (
+    <div class={`${overlay ? 'bg-black/5 backdrop-blur-sm border-b border-white/10' : 'bg-gray-50 border-b border-gray-200'} py-3 hidden md:block transition-all duration-300`}>
+      <div class="header-container">
+        <div class="flex justify-between items-center text-sm">
+          <span class={`${overlay ? 'text-white/80' : 'text-gray-600'} transition-colors`}>Licensed & Insured • Serving North Texas Since 2008</span>
+          <div class="flex items-center gap-4">
+            <PhoneLink 
+              variant="text" 
+              context="header"
+              class={`${overlay ? 'text-white hover:text-blue-200' : 'text-gray-700 hover:text-primary-600'} transition-colors font-semibold`}
+            />
+            <span 
+              class="bg-red-500 text-white px-4 py-1.5 rounded-full text-xs font-bold animate-pulse shadow-md hover:shadow-lg transition-shadow" 
+              data-emergency-cta
+              role="status"
+              aria-label="24/7 Emergency service available"
+            >
+              24/7 EMERGENCY
+            </span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  )}
 
   <!-- Main Navigation - Contained -->
   <nav class={`${overlay ? 'py-0 bg-transparent' : 'py-0.5 bg-white'} transition-all duration-300`} role="navigation" aria-label="Main navigation">

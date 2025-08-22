@@ -1,9 +1,9 @@
+/* Import emergency button fix - CRITICAL (moved to top) */
+/* @import './emergency-button-fix.css'; */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import emergency button fix - CRITICAL */
-@import './emergency-button-fix.css';
 
 /* Base styling for better defaults and accessibility */
 @layer base {

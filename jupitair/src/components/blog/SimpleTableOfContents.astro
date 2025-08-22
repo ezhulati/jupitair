@@ -1,0 +1,304 @@
+---
+/**
+ * Simple Table of Contents Component - Astro native implementation
+ * Features: Auto-generation from h2 and h3 headings, smooth scroll, clean design
+ */
+
+interface Props {
+  isMobile?: boolean;
+  className?: string;
+}
+
+const { isMobile = false, className = '' } = Astro.props;
+---
+
+<div 
+  class={`toc-container ${className}`}
+  data-toc-mobile={isMobile}
+>
+  {isMobile ? (
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+      <button
+        class="toc-toggle w-full flex items-center justify-between p-4 text-left font-semibold text-gray-900 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
+        aria-expanded="false"
+        aria-controls="mobile-toc"
+      >
+        <span class="flex items-center gap-3">
+          <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+            <svg 
+              class="w-4 h-4 text-blue-600" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                stroke-width={2} 
+                d="M4 6h16M4 12h16M4 18h16" 
+              />
+            </svg>
+          </div>
+          <span>Table of Contents</span>
+        </span>
+        <svg
+          class="toc-chevron w-5 h-5 transition-transform duration-200 text-gray-400"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width={2}
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
+      
+      <div
+        id="mobile-toc"
+        class="toc-content transition-all duration-300 overflow-hidden max-h-0"
+      >
+        <div class="border-t border-gray-100">
+          <nav 
+            aria-label="Table of contents" 
+            class="toc-nav"
+          >
+            <ul class="toc-list space-y-0">
+              <!-- TOC items will be populated by JavaScript -->
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+      <div class="p-4 bg-gray-50 border-b border-gray-200">
+        <h3 class="font-semibold text-gray-900 flex items-center gap-3">
+          <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+            <svg 
+              class="w-4 h-4 text-blue-600" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path 
+                stroke-linecap="round" 
+                stroke-linejoin="round" 
+                stroke-width={2} 
+                d="M4 6h16M4 12h16M4 18h16" 
+              />
+            </svg>
+          </div>
+          <span>Table of Contents</span>
+        </h3>
+      </div>
+      
+      <div class="p-2">
+        <nav 
+          aria-label="Table of contents" 
+          class="toc-nav"
+        >
+          <ul class="toc-list space-y-0">
+            <!-- TOC items will be populated by JavaScript -->
+          </ul>
+        </nav>
+      </div>
+      
+      <!-- Reading progress for desktop -->
+      <div class="px-4 py-3 bg-gray-50 border-t border-gray-200">
+        <div class="flex items-center gap-2 text-xs text-gray-500">
+          <svg 
+            class="w-4 h-4" 
+            fill="currentColor" 
+            viewBox="0 0 20 20"
+            aria-hidden="true"
+          >
+            <path 
+              fill-rule="evenodd" 
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" 
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span>Click to jump to section</span>
+        </div>
+      </div>
+    </div>
+  )}
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tocContainers = document.querySelectorAll('.toc-container');
+  
+  tocContainers.forEach(container => {
+    const isMobile = container.dataset.tocMobile === 'true';
+    const tocList = container.querySelector('.toc-list');
+    const tocToggle = container.querySelector('.toc-toggle');
+    const tocContent = container.querySelector('.toc-content');
+    const tocChevron = container.querySelector('.toc-chevron');
+    
+    // Generate TOC from headings
+    function generateTOC() {
+      if (!tocList) return;
+      
+      // Only look for headings within the blog content area
+      const blogContent = document.querySelector('.blog-content, .blog-prose, article');
+      const headings = blogContent ? blogContent.querySelectorAll('h2, h3') : document.querySelectorAll('.blog-content h2, .blog-content h3, .blog-prose h2, .blog-prose h3');
+      const items = [];
+      
+      headings.forEach((heading, index) => {
+        const level = parseInt(heading.tagName.charAt(1));
+        const text = heading.textContent || '';
+        let id = heading.id || `heading-${index}`;
+        
+        // Generate meaningful IDs from heading text if not present
+        if (!heading.id) {
+          id = text.toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/(^-|-$)/g, '')
+            .substring(0, 50) || `heading-${index}`;
+          heading.id = id;
+        }
+        
+        items.push({ id, text, level });
+      });
+      
+      // Build TOC HTML
+      tocList.innerHTML = items.map(({ id, text, level }) => `
+        <li>
+          <button
+            class="toc-link block w-full text-left py-3 px-4 text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border-l-2 ${
+              level === 2 
+                ? 'font-medium' 
+                : 'font-normal text-gray-600 ml-4'
+            } text-gray-700 hover:text-blue-600 hover:bg-gray-50 border-transparent hover:border-gray-200"
+            data-target="${id}"
+            aria-current="false"
+          >
+            ${text}
+          </button>
+        </li>
+      `).join('');
+      
+      // Add click handlers
+      const tocLinks = tocList.querySelectorAll('.toc-link');
+      tocLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          const targetId = this.dataset.target;
+          scrollToSection(targetId);
+        });
+      });
+      
+      // Set up intersection observer for active state
+      setupIntersectionObserver(items);
+    }
+    
+    // Smooth scroll to section
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        const offset = 120; // Account for fixed header
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+
+        // Update URL without triggering scroll
+        if (history.replaceState) {
+          history.replaceState(null, '', `#${id}`);
+        }
+
+        // Collapse mobile TOC after selection
+        if (isMobile && tocContent && tocToggle) {
+          tocContent.style.maxHeight = '0';
+          tocToggle.setAttribute('aria-expanded', 'false');
+          if (tocChevron) {
+            tocChevron.style.transform = 'rotate(0deg)';
+          }
+        }
+      }
+    }
+    
+    // Set up intersection observer for active highlighting
+    function setupIntersectionObserver(items) {
+      if (items.length === 0) return;
+
+      const observerOptions = {
+        rootMargin: '-80px 0px -80% 0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            updateActiveLink(entry.target.id);
+          }
+        });
+      }, observerOptions);
+
+      items.forEach(({ id }) => {
+        const element = document.getElementById(id);
+        if (element) observer.observe(element);
+      });
+    }
+    
+    // Update active link styling
+    function updateActiveLink(activeId) {
+      const tocLinks = container.querySelectorAll('.toc-link');
+      tocLinks.forEach(link => {
+        const isActive = link.dataset.target === activeId;
+        link.setAttribute('aria-current', isActive ? 'true' : 'false');
+        
+        if (isActive) {
+          link.className = link.className.replace(
+            'text-gray-700 hover:text-blue-600 hover:bg-gray-50 border-transparent hover:border-gray-200',
+            'bg-blue-50 text-blue-700 border-blue-500 shadow-sm'
+          );
+        } else {
+          link.className = link.className.replace(
+            'bg-blue-50 text-blue-700 border-blue-500 shadow-sm',
+            'text-gray-700 hover:text-blue-600 hover:bg-gray-50 border-transparent hover:border-gray-200'
+          );
+        }
+      });
+    }
+    
+    // Mobile toggle functionality
+    if (isMobile && tocToggle && tocContent && tocChevron) {
+      tocToggle.addEventListener('click', function() {
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        const newState = !isExpanded;
+        
+        this.setAttribute('aria-expanded', newState.toString());
+        tocContent.style.maxHeight = newState ? '24rem' : '0';
+        tocChevron.style.transform = newState ? 'rotate(180deg)' : 'rotate(0deg)';
+      });
+    }
+    
+    // Initialize
+    generateTOC();
+  });
+});
+</script>
+
+<style>
+.toc-content {
+  transition: max-height 0.3s ease-in-out;
+}
+
+.toc-chevron {
+  transition: transform 0.2s ease-in-out;
+}
+
+.toc-link {
+  transition: all 0.2s ease-in-out;
+}
+</style>

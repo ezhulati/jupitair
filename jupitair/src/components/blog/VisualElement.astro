@@ -1,0 +1,319 @@
+---
+/**
+ * Professional Visual Element Component for Jupiter Air HVAC Blog
+ * Features: Charts, progress bars, visual data representation
+ */
+
+interface Props {
+  type: 'progress' | 'chart' | 'comparison' | 'timeline' | 'feature-grid';
+  title?: string;
+  data?: any;
+  className?: string;
+}
+
+const { type, title, data, className = '' } = Astro.props;
+---
+
+<div class={`visual-element bg-white rounded-2xl border border-gray-200 p-8 shadow-sm ${className}`}>
+  {title && (
+    <h3 class="text-xl font-bold text-gray-900 mb-6 text-center">{title}</h3>
+  )}
+
+  {type === 'progress' && data && (
+    <div class="space-y-4">
+      {data.items.map((item, index) => (
+        <div class="progress-item">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm font-medium text-gray-700">{item.label}</span>
+            <span class="text-sm font-bold text-blue-600">{item.value}%</span>
+          </div>
+          <div class="progress-bar bg-gray-200 rounded-full h-3 overflow-hidden">
+            <div 
+              class="progress-fill h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-1000 ease-out"
+              style={`width: 0%; animation-delay: ${index * 200}ms`}
+              data-width={item.value}
+            ></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {type === 'comparison' && data && (
+    <div class="comparison-grid grid md:grid-cols-2 gap-8">
+      {data.items.map((item, index) => (
+        <div class={`comparison-card p-6 rounded-xl border-2 ${
+          item.recommended 
+            ? 'border-green-300 bg-green-50' 
+            : 'border-gray-200 bg-gray-50'
+        }`}>
+          {item.recommended && (
+            <div class="flex justify-center mb-4">
+              <span class="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                Recommended
+              </span>
+            </div>
+          )}
+          
+          <div class="text-center mb-4">
+            <h4 class="text-lg font-bold text-gray-900 mb-2">{item.title}</h4>
+            <div class="text-3xl font-bold text-blue-600 mb-1">
+              {item.price}
+            </div>
+            <p class="text-sm text-gray-600">{item.description}</p>
+          </div>
+          
+          <ul class="space-y-2">
+            {item.features.map(feature => (
+              <li class="flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                </svg>
+                <span class="text-gray-700">{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {type === 'timeline' && data && (
+    <div class="timeline relative">
+      <!-- Timeline line -->
+      <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-blue-300"></div>
+      
+      <div class="space-y-8">
+        {data.steps.map((step, index) => (
+          <div class="timeline-item relative flex items-start gap-6">
+            <!-- Timeline dot -->
+            <div class="timeline-dot relative z-10">
+              <div class="w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-md"></div>
+              <div class="absolute inset-0 w-4 h-4 bg-blue-500 rounded-full animate-ping opacity-25"></div>
+            </div>
+            
+            <!-- Content -->
+            <div class="timeline-content flex-1 pb-8">
+              <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-semibold">
+                    Step {index + 1}
+                  </span>
+                  <h4 class="font-bold text-gray-900">{step.title}</h4>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+                {step.duration && (
+                  <div class="mt-3 flex items-center gap-2 text-xs text-gray-500">
+                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
+                    </svg>
+                    <span>{step.duration}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {type === 'feature-grid' && data && (
+    <div class="feature-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {data.features.map(feature => (
+        <div class="feature-card bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+          <!-- Icon -->
+          <div class="feature-icon w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+            {feature.icon ? (
+              feature.icon.startsWith('http') || feature.icon.startsWith('/') ? (
+                <img src={feature.icon} alt="" class="w-8 h-8" />
+              ) : (
+                <div class="text-blue-600 text-2xl">{feature.icon}</div>
+              )
+            ) : (
+              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            )}
+          </div>
+          
+          <!-- Title -->
+          <h4 class="font-bold text-gray-900 mb-2">{feature.title}</h4>
+          
+          <!-- Description -->
+          <p class="text-sm text-gray-600 leading-relaxed">{feature.description}</p>
+          
+          <!-- Badge -->
+          {feature.badge && (
+            <div class="mt-3">
+              <span class="inline-block bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium">
+                {feature.badge}
+              </span>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  )}
+
+  {type === 'chart' && data && (
+    <div class="chart-container">
+      <!-- Simple bar chart -->
+      <div class="chart-bars flex items-end justify-between gap-2 h-32 mb-4">
+        {data.values.map((value, index) => (
+          <div class="chart-bar-container flex-1 flex flex-col items-center">
+            <div 
+              class="chart-bar bg-gradient-to-t from-blue-500 to-blue-400 rounded-t-lg transition-all duration-1000 ease-out"
+              style={`height: 0%; animation-delay: ${index * 100}ms`}
+              data-height={value.percentage}
+            ></div>
+            <div class="chart-label text-xs text-gray-600 mt-2 text-center">
+              {value.label}
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <!-- Chart legend -->
+      <div class="chart-legend text-center">
+        <p class="text-sm text-gray-600">{data.description}</p>
+      </div>
+    </div>
+  )}
+</div>
+
+<script>
+  // Animate progress bars on scroll
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Animate progress bars
+          const progressFills = entry.target.querySelectorAll('.progress-fill');
+          progressFills.forEach(fill => {
+            const width = fill.dataset.width;
+            setTimeout(() => {
+              fill.style.width = width + '%';
+            }, parseInt(fill.style.animationDelay) || 0);
+          });
+          
+          // Animate chart bars
+          const chartBars = entry.target.querySelectorAll('.chart-bar');
+          chartBars.forEach(bar => {
+            const height = bar.dataset.height;
+            setTimeout(() => {
+              bar.style.height = height + '%';
+            }, parseInt(bar.style.animationDelay) || 0);
+          });
+          
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    
+    document.querySelectorAll('.visual-element').forEach(element => {
+      observer.observe(element);
+    });
+  }
+</script>
+
+<style>
+  .visual-element {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .visual-element::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+    opacity: 0.1;
+  }
+  
+  .progress-fill {
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 2s infinite;
+  }
+  
+  .chart-bar {
+    min-height: 4px;
+    background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+    position: relative;
+  }
+  
+  .timeline-dot {
+    position: relative;
+  }
+  
+  .feature-card:hover .feature-icon {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+  
+  @keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 640px) {
+    .timeline {
+      margin-left: -1rem;
+    }
+    
+    .timeline-item {
+      margin-left: 1rem;
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    .visual-element {
+      break-inside: avoid;
+      border: 1px solid #000;
+    }
+    
+    .progress-fill,
+    .chart-bar {
+      background: #000 !important;
+    }
+  }
+  
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    .progress-fill,
+    .chart-bar {
+      background: #000;
+    }
+  }
+  
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .progress-fill,
+    .chart-bar,
+    .timeline-dot .animate-ping {
+      transition: none;
+      animation: none;
+    }
+    
+    .feature-card:hover {
+      transform: none;
+    }
+  }
+</style>

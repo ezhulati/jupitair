@@ -1,0 +1,755 @@
+---
+/**
+ * Enterprise Blog Layout for Jupiter Air HVAC
+ * Production-ready template with performance optimization and accessibility
+ */
+import BaseLayout from './BaseLayout.astro';
+import BlogHero from '../components/blog/BlogHero.tsx';
+import ProgressBar from '../components/blog/ProgressBar.tsx';
+import SimpleTableOfContents from '../components/blog/SimpleTableOfContents.astro';
+import AuthorCard from '../components/blog/AuthorCard.astro';
+import RelatedArticles from '../components/blog/RelatedArticles.astro';
+import EmergencyCTA from '../components/blog/EmergencyCTA.astro';
+import ShareButtons from '../components/blog/ShareButtons.tsx';
+import BlogCTA from '../components/blog/BlogCTA.astro';
+import { Image } from 'astro:assets';
+
+export interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    author: string;
+    publishDate: Date;
+    updateDate?: Date;
+    heroImage?: string;
+    heroImageAlt?: string;
+    category: string;
+    subcategory?: string;
+    tags: string[];
+    featured: boolean;
+    metaTitle?: string;
+    metaDescription?: string;
+    primaryKeyword: string;
+    secondaryKeywords: string[];
+    canonicalURL?: string;
+    readingTime?: number;
+    tableOfContents?: boolean;
+    schemaTypes?: string[];
+    ctaText?: string;
+    ctaLink?: string;
+    relatedPosts?: string[];
+    internalLinks?: string[];
+    isEmergency?: boolean;
+    targetCity?: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+
+// Calculate reading progress and estimated time
+const estimatedReadingTime = frontmatter.readingTime || 5;
+const isEmergencyContent = frontmatter.isEmergency || 
+  frontmatter.category.toLowerCase().includes('emergency') ||
+  frontmatter.tags.some(tag => tag.toLowerCase().includes('emergency'));
+
+// Generate structured data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": frontmatter.title,
+  "description": frontmatter.description,
+  "image": frontmatter.heroImage ? `https://jupitairhvac.com${frontmatter.heroImage}` : null,
+  "author": {
+    "@type": "Organization",
+    "name": frontmatter.author,
+    "url": "https://jupitairhvac.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Jupiter Air HVAC",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://jupitairhvac.com/images/logo-color.png",
+      "width": 300,
+      "height": 100
+    }
+  },
+  "datePublished": frontmatter.publishDate.toISOString(),
+  "dateModified": (frontmatter.updateDate || frontmatter.publishDate).toISOString(),
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": frontmatter.canonicalURL || `https://jupitairhvac.com/blog/${Astro.url.pathname.split('/').pop()}`
+  },
+  "keywords": [frontmatter.primaryKeyword, ...frontmatter.secondaryKeywords].join(', '),
+  "articleSection": frontmatter.category,
+  "wordCount": estimatedReadingTime * 200, // Estimate ~200 words per minute
+  "inLanguage": "en-US",
+  "about": {
+    "@type": "Thing",
+    "name": "HVAC Services",
+    "description": "Heating, Ventilation, and Air Conditioning services in North Texas"
+  }
+};
+
+// Breadcrumb schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://jupitairhvac.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://jupitairhvac.com/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": frontmatter.category,
+      "item": `https://jupitairhvac.com/blog/category/${frontmatter.category.toLowerCase().replace(/\s+/g, '-')}`
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": frontmatter.title
+    }
+  ]
+};
+
+// Generate Open Graph image URL if not provided
+const ogImage = frontmatter.heroImage || '/images/blog/default-og-image.jpg';
+---
+
+<style>
+  /* Import the design system */
+  @import url('../styles/blog-design-system.css');
+  
+  /* Blog-specific styles */
+  .blog-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  @media (max-width: 767px) {
+    .blog-container {
+      padding: 0 0.75rem;
+    }
+  }
+  
+  .blog-content {
+    max-width: 750px;
+  }
+  
+  .blog-sidebar {
+    position: sticky;
+    top: 120px;
+    height: fit-content;
+  }
+  
+  /* Content Typography */
+  .blog-prose {
+    line-height: 1.8;
+    font-size: 18px;
+    color: #374151;
+  }
+  
+  .blog-prose h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #111827;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    scroll-margin-top: 120px;
+    border-bottom: 3px solid #2563eb;
+    padding-bottom: 0.5rem;
+  }
+  
+  .blog-prose h2 {
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    color: #111827 !important;
+    margin-top: 3rem !important;
+    margin-bottom: 1.5rem !important;
+    scroll-margin-top: 120px;
+    position: relative;
+    display: block !important;
+  }
+  
+  .blog-prose h2::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #2563eb;
+    border-radius: 2px;
+  }
+  
+  /* Add extra space for the first heading after hero */
+  .blog-prose > h2:first-child,
+  .blog-prose > h2:first-of-type,
+  .blog-prose h2:nth-child(1),
+  .blog-prose h2:nth-of-type(1) {
+    margin-top: 2rem !important;
+  }
+  
+  @media (min-width: 768px) {
+    .blog-prose > h2:first-child,
+    .blog-prose > h2:first-of-type,
+    .blog-prose h2:nth-child(1),
+    .blog-prose h2:nth-of-type(1) {
+      margin-top: 3rem !important;
+    }
+  }
+  
+  .blog-prose h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #1f2937;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    scroll-margin-top: 120px;
+  }
+  
+  .blog-prose h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #1f2937;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    scroll-margin-top: 120px;
+  }
+  
+  .blog-prose h5 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #374151;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    scroll-margin-top: 120px;
+  }
+  
+  .blog-prose h6 {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #374151;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    scroll-margin-top: 120px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .blog-prose p {
+    margin-bottom: 1.75rem;
+    color: #374151;
+    line-height: 1.8;
+  }
+  
+  .blog-prose p + h2,
+  .blog-prose p + h3,
+  .blog-prose p + h4,
+  .blog-prose p + h5,
+  .blog-prose p + h6 {
+    margin-top: 3rem;
+  }
+  
+  .blog-prose p:first-of-type {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+    color: #1f2937;
+  }
+  
+  .blog-prose p:first-of-type::first-letter {
+    float: left;
+    font-size: 4em;
+    line-height: 0.8;
+    margin: 0.1em 0.1em 0 0;
+    font-weight: bold;
+    color: #2563eb;
+  }
+  
+  .blog-prose ul, .blog-prose ol {
+    margin: 2rem 0;
+    padding-left: 2rem;
+  }
+  
+  .blog-prose li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+  
+  .blog-prose li p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .blog-prose blockquote {
+    border-left: 4px solid #2563eb;
+    padding: 1.5rem 1.5rem 1.5rem 2rem;
+    margin: 2.5rem 0;
+    font-style: italic;
+    color: #4b5563;
+    background: #f8fafc;
+    border-radius: 0 8px 8px 0;
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+  
+  .blog-prose img {
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    margin: 2.5rem 0;
+    width: 100%;
+    height: auto;
+  }
+  
+  .blog-prose figure {
+    margin: 2.5rem 0;
+  }
+  
+  .blog-prose figcaption {
+    margin-top: 0.75rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-style: italic;
+  }
+  
+  .blog-prose code {
+    background: var(--bg-secondary);
+    padding: 0.125rem 0.25rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.875em;
+  }
+  
+  .blog-prose pre {
+    background: var(--dark);
+    color: var(--light);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+  
+  .blog-prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  
+  .blog-prose th,
+  .blog-prose td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .blog-prose th {
+    background: var(--bg-secondary);
+    font-weight: var(--font-semibold);
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .blog-container {
+      padding: 1rem 0.75rem;
+    }
+    
+    .blog-prose {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    
+    .blog-prose p:first-of-type::first-letter {
+      font-size: 2.5em;
+      margin: 0.05em 0.1em 0 0;
+    }
+    
+    .blog-content {
+      max-width: 100%;
+      padding: 0;
+    }
+    
+    .hero-section {
+      padding-top: 7rem;
+      padding-bottom: 2rem;
+    }
+    
+    .hero-section h1 {
+      font-size: 1.75rem !important;
+      line-height: 1.3;
+    }
+    
+    .hero-section .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    .blog-sidebar {
+      margin-top: 2rem;
+    }
+    
+    .blog-sidebar a {
+      font-size: 0.875rem;
+      padding: 0.75rem 1rem;
+    }
+    
+    .blog-prose h1 {
+      font-size: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .blog-prose h2 {
+      font-size: 1.75rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .blog-prose h2::before {
+      left: -0.5rem;
+      width: 3px;
+    }
+    
+    .blog-prose h3 {
+      font-size: 1.375rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .blog-prose h4 {
+      font-size: 1.125rem;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .blog-prose p + h2,
+    .blog-prose p + h3,
+    .blog-prose p + h4,
+    .blog-prose p + h5,
+    .blog-prose p + h6 {
+      margin-top: 2rem;
+    }
+  }
+  
+  /* Improved tablet responsiveness */
+  @media (max-width: 1024px) {
+    .blog-sidebar {
+      position: static;
+      margin-top: 2rem;
+    }
+    
+    .hero-section {
+      padding-top: 5rem;
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    .blog-sidebar,
+    .progress-bar,
+    .share-buttons {
+      display: none;
+    }
+    
+    .blog-content {
+      max-width: none;
+    }
+  }
+</style>
+
+<BaseLayout
+  title={frontmatter.metaTitle || `${frontmatter.title} | Jupiter Air HVAC Blog`}
+  description={frontmatter.metaDescription || frontmatter.description}
+  keywords={[frontmatter.primaryKeyword, ...frontmatter.secondaryKeywords].join(', ')}
+  canonical={frontmatter.canonicalURL}
+  ogImage={ogImage}
+>
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  
+  <!-- Critical CSS for above-the-fold content -->
+  <style is:inline>
+    /* Critical styles for initial paint */
+    .blog-hero-container {
+      background: var(--gradient-hero);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .blog-hero-pattern {
+      background-image: 
+        radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0);
+      background-size: 20px 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  </style>
+  
+  <!-- Reading Progress Bar -->
+  <ProgressBar client:load />
+  
+  
+  <!-- Blog Hero Section -->
+  <section class="hero-section relative pt-32 pb-16 text-white overflow-hidden">
+    <!-- Hero Background Image -->
+    {frontmatter.heroImage && (
+      <div class="absolute inset-0">
+        <img 
+          src={frontmatter.heroImage} 
+          alt={frontmatter.heroImageAlt || frontmatter.title}
+          class="w-full h-full object-cover"
+          loading="eager"
+        />
+      </div>
+    )}
+    
+    <!-- Dark Overlay for Text Readability -->
+    <div class={`absolute inset-0 ${frontmatter.heroImage ? 'bg-black/60' : 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800'}`}></div>
+    
+    <!-- Background Pattern (only when no hero image) -->
+    {!frontmatter.heroImage && (
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0); background-size: 30px 30px;"></div>
+      </div>
+    )}
+    
+    <div class="container mx-auto px-4 sm:px-6 relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <!-- Breadcrumb -->
+        <nav class="mb-8 mt-16" aria-label="Breadcrumb">
+          <div class="flex justify-center items-center space-x-2 text-sm text-blue-100">
+            <a href="/" class="hover:text-white transition-colors">Home</a>
+            <span class="text-blue-300">/</span>
+            <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+            <span class="text-blue-300">/</span>
+            <span class="text-blue-200">{frontmatter.category}</span>
+          </div>
+        </nav>
+        
+        <!-- Category Badge -->
+        <div class="mb-8 mt-4">
+          <span class="inline-block px-4 py-2 rounded-full text-sm font-semibold bg-blue-500/20 text-blue-100 border border-blue-400/30">
+            {frontmatter.category}
+          </span>
+        </div>
+        
+        <!-- Title -->
+        <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          {frontmatter.title}
+        </h1>
+        
+        <!-- Description -->
+        <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-50 mb-8 leading-relaxed max-w-3xl mx-auto">
+          {frontmatter.description}
+        </p>
+        
+        <!-- Meta Information -->
+        <div class="flex flex-wrap justify-center items-center gap-6 text-sm text-blue-100">
+          <!-- Author -->
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-blue-500/30 rounded-full flex items-center justify-center">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"/>
+              </svg>
+            </div>
+            <span>{frontmatter.author}</span>
+          </div>
+          
+          <!-- Date -->
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"/>
+            </svg>
+            <time dateTime={frontmatter.publishDate.toISOString()}>
+              {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(frontmatter.publishDate)}
+            </time>
+          </div>
+          
+          <!-- Reading Time -->
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
+            </svg>
+            <span>{estimatedReadingTime} min read</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Clean bottom edge -->
+    <div class="absolute bottom-0 left-0 right-0 h-1 bg-white"></div>
+  </section>
+  
+  <!-- Main Content Container -->
+  <article class="blog-container pt-12 pb-8 md:pt-20 md:pb-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 grid lg:grid-cols-12 gap-4 md:gap-8">
+      <!-- Main Content Area -->
+      <div class="lg:col-span-8 xl:col-span-8 min-w-0">
+        <!-- Table of Contents (Mobile) -->
+        {(frontmatter.tableOfContents !== false) && (
+          <div class="lg:hidden mb-8">
+            <SimpleTableOfContents isMobile={true} />
+          </div>
+        )}
+        
+        <!-- Article Content -->
+        <div class="blog-content blog-prose blog-typography" style="margin-top: 3rem;">
+          <slot />
+        </div>
+        
+        <!-- Share Buttons -->
+        <div class="mt-12 mb-8">
+          <ShareButtons
+            title={frontmatter.title}
+            url={frontmatter.canonicalURL || Astro.url.href}
+            client:visible
+          />
+        </div>
+        
+        <!-- Author Bio -->
+        <AuthorCard author={frontmatter.author} />
+        
+        <!-- Tags -->
+        {frontmatter.tags && frontmatter.tags.length > 0 && (
+          <div class="mt-8">
+            <h3 class="blog-heading-4 mb-4">Related Topics</h3>
+            <div class="flex flex-wrap gap-2">
+              {frontmatter.tags.map(tag => (
+                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+        
+        <!-- CTA Section -->
+        <div class="mt-16">
+          <BlogCTA 
+            text={frontmatter.ctaText}
+            link={frontmatter.ctaLink}
+          />
+        </div>
+      </div>
+      
+      <!-- Sidebar -->
+      <aside class="lg:col-span-4 xl:col-span-4 min-w-0">
+        <div class="blog-sidebar space-y-4 md:space-y-6">
+          <!-- Table of Contents (Desktop) -->
+          {(frontmatter.tableOfContents !== false) && (
+            <div class="hidden lg:block">
+              <SimpleTableOfContents />
+            </div>
+          )}
+          
+          <!-- Quick Contact Card -->
+          <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+            <h3 class="blog-heading-4 mb-4 text-center">Need HVAC Service?</h3>
+            <p class="blog-body-sm text-center mb-6 text-gray-600">
+              Get fast, reliable service from North Texas's trusted HVAC experts.
+            </p>
+            
+            <!-- Call to Action Buttons -->
+            <div class="space-y-3">
+              <a 
+                href="tel:9403905676"
+                class="block w-full px-4 py-3 bg-blue-600 text-white text-center font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+                aria-label="Call Jupiter Air HVAC"
+              >
+                📞 Call Now
+              </a>
+              <a 
+                href="/contact"
+                class="block w-full px-4 py-2 border border-blue-600 text-blue-600 text-center rounded-lg hover:bg-blue-50 transition-colors"
+              >
+                Schedule Service
+              </a>
+            </div>
+            
+            <p class="blog-caption text-center mt-4">
+              Licensed • Insured • 24/7 Emergency Service
+            </p>
+          </div>
+          
+          <!-- Service Areas -->
+          <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+            <h3 class="blog-heading-4 mb-4">Service Areas</h3>
+            <div class="grid grid-cols-2 gap-2 text-sm">
+              <a href="/frisco" class="text-blue-600 hover:underline">Frisco</a>
+              <a href="/plano" class="text-blue-600 hover:underline">Plano</a>
+              <a href="/mckinney" class="text-blue-600 hover:underline">McKinney</a>
+              <a href="/allen" class="text-blue-600 hover:underline">Allen</a>
+              <a href="/prosper" class="text-blue-600 hover:underline">Prosper</a>
+              <a href="/little-elm" class="text-blue-600 hover:underline">Little Elm</a>
+              <a href="/the-colony" class="text-blue-600 hover:underline">The Colony</a>
+              <a href="/addison" class="text-blue-600 hover:underline">Addison</a>
+            </div>
+          </div>
+          
+          <!-- Related Articles -->
+          {frontmatter.relatedPosts && frontmatter.relatedPosts.length > 0 && (
+            <RelatedArticles posts={frontmatter.relatedPosts} />
+          )}
+        </div>
+      </aside>
+    </div>
+  </article>
+  
+  <!-- Schema.org FAQ if applicable -->
+  {frontmatter.schemaTypes?.includes('FAQPage') && (
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": []
+      }
+    </script>
+  )}
+  
+  <!-- Performance monitoring -->
+  <script is:inline>
+    // Core Web Vitals monitoring
+    if ('PerformanceObserver' in window) {
+      // LCP monitoring
+      new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          if (entry.entryType === 'largest-contentful-paint') {
+            console.log('LCP:', entry.startTime);
+          }
+        }
+      }).observe({ entryTypes: ['largest-contentful-paint'] });
+      
+      // CLS monitoring
+      new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          if (!entry.hadRecentInput) {
+            console.log('CLS:', entry.value);
+          }
+        }
+      }).observe({ entryTypes: ['layout-shift'] });
+    }
+  </script>
+</BaseLayout>
