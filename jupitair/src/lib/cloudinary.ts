@@ -256,6 +256,6 @@ export function getBlurPlaceholder(publicId: string) {
     .format('auto')
     .quality('auto:low')
     .resize(scale().width(20))
-    .effect(blur(1000))
+    .effect(blurEffect(1000))
     .toURL();
 }
