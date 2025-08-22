@@ -1,0 +1,271 @@
+---
+export interface Props {
+  trackingId: string;
+  clarityId?: string;
+}
+
+const { trackingId, clarityId } = Astro.props;
+---
+
+<!-- Google Analytics 4 -->
+{trackingId && (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`}></script>
+    <script define:vars={{ trackingId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', trackingId, {
+        send_page_view: true,
+        allow_google_signals: true,
+        allow_ad_personalization_signals: true
+      });
+    </script>
+  </>
+)}
+
+<!-- Microsoft Clarity -->
+{clarityId && (
+  <script define:vars={{ clarityId }}>
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", clarityId);
+  </script>
+)}
+
+<!-- Enhanced Event Tracking -->
+<script>
+  // Phone call tracking
+  function trackPhoneCall(number, context = 'general') {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'phone_call', {
+        event_category: 'engagement',
+        event_label: context,
+        phone_number: number,
+        value: 1
+      });
+    }
+  }
+
+  // Form submission tracking
+  function trackFormSubmission(formType, formId) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'form_submit', {
+        event_category: 'lead_generation',
+        event_label: formType,
+        form_id: formId,
+        value: 1
+      });
+    }
+  }
+
+  // CTA click tracking
+  function trackCTAClick(ctaText, location) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'cta_click', {
+        event_category: 'engagement',
+        event_label: ctaText,
+        cta_location: location,
+        value: 1
+      });
+    }
+  }
+
+  // Service page tracking
+  function trackServiceInterest(serviceName, actionType) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'service_interest', {
+        event_category: 'services',
+        event_label: serviceName,
+        action_type: actionType,
+        value: 1
+      });
+    }
+  }
+
+  // Emergency service tracking
+  function trackEmergencyAction(actionType, urgency = 'high') {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'emergency_action', {
+        event_category: 'emergency',
+        event_label: actionType,
+        urgency_level: urgency,
+        value: 2
+      });
+    }
+  }
+
+  // Scroll depth tracking
+  let scrollThresholds = [25, 50, 75, 90];
+  let triggeredThresholds = [];
+
+  function trackScrollDepth() {
+    const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    
+    scrollThresholds.forEach(threshold => {
+      if (scrollPercent >= threshold && !triggeredThresholds.includes(threshold)) {
+        triggeredThresholds.push(threshold);
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'scroll_depth', {
+            event_category: 'engagement',
+            event_label: `${threshold}%`,
+            scroll_percent: threshold,
+            value: threshold / 100
+          });
+        }
+      }
+    });
+  }
+
+  // Blog engagement tracking
+  function trackBlogEngagement(action, postTitle, category = 'blog') {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'blog_engagement', {
+        event_category: category,
+        event_label: action,
+        blog_post: postTitle,
+        value: 1
+      });
+    }
+  }
+
+  // City/location tracking
+  function trackLocationInterest(cityName, action) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'location_interest', {
+        event_category: 'locations',
+        event_label: cityName,
+        action_type: action,
+        value: 1
+      });
+    }
+  }
+
+  // Review interaction tracking
+  function trackReviewInteraction(platform, action) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'review_interaction', {
+        event_category: 'social_proof',
+        event_label: platform,
+        action_type: action,
+        value: 1
+      });
+    }
+  }
+
+  // Social media tracking
+  function trackSocialShare(platform, content, url) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'social_share', {
+        event_category: 'social_media',
+        event_label: platform,
+        content_type: content,
+        page_url: url,
+        value: 1
+      });
+    }
+  }
+
+  // Equipment brand tracking (for HVAC)
+  function trackEquipmentInterest(brand, equipmentType) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'equipment_interest', {
+        event_category: 'products',
+        event_label: brand,
+        equipment_type: equipmentType,
+        value: 1
+      });
+    }
+  }
+
+  // Make functions globally available
+  window.trackPhoneCall = trackPhoneCall;
+  window.trackFormSubmission = trackFormSubmission;
+  window.trackCTAClick = trackCTAClick;
+  window.trackServiceInterest = trackServiceInterest;
+  window.trackEmergencyAction = trackEmergencyAction;
+  window.trackBlogEngagement = trackBlogEngagement;
+  window.trackLocationInterest = trackLocationInterest;
+  window.trackReviewInteraction = trackReviewInteraction;
+  window.trackSocialShare = trackSocialShare;
+  window.trackEquipmentInterest = trackEquipmentInterest;
+
+  // Auto-initialize tracking when DOM is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // Scroll depth tracking
+    let scrollTimer;
+    window.addEventListener('scroll', function() {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(trackScrollDepth, 100);
+    });
+
+    // Phone link tracking
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+      link.addEventListener('click', function() {
+        const number = this.href.replace('tel:', '');
+        const context = this.dataset.context || this.className.includes('emergency') ? 'emergency' : 'general';
+        trackPhoneCall(number, context);
+      });
+    });
+
+    // Form submission tracking
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', function() {
+        const formType = this.dataset.formType || this.id || 'contact';
+        const formId = this.id || 'unnamed-form';
+        trackFormSubmission(formType, formId);
+      });
+    });
+
+    // CTA button tracking
+    document.querySelectorAll('[data-cta]').forEach(button => {
+      button.addEventListener('click', function() {
+        const ctaText = this.dataset.cta || this.textContent.trim();
+        const location = this.dataset.location || 'unknown';
+        trackCTAClick(ctaText, location);
+      });
+    });
+
+    // Service interest tracking
+    document.querySelectorAll('[data-service]').forEach(element => {
+      element.addEventListener('click', function() {
+        const serviceName = this.dataset.service;
+        const actionType = this.dataset.action || 'click';
+        trackServiceInterest(serviceName, actionType);
+      });
+    });
+
+    // Emergency action tracking
+    document.querySelectorAll('[data-emergency]').forEach(element => {
+      element.addEventListener('click', function() {
+        const actionType = this.dataset.emergency || 'call';
+        const urgency = this.dataset.urgency || 'high';
+        trackEmergencyAction(actionType, urgency);
+      });
+    });
+
+    // Review link tracking
+    document.querySelectorAll('a[href*="google"], a[href*="facebook"], a[href*="review"]').forEach(link => {
+      link.addEventListener('click', function() {
+        let platform = 'unknown';
+        if (this.href.includes('google')) platform = 'google';
+        else if (this.href.includes('facebook')) platform = 'facebook';
+        else if (this.href.includes('review')) platform = 'review';
+        
+        trackReviewInteraction(platform, 'click');
+      });
+    });
+
+    // Social sharing tracking
+    document.querySelectorAll('[data-share]').forEach(button => {
+      button.addEventListener('click', function() {
+        const platform = this.dataset.share;
+        const content = this.dataset.content || 'page';
+        const url = window.location.href;
+        trackSocialShare(platform, content, url);
+      });
+    });
+  });
+</script>

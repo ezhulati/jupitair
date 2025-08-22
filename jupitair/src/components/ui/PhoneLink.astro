@@ -50,6 +50,7 @@ const phoneIcon = `<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 
     href={`tel:${phoneNumber}`}
     class={`inline-flex items-center gap-2 text-current hover:underline ${className}`}
     aria-label={`Call ${displayNumber}`}
+    data-context={context}
   >
     {displayIcon && (
       <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -66,6 +67,8 @@ const phoneIcon = `<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 
       href={`tel:${phoneNumber}`}
       class="sm:hidden w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-emergency-600 hover:bg-emergency-700 text-white font-bold text-lg rounded-lg shadow-lg transition-all hover:scale-105"
       aria-label="Call now"
+      data-context={context}
+      data-emergency={emergency}
     >
       <svg class="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
         <Fragment set:html={phoneIcon} />
@@ -85,6 +88,7 @@ const phoneIcon = `<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 
         <a 
           href={`tel:${phoneNumber}`}
           class="text-2xl font-bold hover:underline"
+          data-context={context}
         >
           {displayNumber}
         </a>
@@ -99,6 +103,8 @@ const phoneIcon = `<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 
     size={size}
     class={className}
     aria-label={`Call ${displayNumber}`}
+    data-context={context}
+    data-emergency={emergency}
   >
     <span class="whitespace-nowrap hidden sm:inline">Call {displayNumber}</span>
     <span class="whitespace-nowrap sm:hidden flex items-center justify-center gap-2">
@@ -118,6 +124,8 @@ const phoneIcon = `<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 
     size={size}
     class={className}
     aria-label={`Call ${displayNumber}`}
+    data-context={context}
+    data-emergency={emergency}
   >
     {alwaysShowNumber ? (
       <span class="whitespace-nowrap">{displayNumber}</span>
