@@ -146,9 +146,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function generateTOC() {
       if (!tocList) return;
       
-      // Only look for headings within the blog content area
+      // Only look for H2 headings within the blog content area (top-level only)
       const blogContent = document.querySelector('.blog-content, .blog-prose, article');
-      const headings = blogContent ? blogContent.querySelectorAll('h2, h3') : document.querySelectorAll('.blog-content h2, .blog-content h3, .blog-prose h2, .blog-prose h3');
+      const headings = blogContent ? blogContent.querySelectorAll('h2') : document.querySelectorAll('.blog-content h2, .blog-prose h2');
       const items = [];
       
       headings.forEach((heading, index) => {
@@ -168,15 +168,11 @@ document.addEventListener('DOMContentLoaded', function() {
         items.push({ id, text, level });
       });
       
-      // Build TOC HTML
-      tocList.innerHTML = items.map(({ id, text, level }) => `
+      // Build TOC HTML (only H2 headings)
+      tocList.innerHTML = items.map(({ id, text }) => `
         <li>
           <button
-            class="toc-link block w-full text-left py-3 px-4 text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border-l-2 ${
-              level === 2 
-                ? 'font-medium' 
-                : 'font-normal text-gray-600 ml-4'
-            } text-gray-700 hover:text-blue-600 hover:bg-gray-50 border-transparent hover:border-gray-200"
+            class="toc-link block w-full text-left py-3 px-4 text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border-l-2 font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 border-transparent hover:border-gray-200"
             data-target="${id}"
             aria-current="false"
           >

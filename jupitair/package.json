@@ -53,6 +53,6 @@
     "typescript": "^5.9.2"
   },
   "optionalDependencies": {
-    "@rollup/rollup-darwin-arm64": "^4.46.3"
+    "@rollup/rollup-darwin-arm64": "^4.47.1"
   }
 }
